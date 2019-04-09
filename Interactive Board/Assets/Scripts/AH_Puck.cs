@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Puck : MonoBehaviour
+public class AH_Puck : MonoBehaviour
 {
     [SerializeField]
     float m_maxSpeed;
