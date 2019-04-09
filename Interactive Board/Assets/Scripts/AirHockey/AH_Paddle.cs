@@ -47,8 +47,7 @@ public class AH_Paddle : MonoBehaviour
 
 
         m_Velocity = (goalPos - currentPos) / Time.deltaTime;
-        gameObject.GetComponent<Rigidbody2D>().velocity = m_Velocity;
-
+        gameObject.GetComponent<Rigidbody2D>().position = goalPos;
     }
 
 }
