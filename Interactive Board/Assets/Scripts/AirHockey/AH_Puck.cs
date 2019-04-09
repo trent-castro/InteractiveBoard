@@ -28,17 +28,20 @@ public class AH_Puck : MonoBehaviour
         }
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    Paddle paddle = collision.gameObject.GetComponent<Paddle>();
-    //    if (paddle != null)
-    //    {
-    //        Vector2 normal = collision.GetContact(0).normal;
-    //        Vector2 paddleVelocity = paddle.m_velocity;
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        AH_Paddle paddle = collision.gameObject.GetComponent<AH_Paddle>();
+        if (paddle != null)
+        {
+            Vector2 normal = collision.GetContact(0).normal;
+            Vector2 relativeVelocity = rgdbody.velocity - paddle.m_Velocity;
 
-    //        Vector2 reflected = Vector2.Reflect(paddleVelocity, normal);
+            Vector2 reflected = Vector2.Reflect(relativeVelocity, normal).normalized * paddle.m_Velocity.magnitude;
 
-    //        rgdbody.velocity = rgdbody.velocity - reflected;
-    //    }
-    //}
+            rgdbody.velocity = rgdbody.velocity - reflected;
+        } else
+        {
+
+        }
+    }
 }
