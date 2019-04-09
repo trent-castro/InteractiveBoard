@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Paddle : MonoBehaviour
+public class AH_Paddle : MonoBehaviour
 {
     public Vector2 m_Velocity { get; set; }
     [SerializeField]

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameMaster : MonoBehaviour
+public class AH_GameMaster : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI[] m_scores;
     [SerializeField] GameObject m_puck;
