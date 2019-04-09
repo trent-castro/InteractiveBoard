@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AH_GameMaster : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI[] m_scores;
+    [SerializeField] TextMeshPro[] m_scores;
     [SerializeField] GameObject m_puck;
 
     public void GivePointToPlayer(bool isRightPlayer)
