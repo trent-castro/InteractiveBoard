@@ -24,9 +24,8 @@ public class AH_GameMaster : MonoBehaviour
             result++;
             m_scores[1].text = "" + result;
         }
-
-        Instantiate(m_puck);
-
+        m_puck.transform.position = Vector3.zero;
+        m_puck.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
 }
