@@ -18,7 +18,6 @@ public class AH_Goal : MonoBehaviour
         if(collision.gameObject.GetComponent<AH_Puck>() != null)
         {
             gm.GivePointToPlayer(IsRightGoal);
-            Destroy(collision.gameObject, 2.0f);
         }
     }
 }
