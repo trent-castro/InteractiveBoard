@@ -27,25 +27,24 @@ public class AH_Puck : MonoBehaviour
             }
         }
 
-        Debug.DrawLine(rgdbody.position, rgdbody.position + rgdbody.velocity, Color.black);
+        //Debug.DrawLine(rgdbody.position, rgdbody.position + rgdbody.velocity, Color.black);
 
     }
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         AH_Paddle paddle = collision.gameObject.GetComponent<AH_Paddle>();
         if (paddle != null)
         {
-            Vector2 normal = collision.GetContact(0).normal;
-            Debug.DrawLine(collision.contacts[0].point, collision.contacts[0].point + normal, Color.yellow, 2);
-            Vector2 relativeVelocity = rgdbody.velocity - paddle.m_Velocity;
-            Debug.DrawLine(collision.contacts[0].point, collision.contacts[0].point + relativeVelocity, Color.blue, 2);
+            Vector2 normal = collision.GetContact(0).normal.normalized;
+            //Debug.DrawLine(collision.contacts[0].point, collision.contacts[0].point + normal, Color.yellow, 2);
 
-            Vector2 reflected = Vector2.Reflect(relativeVelocity, normal);
-            Debug.DrawLine(collision.contacts[0].point, collision.contacts[0].point + reflected, Color.cyan, 2);
+            Vector2 paddleVelocityProjection = Vector2.Dot(paddle.m_Velocity, normal) * normal;
+            //Debug.DrawLine(collision.contacts[0].point, collision.contacts[0].point + paddleVelocityProjection, Color.blue, 2);
 
-            rgdbody.velocity = reflected + paddle.m_Velocity;
-            Debug.DrawLine(collision.contacts[0].point, collision.contacts[0].point + relativeVelocity, Color.magenta, 2);
+
+            rgdbody.velocity = rgdbody.velocity + paddleVelocityProjection;
+            //Debug.DrawLine(collision.contacts[0].point, collision.contacts[0].point + rgdbody.velocity, Color.magenta, 2);
         }
         else
         {
