@@ -435,9 +435,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_scores:
-  - {fileID: 1165263428}
-  - {fileID: 160731714}
-  m_puck: {fileID: 2737984711776480549, guid: 44c7f9f9516e84f449b2c2de68c7ebb8, type: 3}
+  - {fileID: 692116862}
+  - {fileID: 274316629}
+  m_puck: {fileID: 1654604722}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,6 +1333,12 @@ Transform:
   m_Father: {fileID: 523750324}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1654604722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2737984711776480549, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2737984712337700308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1938267061
 GameObject:
   m_ObjectHideFlags: 0
