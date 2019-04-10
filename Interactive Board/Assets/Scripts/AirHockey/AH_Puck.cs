@@ -6,6 +6,8 @@ public class AH_Puck : MonoBehaviour
 {
     [SerializeField]
     float m_maxSpeed;
+    [SerializeField]
+    GameObject m_hitParticle;
 
     private Rigidbody2D rgdbody;
 
@@ -39,9 +41,7 @@ public class AH_Puck : MonoBehaviour
             Vector2 reflected = Vector2.Reflect(relativeVelocity, normal).normalized * paddle.m_Velocity.magnitude;
 
             rgdbody.velocity = rgdbody.velocity - reflected;
-        } else
-        {
-
         }
+        m_hitParticle.transform.position = collision.contacts[0].point;
     }
 }
