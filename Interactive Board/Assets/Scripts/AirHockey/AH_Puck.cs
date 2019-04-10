@@ -54,5 +54,6 @@ public class AH_Puck : MonoBehaviour
 
         }
         m_hitParticle.transform.position = collision.contacts[0].point;
+        m_hitParticle.GetComponent<ParticleSystem>().Play();
     }
 }
