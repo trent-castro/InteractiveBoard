@@ -14,7 +14,7 @@ public class ObjectPool : MonoBehaviour {
 
     [Header("Configuration")]
     [SerializeField] [Tooltip("The object to pool")]
-    private GameObject m_gameObjectPrefab;
+    private GameObject m_gameObjectPrefab = new GameObject();
     [SerializeField] [Tooltip("The amount of objects to pool")]
     private int m_maxPooledObjects = 400;
     [SerializeField] [Tooltip("Object name or ID")]
@@ -33,7 +33,7 @@ public class ObjectPool : MonoBehaviour {
     /// </summary>
     private void DebugConfiguration()
     {
-        if(!m_gameObjectPrefab)
+        if(!m_gameObjectPrefab || m_gameObjectPrefab == new GameObject())
             Debug.Log(gameObject.name + " was not given a game object prefab despite being owning an object pool");
         if (m_maxPooledObjects == 0)
             Debug.Log(gameObject.name + " is an object pool but was not given an object pool size");

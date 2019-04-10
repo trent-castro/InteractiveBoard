@@ -37,9 +37,13 @@ public abstract class AH_PowerUp : MonoBehaviour
     /// Disabling the object should be handled in derivative classes, within this method.
     /// </summary>
     /// <param name="puck">The colliding puck.</param>
-    public virtual void CauseEffect(AH_Puck puck) { }
+    public abstract void CauseEffect(AH_Puck puck);
     
-    private void DebugLog(string debugLog)
+    /// <summary>
+    /// [DEBUG MODE] Records a message if debug mode is enabled.
+    /// </summary>
+    /// <param name="debugLog">The message to be recorded</param>
+    protected void DebugLog(string debugLog)
     {
         if(m_debugMode)
         {
