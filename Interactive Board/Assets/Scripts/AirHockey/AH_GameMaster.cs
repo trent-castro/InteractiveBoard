@@ -24,8 +24,22 @@ public class AH_GameMaster : MonoBehaviour
             result++;
             m_scores[1].text = "" + result;
         }
+        m_puck.GetComponentInChildren<TrailRenderer>().enabled = false;
+        StartCoroutine(PuckResetCoroutine());
+    }
+
+    private void ResetPuck()
+    {
         m_puck.transform.position = Vector3.zero;
         m_puck.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        m_puck.GetComponentInChildren<TrailRenderer>().enabled = true;
+    }
+
+    IEnumerator PuckResetCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        ResetPuck();
+        StopCoroutine(PuckResetCoroutine());
     }
 
 }

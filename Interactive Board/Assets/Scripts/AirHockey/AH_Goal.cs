@@ -6,6 +6,8 @@ public class AH_Goal : MonoBehaviour
 {
     [SerializeField]
     bool IsRightGoal;
+    [SerializeField]
+    GameObject m_GoalParticle;
 
     private AH_GameMaster gm;
 
@@ -18,6 +20,7 @@ public class AH_Goal : MonoBehaviour
         if(collision.gameObject.GetComponent<AH_Puck>() != null)
         {
             gm.GivePointToPlayer(IsRightGoal);
+            m_GoalParticle.GetComponent<ParticleSystem>().Play();
         }
     }
 }

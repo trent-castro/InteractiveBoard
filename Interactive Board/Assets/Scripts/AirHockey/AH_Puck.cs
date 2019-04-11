@@ -7,7 +7,7 @@ public class AH_Puck : MonoBehaviour
     [SerializeField]
     float m_maxSpeed;
     [SerializeField]
-    GameObject m_hitParticle;
+    GameObject[] m_hitParticle;
 
     private Rigidbody2D rgdbody;
 
@@ -52,7 +52,12 @@ public class AH_Puck : MonoBehaviour
         {
 
         }
-        m_hitParticle.transform.position = collision.contacts[0].point;
-        m_hitParticle.GetComponent<ParticleSystem>().Play();
+        m_hitParticle[0].transform.position = collision.contacts[0].point;
+        m_hitParticle[0].GetComponent<ParticleSystem>().Play();
+    }
+
+    public GameObject GetHitParticle(int index)
+    {
+        return m_hitParticle[index];
     }
 }
