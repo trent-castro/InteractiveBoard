@@ -55,7 +55,6 @@ public abstract class AH_PowerUp : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Puck"))
         {
-            CauseEffect(collision.gameObject.GetComponent<AH_Puck>());
         }
     }
 
