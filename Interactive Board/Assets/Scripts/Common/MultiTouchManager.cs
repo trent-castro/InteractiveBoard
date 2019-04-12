@@ -20,14 +20,37 @@ public class MultiTouchManager : MonoBehaviour
     }
 
     public TouchInfo[] currentTouches;
-    
+
     private Dictionary<int, TouchInfo> touches { get; set; } = new Dictionary<int, TouchInfo>();
 
     private event HandleTouchInfo HandleNewTouches;
+    private event HandleTouchInfo HandleCurrentTouches;
 
     public void ListenForNewTouches(HandleTouchInfo handler)
     {
         HandleNewTouches += handler;
+    }
+
+    public void ListenForNewTouchesOnCollider(Collider2D collider2D, HandleTouchInfo handler)
+    {
+        ListenForNewTouches(touch =>
+        {
+            if (collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Touch.position)))
+            {
+                handler(touch);
+            }
+        });
+    }
+
+    public void ListenForCurrentTouchesOnCollider(Collider2D collider2D, HandleTouchInfo handler)
+    {
+        HandleCurrentTouches += touch =>
+        {
+            if (collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Touch.position)))
+            {
+                handler(touch);
+            }
+        };
     }
 
     void Update()
@@ -42,11 +65,18 @@ public class MultiTouchManager : MonoBehaviour
                 {
                     touches.Remove(touch.fingerId);
                 }
+                else
+                {
+                    HandleCurrentTouches?.Invoke(touches[touch.fingerId]);
+                }
+
             }
             else if (!touches.ContainsKey(touch.fingerId))
             {
                 TouchInfo newTouch = new TouchInfo(touch);
+
                 touches.Add(touch.fingerId, newTouch);
+
                 HandleNewTouches?.Invoke(newTouch);
             }
 
