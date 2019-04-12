@@ -8,22 +8,21 @@ public delegate void HandleTouchInfo(TouchInfo touch);
 [Serializable]
 public class TouchInfo
 {
-    public Touch Touch { get { return history[lastHistoryIndex]; } }
-    //deltaPosition
-    //deltaTime
-    //fingerId
-    //phase
-    //position
-    //tapCount
+    public Vector2 DeltaPosition { get { return touch.deltaPosition; } }
+    public float DeltaTime { get { return touch.deltaTime; } }
+    public int FingerId { get { return touch.fingerId; } }
+    public TouchPhase Phase { get { return touch.phase; } }
+    public Vector2 Position { get { return touch.position; } }
+
+    public int lastHistoryIndex = 0;
     public Touch[] history;
-    public int lastHistoryIndex;
+    private Touch touch;
     public float startTime;
     public float endTime;
     public int owners = 0;
 
     private int shouldTrack = 0;
     private int trackOn = 1;
-
 
     private event HandleTouchInfo HandleMove;
     private event HandleTouchInfo HandleEnd;
@@ -47,14 +46,19 @@ public class TouchInfo
     public TouchInfo(Touch t)
     {
         history = new Touch[100];
-        lastHistoryIndex = 0;
-        history[lastHistoryIndex] = t;
+
         startTime = Time.fixedTime;
+
+        history[0] = t;
+        touch = t;
+
         endTime = Time.fixedTime;
     }
 
     public void UpdateTouchInfo(Touch t)
     {
+        touch = t;
+
         for (int i = 0; i < lastHistoryIndex; i++)
         {
             Debug.DrawLine(Camera.main.ScreenToWorldPoint((Vector3)history[i].position + Vector3.forward * 10), Camera.main.ScreenToWorldPoint((Vector3)history[i + 1].position + Vector3.forward * 10), Color.blue);
@@ -81,7 +85,7 @@ public class TouchInfo
             endTime = Time.fixedTime;
         }
 
-        switch (Touch.phase)
+        switch (touch.phase)
         {
             case TouchPhase.Moved:
                 HandleMove?.Invoke(this);

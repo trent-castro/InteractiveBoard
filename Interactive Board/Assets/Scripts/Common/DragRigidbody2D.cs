@@ -56,7 +56,7 @@ namespace UnityStandardAssets.Utility
                 m_springJoint = go.AddComponent<SpringJoint2D>();
                 body.isKinematic = true;
 
-                m_springJoint.transform.position = Camera.main.ScreenToWorldPoint(m_touchInfo.Touch.position);
+                m_springJoint.transform.position = Camera.main.ScreenToWorldPoint(m_touchInfo.Position);
                 m_springJoint.anchor = Vector3.zero;
 
                 m_springJoint.autoConfigureDistance = false;
@@ -77,6 +77,8 @@ namespace UnityStandardAssets.Utility
 
         private void OnTouchEnd(TouchInfo touchInfo)
         {
+            Debug.Log($"TOUCH ENDED FOR {gameObject.name}");
+
             if (m_springJoint.connectedBody)
             {
                 m_springJoint.connectedBody.drag = m_oldDrag;
@@ -89,7 +91,7 @@ namespace UnityStandardAssets.Utility
 
         private void OnTouchMove(TouchInfo touchInfo)
         {
-            m_springJoint.transform.position = Camera.main.ScreenToWorldPoint(touchInfo.Touch.position);
+            m_springJoint.transform.position = Camera.main.ScreenToWorldPoint(touchInfo.Position);
         }
     }
 }
