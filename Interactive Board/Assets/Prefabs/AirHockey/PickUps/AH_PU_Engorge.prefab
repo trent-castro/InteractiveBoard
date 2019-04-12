@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1947128180775385650}
   - component: {fileID: 1947128180775385653}
   m_Layer: 0
-  m_Name: AH_PU_Resize
+  m_Name: AH_PU_Engorge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,9 +106,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1947128180775385654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 526393a6f124ffa429bd8d44110ce4d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 56c8511bc1817704dab33a6752315650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_debugMode: 1
+  m_debugMode: 0
   m_timeoutEnabled: 1
   Lifespan: 8
+  m_powerUpDuration: 3

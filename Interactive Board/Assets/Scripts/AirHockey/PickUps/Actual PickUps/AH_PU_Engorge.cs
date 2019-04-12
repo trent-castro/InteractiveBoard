@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AH_PU_Resize : AH_PickUp
+public class AH_PU_Engorge : AH_PickUp
 {
     public override void OnEffectBegin()
     {
