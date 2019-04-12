@@ -5,15 +5,16 @@ using UnityEngine;
 public class AH_Puck : MonoBehaviour
 {
     [SerializeField]
-    float m_maxSpeed;
+    float m_maxSpeed = 30;
     [SerializeField]
-    GameObject m_hitParticle;
+    GameObject[] m_hitParticle = null;
 
     private Rigidbody2D rgdbody;
 
     private void Start()
     {
         rgdbody = gameObject.GetComponent<Rigidbody2D>();
+        Physics2D.IgnoreLayerCollision(8,9, true); 
     }
 
     private void Update()
@@ -32,7 +33,7 @@ public class AH_Puck : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        m_hitParticle.transform.position = collision.contacts[0].point;
-        m_hitParticle.GetComponent<ParticleSystem>().Play();
+        m_hitParticle[0].transform.position = collision.contacts[0].point;
+        m_hitParticle[0].GetComponent<ParticleSystem>().Play();
     }
 }
