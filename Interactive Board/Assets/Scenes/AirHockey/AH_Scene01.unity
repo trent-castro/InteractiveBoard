@@ -1027,6 +1027,7 @@ GameObject:
   m_Component:
   - component: {fileID: 410517779}
   - component: {fileID: 410517780}
+  - component: {fileID: 410517781}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -1068,6 +1069,19 @@ MonoBehaviour:
   m_player2Score: 0
   m_scoreToWin: 8
   m_PlayAgainButton: {fileID: 1736573488}
+--- !u!114 &410517781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410517778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57cffafcae1b734a8f02dbf90fc0473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTouches: []
 --- !u!1 &487814525
 GameObject:
   m_ObjectHideFlags: 0
@@ -8008,11 +8022,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1780118268067406198, guid: 63d8315b9d28aea4f8c8b42e581318d5,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63d8315b9d28aea4f8c8b42e581318d5, type: 3}

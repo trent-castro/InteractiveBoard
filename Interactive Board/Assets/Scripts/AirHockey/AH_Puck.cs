@@ -28,36 +28,11 @@ public class AH_Puck : MonoBehaviour
 
             }
         }
-
-        //Debug.DrawLine(rgdbody.position, rgdbody.position + rgdbody.velocity, Color.black);
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        AH_Paddle paddle = collision.gameObject.GetComponent<AH_Paddle>();
-        if (paddle != null)
-        {
-            Vector2 normal = collision.GetContact(0).normal.normalized;
-            //Debug.DrawLine(collision.contacts[0].point, collision.contacts[0].point + normal, Color.yellow, 2);
-
-            Vector2 paddleVelocityProjection = Vector2.Dot(paddle.m_Velocity, normal) * normal;
-            //Debug.DrawLine(collision.contacts[0].point, collision.contacts[0].point + paddleVelocityProjection, Color.blue, 2);
-
-
-            rgdbody.velocity = rgdbody.velocity + paddleVelocityProjection;
-            //Debug.DrawLine(collision.contacts[0].point, collision.contacts[0].point + rgdbody.velocity, Color.magenta, 2);
-        }
-        else
-        {
-
-        }
-        m_hitParticle[0].transform.position = collision.contacts[0].point;
-        m_hitParticle[0].GetComponent<ParticleSystem>().Play();
-    }
-
-    public GameObject GetHitParticle(int index)
-    {
-        return m_hitParticle[index];
+        m_hitParticle.transform.position = collision.contacts[0].point;
+        m_hitParticle.GetComponent<ParticleSystem>().Play();
     }
 }
