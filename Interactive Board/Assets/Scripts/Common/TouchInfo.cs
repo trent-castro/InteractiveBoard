@@ -5,6 +5,7 @@ using UnityEngine;
 
 public delegate void HandleTouchInfo(TouchInfo touch);
 
+[Serializable]
 public class TouchInfo
 {
     public Touch Touch { get { return history[lastHistoryIndex]; } }
