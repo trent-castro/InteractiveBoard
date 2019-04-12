@@ -35,7 +35,7 @@ public class MultiTouchManager : MonoBehaviour
     {
         ListenForNewTouches(touch =>
         {
-            if (collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Touch.position)))
+            if (collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Position)))
             {
                 handler(touch);
             }
@@ -46,7 +46,7 @@ public class MultiTouchManager : MonoBehaviour
     {
         HandleCurrentTouches += touch =>
         {
-            if (collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Touch.position)))
+            if (collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Position)))
             {
                 handler(touch);
             }
