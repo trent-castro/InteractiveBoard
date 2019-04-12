@@ -5,9 +5,9 @@ using UnityEngine;
 public class AH_Goal : MonoBehaviour
 {
     [SerializeField]
-    bool IsRightGoal;
+    bool IsRightGoal = true;
     [SerializeField]
-    GameObject m_GoalParticle;
+    GameObject m_GoalParticle = null;
 
     private AH_GameMaster gm;
 

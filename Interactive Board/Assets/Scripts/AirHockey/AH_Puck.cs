@@ -5,9 +5,9 @@ using UnityEngine;
 public class AH_Puck : MonoBehaviour
 {
     [SerializeField]
-    float m_maxSpeed;
+    float m_maxSpeed = 30;
     [SerializeField]
-    GameObject[] m_hitParticle;
+    GameObject[] m_hitParticle = null;
 
     private Rigidbody2D rgdbody;
 
