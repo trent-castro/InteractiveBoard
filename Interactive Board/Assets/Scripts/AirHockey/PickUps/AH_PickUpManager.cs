@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class AH_PickUpManager : MonoBehaviour
 {
+    /// <summary>
+    /// Singleton paradigm
+    /// </summary>
     public static AH_PickUpManager instance;
 
+    /// <summary>
+    /// A struct describing the location of the pick up pool as well as the relative weight of the pick ups.
+    /// </summary>
     [System.Serializable]
     struct PickUpPool
     {
@@ -51,7 +57,10 @@ public class AH_PickUpManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Set singleton.
         instance = this;
+
+        // Fix the object pool weightings.
         m_spawnThresholds = new float[m_pickUpPools.Length];
 
         float total = m_pickUpPools[0].PoolWeight;
@@ -66,9 +75,14 @@ public class AH_PickUpManager : MonoBehaviour
             m_spawnThresholds[x] = m_spawnThresholds[x - 1] + (m_pickUpPools[x].PoolWeight / total);
         }
 
+        // Initialize the timers.
         m_timer = m_spawnStartDelay;
     }
 
+    /// <summary>
+    /// [DEBUG MODE] Records a message if debug mode is enabled.
+    /// </summary>
+    /// <param name="debugLog">The message to record</param>
     private void DebugLog(string message)
     {
         if (m_debugMode)
@@ -77,9 +91,16 @@ public class AH_PickUpManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gets a reference to a random pick up pool within the array of pick up pools
+    /// </summary>
+    /// <returns>A pick up pool of a particular type</returns>
     private PickUpPool GetRandomPickUpPool()
     {
+        // Select a random percentage.
         float roll = Random.Range(0.0f, 1.0f);
+
+        // Check against which percentage the randomized roll checks out to.
         for (int x = 0; x < m_pickUpPools.Length; ++x)
         {
             if (roll <= m_spawnThresholds[x])
@@ -88,10 +109,14 @@ public class AH_PickUpManager : MonoBehaviour
             }
         }
 
+        // Debug the program if unreachable code is detected.
         DebugLog("Unreachable code detected @ PickUpManager.cs/GetRandomPickUpPool");
         return m_pickUpPools[m_pickUpPools.Length - 1];
     }
 
+    /// <summary>
+    /// Spawns a random object somewhere on the board.
+    /// </summary>
     private void SpawnRandomObject()
     {
         PickUpPool pickUpPool = GetRandomPickUpPool();
@@ -99,6 +124,10 @@ public class AH_PickUpManager : MonoBehaviour
         SpawnObjectAtRandomLocation(nextPickUp);
     }
 
+    /// <summary>
+    /// Places a game object acquired from an object pool at an approximate location specified by the user.
+    /// </summary>
+    /// <param name="objectToSpawn">A pick up selected from a pool of pick ups.</param>
     private void SpawnObjectAtRandomLocation(GameObject objectToSpawn)
     {
         float x = Random.Range(-m_spawningArea.x, m_spawningArea.x);
@@ -108,26 +137,35 @@ public class AH_PickUpManager : MonoBehaviour
         objectToSpawn.GetComponent<AH_PickUp>().EnablePickUp(targetLocation);
     }
 
+
     // Update is called once per frame
     void Update()
     {
+        // Update timers
         m_timer -= Time.deltaTime;
 
-        if (m_timer <= 0.0f)
+        // Check if the timer has expired while one can place a pick up.
+        if (m_pickUpCount != m_maxFieldPickUps)
         {
-            m_timer += m_spawnDelay;
-            if (m_pickUpCount != m_maxFieldPickUps)
+            if (m_timer <= 0.0f)
             {
+                m_timer += m_spawnDelay;
                 SpawnRandomObject();
             }
         }
     }
 
+    /// <summary>
+    /// Increments the current pick up count for pick up count capping.
+    /// </summary>
     public void IncreaseCurrentPickUpCount()
     {
         ++m_pickUpCount;
     }
 
+    /// <summary>
+    /// Decrements the current pick up count for pick up count capping.
+    /// </summary>
     public void DecreaseCurrentPickUpCount()
     {
         --m_pickUpCount;
