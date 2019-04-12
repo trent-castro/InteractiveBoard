@@ -327,7 +327,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &52315386
 GameObject:
@@ -384,7 +384,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &99261994
 GameObject:
@@ -476,7 +476,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &151959687 stripped
 GameObject:
@@ -543,7 +543,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -2.5, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -554,7 +554,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.5}
+  m_Size: {x: 6, y: 3.5}
   m_EdgeRadius: 0
 --- !u!1 &223493328
 GameObject:
@@ -646,7 +646,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &251596291
 GameObject:
@@ -703,7 +703,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &274316628
 GameObject:
@@ -1088,7 +1088,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &410517778
 GameObject:
@@ -1210,7 +1210,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &510025974
 GameObject:
@@ -1384,7 +1384,7 @@ GameObject:
   - component: {fileID: 518677607}
   - component: {fileID: 518677606}
   m_Layer: 8
-  m_Name: PaddlleBlocker (1)
+  m_Name: PaddlleBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1431,7 +1431,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.5, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1442,7 +1442,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.5}
+  m_Size: {x: 6, y: 3.5}
   m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
@@ -1661,7 +1661,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &692116861
 GameObject:
@@ -2043,7 +2043,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &825029283
 GameObject:
@@ -2238,7 +2238,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &930978579
 GameObject:
@@ -2295,7 +2295,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &937609764
 GameObject:
@@ -2387,7 +2387,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &1001269630
 GameObject:
@@ -2444,7 +2444,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1001 &1148415549
 PrefabInstance:
@@ -2537,6 +2537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464763439618593368, guid: 80e3123112a9c654e9705bbe048e202e,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80e3123112a9c654e9705bbe048e202e, type: 3}
@@ -2770,7 +2775,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &1325649313
 GameObject:
@@ -3071,7 +3076,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &1466811896
 GameObject:
@@ -3128,7 +3133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &1535509707
 GameObject:
@@ -3185,7 +3190,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &1659056507
 GameObject:
@@ -8099,7 +8104,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1001 &1841474337
 PrefabInstance:
@@ -8225,7 +8230,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &1938267061
 GameObject:
@@ -13282,7 +13287,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &2130993387
 GameObject:
@@ -13505,6 +13510,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848358941729463625, guid: 80e3123112a9c654e9705bbe048e202e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848358941729463625, guid: 80e3123112a9c654e9705bbe048e202e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464763439618593368, guid: 80e3123112a9c654e9705bbe048e202e,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80e3123112a9c654e9705bbe048e202e, type: 3}
