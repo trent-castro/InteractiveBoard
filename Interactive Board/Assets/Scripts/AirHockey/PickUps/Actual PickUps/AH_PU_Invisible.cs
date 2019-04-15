@@ -6,11 +6,11 @@ public class AH_PU_Invisible : AH_PickUp
 {
     public override void OnEffectBegin()
     {
-		afflictedPuck.SetImageActive(false);
+        afflictedPuck.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     public override void OnEffectEnd()
     {
-		afflictedPuck.SetImageActive(true);
+        afflictedPuck.GetComponent<SpriteRenderer>().enabled = true;
     }
 }

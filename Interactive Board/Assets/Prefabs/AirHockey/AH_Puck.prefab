@@ -143,16 +143,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2737984711776480545}
-  - component: {fileID: 2737984711776480546}
-  - component: {fileID: 2737984711776480544}
-  - component: {fileID: 2737984711776480551}
-  - component: {fileID: 2737984711776480550}
-  - component: {fileID: 4292353975798185578}
-  - component: {fileID: 1251948561422755742}
-  m_Layer: 0
-  m_Name: AH_Puck
-  m_TagString: Puck
+  - component: {fileID: 1145323369}
+  - component: {fileID: 1145323370}
+  m_Layer: 9
+  m_Name: GameObject
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,23 +166,7 @@ Transform:
   m_Father: {fileID: 2737984711776480545}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2737984711776480546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2737984711776480549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca2bccf004015774a80a690111a5821c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_maxSpeed: 30
-  m_hitParticle:
-  - {fileID: 0}
-  m_image: {fileID: 0}
---- !u!212 &2737984711776480544
+--- !u!212 &1145323370
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

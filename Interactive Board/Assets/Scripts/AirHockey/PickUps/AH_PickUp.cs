@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// An abstract class for the base functionality of a pick up.
-/// </summary>
 public abstract class AH_PickUp : MonoBehaviour
 {
     [Header("Debug Mode")]
@@ -34,10 +31,6 @@ public abstract class AH_PickUp : MonoBehaviour
     /// The sibling collider 2D component of the pick up.
     /// </summary>
     private Collider2D m_collider2D;
-    /// <summary>
-    /// The sibling component bit flag broadcaster of the pick up.
-    /// </summary>
-    private AH_BitFlagBroadcaster bitFlagBroadcaster;
 
     // Private information
     /// <summary>
@@ -95,8 +88,6 @@ public abstract class AH_PickUp : MonoBehaviour
             if(m_effectTimer >= m_powerUpDuration)
             {
                 OnEffectEnd();
-                afflictedPuck.GetComponent<AH_BitFlagReceiver>()
-                    .RemoveFlag(bitFlagBroadcaster.Broadcast());
                 DisablePickUp();
             }
         }
@@ -125,14 +116,8 @@ public abstract class AH_PickUp : MonoBehaviour
         // Disable pick up from being interacted with in the scene
         DisablePickUpRendering();
 
-        if(!afflictedPuck.GetComponent<AH_BitFlagReceiver>()
-            .CheckForFlag(bitFlagBroadcaster.Broadcast()))
-        {
-            // Begin the pick up effects
-            OnEffectBegin();
-            afflictedPuck.GetComponent<AH_BitFlagReceiver>()
-                .AddFlag(bitFlagBroadcaster.Broadcast());
-        }
+        // Begin the pick up effects
+        OnEffectBegin();
     }
 
     /// <summary>

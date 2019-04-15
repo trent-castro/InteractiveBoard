@@ -6,6 +6,7 @@ using UnityEngine;
 public class AH_GameMaster : MonoBehaviour
 {
     [SerializeField] TextMeshPro[] m_scores = null;
+    [SerializeField] GameObject m_puck = null;
 
     [SerializeField]
     private int m_player1Score, m_player2Score = 0;
@@ -26,15 +27,21 @@ public class AH_GameMaster : MonoBehaviour
             m_scores[1].text = "" + m_player1Score;
         }
 
-        AH_Puck scoringPuck = FindObjectOfType<AH_Puck>();
-        scoringPuck.GetComponentInChildren<TrailRenderer>().enabled = false;
-        StartCoroutine(PuckResetCoroutine(scoringPuck));
+        m_puck.GetComponentInChildren<TrailRenderer>().enabled = false;
+        StartCoroutine(PuckResetCoroutine());
     }
 
-    IEnumerator PuckResetCoroutine(AH_Puck scoringPuck)
+    private void ResetPuck()
+    {
+        m_puck.transform.position = Vector3.zero;
+        m_puck.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        m_puck.GetComponentInChildren<TrailRenderer>().enabled = true;
+    }
+
+    IEnumerator PuckResetCoroutine()
     {
         yield return new WaitForSecondsRealtime(0.5f);
-        scoringPuck.ResetPuck();
+        ResetPuck();
         if (DetermineWinState())
         {
             //End Game Logic Stop players from playing
@@ -44,7 +51,7 @@ public class AH_GameMaster : MonoBehaviour
                 m_PlayAgainButton.SetActive(true);
             }
         }
-        StopCoroutine(PuckResetCoroutine(scoringPuck));
+        StopCoroutine(PuckResetCoroutine());
     }
 
     private bool DetermineWinState()
