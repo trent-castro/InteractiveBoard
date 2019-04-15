@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles the management of pick ups.
+/// </summary>
 public class AH_PickUpManager : MonoBehaviour
 {
     /// <summary>
@@ -31,6 +34,9 @@ public class AH_PickUpManager : MonoBehaviour
     [SerializeField]
     [Tooltip("Set a delay between each pick up spawning")]
     private float m_spawnDelay = 0.0f;
+    [SerializeField]
+    [Tooltip("Set spawn variance between each delay")]
+    private float m_spawnDelayVariance = 0.0f;
     [SerializeField]
     [Tooltip("Maximum amount of pick ups on the field")]
     private int m_maxFieldPickUps;
@@ -76,7 +82,7 @@ public class AH_PickUpManager : MonoBehaviour
         }
 
         // Initialize the timers.
-        m_timer = m_spawnStartDelay;
+        m_timer = m_spawnStartDelay + Random.Range(-m_spawnDelayVariance, m_spawnDelayVariance);
     }
 
     /// <summary>
