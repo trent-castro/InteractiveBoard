@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MultiTouchManager : MonoBehaviour
@@ -90,6 +91,16 @@ public class MultiTouchManager : MonoBehaviour
                 m_touches.Add(touch.fingerId, newTouch);
 
                 HandleNewTouches?.Invoke(newTouch);
+            }
+        }
+
+        int[] keys = m_touches.Keys.ToArray();
+
+        for (int i = 0; i < keys.Length; i++)
+        {
+            if (!Input.touches.Any(t => t.fingerId == keys[i]))
+            {
+                m_touches.Remove(keys[i]);
             }
         }
     }
