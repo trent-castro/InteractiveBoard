@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +21,7 @@ public class MultiTouchManager : MonoBehaviour
 
     public TouchInfo[] currentTouches;
 
-    private Dictionary<int, TouchInfo> touches { get; set; } = new Dictionary<int, TouchInfo>();
+    private Dictionary<int, TouchInfo> m_touches { get; set; } = new Dictionary<int, TouchInfo>();
 
     private event HandleTouchInfo HandleNewTouches;
     private event HandleTouchInfo HandleCurrentTouches;
@@ -58,24 +58,25 @@ public class MultiTouchManager : MonoBehaviour
         foreach (Touch touch in Input.touches)
         {
             if (touch.phase != TouchPhase.Began && touches.ContainsKey(touch.fingerId))
+            if (touch.phase != TouchPhase.Began && m_touches.ContainsKey(touch.fingerId))
             {
-                touches[touch.fingerId].UpdateTouchInfo(touch);
+                m_touches[touch.fingerId].UpdateTouchInfo(touch);
 
                 if (touch.phase == TouchPhase.Ended)
                 {
-                    touches.Remove(touch.fingerId);
+                    m_touches.Remove(touch.fingerId);
                 }
                 else
                 {
-                    HandleCurrentTouches?.Invoke(touches[touch.fingerId]);
+                    HandleCurrentTouches?.Invoke(m_touches[touch.fingerId]);
                 }
 
             }
-            else if (!touches.ContainsKey(touch.fingerId))
+            else if (!m_touches.ContainsKey(touch.fingerId))
             {
                 TouchInfo newTouch = new TouchInfo(touch);
 
-                touches.Add(touch.fingerId, newTouch);
+                m_touches.Add(touch.fingerId, newTouch);
 
                 HandleNewTouches?.Invoke(newTouch);
             }
