@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 2737984711776480551}
   - component: {fileID: 2737984711776480550}
   - component: {fileID: 4292353975798185578}
+  - component: {fileID: 1251948561422755742}
   m_Layer: 0
   m_Name: AH_Puck
   m_TagString: Puck
@@ -184,7 +185,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_maxSpeed: 30
-  m_hitParticle: {fileID: 0}
+  m_hitParticle:
+  - {fileID: 0}
+  m_image: {fileID: 0}
 --- !u!212 &2737984711776480544
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -283,3 +286,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
+--- !u!114 &1251948561422755742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737984711776480549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307e321c05e240e42a5a607292b43c36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
