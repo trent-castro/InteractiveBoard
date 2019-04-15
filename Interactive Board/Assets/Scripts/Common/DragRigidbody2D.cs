@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace UnityStandardAssets.Utility
@@ -13,15 +14,18 @@ namespace UnityStandardAssets.Utility
         private Rigidbody2D m_rigidbody = null;
 
         public float m_dampingRatio = .05f;
-        public float m_frequency = 10;
+        public float m_frequency = 5;
 
-        public float m_drag = 100;
-        public float m_angularDrag = 10;
+        public float m_drag = 50;
+        public float m_angularDrag = 5;
         private float m_oldDrag;
         private float m_oldAngularDrag;
 
         private MultiTouchManager m_touchManager = null;
         private TouchInfo m_touchInfo = null;
+
+        public TextMeshPro m_debugOutput = null;
+        public string m_debugString = "";
 
         private void Start()
         {
@@ -62,7 +66,6 @@ namespace UnityStandardAssets.Utility
                 m_springJoint.autoConfigureDistance = false;
                 m_springJoint.dampingRatio = m_dampingRatio;
                 m_springJoint.frequency = m_frequency;
-
             }
             m_springJoint.connectedBody = m_rigidbody;
 
@@ -73,12 +76,12 @@ namespace UnityStandardAssets.Utility
             m_springJoint.connectedBody.angularDrag = m_angularDrag;
 
             OnTouchMove(m_touchInfo);
+
+            createDebugString("Grabbed");
         }
 
         private void OnTouchEnd(TouchInfo touchInfo)
         {
-            Debug.Log($"TOUCH ENDED FOR {gameObject.name}");
-
             if (m_springJoint.connectedBody)
             {
                 m_springJoint.connectedBody.drag = m_oldDrag;
@@ -87,11 +90,25 @@ namespace UnityStandardAssets.Utility
             }
 
             m_touchInfo = null;
+
+            createDebugString("Let Go");
         }
 
         private void OnTouchMove(TouchInfo touchInfo)
         {
+            Debug.DrawLine(m_springJoint.transform.position, transform.position, Color.red);
             m_springJoint.transform.position = Camera.main.ScreenToWorldPoint(touchInfo.Position);
+
+            createDebugString("Dragging");
+        }
+
+        private void createDebugString(string state)
+        {
+            if (m_debugOutput != null)
+            {
+                m_debugString = $"{state}\nVelocity: {m_rigidbody.velocity}\nConnected: {m_springJoint.connectedBody != null}\nHas TouchInfo: {m_touchInfo != null}";
+                m_debugOutput.text = m_debugString;
+            }
         }
     }
 }
