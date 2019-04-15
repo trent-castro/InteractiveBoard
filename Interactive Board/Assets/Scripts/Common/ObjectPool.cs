@@ -8,17 +8,17 @@ using UnityEngine;
 /// </summary>
 public class ObjectPool : MonoBehaviour {
 
-    [Header("Debug Mode")]
-    [Tooltip("Enables Debug Mode")]
-    public bool debugMode = false;
+    [Header("Debug Mode")] 
+    [SerializeField] [Tooltip("Enables Debug Mode")]
+    private bool m_debugMode = false;
 
     [Header("Configuration")]
-    [Tooltip("The object to pool")]
-    public GameObject GameObjectPrefab;
-    [Tooltip("The amount of objects to pool")]
-    public int MAX_POOLED_OBJECTS = 400;
-    [Tooltip("Object name or ID")]
-    public string PooledObjectName = "Pooled Object";
+    [SerializeField] [Tooltip("The object to pool")]
+    private GameObject m_gameObjectPrefab;
+    [SerializeField] [Tooltip("The amount of objects to pool")]
+    private int m_maxPooledObjects = 400;
+    [SerializeField] [Tooltip("Object name or ID")]
+    private string m_pooledObjectName = "Pooled Object";
     /// <summary>
     /// The pool of objects
     /// </summary>
@@ -29,29 +29,40 @@ public class ObjectPool : MonoBehaviour {
     private uint m_objectTracker = 0;
 
     /// <summary>
-    /// Checks the configuration to see if it was set up correctly
+    /// Checks the configuration to see if it was set up correctly.
     /// </summary>
     private void DebugConfiguration()
     {
-        if(!GameObjectPrefab)
+        if(!m_gameObjectPrefab || m_gameObjectPrefab == new GameObject())
             Debug.Log(gameObject.name + " was not given a game object prefab despite being owning an object pool");
-        if (MAX_POOLED_OBJECTS == 0)
+        if (m_maxPooledObjects == 0)
             Debug.Log(gameObject.name + " is an object pool but was not given an object pool size");
+    }
+
+    /// <summary>
+    /// [DEBUG MODE] Records a message if debug mode is enabled.
+    /// </summary>
+    /// <param name="debugLog">The message to record</param>
+    private void DebugLog(string debugLog)
+    {
+        if(m_debugMode)
+        {
+            Debug.Log(debugLog);
+        }
     }
 
 	// Use this for initialization
 	private void Awake () {
-        if (debugMode)
-            DebugConfiguration();
+        DebugConfiguration();
 
-        m_objectPool = new GameObject[MAX_POOLED_OBJECTS];
+        m_objectPool = new GameObject[m_maxPooledObjects];
 
-        for (int x = 0; x < MAX_POOLED_OBJECTS; ++x)
+        for (int x = 0; x < m_maxPooledObjects; ++x)
         {
-            m_objectPool[x] = Instantiate(GameObjectPrefab);
+            m_objectPool[x] = Instantiate(m_gameObjectPrefab);
             m_objectPool[x].SetActive(false);
             m_objectPool[x].transform.parent = gameObject.transform;
-            m_objectPool[x].transform.name = PooledObjectName + " ID #" + x;
+            m_objectPool[x].transform.name = m_pooledObjectName + " - ID #" + x;
         }
 	}
 	
@@ -67,29 +78,20 @@ public class ObjectPool : MonoBehaviour {
         // Debug the pooled object
         if (nextPooledObject.activeSelf)
         {
-            if (debugMode)
-            {
-                Debug.Log(gameObject.name + "'s object pool returned an active object for use." +
-                    " Consider increasing pool size.");
-            }
+            DebugLog(gameObject.name + "'s object pool returned an active object for use. Consider increasing pool size.");
             return null;
         }
 
         // Update tracker
         ++m_objectTracker;
-        Debug.Log("object tracker @ " + m_objectTracker);   
+        DebugLog("object tracker @ " + m_objectTracker);   
 
         // Reset the tracker
-        if (m_objectTracker == MAX_POOLED_OBJECTS)
+        if (m_objectTracker == m_maxPooledObjects)
         {
             m_objectTracker = 0;
         }
 
         return nextPooledObject;
     }
-
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
