@@ -10,12 +10,18 @@ public class AH_Puck : MonoBehaviour
     GameObject[] m_hitParticle = null;
 
     private Rigidbody2D rgdbody;
+	[SerializeField] SpriteRenderer m_image;
 
     private void Start()
     {
         rgdbody = gameObject.GetComponent<Rigidbody2D>();
         Physics2D.IgnoreLayerCollision(8,9, true); 
     }
+
+	public void SetImageActive(bool active)
+	{
+		m_image.enabled = active;
+	}
 
     private void Update()
     {
