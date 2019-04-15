@@ -8,13 +8,17 @@ public class AH_Puck : MonoBehaviour
     float m_maxSpeed = 30;
     [SerializeField]
     GameObject[] m_hitParticle = null;
+    [SerializeField]
+    AudioClip[] audioClips = null;
 
     private Rigidbody2D rgdbody;
+    private AudioSource m_audioSource;
 
     private void Start()
     {
         rgdbody = gameObject.GetComponent<Rigidbody2D>();
-        Physics2D.IgnoreLayerCollision(8,9, true); 
+        Physics2D.IgnoreLayerCollision(8,9, true);
+        m_audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -33,7 +37,15 @@ public class AH_Puck : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        DetermineRandomSoundToPlay();
+        m_audioSource.Play();
         m_hitParticle[0].transform.position = collision.contacts[0].point;
         m_hitParticle[0].GetComponent<ParticleSystem>().Play();
+    }
+
+    private void DetermineRandomSoundToPlay()
+    {
+        int num = Random.Range(0, audioClips.Length);
+        m_audioSource.clip = audioClips[num];
     }
 }
