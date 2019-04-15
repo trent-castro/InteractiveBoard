@@ -5,7 +5,9 @@ using UnityEngine;
 public class AH_Goal : MonoBehaviour
 {
     [SerializeField]
-    bool IsRightGoal;
+    bool IsRightGoal = true;
+    [SerializeField]
+    GameObject m_GoalParticle = null;
 
     private AH_GameMaster gm;
 
@@ -18,6 +20,7 @@ public class AH_Goal : MonoBehaviour
         if(collision.gameObject.GetComponent<AH_Puck>() != null)
         {
             gm.GivePointToPlayer(IsRightGoal);
+            m_GoalParticle.GetComponent<ParticleSystem>().Play();
         }
     }
 }
