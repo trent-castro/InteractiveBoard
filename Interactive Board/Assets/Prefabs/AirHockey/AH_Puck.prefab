@@ -181,6 +181,7 @@ MonoBehaviour:
   m_maxSpeed: 30
   m_hitParticle:
   - {fileID: 0}
+  delete: 0
   m_image: {fileID: 0}
 --- !u!212 &2737984711776480544
 --- !u!212 &1145323370

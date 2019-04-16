@@ -6,7 +6,7 @@ public class AH_BitFlagReceiver : MonoBehaviour
 {
     private uint m_flags = 0;
 
-    public bool CheckForFlag(uint flag)
+    public bool Contains(uint flag)
     {
         return (m_flags & flag) == flag;
     }
