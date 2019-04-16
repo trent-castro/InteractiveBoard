@@ -11,6 +11,6 @@ public class AH_PU_Invisible : AH_PickUp
 
     public override void OnEffectEnd()
     {
-        afflictedPuck.GetComponent<SpriteRenderer>().enabled = true;
+        afflictedPuck.GetComponentInChildren<SpriteRenderer>().enabled = true;
     }
 }
