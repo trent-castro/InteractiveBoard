@@ -5177,12 +5177,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!4 &151959693 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2737984711776480545, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-    type: 3}
-  m_PrefabInstance: {fileID: 2737984712337700308}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &166671858
 GameObject:
   m_ObjectHideFlags: 0
@@ -5732,6 +5726,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 2}
   m_EdgeRadius: 0
+--- !u!212 &403293564 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1145323370, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2737984712337700308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &407986928
 GameObject:
   m_ObjectHideFlags: 0
@@ -18559,6 +18559,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_image
       value: 
+      objectReference: {fileID: 403293564}
+    - target: {fileID: 2737984711776480544, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2737984711776480544, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
         type: 3}
@@ -18569,7 +18574,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.1
       objectReference: {fileID: 0}
-      objectReference: {fileID: 1145323370}
+    - target: {fileID: 767849404, guid: 44c7f9f9516e84f449b2c2de68c7ebb8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 767849405, guid: 44c7f9f9516e84f449b2c2de68c7ebb8, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
       value: 0.74829996
@@ -18585,15 +18593,6 @@ PrefabInstance:
     - target: {fileID: 4278886656658734581, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 767849404, guid: 44c7f9f9516e84f449b2c2de68c7ebb8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2737984711776480544, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
