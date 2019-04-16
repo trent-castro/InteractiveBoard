@@ -100,6 +100,12 @@ public class MultiTouchManager : MonoBehaviour
         {
             if (!Input.touches.Any(t => t.fingerId == keys[i]))
             {
+                Touch t = m_touches[keys[i]].touch;
+
+                t.phase = TouchPhase.Ended;
+
+                m_touches[keys[i]].UpdateTouchInfo(t);
+
                 m_touches.Remove(keys[i]);
             }
         }
