@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1947128180775385652}
   - component: {fileID: 1947128180775385655}
   - component: {fileID: 1947128180775385650}
-  - component: {fileID: 1947128180775385653}
+  - component: {fileID: 2261033700136410604}
+  - component: {fileID: 3796321240210453841}
   m_Layer: 0
   m_Name: AH_PU_Acceleration
   m_TagString: Untagged
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 6fb6846223e8d9b438b84f977d8415aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +98,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &1947128180775385653
+--- !u!114 &2261033700136410604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,10 +107,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1947128180775385654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7e7d104a64a75f479ca183ecb415827, type: 3}
+  m_Script: {fileID: 11500000, guid: 448aacd32c6cabf41874fcd3f3501ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_debugMode: 0
   m_timeoutEnabled: 1
   Lifespan: 8
   m_powerUpDuration: 3
+  m_velocityScale: 2
+--- !u!114 &3796321240210453841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947128180775385654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b791153c5fe3447b1c536e0f340959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_broadcastID: 1
