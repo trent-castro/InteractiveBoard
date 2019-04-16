@@ -587,7 +587,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -5177,12 +5177,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!4 &151959693 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2737984711776480545, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-    type: 3}
-  m_PrefabInstance: {fileID: 2737984712337700308}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &166671858
 GameObject:
   m_ObjectHideFlags: 0
