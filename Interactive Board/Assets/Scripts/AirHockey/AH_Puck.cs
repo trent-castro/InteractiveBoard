@@ -13,7 +13,6 @@ public class AH_Puck : MonoBehaviour
 
     // ASK SEN ABOUT OBJECT POOLING RIGHT HERE
     public bool delete = false;
-    private Rigidbody2D rgdbody;
     private AudioSource m_audioSource;
 
 	[SerializeField] SpriteRenderer m_image;
@@ -25,8 +24,6 @@ public class AH_Puck : MonoBehaviour
     {
         GetSiblingComponents();
         Physics2D.IgnoreLayerCollision(8,9, true); 
-        rgdbody = gameObject.GetComponent<Rigidbody2D>();
-        Physics2D.IgnoreLayerCollision(8,9, true);
         m_audioSource = GetComponent<AudioSource>();
     }
 
