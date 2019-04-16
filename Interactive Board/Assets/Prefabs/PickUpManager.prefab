@@ -300,7 +300,7 @@ MonoBehaviour:
   - ObjectPool: {fileID: 6808871322260428157}
     PoolWeight: 5.5
   - ObjectPool: {fileID: 6808871324056700750}
-    PoolWeight: 2
+    PoolWeight: 3
   - ObjectPool: {fileID: 6808871322362986687}
     PoolWeight: 4
   - ObjectPool: {fileID: 6808871323115757219}
