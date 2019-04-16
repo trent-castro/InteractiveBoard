@@ -6,11 +6,19 @@ public class AH_PU_Invisible : AH_PickUp
 {
     public override void OnEffectBegin()
     {
+<<<<<<< HEAD
         afflictedPuck.GetComponentInChildren<SpriteRenderer>().enabled = false;
+=======
+        afflictedPuck.GetComponent<SpriteRenderer>().enabled = false;
+>>>>>>> parent of e0f8210... Merge branch 'master' into Lmckamey-ParticleSystems
     }
 
     public override void OnEffectEnd()
     {
+<<<<<<< HEAD
         afflictedPuck.GetComponentInChildren<SpriteRenderer>().enabled = true;
+=======
+        afflictedPuck.GetComponent<SpriteRenderer>().enabled = true;
+>>>>>>> parent of e0f8210... Merge branch 'master' into Lmckamey-ParticleSystems
     }
 }
