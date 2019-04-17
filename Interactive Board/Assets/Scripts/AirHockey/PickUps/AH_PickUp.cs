@@ -95,14 +95,17 @@ public abstract class AH_PickUp : MonoBehaviour
             // Check if the effect has expired
             if(m_effectTimer >= m_powerUpDuration)
             {
-                if(afflictedPuck.GetComponent<AH_BitFlagReceiver>()
-                    .Contains(m_bitFlagBroadcaster.Broadcast()))
+                if (afflictedPuck)
                 {
-                    OnEffectEnd();
-                    afflictedPuck.GetComponent<AH_BitFlagReceiver>()
-                        .RemoveFlag(m_bitFlagBroadcaster.Broadcast());
+                    if (afflictedPuck.GetComponent<AH_BitFlagReceiver>()
+                        .Contains(m_bitFlagBroadcaster.Broadcast()))
+                    {
+                        OnEffectEnd();
+                        afflictedPuck.GetComponent<AH_BitFlagReceiver>()
+                            .RemoveFlag(m_bitFlagBroadcaster.Broadcast());
+                    }
+                    DisablePickUp();
                 }
-                DisablePickUp();
             }
         }
     }

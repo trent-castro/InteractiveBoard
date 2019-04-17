@@ -79,7 +79,7 @@ public class ObjectPool : MonoBehaviour {
         if (nextPooledObject.activeSelf)
         {
             DebugLog(gameObject.name + "'s object pool returned an active object for use. Consider increasing pool size.");
-            return null;
+            return nextPooledObject;
         }
 
         // Update tracker
