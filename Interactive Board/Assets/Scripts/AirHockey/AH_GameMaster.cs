@@ -15,7 +15,7 @@ public class AH_GameMaster : MonoBehaviour
     GameObject m_PlayAgainButton = null;
     [SerializeField]
     GameObject m_VictoryParticles = null;
-    public void GivePointToPlayer(bool isRightPlayer)
+    public void GivePointToPlayer(bool isRightPlayer, Collider2D collision)
     {
         if (isRightPlayer)
         {
