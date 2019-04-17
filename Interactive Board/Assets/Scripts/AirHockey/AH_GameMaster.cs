@@ -13,6 +13,8 @@ public class AH_GameMaster : MonoBehaviour
     private int m_scoreToWin = 8;
     [SerializeField]
     GameObject m_PlayAgainButton = null;
+    [SerializeField]
+    GameObject m_VictoryParticles = null;
     public void GivePointToPlayer(bool isRightPlayer)
     {
         if (isRightPlayer)
@@ -38,13 +40,23 @@ public class AH_GameMaster : MonoBehaviour
         if (DetermineWinState())
         {
             //End Game Logic Stop players from playing
-            Time.timeScale = 0;
-            if (m_PlayAgainButton)
-            {
-                m_PlayAgainButton.SetActive(true);
-            }
+            //Time.timeScale = 0;
+            m_VictoryParticles.SetActive(true);
+            StartCoroutine(VictoryCoroutine());
+  
         }
         StopCoroutine(PuckResetCoroutine(scoringPuck));
+    }
+
+    IEnumerator VictoryCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(1.5f);
+        Time.timeScale = 0.0f;
+        if (m_PlayAgainButton)
+        {
+            m_PlayAgainButton.SetActive(true);
+        }
+        StopCoroutine(VictoryCoroutine());
     }
 
     private bool DetermineWinState()
