@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class AH_Puck : MonoBehaviour
 {
-    [SerializeField] [Tooltip("Clamps the maximum speed for the puck.")]
+    [SerializeField]
+    [Tooltip("Clamps the maximum speed for the puck.")]
     private float m_maxSpeed = 30;
-    [SerializeField] 
+    [SerializeField]
     GameObject[] m_hitParticle = null;
     [SerializeField]
     AudioClip[] audioClips = null;
@@ -15,16 +16,15 @@ public class AH_Puck : MonoBehaviour
     public bool delete = false;
     private AudioSource m_audioSource;
 
-	[SerializeField] SpriteRenderer m_image;
 
     // Private Sibling Components
     private Rigidbody2D rigidBody;
+    private SpriteRenderer m_spriteRenderer;
 
     private void Start()
     {
         GetSiblingComponents();
-        Physics2D.IgnoreLayerCollision(8,9, true); 
-        m_audioSource = GetComponent<AudioSource>();
+        Physics2D.IgnoreLayerCollision(8, 9, true);
     }
 
     /// <summary>
@@ -33,12 +33,14 @@ public class AH_Puck : MonoBehaviour
     private void GetSiblingComponents()
     {
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
+        m_audioSource = GetComponent<AudioSource>();
+        m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-	public void SetImageActive(bool active)
-	{
-		m_image.enabled = active;
-	}
+    public void SetImageActive(bool active)
+    {
+        m_spriteRenderer.enabled = active;
+    }
 
     private void Update()
     {
@@ -56,8 +58,18 @@ public class AH_Puck : MonoBehaviour
     {
         DetermineRandomSoundToPlay();
         m_audioSource.Play();
-        m_hitParticle[0].transform.position = collision.contacts[0].point;
-        m_hitParticle[0].GetComponent<ParticleSystem>().Play();
+        Debug.Log("Collided with [" + collision.transform.name + "] " +
+            "which is a " + collision.gameObject.tag);
+
+        GameObject particleSystemObject = AH_ParticlePools.instance.GetTaggedParticleSystem(collision.gameObject.tag);
+        ParticleSystem particleSystem = particleSystemObject.GetComponent<ParticleSystem>();
+        if (particleSystem)
+        {
+            print("Particle found");
+            print(particleSystem);
+            particleSystem.transform.position = collision.contacts[0].point;
+            particleSystem.Play();
+        }
     }
 
     /// <summary>
@@ -77,15 +89,18 @@ public class AH_Puck : MonoBehaviour
     {
         return m_maxSpeed;
     }
-    
+
     public void ResetPuck()
     {
-        transform.position = Vector3.zero;
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GetComponentInChildren<TrailRenderer>().enabled = true;
-        if(delete)
+        if(this)
         {
-            Destroy(this);
+            transform.position = Vector3.zero;
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponentInChildren<TrailRenderer>().enabled = true;
+            if (delete)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 

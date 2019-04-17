@@ -113,7 +113,7 @@ MonoBehaviour:
   m_debugMode: 0
   m_timeoutEnabled: 1
   Lifespan: 8
-  m_powerUpDuration: 3
+  m_powerUpDuration: 0.1
 --- !u!114 &8218839857339292825
 MonoBehaviour:
   m_ObjectHideFlags: 0
