@@ -28,7 +28,7 @@ public class AH_GameMaster : MonoBehaviour
             m_scores[1].text = "" + m_player1Score;
         }
 
-        AH_Puck scoringPuck = FindObjectOfType<AH_Puck>();
+        AH_Puck scoringPuck = collision.gameObject.GetComponent<AH_Puck>();
         scoringPuck.GetComponentInChildren<TrailRenderer>().enabled = false;
         StartCoroutine(PuckResetCoroutine(scoringPuck));
     }
