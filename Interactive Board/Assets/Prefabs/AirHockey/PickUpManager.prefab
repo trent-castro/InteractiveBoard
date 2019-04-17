@@ -274,6 +274,7 @@ Transform:
   - {fileID: 6808871322362986686}
   - {fileID: 6808871323115757218}
   - {fileID: 6808871323027442972}
+  - {fileID: 4722111887994486224}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -289,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a25b356a95f23c45ade3f689ca5007a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_debugMode: 1
+  m_debugMode: 0
   m_spawnStartDelay: 2
   m_spawnDelay: 3
   m_spawnDelayVariance: 1
@@ -307,6 +308,8 @@ MonoBehaviour:
     PoolWeight: 2
   - ObjectPool: {fileID: 6808871323027442973}
     PoolWeight: 3
+  - ObjectPool: {fileID: 7904256721243595002}
+    PoolWeight: 9999
   m_spawningArea: {x: 10, y: 5}
 --- !u!1 &6808871324056700748
 GameObject:
@@ -356,3 +359,51 @@ MonoBehaviour:
     type: 3}
   m_maxPooledObjects: 8
   m_pooledObjectName: Resize Pick Up
+--- !u!1 &7139244754337072980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4722111887994486224}
+  - component: {fileID: 7904256721243595002}
+  m_Layer: 0
+  m_Name: OP_Fission
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4722111887994486224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7139244754337072980}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6808871324004018575}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7904256721243595002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7139244754337072980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422b61f5deaefac438c5f16604a2175c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_debugMode: 0
+  m_gameObjectPrefab: {fileID: 1116140676582533030, guid: 3ff25626babeb7d45a615e8fbd48421d,
+    type: 3}
+  m_maxPooledObjects: 8
+  m_pooledObjectName: Fission Pick Up

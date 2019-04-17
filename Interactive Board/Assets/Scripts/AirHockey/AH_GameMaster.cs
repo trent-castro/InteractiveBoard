@@ -13,6 +13,7 @@ public class AH_GameMaster : MonoBehaviour
     private int m_scoreToWin = 8;
     [SerializeField]
     GameObject m_PlayAgainButton = null;
+
     public void GivePointToPlayer(bool isRightPlayer)
     {
         if (isRightPlayer)
