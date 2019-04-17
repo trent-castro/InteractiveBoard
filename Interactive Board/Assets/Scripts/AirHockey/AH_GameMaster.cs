@@ -28,6 +28,7 @@ public class AH_GameMaster : MonoBehaviour
         }
 
         AH_Puck scoringPuck = FindObjectOfType<AH_Puck>();
+		Debug.Log(scoringPuck.name);
         scoringPuck.GetComponentInChildren<TrailRenderer>().enabled = false;
         StartCoroutine(PuckResetCoroutine(scoringPuck));
     }
