@@ -65,8 +65,8 @@ public class AH_Puck : MonoBehaviour
         ParticleSystem particleSystem = particleSystemObject.GetComponent<ParticleSystem>();
         if (particleSystem)
         {
-            print("Particle found");
-            print(particleSystem);
+            //print("Particle found");
+            //print(particleSystem);
             particleSystem.transform.position = collision.contacts[0].point;
             particleSystem.Play();
         }
@@ -92,16 +92,16 @@ public class AH_Puck : MonoBehaviour
 
     public void ResetPuck()
     {
-        if(this)
-        {
-            transform.position = Vector3.zero;
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            GetComponentInChildren<TrailRenderer>().enabled = true;
-            if (delete)
-            {
-                Destroy(this.gameObject);
-            }
-        }
+		if (this)
+		{
+			transform.localPosition = Vector3.zero;
+			GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+			GetComponentInChildren<TrailRenderer>().enabled = true;
+			if (delete)
+			{
+				Destroy(this.gameObject);
+			}
+		}
     }
 
     private void DetermineRandomSoundToPlay()
