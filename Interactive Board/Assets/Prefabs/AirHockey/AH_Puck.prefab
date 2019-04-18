@@ -100,7 +100,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0.54901963}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -270,7 +270,9 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 0a831086d05ab644293b8097a9d0c561, type: 3}
   - {fileID: 8300000, guid: 50a43dafade71f74fb928e657cf2e0a3, type: 3}
+  - {fileID: 8300000, guid: 158ec922158eda24d9e49d88f075b045, type: 3}
   delete: 0
+  m_image: {fileID: 1145323370}
 --- !u!58 &2737984711776480551
 CircleCollider2D:
   m_ObjectHideFlags: 0
