@@ -297,13 +297,13 @@ MonoBehaviour:
   m_maxFieldPickUps: 5
   m_pickUpPools:
   - ObjectPool: {fileID: 6808871323853367369}
-    PoolWeight: 10
-  - ObjectPool: {fileID: 6808871322260428157}
-    PoolWeight: 5.5
-  - ObjectPool: {fileID: 6808871324056700750}
     PoolWeight: 3
+  - ObjectPool: {fileID: 6808871322260428157}
+    PoolWeight: 3
+  - ObjectPool: {fileID: 6808871324056700750}
+    PoolWeight: 7
   - ObjectPool: {fileID: 6808871322362986687}
-    PoolWeight: 4
+    PoolWeight: 2
   - ObjectPool: {fileID: 6808871323115757219}
     PoolWeight: 2
   - ObjectPool: {fileID: 6808871323027442973}
