@@ -57,8 +57,6 @@ public class MultiTouchManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Touches length" + Input.touches.Length);
-        Debug.Log("Touch info length" + m_touches.Count);
         foreach (Touch t in Input.touches)
         {
             Touch touch = t;
