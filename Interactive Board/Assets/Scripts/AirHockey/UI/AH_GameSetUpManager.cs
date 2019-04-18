@@ -8,11 +8,13 @@ using Assets.Scripts.AirHockey.UI;
 public class AH_GameSetUpManager : MonoBehaviour
 {
 	[SerializeField] SpriteRenderer m_background;
+	[SerializeField] SpriteRenderer m_foreground;
 	[SerializeField] SpriteRenderer m_puck;
 	[SerializeField] SpriteRenderer m_player1;
 	[SerializeField] SpriteRenderer m_player2;
 
 	[SerializeField] Sprite[] m_backgrounds;
+	[SerializeField] Sprite[] m_foregrounds;
 	[SerializeField] Sprite[] m_paddles;
 	[SerializeField] Sprite[] m_pucks;
     // Start is called before the first frame update
@@ -35,6 +37,7 @@ public class AH_GameSetUpManager : MonoBehaviour
 	{
 		if (m_puck) m_puck.sprite = m_pucks[(int)theme];
 		if (m_background) m_background.sprite = m_backgrounds[(int)theme];
+		if (m_foreground) m_foreground.sprite = m_foregrounds[(int)theme];
 		switch (theme)
 		{
 			case ETheme.NEUMONT:
