@@ -33,7 +33,7 @@ public class ObjectPool : MonoBehaviour {
     /// </summary>
     private void DebugConfiguration()
     {
-        if(!m_gameObjectPrefab || m_gameObjectPrefab == new GameObject())
+        if(!m_gameObjectPrefab)
             Debug.Log(gameObject.name + " was not given a game object prefab despite being owning an object pool");
         if (m_maxPooledObjects == 0)
             Debug.Log(gameObject.name + " is an object pool but was not given an object pool size");
@@ -79,7 +79,7 @@ public class ObjectPool : MonoBehaviour {
         if (nextPooledObject.activeSelf)
         {
             DebugLog(gameObject.name + "'s object pool returned an active object for use. Consider increasing pool size.");
-            return null;
+            return nextPooledObject;
         }
 
         // Update tracker

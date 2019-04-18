@@ -6,7 +6,6 @@ using UnityEngine;
 public class AH_GameMaster : MonoBehaviour
 {
     [SerializeField] TextMeshPro[] m_scores = null;
-    [SerializeField] GameObject m_puck = null;
 
     [SerializeField]
     private int m_player1Score, m_player2Score = 0;
@@ -14,7 +13,9 @@ public class AH_GameMaster : MonoBehaviour
     private int m_scoreToWin = 8;
     [SerializeField]
     GameObject m_PlayAgainButton = null;
-    public void GivePointToPlayer(bool isRightPlayer)
+    [SerializeField]
+    GameObject m_VictoryParticles = null;
+    public void GivePointToPlayer(bool isRightPlayer, Collider2D collision)
     {
         if (isRightPlayer)
         {
@@ -27,31 +28,35 @@ public class AH_GameMaster : MonoBehaviour
             m_scores[1].text = "" + m_player1Score;
         }
 
-        m_puck.GetComponentInChildren<TrailRenderer>().enabled = false;
-        StartCoroutine(PuckResetCoroutine());
+        AH_Puck scoringPuck = collision.gameObject.GetComponent<AH_Puck>();
+        scoringPuck.GetComponentInChildren<TrailRenderer>().enabled = false;
+        StartCoroutine(PuckResetCoroutine(scoringPuck));
     }
 
-    private void ResetPuck()
-    {
-        m_puck.transform.position = Vector3.zero;
-        m_puck.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        m_puck.GetComponentInChildren<TrailRenderer>().enabled = true;
-    }
-
-    IEnumerator PuckResetCoroutine()
+    IEnumerator PuckResetCoroutine(AH_Puck scoringPuck)
     {
         yield return new WaitForSecondsRealtime(0.5f);
-        ResetPuck();
+        scoringPuck.ResetPuck();
         if (DetermineWinState())
         {
             //End Game Logic Stop players from playing
-            Time.timeScale = 0;
-            if (m_PlayAgainButton)
-            {
-                m_PlayAgainButton.SetActive(true);
-            }
+            //Time.timeScale = 0;
+            m_VictoryParticles.SetActive(true);
+            StartCoroutine(VictoryCoroutine());
+  
         }
-        StopCoroutine(PuckResetCoroutine());
+        StopCoroutine(PuckResetCoroutine(scoringPuck));
+    }
+
+    IEnumerator VictoryCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(1.5f);
+        Time.timeScale = 0.0f;
+        if (m_PlayAgainButton)
+        {
+            m_PlayAgainButton.SetActive(true);
+        }
+        StopCoroutine(VictoryCoroutine());
     }
 
     private bool DetermineWinState()

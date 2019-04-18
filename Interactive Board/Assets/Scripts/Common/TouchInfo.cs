@@ -16,7 +16,7 @@ public class TouchInfo
 
     public int lastHistoryIndex = 0;
     public Touch[] history;
-    private Touch touch;
+    public Touch touch;
     public float startTime;
     public float endTime;
     public int owners = 0;

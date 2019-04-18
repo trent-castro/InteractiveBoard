@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// An abstract class for the base functionality of a pick up.
+/// </summary>
 public abstract class AH_PickUp : MonoBehaviour
 {
     [Header("Debug Mode")]
@@ -31,6 +34,10 @@ public abstract class AH_PickUp : MonoBehaviour
     /// The sibling collider 2D component of the pick up.
     /// </summary>
     private Collider2D m_collider2D;
+    /// <summary>
+    /// The sibling component bit flag broadcaster of the pick up.
+    /// </summary>
+    private AH_BitFlagBroadcaster m_bitFlagBroadcaster;
 
     // Private information
     /// <summary>
@@ -62,6 +69,7 @@ public abstract class AH_PickUp : MonoBehaviour
         // Set private references to sibling components
         m_spriteRenderer = GetComponent<SpriteRenderer>();
         m_collider2D = GetComponent<Collider2D>();
+        m_bitFlagBroadcaster = GetComponent<AH_BitFlagBroadcaster>();
     }
 
     // Update is called once per frame
@@ -87,8 +95,17 @@ public abstract class AH_PickUp : MonoBehaviour
             // Check if the effect has expired
             if(m_effectTimer >= m_powerUpDuration)
             {
-                OnEffectEnd();
-                DisablePickUp();
+                if (afflictedPuck)
+                {
+                    if (afflictedPuck.GetComponent<AH_BitFlagReceiver>()
+                        .Contains(m_bitFlagBroadcaster.Broadcast()))
+                    {
+                        OnEffectEnd();
+                        afflictedPuck.GetComponent<AH_BitFlagReceiver>()
+                            .RemoveFlag(m_bitFlagBroadcaster.Broadcast());
+                    }
+                    DisablePickUp();
+                }
             }
         }
     }
@@ -116,8 +133,14 @@ public abstract class AH_PickUp : MonoBehaviour
         // Disable pick up from being interacted with in the scene
         DisablePickUpRendering();
 
-        // Begin the pick up effects
-        OnEffectBegin();
+        if(!afflictedPuck.GetComponent<AH_BitFlagReceiver>()
+            .Contains(m_bitFlagBroadcaster.Broadcast()))
+        {
+            // Begin the pick up effects
+            OnEffectBegin();
+            afflictedPuck.GetComponent<AH_BitFlagReceiver>()
+                .AddFlag(m_bitFlagBroadcaster.Broadcast());
+        }
     }
 
     /// <summary>

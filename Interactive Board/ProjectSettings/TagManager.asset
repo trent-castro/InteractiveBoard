@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Puck
   - Paddle
+  - Wall
   layers:
   - Default
   - TransparentFX

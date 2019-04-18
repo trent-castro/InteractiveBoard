@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MultiTouchManager : MonoBehaviour
@@ -19,9 +20,10 @@ public class MultiTouchManager : MonoBehaviour
         }
     }
 
+    public Collider2D m_captureArea = null;
     public TouchInfo[] currentTouches;
 
-    private Dictionary<int, TouchInfo> touches { get; set; } = new Dictionary<int, TouchInfo>();
+    private Dictionary<int, TouchInfo> m_touches { get; set; } = new Dictionary<int, TouchInfo>();
 
     private event HandleTouchInfo HandleNewTouches;
     private event HandleTouchInfo HandleCurrentTouches;
@@ -55,31 +57,55 @@ public class MultiTouchManager : MonoBehaviour
 
     void Update()
     {
-        foreach (Touch touch in Input.touches)
+        foreach (Touch t in Input.touches)
         {
-            if (touch.phase != TouchPhase.Began && touches.ContainsKey(touch.fingerId))
+            Touch touch = t;
+
+            if (m_captureArea != null)
             {
-                touches[touch.fingerId].UpdateTouchInfo(touch);
+                if (!m_captureArea.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.position)))
+                {
+                    touch.phase = TouchPhase.Ended;
+                }
+            }
+
+            if (touch.phase != TouchPhase.Began && m_touches.ContainsKey(touch.fingerId))
+            {
+                m_touches[touch.fingerId].UpdateTouchInfo(touch);
 
                 if (touch.phase == TouchPhase.Ended)
                 {
-                    touches.Remove(touch.fingerId);
+                    m_touches.Remove(touch.fingerId);
                 }
                 else
                 {
-                    HandleCurrentTouches?.Invoke(touches[touch.fingerId]);
+                    HandleCurrentTouches?.Invoke(m_touches[touch.fingerId]);
                 }
-
             }
-            else if (!touches.ContainsKey(touch.fingerId))
+            else if (!m_touches.ContainsKey(touch.fingerId))
             {
                 TouchInfo newTouch = new TouchInfo(touch);
 
-                touches.Add(touch.fingerId, newTouch);
+                m_touches.Add(touch.fingerId, newTouch);
 
                 HandleNewTouches?.Invoke(newTouch);
             }
+        }
 
+        int[] keys = m_touches.Keys.ToArray();
+
+        for (int i = 0; i < keys.Length; i++)
+        {
+            if (!Input.touches.Any(t => t.fingerId == keys[i]))
+            {
+                Touch t = m_touches[keys[i]].touch;
+
+                t.phase = TouchPhase.Ended;
+
+                m_touches[keys[i]].UpdateTouchInfo(t);
+
+                m_touches.Remove(keys[i]);
+            }
         }
     }
 }
