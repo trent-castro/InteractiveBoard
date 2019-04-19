@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dampingRatio: 0.05
-  m_frequency: 10
+  m_frequency: 1000
   m_drag: 100
   m_angularDrag: 10
   m_debugOutput: {fileID: 0}
