@@ -50,6 +50,7 @@ public class AH_GameMaster : MonoBehaviour
 
     IEnumerator VictoryCoroutine()
     {
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSecondsRealtime(1.5f);
         Time.timeScale = 0.0f;
         if (m_PlayAgainButton)
