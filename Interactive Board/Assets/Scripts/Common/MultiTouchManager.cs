@@ -33,24 +33,54 @@ public class MultiTouchManager : MonoBehaviour
         HandleNewTouches += handler;
     }
 
-    public void ListenForNewTouchesOnCollider(Collider2D collider2D, HandleTouchInfo handler)
+    public void ListenForNewTouchesOnCollider(Collider2D collider, HandleTouchInfo handler)
     {
         ListenForNewTouches(touch =>
         {
-            if (collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Position)))
+            if (collider.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Position)))
             {
                 handler(touch);
             }
         });
     }
 
-    public void ListenForCurrentTouchesOnCollider(Collider2D collider2D, HandleTouchInfo handler)
+    public void ListenForCurrentTouchesOnCollider(Collider2D collider, HandleTouchInfo handler)
     {
         HandleCurrentTouches += touch =>
         {
-            if (collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Position)))
+            if (collider.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Position)))
             {
                 handler(touch);
+            }
+        };
+    }
+
+    public void ListenForMultiTapsOnCollider(Collider2D collider, int tapCount, float maxTime, HandleTouchInfo handler)
+    {
+        int count = 0;
+        TouchInfo[] taps = new TouchInfo[tapCount];
+
+        HandleNewTouches += touch =>
+        {
+            if (collider.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Position)))
+            {
+                while (touch.startTime - taps[0].startTime > maxTime)
+                {
+                    for (int i = 1; i < count; i++)
+                    {
+                        taps[i - 1] = taps[i];
+                    }
+                }
+
+                if (count < tapCount - 1)
+                {
+                    taps[count] = touch;
+                }
+                else
+                {
+                    count = 0;
+                    handler(touch);
+                }
             }
         };
     }
