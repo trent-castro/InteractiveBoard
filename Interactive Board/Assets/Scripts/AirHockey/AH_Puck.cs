@@ -62,7 +62,7 @@ public class AH_Puck : MonoBehaviour
             "which is a " + collision.gameObject.tag);
 
         GameObject particleSystemObject = AH_ParticlePools.instance.GetTaggedParticleSystem(collision.gameObject.tag);
-        ParticleSystem particleSystem = particleSystemObject.GetComponent<ParticleSystem>();
+        ParticleSystem particleSystem = particleSystemObject?.GetComponent<ParticleSystem>();
         if (particleSystem)
         {
             //print("Particle found");
