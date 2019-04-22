@@ -78,4 +78,9 @@ public class AH_GameMaster : MonoBehaviour
         }
         else return false;        
     }
+
+	public void SetTimeScale(float timescale)
+	{
+		Time.timeScale = timescale;
+	}
 }

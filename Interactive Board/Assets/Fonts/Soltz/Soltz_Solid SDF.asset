@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Soltz_Solid SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -853171859
   material: {fileID: 21083701992033932}
-  materialHashCode: 0
+  materialHashCode: -2082135738
   fontAssetType: 1
   m_fontInfo:
     Name: Soltz Solid
     PointSize: 63
-    Scale: 0
+    Scale: 1
     CharacterCount: 95
     LineHeight: 63.5625
     Baseline: 0
     Ascender: 47.25
-    CapHeight: 0
+    CapHeight: 45.25
     Descender: -15.75
     CenterLine: 0
     SuperscriptOffset: 47.25
@@ -34,7 +34,7 @@ MonoBehaviour:
     UnderlineThickness: 3.15
     strikethrough: 11.454545
     strikethroughThickness: 3.15
-    TabWidth: 0
+    TabWidth: 193.75
     Padding: 5
     AtlasWidth: 512
     AtlasHeight: 512
@@ -43,10 +43,10 @@ MonoBehaviour:
   - id: 32
     x: 6
     y: 517
-    width: 0
-    height: 0
+    width: 19.375
+    height: 63
     xOffset: 0
-    yOffset: 0
+    yOffset: 47.25
     xAdvance: 19.375
     scale: 1
   - id: 33
@@ -1023,9 +1023,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
