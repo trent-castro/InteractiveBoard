@@ -5901,12 +5901,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_scores:
-  - {fileID: 692116862}
-  - {fileID: 274316629}
+  - {fileID: 0}
+  - {fileID: 0}
   m_player1Score: 0
   m_player2Score: 0
   m_scoreToWin: 8
   m_PlayAgainButton: {fileID: 1736573488}
+  m_VictoryParticles: {fileID: 0}
 --- !u!114 &410517781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5936,6 +5937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_background: {fileID: 523750323}
+  m_foreground: {fileID: 0}
   m_puck: {fileID: 0}
   m_player1: {fileID: 8848358942128387073}
   m_player2: {fileID: 1148415550}
@@ -5943,6 +5945,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 00edb0e0092601a4abce45e21d91ef69, type: 3}
   - {fileID: 21300000, guid: ed4bd7afd391cc3478e11f8f58ba21b2, type: 3}
   - {fileID: 21300000, guid: 6cf96d348c4715748bd9f2b8f2a3221a, type: 3}
+  m_foregrounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_paddles:
   - {fileID: 21300000, guid: 044d690b299dadd469ca78acda92edd9, type: 3}
   - {fileID: 21300000, guid: 93b31edf94adcc643b2b6d82e3138299, type: 3}
@@ -18553,6 +18559,11 @@ PrefabInstance:
       propertyPath: m_captureArea
       value: 
       objectReference: {fileID: 1345294748}
+    - target: {fileID: 2221675647532853159, guid: ccc7b7607ca0f804a8fd681fe300fc9a,
+        type: 3}
+      propertyPath: m_foregrounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2221675647532853159, guid: ccc7b7607ca0f804a8fd681fe300fc9a,
         type: 3}
       propertyPath: m_background

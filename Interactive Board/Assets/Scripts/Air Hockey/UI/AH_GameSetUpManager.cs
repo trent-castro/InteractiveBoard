@@ -4,19 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.AirHockey.UI;
 
-
+// marked for fixing
 public class AH_GameSetUpManager : MonoBehaviour
 {
-	[SerializeField] SpriteRenderer m_background;
-	[SerializeField] SpriteRenderer m_foreground;
-	[SerializeField] SpriteRenderer m_puck;
-	[SerializeField] SpriteRenderer m_player1;
-	[SerializeField] SpriteRenderer m_player2;
+    [Header("External References")]
+	[SerializeField] SpriteRenderer m_background    = null;
+	[SerializeField] SpriteRenderer m_foreground    = null;
+	[SerializeField] SpriteRenderer m_puck          = null;
+	[SerializeField] SpriteRenderer m_player1       = null;
+	[SerializeField] SpriteRenderer m_player2       = null;
 
-	[SerializeField] Sprite[] m_backgrounds;
-	[SerializeField] Sprite[] m_foregrounds;
-	[SerializeField] Sprite[] m_paddles;
-	[SerializeField] Sprite[] m_pucks;
+    [Header("Asset References")]
+	[SerializeField] Sprite[] m_backgrounds = null;
+	[SerializeField] Sprite[] m_foregrounds = null;
+	[SerializeField] Sprite[] m_paddles     = null;
+	[SerializeField] Sprite[] m_pucks       = null;
+
     // Start is called before the first frame update
     void Start()
     {

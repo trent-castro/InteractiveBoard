@@ -14,7 +14,7 @@ public class ObjectPool : MonoBehaviour {
 
     [Header("Configuration")]
     [SerializeField] [Tooltip("The object to pool")]
-    private GameObject m_gameObjectPrefab;
+    private GameObject m_gameObjectPrefab = null;
     [SerializeField] [Tooltip("The amount of objects to pool")]
     private int m_maxPooledObjects = 400;
     [SerializeField] [Tooltip("Object name or ID")]

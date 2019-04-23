@@ -8,11 +8,12 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Controls the variables dealing with the themes and the selected pucks, saving them to player prefs.
 /// </summary>
+// marked for fixing
 public class AH_SetUpMenu : MonoBehaviour
 {
 	static public ETheme defaultTheme = ETheme.BASIC;
-	[SerializeField] Sprite[] m_themeBackgrounds;
-	[SerializeField] Image m_background;
+	[SerializeField] Sprite[] m_themeBackgrounds = null;
+	[SerializeField] Image m_background = null;
 	ETheme m_theme;
 
 	int m_player1 = 0;
@@ -57,6 +58,6 @@ public class AH_SetUpMenu : MonoBehaviour
 		PlayerPrefs.SetInt("AirHockeyPlayer1Puck", m_player1);
 		PlayerPrefs.SetInt("AirHockeyPlayer2Puck", m_player2);
 
-		SceneManager.LoadScene("AH_Scene01");
+		SceneManager.LoadScene("AH_Board");
 	}
 }
