@@ -14,7 +14,7 @@ public class AH_Paddle : MonoBehaviour
             m_audioSource = GetComponent<AudioSource>();
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         m_audioSource.Play();
     }
