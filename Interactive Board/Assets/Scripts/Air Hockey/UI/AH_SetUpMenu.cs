@@ -58,6 +58,6 @@ public class AH_SetUpMenu : MonoBehaviour
 		PlayerPrefs.SetInt("AirHockeyPlayer1Puck", m_player1);
 		PlayerPrefs.SetInt("AirHockeyPlayer2Puck", m_player2);
 
-		SceneManager.LoadScene("AH_Scene01");
+		SceneManager.LoadScene("AH_Board");
 	}
 }

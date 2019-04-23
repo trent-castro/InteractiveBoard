@@ -1058,7 +1058,7 @@ PrefabInstance:
     - target: {fileID: 7403450565575769795, guid: 90f5d02e645c0f445908baa47f65d226,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 7403450565575769795, guid: 90f5d02e645c0f445908baa47f65d226,
         type: 3}
@@ -1115,6 +1115,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 382084058}
+    - target: {fileID: 7403450565255899083, guid: 90f5d02e645c0f445908baa47f65d226,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChoosePaddlePlayer2
+      objectReference: {fileID: 0}
     - target: {fileID: 7403450564913162185, guid: 90f5d02e645c0f445908baa47f65d226,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1125,6 +1130,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 382084058}
+    - target: {fileID: 7403450564913162185, guid: 90f5d02e645c0f445908baa47f65d226,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChoosePaddlePlayer2
+      objectReference: {fileID: 0}
     - target: {fileID: 7403450564616328642, guid: 90f5d02e645c0f445908baa47f65d226,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1135,6 +1145,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 382084058}
+    - target: {fileID: 7403450564616328642, guid: 90f5d02e645c0f445908baa47f65d226,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChoosePaddlePlayer2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403450565227857675, guid: 90f5d02e645c0f445908baa47f65d226,
+        type: 3}
+      propertyPath: m_text
+      value: Player 2 Paddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403450565227857675, guid: 90f5d02e645c0f445908baa47f65d226,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403450565227857675, guid: 90f5d02e645c0f445908baa47f65d226,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f5d02e645c0f445908baa47f65d226, type: 3}
 --- !u!1 &794612347
