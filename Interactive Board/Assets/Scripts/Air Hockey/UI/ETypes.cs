@@ -12,5 +12,4 @@ namespace Assets.Scripts.AirHockey.UI
 		SPACE,
 		NATURE
 	}
-
 }
