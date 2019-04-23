@@ -21,7 +21,6 @@ public class AH_Puck : MonoBehaviour
     public bool delete = false;
     private AudioSource m_audioSource;
 
-
     // Private Sibling Components
     private Rigidbody2D rigidBody;
     private SpriteRenderer m_spriteRenderer;
