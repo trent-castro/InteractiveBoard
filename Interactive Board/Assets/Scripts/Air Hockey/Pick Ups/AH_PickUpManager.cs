@@ -18,7 +18,7 @@ public class AH_PickUpManager : MonoBehaviour
     [System.Serializable]
     struct PickUpPool
     {
-        public ObjectPool ObjectPool;
+        public ObjectPool ObjectPool = null;
         public float PoolWeight;
     }
 

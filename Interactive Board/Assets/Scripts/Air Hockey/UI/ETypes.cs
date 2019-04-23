@@ -8,7 +8,7 @@ namespace Assets.Scripts.AirHockey.UI
 {
 	public enum ETheme
 	{
-		NEUMONT,
+		BASIC,
 		SPACE,
 		NATURE
 	}

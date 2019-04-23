@@ -28,7 +28,7 @@ public class AH_ParticlePools : MonoBehaviour
     [Header("Configuration")]
     [SerializeField]
     [Tooltip("An array of ObjectPools for particles.")]
-    private ParticlePool[] ParticlePools;
+    private ParticlePool[] ParticlePools = null;
 
     private void Awake()
     {

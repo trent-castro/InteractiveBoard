@@ -15,7 +15,7 @@ public class AH_BitFlagBroadcaster : MonoBehaviour
     // There are several things wrong with this implementation
     [SerializeField]
     [Tooltip("Broadcast ID")]
-    private uint m_broadcastID;
+    private uint m_broadcastID = 0;
 
     /// <summary>
     /// Sends out the broadcast ID
