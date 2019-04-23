@@ -617,8 +617,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 16d76df2c763bdd4b87b902f1f9f2529, type: 2}
-  m_sharedMaterial: {fileID: 21076032823171410, guid: 16d76df2c763bdd4b87b902f1f9f2529,
+  m_fontAsset: {fileID: 11400000, guid: 56fa1d605c50fea4b8cce307e37f0f88, type: 2}
+  m_sharedMaterial: {fileID: 21083701992033932, guid: 56fa1d605c50fea4b8cce307e37f0f88,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1226,7 +1226,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 16d76df2c763bdd4b87b902f1f9f2529, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 56fa1d605c50fea4b8cce307e37f0f88, type: 2}
   m_sharedMaterial: {fileID: 21076032823171410, guid: 16d76df2c763bdd4b87b902f1f9f2529,
     type: 2}
   m_fontSharedMaterials: []
@@ -1302,13 +1302,13 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
   m_inputSource: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -1700,7 +1700,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 16d76df2c763bdd4b87b902f1f9f2529, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 56fa1d605c50fea4b8cce307e37f0f88, type: 2}
   m_sharedMaterial: {fileID: 21076032823171410, guid: 16d76df2c763bdd4b87b902f1f9f2529,
     type: 2}
   m_fontSharedMaterials: []
@@ -1776,13 +1776,13 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
   m_inputSource: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -2551,7 +2551,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 8
+  m_fontStyle: 0
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
