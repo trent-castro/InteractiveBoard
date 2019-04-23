@@ -23710,6 +23710,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6808871324004018572, guid: 215a4cdc3eaf05647914b6ffbf7cafc1,
+        type: 3}
+      propertyPath: m_debugMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 215a4cdc3eaf05647914b6ffbf7cafc1, type: 3}
 --- !u!1 &2057342890
@@ -23811,11 +23816,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2737984711776480549, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: m_Name
-      value: Puck
-      objectReference: {fileID: 0}
     - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
         type: 3}
       propertyPath: audioClips.Array.size
@@ -23841,6 +23841,11 @@ PrefabInstance:
       propertyPath: audioClips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 136753f7c7c87c548b16b5235de90faa, type: 3}
+    - target: {fileID: 2737984711776480549, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: m_Name
+      value: Puck
+      objectReference: {fileID: 0}
     - target: {fileID: 2737984711776480545, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
         type: 3}
       propertyPath: m_LocalPosition.x
