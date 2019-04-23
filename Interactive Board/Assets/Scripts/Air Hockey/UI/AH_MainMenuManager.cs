@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// marked for fixing
 public class AH_MainMenuManager : MonoBehaviour
 {
-	[SerializeField] GameObject m_Title;
-	[SerializeField] GameObject m_SetUp;
+	[SerializeField] GameObject m_Title = null;
+	[SerializeField] GameObject m_SetUp = null;
 	static bool hasSeenMainMenu = false;
 
 	private void Start()

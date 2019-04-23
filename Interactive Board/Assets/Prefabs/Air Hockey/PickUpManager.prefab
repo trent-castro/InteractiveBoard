@@ -296,20 +296,20 @@ MonoBehaviour:
   m_spawnDelayVariance: 1
   m_maxFieldPickUps: 5
   m_pickUpPools:
-  - ObjectPool: {fileID: 6808871323853367369}
-    PoolWeight: 3
-  - ObjectPool: {fileID: 6808871322260428157}
-    PoolWeight: 3
-  - ObjectPool: {fileID: 6808871324056700750}
-    PoolWeight: 7
-  - ObjectPool: {fileID: 6808871322362986687}
-    PoolWeight: 2
-  - ObjectPool: {fileID: 6808871323115757219}
-    PoolWeight: 2
-  - ObjectPool: {fileID: 6808871323027442973}
-    PoolWeight: 3
-  - ObjectPool: {fileID: 7904256721243595002}
-    PoolWeight: 9999
+  - objectPool: {fileID: 6808871323853367369}
+    poolWeight: 3
+  - objectPool: {fileID: 6808871322260428157}
+    poolWeight: 3
+  - objectPool: {fileID: 6808871324056700750}
+    poolWeight: 7
+  - objectPool: {fileID: 6808871322362986687}
+    poolWeight: 2
+  - objectPool: {fileID: 6808871323115757219}
+    poolWeight: 2
+  - objectPool: {fileID: 6808871323027442973}
+    poolWeight: 3
+  - objectPool: {fileID: 7904256721243595002}
+    poolWeight: 5
   m_spawningArea: {x: 10, y: 5}
 --- !u!1 &6808871324056700748
 GameObject:
