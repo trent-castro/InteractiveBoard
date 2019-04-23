@@ -19,13 +19,13 @@ public class AH_SetupSelector : MonoBehaviour
     [Tooltip("References to the UI elements displaying the puck")]
     private GameObject[] m_selections = null;
 	[SerializeField] 
-    [Tooltip("The options available with the basic theme")]
+    [Tooltip("The options for paddles available with the basic theme")]
     private Sprite[] m_themeBasic = null;
 	[SerializeField]
-    [Tooltip("The options available with the basic theme")]
+    [Tooltip("The options for paddles available with the basic theme")]
     private Sprite[] m_themeNature = null;
 	[SerializeField]
-    [Tooltip("The options available with the basic theme")]
+    [Tooltip("The options for paddles available with the basic theme")]
     private Sprite[] m_themeSpace = null;
 
     /// <summary>
