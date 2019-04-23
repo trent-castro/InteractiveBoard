@@ -7,17 +7,11 @@ public class AH_GameMaster : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI[] m_scores = null;
     [SerializeField] TextMeshProUGUI[] m_winLossPanels = null;
-
-    [SerializeField]
-    private int m_player1Score, m_player2Score = 0;
-    [SerializeField]
-    private int m_scoreToWin = 8;
-    [SerializeField]
-    GameObject m_PlayAgainButton = null;
-    [SerializeField]
-    GameObject m_WinLossTexts = null;
-    [SerializeField]
-    GameObject m_VictoryParticles = null;
+    [SerializeField] private int m_player1Score, m_player2Score = 0;
+    [SerializeField] private int m_scoreToWin = 8;
+    [SerializeField] GameObject m_PlayAgainButton = null;
+    [SerializeField] GameObject m_WinLossTexts = null;
+    [SerializeField] GameObject m_VictoryParticles = null;
 
     private bool m_gameIsWon = false;
 
