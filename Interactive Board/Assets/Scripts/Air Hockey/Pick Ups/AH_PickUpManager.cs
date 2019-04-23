@@ -18,8 +18,14 @@ public class AH_PickUpManager : MonoBehaviour
     [System.Serializable]
     struct PickUpPool
     {
-        public ObjectPool ObjectPool = null;
-        public float PoolWeight;
+        public ObjectPool objectPool;
+        public float poolWeight;
+
+        public PickUpPool(ObjectPool objectpool, float poolweight)
+        {
+            objectPool = objectpool;
+            poolWeight = poolweight;
+        }
     }
 
     [Header("Debug Mode")]
@@ -69,16 +75,16 @@ public class AH_PickUpManager : MonoBehaviour
         // Fix the object pool weightings.
         m_spawnThresholds = new float[m_pickUpPools.Length];
 
-        float total = m_pickUpPools[0].PoolWeight;
+        float total = m_pickUpPools[0].poolWeight;
         for (int x = 1; x < m_pickUpPools.Length; ++x)
         {
-            total += m_pickUpPools[x].PoolWeight;
+            total += m_pickUpPools[x].poolWeight;
         }
 
-        m_spawnThresholds[0] = m_pickUpPools[0].PoolWeight / total;
+        m_spawnThresholds[0] = m_pickUpPools[0].poolWeight / total;
         for (int x = 1; x < m_pickUpPools.Length; ++x)
         {
-            m_spawnThresholds[x] = m_spawnThresholds[x - 1] + (m_pickUpPools[x].PoolWeight / total);
+            m_spawnThresholds[x] = m_spawnThresholds[x - 1] + (m_pickUpPools[x].poolWeight / total);
         }
 
         // Initialize the timers.
@@ -126,7 +132,7 @@ public class AH_PickUpManager : MonoBehaviour
     private void SpawnRandomObject()
     {
         PickUpPool pickUpPool = GetRandomPickUpPool();
-        GameObject nextPickUp = pickUpPool.ObjectPool.GetNextPooledObject();
+        GameObject nextPickUp = pickUpPool.objectPool.GetNextPooledObject();
         SpawnObjectAtRandomLocation(nextPickUp);
     }
 
