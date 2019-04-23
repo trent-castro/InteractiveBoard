@@ -15,6 +15,8 @@ public class AH_GameMaster : MonoBehaviour
     [SerializeField]
     GameObject m_PlayAgainButton = null;
     [SerializeField]
+    GameObject m_WinLossTexts = null;
+    [SerializeField]
     GameObject m_VictoryParticles = null;
 
     private bool m_gameIsWon = false;
@@ -46,6 +48,7 @@ public class AH_GameMaster : MonoBehaviour
             //End Game Logic Stop players from playing
             //Time.timeScale = 0;
             m_VictoryParticles.SetActive(true);
+            m_WinLossTexts.SetActive(true);
             m_gameIsWon = true;
             StartCoroutine(VictoryCoroutine());
   
