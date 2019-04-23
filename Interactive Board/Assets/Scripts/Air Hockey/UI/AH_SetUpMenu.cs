@@ -5,9 +5,12 @@ using UnityEngine.UI;
 using Assets.Scripts.AirHockey.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Controls the variables dealing with the themes and the selected pucks, saving them to player prefs.
+/// </summary>
 public class AH_SetUpMenu : MonoBehaviour
 {
-	static public ETheme defaultTheme = ETheme.NEUMONT;
+	static public ETheme defaultTheme = ETheme.BASIC;
 	[SerializeField] Sprite[] m_themeBackgrounds;
 	[SerializeField] Image m_background;
 	ETheme m_theme;
