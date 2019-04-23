@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class AH_Puck : MonoBehaviour
 {
+    [Header("Debug Mode")]
+    [SerializeField]
+    [Tooltip("Enables Debug Mode")]
+    private bool m_debugMode = false;
+
     [SerializeField]
     [Tooltip("Clamps the maximum speed for the puck.")]
     private float m_maxSpeed = 30;
@@ -21,9 +26,34 @@ public class AH_Puck : MonoBehaviour
     private Rigidbody2D rigidBody;
     private SpriteRenderer m_spriteRenderer;
 
-    private void Start()
+    /// <summary>
+    /// [DEBUG MODE] Records a message if debug mode is enabled.
+    /// </summary>
+    /// <param name="debugLog">The message to record</param>
+    private void DebugLog(string debugLog)
     {
+        if (m_debugMode)
+        {
+            Debug.Log(debugLog);
+        }
+    }
+    
+    /// <summary>
+         /// Checks the configuration to see if it was set up correctly.
+         /// </summary>
+    private void DebugConfiguration()
+    {
+        if (m_hitParticle == null)
+        {
+            DebugLog("AH_Puck Hit particle array is empty; expected values.");
+        }
+    }
+
+        private void Start()
+    {
+        DebugConfiguration();
         GetSiblingComponents();
+        
         Physics2D.IgnoreLayerCollision(8, 9, true);
     }
 

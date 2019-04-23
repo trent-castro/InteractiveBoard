@@ -45,13 +45,13 @@ public class AH_PickUpManager : MonoBehaviour
     private float m_spawnDelayVariance = 0.0f;
     [SerializeField]
     [Tooltip("Maximum amount of pick ups on the field")]
-    private int m_maxFieldPickUps;
+    private int m_maxFieldPickUps = 0;
     [SerializeField]
     [Tooltip("List of all possible power ups and pick up spawning weights")]
-    private PickUpPool[] m_pickUpPools;
+    private PickUpPool[] m_pickUpPools = null;
     [SerializeField]
     [Tooltip("Vector describing the x bounds and y bounds of the spawning area")]
-    private Vector2 m_spawningArea;
+    private Vector2 m_spawningArea = Vector2.zero;
 
     /// <summary>
     /// A timer to track when objects should spawn (Objects spawn when this hits zero).

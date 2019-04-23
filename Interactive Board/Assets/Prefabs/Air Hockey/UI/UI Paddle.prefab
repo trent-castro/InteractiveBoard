@@ -838,7 +838,7 @@ GameObject:
   - component: {fileID: 7403450565575769795}
   - component: {fileID: 7403450565575769792}
   m_Layer: 0
-  m_Name: player 1 select paddle
+  m_Name: UI Paddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -879,22 +879,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b98815ed7e67b43996e230746d49dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_debugMode: 0
   m_selections:
   - {fileID: 7403450565625356003}
   - {fileID: 7403450565020082347}
   - {fileID: 7403450565162165292}
-  m_NeumontTheme:
+  m_themeBasic:
   - {fileID: 21300000, guid: 044d690b299dadd469ca78acda92edd9, type: 3}
   - {fileID: 21300000, guid: 93b31edf94adcc643b2b6d82e3138299, type: 3}
   - {fileID: 21300000, guid: 044d690b299dadd469ca78acda92edd9, type: 3}
-  m_SpaceTheme:
-  - {fileID: 21300000, guid: 9e790fdca2158494e9f81184fcc82d57, type: 3}
-  - {fileID: 21300000, guid: c525c17135503f442ae3ba1bbf27ef84, type: 3}
-  - {fileID: 21300000, guid: 92bc74bb126df39418d14307d751ed13, type: 3}
-  m_NatureTheme:
+  m_themeNature:
   - {fileID: 21300000, guid: 76aeb9882baf3e34c863dd9f7634c477, type: 3}
   - {fileID: 21300000, guid: b4f7068a4833c154097b0ce383ee5fc2, type: 3}
   - {fileID: 21300000, guid: 465e94b8ffeaa0044b3288f66f636ddd, type: 3}
+  m_themeSpace:
+  - {fileID: 21300000, guid: 9e790fdca2158494e9f81184fcc82d57, type: 3}
+  - {fileID: 21300000, guid: c525c17135503f442ae3ba1bbf27ef84, type: 3}
+  - {fileID: 21300000, guid: 92bc74bb126df39418d14307d751ed13, type: 3}
 --- !u!1 &7403450565625356003
 GameObject:
   m_ObjectHideFlags: 0
