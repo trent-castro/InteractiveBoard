@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class AH_GameMaster : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI[] m_scores = null;
+    [SerializeField] TextMeshPro[] m_scores = null;
+    [SerializeField] TextMeshProUGUI[] m_winLossPanels = null;
 
     [SerializeField]
     private int m_player1Score, m_player2Score = 0;
@@ -15,6 +16,9 @@ public class AH_GameMaster : MonoBehaviour
     GameObject m_PlayAgainButton = null;
     [SerializeField]
     GameObject m_VictoryParticles = null;
+
+    private bool m_gameIsWon = false;
+
     public void GivePointToPlayer(bool isRightPlayer, Collider2D collision)
     {
         if (isRightPlayer)
@@ -37,11 +41,12 @@ public class AH_GameMaster : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.5f);
         scoringPuck.ResetPuck();
-        if (DetermineWinState())
+        if (DetermineWinState() && !m_gameIsWon)
         {
             //End Game Logic Stop players from playing
             //Time.timeScale = 0;
             m_VictoryParticles.SetActive(true);
+            m_gameIsWon = true;
             StartCoroutine(VictoryCoroutine());
   
         }
@@ -66,14 +71,14 @@ public class AH_GameMaster : MonoBehaviour
         bool player2Win = m_player2Score >= m_scoreToWin;
         if (player1Win)
         {
-            m_scores[0].text = "LOSE";
-            m_scores[1].text = "WIN";
+            m_winLossPanels[0].text = "LOSE!!";
+            m_winLossPanels[1].text = "WIN!!";
             return true;
         }
         else if (player2Win)
         {
-            m_scores[0].text = "WIN";
-            m_scores[1].text = "LOSE";
+            m_winLossPanels[0].text = "WIN!!";
+            m_winLossPanels[1].text = "LOSE!!";
             return true;
         }
         else return false;        
