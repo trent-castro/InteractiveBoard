@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class AH_SetUpMenu : MonoBehaviour
 {
-	static public ETheme defaultTheme = ETheme.NEUMONT;
+	static public ETheme defaultTheme = ETheme.BASIC;
 	[SerializeField] Sprite[] m_themeBackgrounds;
 	[SerializeField] Image m_background;
 	ETheme m_theme;

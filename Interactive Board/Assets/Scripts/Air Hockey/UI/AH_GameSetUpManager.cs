@@ -20,7 +20,7 @@ public class AH_GameSetUpManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		ETheme theme = ETheme.NEUMONT;
+		ETheme theme = ETheme.BASIC;
 		int player1 = 0;
 		int player2 = 0;
 		if (PlayerPrefs.HasKey("AirHockeyTheme"))
@@ -40,7 +40,7 @@ public class AH_GameSetUpManager : MonoBehaviour
 		if (m_foreground) m_foreground.sprite = m_foregrounds[(int)theme];
 		switch (theme)
 		{
-			case ETheme.NEUMONT:
+			case ETheme.BASIC:
 				m_player1.sprite = m_paddles[player1];
 				m_player2.sprite = m_paddles[player2];
 				break;
