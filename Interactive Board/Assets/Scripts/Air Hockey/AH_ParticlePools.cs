@@ -16,8 +16,14 @@ public class AH_ParticlePools : MonoBehaviour
     [System.Serializable]
     struct ParticlePool
     {
-        public ObjectPool ObjectPool;
-        public string AssociatedTag;
+        public ObjectPool objectPool;
+        public string associatedTag;
+
+        public ParticlePool(ObjectPool objectpool, string associatedtag)
+        {
+            objectPool = objectpool;
+            associatedTag = associatedtag;
+        }
     }
 
     [Header("Debug Mode")]
@@ -57,9 +63,9 @@ public class AH_ParticlePools : MonoBehaviour
         GameObject particlePool = null;
         for (int x = 0; x < ParticlePools.Length; ++x)
         {
-            if(ParticlePools[x].AssociatedTag == tag)
+            if(ParticlePools[x].associatedTag == tag)
             {
-                particlePool = ParticlePools[x].ObjectPool.GetNextPooledObject();
+                particlePool = ParticlePools[x].objectPool.GetNextPooledObject();
                 particlePool.SetActive(true);
                 return particlePool;
             }

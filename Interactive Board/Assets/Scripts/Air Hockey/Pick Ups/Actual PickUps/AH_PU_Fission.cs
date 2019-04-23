@@ -7,7 +7,7 @@ public class AH_PU_Fission : AH_PickUp
     [Header("Configuration")]
     [SerializeField]
     [Tooltip("A reference to the puck prefab.")]
-    AH_Puck PuckPrefab;
+    AH_Puck PuckPrefab = null;
 
     public override void OnEffectBegin()
     {
