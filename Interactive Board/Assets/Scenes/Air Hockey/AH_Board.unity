@@ -5943,8 +5943,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_scores:
-  - {fileID: 1563280608}
-  - {fileID: 258911387}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_winLossPanels: []
   m_player1Score: 0
   m_player2Score: 0
   m_scoreToWin: 8
@@ -14458,7 +14459,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 114501849}
-        m_MethodName: set_isStatic
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
