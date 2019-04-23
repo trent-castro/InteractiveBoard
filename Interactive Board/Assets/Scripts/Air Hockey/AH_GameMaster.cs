@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AH_GameMaster : MonoBehaviour
 {
-    [SerializeField] TextMeshPro[] m_scores = null;
+    [SerializeField] TextMeshProUGUI[] m_scores = null;
     [SerializeField] TextMeshProUGUI[] m_winLossPanels = null;
 
     [SerializeField]
