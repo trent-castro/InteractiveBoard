@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AH_GameMaster : MonoBehaviour
 {
-    [SerializeField] TextMeshPro[] m_scores = null;
+    [SerializeField] TextMeshProUGUI[] m_scores = null;
     [SerializeField] TextMeshProUGUI[] m_winLossPanels = null;
 
     [SerializeField]
@@ -14,6 +14,8 @@ public class AH_GameMaster : MonoBehaviour
     private int m_scoreToWin = 8;
     [SerializeField]
     GameObject m_PlayAgainButton = null;
+    [SerializeField]
+    GameObject m_WinLossTexts = null;
     [SerializeField]
     GameObject m_VictoryParticles = null;
 
@@ -46,6 +48,7 @@ public class AH_GameMaster : MonoBehaviour
             //End Game Logic Stop players from playing
             //Time.timeScale = 0;
             m_VictoryParticles.SetActive(true);
+            m_WinLossTexts.SetActive(true);
             m_gameIsWon = true;
             StartCoroutine(VictoryCoroutine());
   
