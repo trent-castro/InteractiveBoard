@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-	[SerializeField] public string _name = null;
 	[SerializeField] private string currentSubMenu = null;
 	[SerializeField] private string launchMenu = null;
 	[SerializeField] public List<GameObject> SubMenus = null;
