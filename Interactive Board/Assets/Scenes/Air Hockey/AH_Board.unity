@@ -1299,7 +1299,7 @@ MonoBehaviour:
   m_paddles:
   - {fileID: 21300000, guid: 044d690b299dadd469ca78acda92edd9, type: 3}
   - {fileID: 21300000, guid: 93b31edf94adcc643b2b6d82e3138299, type: 3}
-  - {fileID: 21300000, guid: 044d690b299dadd469ca78acda92edd9, type: 3}
+  - {fileID: 21300000, guid: 264c5536a717cef4e8ad6828025dce48, type: 3}
   - {fileID: 21300000, guid: 9e790fdca2158494e9f81184fcc82d57, type: 3}
   - {fileID: 21300000, guid: c525c17135503f442ae3ba1bbf27ef84, type: 3}
   - {fileID: 21300000, guid: 92bc74bb126df39418d14307d751ed13, type: 3}
@@ -2287,7 +2287,7 @@ GameObject:
   - component: {fileID: 720350936}
   - component: {fileID: 720350937}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: Center Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
