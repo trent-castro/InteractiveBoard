@@ -4,10 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.AirHockey.UI;
 
-/// <summary>
-/// Loads the correct assets based on player prefs
-/// </summary>
-public class AH_AssetLoader : MonoBehaviour
+
+public class AH_GameSetUpManager : MonoBehaviour
 {
     [Header("Debug Mode")]
     [SerializeField]

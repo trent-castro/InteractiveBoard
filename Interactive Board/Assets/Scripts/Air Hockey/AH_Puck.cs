@@ -87,7 +87,7 @@ public class AH_Puck : MonoBehaviour
     {
         DetermineRandomSoundToPlay();
         m_audioSource.Play();
-        Debug.Log("Collided with [" + collision.transform.name + "] " +
+        DebugLog("Collided with [" + collision.transform.name + "] " +
             "which is a " + collision.gameObject.tag);
 
         GameObject particleSystemObject = AH_ParticlePools.instance.GetTaggedParticleSystem(collision.gameObject.tag);
