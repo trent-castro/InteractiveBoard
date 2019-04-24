@@ -13,8 +13,6 @@ public class AH_Puck : MonoBehaviour
     [Tooltip("Clamps the maximum speed for the puck.")]
     private float m_maxSpeed = 30;
     [SerializeField]
-    GameObject[] m_hitParticle = null;
-    [SerializeField]
     AudioClip[] audioClips = null;
 
     // ASK SEN ABOUT OBJECT POOLING RIGHT HERE
@@ -36,21 +34,9 @@ public class AH_Puck : MonoBehaviour
             Debug.Log(debugLog);
         }
     }
-    
-    /// <summary>
-         /// Checks the configuration to see if it was set up correctly.
-         /// </summary>
-    private void DebugConfiguration()
-    {
-        if (m_hitParticle == null)
-        {
-            DebugLog("AH_Puck Hit particle array is empty; expected values.");
-        }
-    }
 
-        private void Start()
+    private void Start()
     {
-        DebugConfiguration();
         GetSiblingComponents();
         
         Physics2D.IgnoreLayerCollision(8, 9, true);
@@ -94,8 +80,8 @@ public class AH_Puck : MonoBehaviour
         ParticleSystem particleSystem = particleSystemObject?.GetComponent<ParticleSystem>();
         if (particleSystem)
         {
-            //print("Particle found");
-            //print(particleSystem);
+            DebugLog("Particle found");
+            DebugLog(particleSystem.ToString());
             particleSystem.transform.position = collision.contacts[0].point;
             particleSystem.Play();
         }

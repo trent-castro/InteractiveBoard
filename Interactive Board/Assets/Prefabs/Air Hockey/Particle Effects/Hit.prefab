@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1780118268067406198}
   - component: {fileID: 1780118268067406199}
   m_Layer: 0
-  m_Name: AH_HitParticle
+  m_Name: Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 3.25
       minScalar: 1
       maxCurve:
         serializedVersion: 2

@@ -171,7 +171,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 16d76df2c763bdd4b87b902f1f9f2529, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 21076032823171410, guid: 16d76df2c763bdd4b87b902f1f9f2529,
     type: 2}
   m_fontSharedMaterials: []
@@ -589,6 +589,12 @@ Transform:
   m_Father: {fileID: 325173529}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!1 &231473902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1970551657543401803, guid: 0f6fb188b989555418c0cf3263f0b931,
+    type: 3}
+  m_PrefabInstance: {fileID: 488024088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &232210027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,8 +1253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_scores:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1563280608}
+  - {fileID: 258911387}
   m_winLossPanels:
   - {fileID: 488024091}
   - {fileID: 488024090}
@@ -1256,6 +1262,7 @@ MonoBehaviour:
   m_player2Score: 0
   m_scoreToWin: 5
   m_PlayAgainButton: {fileID: 1736573488}
+  m_WinLossTexts: {fileID: 231473902}
   m_VictoryParticles: {fileID: 1348951241}
 --- !u!114 &410517781
 MonoBehaviour:
@@ -1300,7 +1307,7 @@ MonoBehaviour:
   m_paddles:
   - {fileID: 21300000, guid: 044d690b299dadd469ca78acda92edd9, type: 3}
   - {fileID: 21300000, guid: 93b31edf94adcc643b2b6d82e3138299, type: 3}
-  - {fileID: 21300000, guid: 044d690b299dadd469ca78acda92edd9, type: 3}
+  - {fileID: 21300000, guid: 264c5536a717cef4e8ad6828025dce48, type: 3}
   - {fileID: 21300000, guid: 9e790fdca2158494e9f81184fcc82d57, type: 3}
   - {fileID: 21300000, guid: c525c17135503f442ae3ba1bbf27ef84, type: 3}
   - {fileID: 21300000, guid: 92bc74bb126df39418d14307d751ed13, type: 3}
@@ -1718,7 +1725,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Play Again
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 16d76df2c763bdd4b87b902f1f9f2529, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 21076032823171410, guid: 16d76df2c763bdd4b87b902f1f9f2529,
     type: 2}
   m_fontSharedMaterials: []
@@ -1832,7 +1839,7 @@ GameObject:
   - component: {fileID: 518677607}
   - component: {fileID: 518677606}
   m_Layer: 8
-  m_Name: PaddleBlocker
+  m_Name: Paddle Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2555,6 +2562,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_pickUpPools.Array.data[6].PoolWeight
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808871324004018572, guid: 215a4cdc3eaf05647914b6ffbf7cafc1,
+        type: 3}
+      propertyPath: m_pickUpPools.Array.data[6].poolWeight
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808871324004018572, guid: 215a4cdc3eaf05647914b6ffbf7cafc1,
+        type: 3}
+      propertyPath: m_pickUpPools.Array.data[2].poolWeight
+      value: 700
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 215a4cdc3eaf05647914b6ffbf7cafc1, type: 3}

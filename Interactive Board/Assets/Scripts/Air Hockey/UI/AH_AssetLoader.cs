@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Assets.Scripts.AirHockey.UI;
 
 
-public class AH_GameSetUpManager : MonoBehaviour
+public class AH_AssetLoader : MonoBehaviour
 {
     [Header("Debug Mode")]
     [SerializeField]
