@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 1145323369}
   - component: {fileID: 1145323370}
   m_Layer: 9
-  m_Name: GameObject
+  m_Name: Sprite Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 151959694}
   - component: {fileID: 1251948561422755742}
   m_Layer: 9
-  m_Name: AH_Puck
+  m_Name: Puck
   m_TagString: Puck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,15 +264,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2bccf004015774a80a690111a5821c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_debugMode: 0
   m_maxSpeed: 30
   m_hitParticle:
-  - {fileID: 0}
+  - {fileID: 6646229345303283166, guid: ef196dc2b3845974ca328438b1ac88dc, type: 3}
+  - {fileID: 3747383342048667951, guid: 854b9632bbf86014287fcf33ae5ad6af, type: 3}
+  - {fileID: 1780118268067406192, guid: 63d8315b9d28aea4f8c8b42e581318d5, type: 3}
   audioClips:
   - {fileID: 8300000, guid: 0a831086d05ab644293b8097a9d0c561, type: 3}
   - {fileID: 8300000, guid: 50a43dafade71f74fb928e657cf2e0a3, type: 3}
   - {fileID: 8300000, guid: 158ec922158eda24d9e49d88f075b045, type: 3}
   delete: 0
-  m_image: {fileID: 1145323370}
 --- !u!58 &2737984711776480551
 CircleCollider2D:
   m_ObjectHideFlags: 0
