@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ArcadeMenu.unity
     guid: 8d18b9656caac314c87b7b1e78d67e89
   - enabled: 1
-    path: Assets/Scenes/Air Hockey/AH_Board.unity
-    guid: 9e2a33c0c6e7fb3499c1cc2c1e38df16
+    path: Assets/Scenes/Air Hockey/Air Hockey.unity
+    guid: 768f1db8f2aeeb9428f1609b31cb0683
   m_configObjects: {}

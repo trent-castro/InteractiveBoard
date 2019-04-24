@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 7196773263725300796}
   - component: {fileID: 7196773263725300797}
   m_Layer: 0
-  m_Name: ParticlePools
+  m_Name: Particle Pools
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,12 +96,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_debugMode: 0
   ParticlePools:
-  - ObjectPool: {fileID: 7196773264886767670}
-    AssociatedTag: Wall
-  - ObjectPool: {fileID: 7196773264003091604}
-    AssociatedTag: Paddle
-  - ObjectPool: {fileID: 7196773263416771381}
-    AssociatedTag: Puck
+  - objectPool: {fileID: 7196773264886767670}
+    associatedTag: Wall
+  - objectPool: {fileID: 7196773264003091604}
+    associatedTag: Paddle
+  - objectPool: {fileID: 7196773263416771381}
+    associatedTag: Puck
 --- !u!1 &7196773264003091602
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,9 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.AirHockey.UI;
 
-// marked for fixing
-public class AH_GameSetUpManager : MonoBehaviour
+
+public class AH_AssetLoader : MonoBehaviour
 {
+    [Header("Debug Mode")]
+    [SerializeField]
+    [Tooltip("Enables Debug Mode")]
+    private bool m_debugMode = false;
+
     [Header("External References")]
 	[SerializeField] SpriteRenderer m_background    = null;
 	[SerializeField] SpriteRenderer m_foreground    = null;
@@ -20,6 +25,18 @@ public class AH_GameSetUpManager : MonoBehaviour
 	[SerializeField] Sprite[] m_paddles     = null;
 	[SerializeField] Sprite[] m_pucks       = null;
 
+    /// <summary>
+    /// [DEBUG MODE] Records a message if debug mode is enabled.
+    /// </summary>
+    /// <param name="debugLog">The message to record</param>
+    private void DebugLog(string debugLog)
+    {
+        if (m_debugMode)
+        {
+            Debug.Log(debugLog);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +49,7 @@ public class AH_GameSetUpManager : MonoBehaviour
 			player1 = PlayerPrefs.GetInt("AirHockeyPlayer1Puck");
 			player2 = PlayerPrefs.GetInt("AirHockeyPlayer2Puck");
 		}
-		Debug.Log("Theme: " + theme + " Player 1: " + player1 + " Player2: " + player2);
+		DebugLog("Theme: " + theme + " Player 1: " + player1 + " Player2: " + player2);
 		SetUpTheme(theme, player1, player2);
 	}
 
