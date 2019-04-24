@@ -18,8 +18,7 @@ public class AH_GrowTextEffect : MonoBehaviour
         m_currentTime += Time.deltaTime;
         if (!(m_currentTime > m_timeToReachDesiredScale))
         {
-            float currentscale = m_currentTime * m_desiredScale;
-            gameObject.transform.localScale = (Vector3.one * currentscale);
+            gameObject.transform.localScale = (Vector3.one * Mathf.LerpUnclamped(0, m_desiredScale, Interpolation.ElasticInOut(m_currentTime/m_timeToReachDesiredScale)));
         }
     }
 }
