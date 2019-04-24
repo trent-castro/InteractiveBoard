@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 258911388}
   - component: {fileID: 258911387}
   m_Layer: 5
-  m_Name: Player 2 Score
+  m_Name: Player Two Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1252,18 +1252,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60302eef44418804ca928f09c6615695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_scores:
-  - {fileID: 1563280608}
-  - {fileID: 258911387}
-  m_winLossPanels:
-  - {fileID: 488024091}
-  - {fileID: 488024090}
-  m_player1Score: 0
-  m_player2Score: 0
+  m_debugMode: 0
+  scoreTextReferences:
+    leftText: {fileID: 1563280608}
+    rightText: {fileID: 258911387}
+  winLossResultTextReferences:
+    leftText: {fileID: 488024091}
+    rightText: {fileID: 488024090}
+  winLossResultTextParentReference: {fileID: 231473902}
+  gameOverMenu: {fileID: 1736573488}
+  victoryParticles: {fileID: 1348951241}
   m_scoreToWin: 5
-  m_PlayAgainButton: {fileID: 1736573488}
-  m_WinLossTexts: {fileID: 231473902}
-  m_VictoryParticles: {fileID: 1348951241}
+  m_checkGameStateDelay: 0.5
+  m_endGameDelay: 0.5
+  m_winText: WIN!!
+  m_loseText: LOSE!!
+  m_PlayerOneScore: 0
+  m_PlayerTwoScore: 0
 --- !u!114 &410517781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1627,12 +1632,12 @@ PrefabInstance:
     - target: {fileID: 1970551657357621229, guid: 0f6fb188b989555418c0cf3263f0b931,
         type: 3}
       propertyPath: m_Name
-      value: Left
+      value: WinLoss Left Text
       objectReference: {fileID: 0}
     - target: {fileID: 1970551658152600757, guid: 0f6fb188b989555418c0cf3263f0b931,
         type: 3}
       propertyPath: m_Name
-      value: Right
+      value: WinLoss Right Text
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f6fb188b989555418c0cf3263f0b931, type: 3}
@@ -4684,7 +4689,7 @@ GameObject:
   - component: {fileID: 1563280609}
   - component: {fileID: 1563280608}
   m_Layer: 5
-  m_Name: Player 1 Score
+  m_Name: Player One Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
