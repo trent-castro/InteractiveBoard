@@ -33,6 +33,15 @@ public class AH_GameMaster : MonoBehaviour
         StartCoroutine(PuckResetCoroutine(scoringPuck));
     }
 
+    IEnumerator ScoreAnimationCoroutine(bool isRightPlayer, Collider2D collision)
+    {
+        //determine who scored
+        //start score animation
+        //wait for animation to finish
+        yield return new WaitForSecondsRealtime(1.0f);
+        //change player score
+    }
+
     IEnumerator PuckResetCoroutine(AH_Puck scoringPuck)
     {
         yield return new WaitForSecondsRealtime(0.5f);

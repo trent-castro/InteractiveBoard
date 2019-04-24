@@ -83,8 +83,7 @@ MonoBehaviour:
   m_text: LOSE!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3053014fa20c4af46b6e1ba274717d4d, type: 2}
-  m_sharedMaterial: {fileID: 21152483515000552, guid: 3053014fa20c4af46b6e1ba274717d4d,
-    type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 7096432481079d049a67c0a4206093f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -186,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1970551657543401802}
   m_Layer: 5
-  m_Name: WinLossText
+  m_Name: AH_WinLossText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,8 +295,7 @@ MonoBehaviour:
   m_text: WIN!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3053014fa20c4af46b6e1ba274717d4d, type: 2}
-  m_sharedMaterial: {fileID: 21152483515000552, guid: 3053014fa20c4af46b6e1ba274717d4d,
-    type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 7096432481079d049a67c0a4206093f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
