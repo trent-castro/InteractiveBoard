@@ -8,6 +8,15 @@ using UnityEngine;
 /// </summary>
 public class AH_GameMaster : MonoBehaviour
 {
+    public static AH_GameMaster Instance = null;
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this.gameObject);
+    }
+
     [Header("Debug Mode")]
     [SerializeField]
     [Tooltip("Enables Debug Mode")]
@@ -86,22 +95,10 @@ public class AH_GameMaster : MonoBehaviour
     /// <param name="collision">The reference to the puck that had entered into the goal</param>
     public void GivePointToPlayer(bool isRightGoal, Collider2D collision)
     {
-        // Start score update
-        canvasManager.OnPointEarned(isRightGoal, ref m_PlayerOneScore, ref m_PlayerTwoScore);
-
         // Begin the check for ending the game
         AH_Puck scoringPuck = collision.gameObject.GetComponent<AH_Puck>();
         scoringPuck.GetComponentInChildren<TrailRenderer>().enabled = false;
-        StartCoroutine(CheckGameState(scoringPuck));
-    }
-
-    IEnumerator ScoreAnimationCoroutine(bool isRightPlayer, Collider2D collision)
-    {
-        //determine who scored
-        //start score animation
-        //wait for animation to finish
-        yield return new WaitForSecondsRealtime(1.0f);
-        //change player score
+        StartCoroutine(CheckGameState(scoringPuck, isRightGoal));
     }
 
     /// <summary>
@@ -109,8 +106,11 @@ public class AH_GameMaster : MonoBehaviour
     /// </summary>
     /// <param name="scoringPuck">Reference to the puck that scored the points</param>
     /// <returns>Time taken before action of the coroutine</returns>
-    IEnumerator CheckGameState(AH_Puck scoringPuck)
+    IEnumerator CheckGameState(AH_Puck scoringPuck, bool isRightGoal)
     {
+        // Start score update
+        canvasManager.OnPointEarned(isRightGoal);
+
         // Wait an appropriate amount of time before proceeding
         yield return new WaitForSecondsRealtime(m_checkGameStateDelay);
 
@@ -133,7 +133,7 @@ public class AH_GameMaster : MonoBehaviour
         }
 
         // Stop this coroutine from constantly occuring
-        StopCoroutine(CheckGameState(scoringPuck));
+        StopCoroutine(CheckGameState(scoringPuck, isRightGoal));
     }
 
     /// <summary>
@@ -185,5 +185,36 @@ public class AH_GameMaster : MonoBehaviour
 	public void SetTimeScale(float timescale)
     {
         Time.timeScale = timescale;
+    }
+
+    /// <summary>
+    /// Gets the score of Left Player
+    /// </summary>
+    /// <returns>Player one's score</returns>
+    public int GetPlayerOneScore()
+    {
+        return m_PlayerOneScore;
+    }
+
+    /// <summary>
+    /// Gets the score of the Right Player
+    /// </summary>
+    /// <returns>Player two's score</returns>
+    public int GetPlayerTwoScore()
+    {
+        return m_PlayerTwoScore;
+    }
+
+    /// <summary>
+    /// Incraments the repective players score by 1
+    /// </summary>
+    /// <param name="isRightPlayer"></param>
+    public void IncreaseScore(bool isRightPlayer)
+    {
+        if (isRightPlayer)
+            m_PlayerOneScore++;
+        else
+            m_PlayerTwoScore++;
+        DetermineWinState();
     }
 }

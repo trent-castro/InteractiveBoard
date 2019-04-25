@@ -52,7 +52,18 @@ public class AH_CanvasManager : MonoBehaviour
     /// <summary>
     /// Starts the Animation for Point Incrase on respective side
     /// </summary>
-    public void OnPointEarned(bool scoredGoalIsRight, ref int m_PlayerOneScore, ref int m_PlayerTwoScore)
+    public void OnPointEarned(bool scoredGoalIsRight)
+    {
+        AH_GameMaster.Instance.IncreaseScore(scoredGoalIsRight);
+        StartCoroutine(ScoreAnimationCoroutine(scoredGoalIsRight));
+    }
+
+    /// <summary>
+    /// Coroutine that waits for the Score animation to complete before updating the Score UI
+    /// </summary>
+    /// <param name="scoredGoalIsRight">wWhich goal is scored on</param>
+    /// <returns></returns>
+    IEnumerator ScoreAnimationCoroutine(bool scoredGoalIsRight)
     {
         //Locate Proper spawning point
         Vector3 spawnPosition = ((scoredGoalIsRight) ? scoreTextReferences.leftText.transform : scoreTextReferences.rightText.transform).position;
@@ -61,18 +72,17 @@ public class AH_CanvasManager : MonoBehaviour
 
         // Activate score animation
         ActivateAnimation(spawnPosition);
+        //Wait for the duration of Animation
+        yield return new WaitForSecondsRealtime(0.75f);
 
-        // Iterate and update score texts
-        if (scoredGoalIsRight)
-        {
-            ++m_PlayerOneScore;
-            scoreTextReferences.leftText.text = "" + m_PlayerOneScore;
-        }
-        else
-        {
-            ++m_PlayerTwoScore;
-            scoreTextReferences.rightText.text = "" + m_PlayerTwoScore;
-        }
+        UpdateScore(scoredGoalIsRight);
+        StopCoroutine("ScoreAnimationCoroutine");
+    }
+
+    private void UpdateScore(bool scoredGoalIsRight)
+    {
+        scoreTextReferences.leftText.text = "" + AH_GameMaster.Instance.GetPlayerOneScore();
+        scoreTextReferences.rightText.text = "" + AH_GameMaster.Instance.GetPlayerTwoScore();
     }
 
     /// <summary>
