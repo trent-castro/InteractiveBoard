@@ -15,7 +15,7 @@ public abstract class AH_PickUp : MonoBehaviour
     [SerializeField] [Tooltip("Whether or not a pick up can be removed based on lifespan")]
     private bool m_timeoutEnabled = true;
     [SerializeField] [Tooltip("The duration of the pick up being active on a field")]
-    private float Lifespan = 8.0f;
+    private float m_lifeSpan = 8.0f;
     [SerializeField] [Tooltip("The duration of the pick up's effect")]
     protected float m_powerUpDuration = 3.0f;
 
@@ -82,7 +82,7 @@ public abstract class AH_PickUp : MonoBehaviour
             m_lifespanTimer += Time.deltaTime;
             
             // Check if the pick up life span has expired
-            if (m_lifespanTimer >= Lifespan)
+            if (m_lifespanTimer >= m_lifeSpan)
             {
                 DisablePickUp();
             }
@@ -137,6 +137,14 @@ public abstract class AH_PickUp : MonoBehaviour
             .Contains(m_bitFlagBroadcaster.Broadcast()))
         {
             // Begin the pick up effects
+            GameObject pickUpParticles = AH_ParticlePools.instance.GetTaggedParticleSystem("Pick Up");
+
+            if(pickUpParticles)
+            {
+                pickUpParticles.transform.position = transform.position;
+                pickUpParticles.GetComponent<ParticleSystem>().Play();
+            }
+
             OnEffectBegin();
             afflictedPuck.GetComponent<AH_BitFlagReceiver>()
                 .AddFlag(m_bitFlagBroadcaster.Broadcast());
