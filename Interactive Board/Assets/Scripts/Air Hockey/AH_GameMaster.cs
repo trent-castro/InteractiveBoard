@@ -8,43 +8,18 @@ using UnityEngine;
 /// </summary>
 public class AH_GameMaster : MonoBehaviour
 {
-    /// <summary>
-    /// A struct that keeps references to the left player and the right player's text objects
-    /// </summary>
-    [System.Serializable]
-    struct PlayerText
-    {
-        public TextMeshProUGUI leftText;
-        public TextMeshProUGUI rightText;
-
-        public PlayerText(TextMeshProUGUI lefttext, TextMeshProUGUI righttext)
-        {
-            leftText = lefttext;
-            rightText = righttext;
-        }
-    }
-
     [Header("Debug Mode")]
     [SerializeField]
     [Tooltip("Enables Debug Mode")]
     private bool m_debugMode = false;
 
     [Header("External References")]
-    [Tooltip("References to the in game score text mesh pro objects")]
-    [SerializeField]
-    private PlayerText scoreTextReferences = default;
-    [Tooltip("References to the in game result text mesh pro objects")]
-    [SerializeField]
-    private PlayerText winLossResultTextReferences = default;
-    [Tooltip("The reference to the parent object for the win loss texts")]
-    [SerializeField]
-    private GameObject winLossResultTextParentReference = null;
-    [Tooltip("A reference to the play again menu object")]
-    [SerializeField]
-    private GameObject gameOverMenu = null;
     [Tooltip("A reference to the victory particles that trigger on game end")]
     [SerializeField]
     private GameObject victoryParticles = null;
+    [Tooltip("Referenc to the Canvas Animation Script")]
+    [SerializeField]
+    private AH_CanvasManager canvasManager = null;
 
     [Header("Configuration")]
     [Tooltip("The amount of score a single player must make before the game recognizes a win")]
@@ -62,7 +37,6 @@ public class AH_GameMaster : MonoBehaviour
     [Tooltip("The lose text displayed after losing the game")]
     [SerializeField]
     private string m_loseText = "LOSE!!";
-
 
     [Header("Exposed Editor Values - Do Not Touch")]
     [Tooltip("The scores for the respective player")]
@@ -112,17 +86,8 @@ public class AH_GameMaster : MonoBehaviour
     /// <param name="collision">The reference to the puck that had entered into the goal</param>
     public void GivePointToPlayer(bool isRightGoal, Collider2D collision)
     {
-        // Iterate and update score texts
-        if (isRightGoal)
-        {
-            ++m_PlayerOneScore;
-            scoreTextReferences.leftText.text = "" + m_PlayerOneScore;
-        }
-        else
-        {
-            ++m_PlayerTwoScore;
-            scoreTextReferences.rightText.text = "" + m_PlayerTwoScore;
-        }
+        // Start score update
+        canvasManager.OnPointEarned(isRightGoal, ref m_PlayerOneScore, ref m_PlayerTwoScore);
 
         // Begin the check for ending the game
         AH_Puck scoringPuck = collision.gameObject.GetComponent<AH_Puck>();
@@ -157,9 +122,9 @@ public class AH_GameMaster : MonoBehaviour
         {
             // Activate win effects
             victoryParticles.SetActive(true);
-            winLossResultTextParentReference.SetActive(true);
-            GetComponent<AudioSource>().Play();
-            
+            canvasManager.ActivateWinLossText();
+            m_audioSource.Play();
+
             // Mark effects as triggered
             m_winEffectsTriggered = true;
 
@@ -183,12 +148,8 @@ public class AH_GameMaster : MonoBehaviour
         // Stop the game from being active
         Time.timeScale = 0.0f;
 
-        // Checks if the game over menu exists
-        if (gameOverMenu)
-        {
-            // Activates the menu
-            gameOverMenu.SetActive(true);
-        }
+        // Activate the end game menu
+        canvasManager.ActivateEndGameMenu();
 
         // Stop this coroutine from constantly occuring
         StopCoroutine(EndGame());
@@ -210,12 +171,11 @@ public class AH_GameMaster : MonoBehaviour
             // Assign appropriate player text
             string playerOneText = (playerOneWin) ? m_winText : m_loseText;
             string playerTwoText = (playerTwoWin) ? m_winText : m_loseText;
-            
-            winLossResultTextReferences.leftText.text = playerOneText;
-            winLossResultTextReferences.rightText.text = playerTwoText;
+
+            canvasManager.UpdateWinLossTexts(playerOneText, playerTwoText);
             return true;
         }
-        else return false;        
+        else return false;
     }
 
     /// <summary>
@@ -223,7 +183,7 @@ public class AH_GameMaster : MonoBehaviour
     /// </summary>
     /// <param name="timescale">The new proposed time scale of the scene</param>
 	public void SetTimeScale(float timescale)
-	{
-		Time.timeScale = timescale;
-	}
+    {
+        Time.timeScale = timescale;
+    }
 }

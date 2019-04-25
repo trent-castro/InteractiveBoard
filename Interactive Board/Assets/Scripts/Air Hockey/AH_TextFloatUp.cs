@@ -10,17 +10,17 @@ public class AH_TextFloatUp : MonoBehaviour
 
     private Vector3 intialPos = Vector3.zero;
     private float m_timePassed = 0.0f;
-    private TextMeshProUGUI text;
-    private Color m_intialColor;
+    private TextMeshProUGUI text = null;
+    private Color m_intialColor = default;
 
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         intialPos = gameObject.transform.position;
         text = GetComponent<TextMeshProUGUI>();
         m_intialColor = text.color;
     }
-
+        
     // Update is called once per frame
     void Update()
     {
