@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2012403450732035419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8762957110579376159}
+  - component: {fileID: 1665264753705765958}
+  m_Layer: 0
+  m_Name: Pick Up Particles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8762957110579376159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012403450732035419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7196773263725300796}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1665264753705765958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012403450732035419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422b61f5deaefac438c5f16604a2175c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_debugMode: 0
+  m_gameObjectPrefab: {fileID: 1780118268067406192, guid: 63d8315b9d28aea4f8c8b42e581318d5,
+    type: 3}
+  m_maxPooledObjects: 10
+  m_pooledObjectName: Pick Up Particle
 --- !u!1 &7196773263416771379
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,6 +127,7 @@ Transform:
   - {fileID: 7196773264886767669}
   - {fileID: 7196773264003091603}
   - {fileID: 7196773263416771380}
+  - {fileID: 8762957110579376159}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -102,6 +151,8 @@ MonoBehaviour:
     associatedTag: Paddle
   - objectPool: {fileID: 7196773263416771381}
     associatedTag: Puck
+  - objectPool: {fileID: 1665264753705765958}
+    associatedTag: Pick Up
 --- !u!1 &7196773264003091602
 GameObject:
   m_ObjectHideFlags: 0
