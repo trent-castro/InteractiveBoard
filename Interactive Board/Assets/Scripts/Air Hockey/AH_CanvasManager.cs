@@ -28,15 +28,9 @@ public class AH_CanvasManager : MonoBehaviour
     [Tooltip("References to the in game score text mesh pro objects")]
     [SerializeField]
     private PlayerText scoreTextReferences = default;
-    [Tooltip("A reference to the left score text transform")]
-    [SerializeField]
-    private Transform scoreAnimationAnchorLeft = null;
-    [Tooltip("A reference to the right score text transform")]
-    [SerializeField]
-    private Transform scoreAnimationAnchorRight = null;
     [Tooltip("A reference to the score text animation object pool")]
     [SerializeField]
-    private ObjectPool scoreIncreaseObjectPool;
+    private ObjectPool scoreIncreaseObjectPool = null;
     [Tooltip("A reference to the play again menu object")]
     [SerializeField]
     private GameObject gameOverMenu = null;
@@ -72,7 +66,7 @@ public class AH_CanvasManager : MonoBehaviour
     IEnumerator ScoreAnimationCoroutine(bool scoredGoalIsRight)
     {
         //Locate Proper spawning point
-        Vector3 spawnPosition = ((scoredGoalIsRight) ? scoreAnimationAnchorLeft : scoreAnimationAnchorRight).position;
+        Vector3 spawnPosition = ((scoredGoalIsRight) ? scoreTextReferences.leftText.transform : scoreTextReferences.rightText.transform).position;
         Vector3 spawnOffset = scoredGoalIsRight ? scoreIncreaseSpawnOffsetLeft : scoreIncreaseSpawnOffsetRight;
         spawnPosition += spawnOffset;
 
