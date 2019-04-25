@@ -201,8 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fce3ddc8b99164196eeb11c4159e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSubMenu: title
-  launchMenu: title
+  m_currentSubMenu: title
+  m_launchMenu: title
   SubMenus:
   - {fileID: 18471871}
   - {fileID: 2025330112}
@@ -255,8 +255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fce3ddc8b99164196eeb11c4159e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSubMenu: Main Menu
-  launchMenu: Main Menu
+  m_currentSubMenu: Main Menu
+  m_launchMenu: Main Menu
   SubMenus:
   - {fileID: 563712714}
 --- !u!224 &187099337 stripped
@@ -1964,8 +1964,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fce3ddc8b99164196eeb11c4159e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSubMenu: Main Menu
-  launchMenu: 
+  m_currentSubMenu: Main Menu
+  m_launchMenu: Main Menu
   SubMenus:
   - {fileID: 587154095}
 --- !u!1 &881616429
@@ -4451,12 +4451,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85d606785ba01946b86ab8b3e915e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Menus:
+  m_Menus:
   - {fileID: 874901005}
   - {fileID: 135652402}
   - {fileID: 172299916}
-  currentMenu: Arcade
-  preferredMenu: Arcade
+  m_currentMenu: Arcade
+  m_launchMenu: Arcade
 --- !u!114 &2079528485
 MonoBehaviour:
   m_ObjectHideFlags: 0
