@@ -2321,12 +2321,22 @@ PrefabInstance:
     - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
         type: 3}
       propertyPath: scoreIncreaseSpawnOffsetLeft.x
-      value: 75
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
         type: 3}
       propertyPath: scoreIncreaseSpawnOffsetRight.x
-      value: -90
+      value: -150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
+        type: 3}
+      propertyPath: scoreIncreaseSpawnOffsetLeft.y
+      value: -140
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
+        type: 3}
+      propertyPath: scoreIncreaseSpawnOffsetRight.y
+      value: -140
       objectReference: {fileID: 0}
     - target: {fileID: 2102074041176276457, guid: d52d3b0298ecc0c499689a1ab2dc7722,
         type: 3}
@@ -2801,12 +2811,12 @@ PrefabInstance:
     - target: {fileID: 6808871324004018572, guid: 215a4cdc3eaf05647914b6ffbf7cafc1,
         type: 3}
       propertyPath: m_pickUpPools.Array.data[6].poolWeight
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6808871324004018572, guid: 215a4cdc3eaf05647914b6ffbf7cafc1,
         type: 3}
       propertyPath: m_pickUpPools.Array.data[2].poolWeight
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 215a4cdc3eaf05647914b6ffbf7cafc1, type: 3}
