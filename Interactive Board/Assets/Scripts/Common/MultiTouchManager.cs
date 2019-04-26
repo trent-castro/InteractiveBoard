@@ -33,6 +33,11 @@ public class MultiTouchManager : MonoBehaviour
         HandleNewTouches += handler;
     }
 
+    public void ListenForCurrentTouches(HandleTouchInfo handler)
+    {
+        HandleCurrentTouches += handler;
+    }
+
     public void ListenForNewTouchesOnCollider(Collider2D collider, HandleTouchInfo handler)
     {
         ListenForNewTouches(touch =>
@@ -46,13 +51,13 @@ public class MultiTouchManager : MonoBehaviour
 
     public void ListenForCurrentTouchesOnCollider(Collider2D collider, HandleTouchInfo handler)
     {
-        HandleCurrentTouches += touch =>
+        ListenForCurrentTouches(touch =>
         {
             if (collider.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Position)))
             {
                 handler(touch);
             }
-        };
+        });
     }
 
     public void ListenForMultiTapsOnCollider(Collider2D collider, int tapCount, float maxTime, HandleTouchInfo handler)
