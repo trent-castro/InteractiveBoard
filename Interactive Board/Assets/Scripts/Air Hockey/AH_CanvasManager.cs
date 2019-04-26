@@ -61,7 +61,7 @@ public class AH_CanvasManager : MonoBehaviour
     /// Coroutine that waits for the Score animation to complete before updating the Score UI
     /// </summary>
     /// <param name="scoredGoalIsRight">wWhich goal is scored on</param>
-    /// <returns></returns>
+    /// <returns>The delay between the animation playing and the scores being updated</returns>
     IEnumerator ScoreAnimationCoroutine(bool scoredGoalIsRight)
     {
         //Locate Proper spawning point
@@ -71,14 +71,21 @@ public class AH_CanvasManager : MonoBehaviour
 
         // Activate score animation
         ActivateAnimation(spawnPosition);
+
         //Wait for the duration of Animation
         yield return new WaitForSecondsRealtime(0.75f);
 
-        UpdateScore(scoredGoalIsRight);
+        // Update score
+        UpdateScore();
+
+        // Stop coroutine
         StopCoroutine("ScoreAnimationCoroutine");
     }
 
-    private void UpdateScore(bool scoredGoalIsRight)
+    /// <summary>
+    /// Updates the scores
+    /// </summary>
+    private void UpdateScore()
     {
         scoreTextReferences.leftText.text = "" + AH_GameMaster.instance.GetPlayerOneScore();
         scoreTextReferences.rightText.text = "" + AH_GameMaster.instance.GetPlayerTwoScore();
@@ -87,13 +94,13 @@ public class AH_CanvasManager : MonoBehaviour
     /// <summary>
     /// Activates the Animation
     /// </summary>
-    /// <param name="spawnPosition"></param>
+    /// <param name="spawnPosition">The location at which to spawn the animation at</param>
     private void ActivateAnimation(Vector3 spawnPosition)
     {
-        //fix locaion of animation
+        // Get a reference to the next object to use as the animation
         GameObject scoreAnimation = scoreIncreaseObjectPool.GetNextPooledObject();
 
-        //activate animaion
+        // Activate the animation
         scoreAnimation.transform.position = spawnPosition;
         scoreAnimation.SetActive(true);
     }
