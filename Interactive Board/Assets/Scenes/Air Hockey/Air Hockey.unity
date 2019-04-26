@@ -2288,6 +2288,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
+        type: 3}
+      propertyPath: scoreTextReferences.leftText
+      value: 
+      objectReference: {fileID: 1563280608}
+    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
+        type: 3}
+      propertyPath: scoreTextReferences.rightText
+      value: 
+      objectReference: {fileID: 258911387}
+    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
+        type: 3}
+      propertyPath: gameOverMenu
+      value: 
+      objectReference: {fileID: 1736573488}
+    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
+        type: 3}
+      propertyPath: winLossResultTextReferences.leftText
+      value: 
+      objectReference: {fileID: 488024091}
+    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
+        type: 3}
+      propertyPath: winLossResultTextReferences.rightText
+      value: 
+      objectReference: {fileID: 488024090}
+    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
+        type: 3}
+      propertyPath: winLossResultTextParentReference
+      value: 
+      objectReference: {fileID: 231473902}
+    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
+        type: 3}
+      propertyPath: scoreIncreaseSpawnOffsetLeft.x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
+        type: 3}
+      propertyPath: scoreIncreaseSpawnOffsetRight.x
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 2102074041176276457, guid: d52d3b0298ecc0c499689a1ab2dc7722,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2407,46 +2447,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
-        type: 3}
-      propertyPath: scoreTextReferences.leftText
-      value: 
-      objectReference: {fileID: 1563280608}
-    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
-        type: 3}
-      propertyPath: scoreTextReferences.rightText
-      value: 
-      objectReference: {fileID: 258911387}
-    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
-        type: 3}
-      propertyPath: gameOverMenu
-      value: 
-      objectReference: {fileID: 1736573488}
-    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
-        type: 3}
-      propertyPath: winLossResultTextReferences.leftText
-      value: 
-      objectReference: {fileID: 488024091}
-    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
-        type: 3}
-      propertyPath: winLossResultTextReferences.rightText
-      value: 
-      objectReference: {fileID: 488024090}
-    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
-        type: 3}
-      propertyPath: winLossResultTextParentReference
-      value: 
-      objectReference: {fileID: 231473902}
-    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
-        type: 3}
-      propertyPath: scoreIncreaseSpawnOffsetLeft.x
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
-        type: 3}
-      propertyPath: scoreIncreaseSpawnOffsetRight.x
-      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 2102074041785530001, guid: d52d3b0298ecc0c499689a1ab2dc7722,
         type: 3}
@@ -2801,12 +2801,12 @@ PrefabInstance:
     - target: {fileID: 6808871324004018572, guid: 215a4cdc3eaf05647914b6ffbf7cafc1,
         type: 3}
       propertyPath: m_pickUpPools.Array.data[6].poolWeight
-      value: 500
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6808871324004018572, guid: 215a4cdc3eaf05647914b6ffbf7cafc1,
         type: 3}
       propertyPath: m_pickUpPools.Array.data[2].poolWeight
-      value: 700
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 215a4cdc3eaf05647914b6ffbf7cafc1, type: 3}
@@ -6118,36 +6118,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puck
       objectReference: {fileID: 0}
-    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: audioClips.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: m_hitParticle.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: audioClips.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 136753f7c7c87c548b16b5235de90faa, type: 3}
-    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: m_image
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: audioClips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 364a7e6812ecad94eabae3f59f28c57d, type: 3}
-    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: audioClips.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 136753f7c7c87c548b16b5235de90faa, type: 3}
     - target: {fileID: 2737984711776480545, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6203,6 +6173,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: audioClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: m_hitParticle.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: audioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 136753f7c7c87c548b16b5235de90faa, type: 3}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: m_image
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 364a7e6812ecad94eabae3f59f28c57d, type: 3}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: audioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 136753f7c7c87c548b16b5235de90faa, type: 3}
     - target: {fileID: 767849404, guid: 44c7f9f9516e84f449b2c2de68c7ebb8, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.1
