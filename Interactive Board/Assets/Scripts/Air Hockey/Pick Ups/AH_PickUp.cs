@@ -12,11 +12,14 @@ public abstract class AH_PickUp : MonoBehaviour
     private bool m_debugMode = false;
 
     [Header("Basic Configuration")]
-    [SerializeField] [Tooltip("Whether or not a pick up can be removed based on lifespan")]
+    [Tooltip("Whether or not a pick up can be removed based on lifespan")]
+    [SerializeField]
     private bool m_timeoutEnabled = true;
-    [SerializeField] [Tooltip("The duration of the pick up being active on a field")]
+    [Tooltip("The duration of the pick up being active on a field")]
+    [SerializeField]
     private float m_lifeSpan = 8.0f;
-    [SerializeField] [Tooltip("The duration of the pick up's effect")]
+    [Tooltip("The duration of the pick up's effect")]
+    [SerializeField]
     protected float m_powerUpDuration = 3.0f;
 
     // External References
@@ -95,6 +98,7 @@ public abstract class AH_PickUp : MonoBehaviour
             // Check if the effect has expired
             if(m_effectTimer >= m_powerUpDuration)
             {
+                // If the afflicted puck existsm start the end 
                 if (afflictedPuck)
                 {
                     if (afflictedPuck.GetComponent<AH_BitFlagReceiver>()
@@ -110,6 +114,10 @@ public abstract class AH_PickUp : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Triggers when a pick up is spawned
+    /// </summary>
+    /// <param name="collision"></param>
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Puck"))
