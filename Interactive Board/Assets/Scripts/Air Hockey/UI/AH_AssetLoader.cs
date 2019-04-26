@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.AirHockey.UI;
 
-
+/// <summary>
+/// Assists with loading assets at the beginning of gameplay
+/// </summary>
 public class AH_AssetLoader : MonoBehaviour
 {
     [Header("Debug Mode")]
