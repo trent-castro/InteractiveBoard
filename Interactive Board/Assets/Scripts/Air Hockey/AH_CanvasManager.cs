@@ -48,7 +48,6 @@ public class AH_CanvasManager : MonoBehaviour
     [SerializeField]
     private Vector3 scoreIncreaseSpawnOffsetRight = Vector3.zero;
 
-
     /// <summary>
     /// Starts the Animation for Point Incrase on respective side
     /// </summary>
