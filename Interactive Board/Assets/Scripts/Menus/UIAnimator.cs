@@ -1,24 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(EventTrigger))]
 public class UIAnimator : MonoBehaviour
 {
-	[SerializeField] private float m_timer = 0;
-	private float m_time = 0;
-	[SerializeField] Vector3 baseScale = Vector3.zero;
 	[SerializeField] Vector3 hoverScale = Vector3.zero;
-	IEnumerator c_Transition = null;
-	float delayTimer = 0;
+	[SerializeField] private float m_timer = 0;
+
 	RectTransform m_transform = null;
 
+	private float m_time = 0;
+
+	Vector3 baseScale = Vector3.zero;
 	Vector3 m_start = Vector3.zero;
 	Vector3 m_end = Vector3.zero;
 
-	private void Start()
+	IEnumerator c_Transition = null;
+	private void Awake()
 	{
 		m_transform = GetComponent<RectTransform>();
 		baseScale = m_transform.localScale;
+
+		EventTrigger trigger = GetComponent<EventTrigger>();
+
+		EventTrigger.Entry entry = new EventTrigger.Entry();
+		entry.eventID = EventTriggerType.PointerEnter;
+		entry.callback.AddListener((data) => { MouseEnter(); });
+
+		EventTrigger.Entry leave = new EventTrigger.Entry();
+		leave.eventID = EventTriggerType.PointerExit;
+		leave.callback.AddListener((data) => { MouseExit(); });
+
+		trigger.triggers.Add(entry);
+		trigger.triggers.Add(leave);
+	}
+	private void OnEnable()
+	{
+		m_time = 0;
+		m_transform.localScale = baseScale;
+		m_start = baseScale;
+		m_end = hoverScale;
+		c_Transition = null;
 	}
 
 	public void MouseEnter()
