@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// public class thatred
+/// A class that when added onto an object that has collisions will disable anything that collides with it.
 /// </summary>
 public class ObjectDisabler : MonoBehaviour {
     

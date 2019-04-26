@@ -4,6 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+public delegate bool OverlapPointDelegate(Vector2 point);
+
+public enum EListenType
+{
+    NEW = 1,
+    CURRENT = 2,
+    BOTH = 3,
+}
+
 public class MultiTouchManager : MonoBehaviour
 {
     public static MultiTouchManager Instance { get; set; }
@@ -23,7 +32,7 @@ public class MultiTouchManager : MonoBehaviour
     public Collider2D m_captureArea = null;
     public TouchInfo[] currentTouches;
 
-    private Dictionary<int, TouchInfo> m_touches { get; set; } = new Dictionary<int, TouchInfo>();
+    private Dictionary<int, TouchInfo> Touches { get; set; } = new Dictionary<int, TouchInfo>();
 
     private event HandleTouchInfo HandleNewTouches;
     private event HandleTouchInfo HandleCurrentTouches;
@@ -33,56 +42,60 @@ public class MultiTouchManager : MonoBehaviour
         HandleNewTouches += handler;
     }
 
-    public void ListenForNewTouchesOnCollider(Collider2D collider, HandleTouchInfo handler)
+    public void ListenForCurrentTouches(HandleTouchInfo handler)
     {
-        ListenForNewTouches(touch =>
-        {
-            if (collider.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Position)))
-            {
-                handler(touch);
-            }
-        });
+        HandleCurrentTouches += handler;
     }
 
-    public void ListenForCurrentTouchesOnCollider(Collider2D collider, HandleTouchInfo handler)
+    public void ListenForTouchesOnOverlap(OverlapPointDelegate overlapPoint, HandleTouchInfo handler, EListenType listenType)
     {
-        HandleCurrentTouches += touch =>
+        if (listenType.HasFlag(EListenType.NEW))
         {
-            if (collider.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Position)))
+            ListenForNewTouches(TouchAreaHandler(overlapPoint, handler));
+        }
+
+        if (listenType.HasFlag(EListenType.CURRENT))
+        {
+            ListenForCurrentTouches(TouchAreaHandler(overlapPoint, handler));
+        }
+    }
+
+    private static HandleTouchInfo TouchAreaHandler(OverlapPointDelegate overlapPoint, HandleTouchInfo handler)
+    {
+        return touch =>
+        {
+            if (overlapPoint(Camera.main.ScreenToWorldPoint(touch.Position)))
             {
                 handler(touch);
             }
         };
     }
 
-    public void ListenForMultiTapsOnCollider(Collider2D collider, int tapCount, float maxTime, HandleTouchInfo handler)
+    public void ListenForMultiTapsOnCollider(OverlapPointDelegate overlapPoint, int tapCount, float maxTime, HandleTouchInfo handler)
     {
         int count = 0;
         TouchInfo[] taps = new TouchInfo[tapCount];
 
-        HandleNewTouches += touch =>
+        ListenForNewTouches(TouchAreaHandler(overlapPoint, touch =>
         {
-            if (collider.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.Position)))
+            while (touch.startTime - taps[0].startTime > maxTime)
             {
-                while (touch.startTime - taps[0].startTime > maxTime)
+                for (int i = 1; i < count; i++)
                 {
-                    for (int i = 1; i < count; i++)
-                    {
-                        taps[i - 1] = taps[i];
-                    }
-                }
-
-                if (count < tapCount - 1)
-                {
-                    taps[count] = touch;
-                }
-                else
-                {
-                    count = 0;
-                    handler(touch);
+                    taps[i - 1] = taps[i];
                 }
             }
-        };
+
+            if (count < tapCount - 1)
+            {
+                taps[count] = touch;
+            }
+            else
+            {
+                count = 0;
+                handler(touch);
+            }
+        }));
     }
 
     void Update()
@@ -99,42 +112,42 @@ public class MultiTouchManager : MonoBehaviour
                 }
             }
 
-            if (touch.phase != TouchPhase.Began && m_touches.ContainsKey(touch.fingerId))
+            if (touch.phase != TouchPhase.Began && Touches.ContainsKey(touch.fingerId))
             {
-                m_touches[touch.fingerId].UpdateTouchInfo(touch);
+                Touches[touch.fingerId].UpdateTouchInfo(touch);
 
                 if (touch.phase == TouchPhase.Ended)
                 {
-                    m_touches.Remove(touch.fingerId);
+                    Touches.Remove(touch.fingerId);
                 }
                 else
                 {
-                    HandleCurrentTouches?.Invoke(m_touches[touch.fingerId]);
+                    HandleCurrentTouches?.Invoke(Touches[touch.fingerId]);
                 }
             }
-            else if (!m_touches.ContainsKey(touch.fingerId))
+            else if (!Touches.ContainsKey(touch.fingerId))
             {
                 TouchInfo newTouch = new TouchInfo(touch);
 
-                m_touches.Add(touch.fingerId, newTouch);
+                Touches.Add(touch.fingerId, newTouch);
 
                 HandleNewTouches?.Invoke(newTouch);
             }
         }
 
-        int[] keys = m_touches.Keys.ToArray();
+        int[] keys = Touches.Keys.ToArray();
 
         for (int i = 0; i < keys.Length; i++)
         {
             if (!Input.touches.Any(t => t.fingerId == keys[i]))
             {
-                Touch t = m_touches[keys[i]].touch;
+                Touch t = Touches[keys[i]].touch;
 
                 t.phase = TouchPhase.Ended;
 
-                m_touches[keys[i]].UpdateTouchInfo(t);
+                Touches[keys[i]].UpdateTouchInfo(t);
 
-                m_touches.Remove(keys[i]);
+                Touches.Remove(keys[i]);
             }
         }
     }

@@ -8,11 +8,13 @@ using UnityEngine;
 /// </summary>
 public class AH_GameMaster : MonoBehaviour
 {
-    public static AH_GameMaster Instance = null;
+    // Singleton Paradigm
+    public static AH_GameMaster instance = null;
+
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
+        if (instance == null)
+            instance = this;
         else
             Destroy(this.gameObject);
     }
