@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1970551657357621226}
   - component: {fileID: 1970551657357621227}
   m_Layer: 5
-  m_Name: WinText
+  m_Name: LeftText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 1970551658152600754}
   - component: {fileID: 1970551658152600755}
   m_Layer: 5
-  m_Name: WinText(1)
+  m_Name: RightText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

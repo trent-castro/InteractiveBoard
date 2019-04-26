@@ -61,7 +61,7 @@ public class ObjectPool : MonoBehaviour {
         {
             m_objectPool[x] = Instantiate(m_gameObjectPrefab);
             m_objectPool[x].SetActive(false);
-            m_objectPool[x].transform.parent = gameObject.transform;
+            m_objectPool[x].transform.SetParent(gameObject.transform);
             m_objectPool[x].transform.name = m_pooledObjectName + " - ID #" + x;
         }
 	}
