@@ -26,11 +26,8 @@ public class CompositeTouchAreaEditor : Editor
     private static bool drawHorizontalPreviewLines = true;
     private static bool drawVerticalPreviewLines = true;
 
-    private static Tool selectedColliderTool = Tool.None;
-
     private static bool showTouchAreas = false;
     private static List<bool> showIndividualTouchAreas = new List<bool>();
-    private static int selectedTouchArea = -1;
 
     private void OnEnable()
     {
@@ -74,36 +71,6 @@ public class CompositeTouchAreaEditor : Editor
         }
 
         serializedObject.Update();
-
-        if (selectedTouchArea != -1 && selectedColliderTool != Tool.None)
-        {
-            SerializedProperty selected = touchAreasProp.GetArrayElementAtIndex(selectedTouchArea);
-
-            Collider2D area = selected.FindPropertyRelative("area").objectReferenceValue as Collider2D;
-
-            Quaternion rotation = Tools.pivotRotation == PivotRotation.Global ? Quaternion.identity : area.transform.rotation;
-            Vector3 position = Tools.pivotMode == PivotMode.Center ? area.transform.rotation * (Vector3)area.offset + area.transform.position : area.transform.position;
-            switch (selectedColliderTool)
-            {
-                case Tool.Move:
-                    if (Tools.pivotMode == PivotMode.Center)
-                    {
-                        area.offset = Quaternion.Inverse(area.transform.rotation) * (Handles.PositionHandle(position, rotation) - area.transform.position);
-                    }
-                    else
-                    {
-                        area.transform.position = Handles.PositionHandle(position, rotation);
-                    }
-                    break;
-                case Tool.Rotate:
-                    area.transform.rotation = Handles.RotationHandle(area.transform.rotation, area.transform.position);
-                    break;
-                case Tool.Scale:
-                    area.transform.localScale = Handles.ScaleHandle(area.transform.localScale, area.transform.position, rotation, 1);
-                    break;
-            }
-        }
-        serializedObject.ApplyModifiedProperties();
     }
 
     private void DrawPreviewLines(Vector2 pointA, Vector2 pointB, Vector2 a2bUnit, Vector2 b2aUnit, CompositeTouchArea t, int index)
@@ -144,35 +111,6 @@ public class CompositeTouchAreaEditor : Editor
     {
         serializedObject.Update();
         Event current = Event.current;
-
-        string name = GUI.GetNameOfFocusedControl();
-        if (!name.StartsWith("area") || !int.TryParse(name.Substring(4), out selectedTouchArea))
-        {
-            selectedTouchArea = -1;
-            Tools.current = selectedColliderTool;
-            selectedColliderTool = Tool.None;
-        }
-        else
-        {
-            if (Tools.current != Tool.None)
-            {
-                selectedColliderTool = Tools.current;
-                Tools.current = Tool.None;
-            }
-
-            switch (selectedColliderTool)
-            {
-                case Tool.View:
-                    selectedColliderTool = Tool.None;
-                    break;
-                case Tool.Transform:
-                    selectedColliderTool = Tool.None;
-                    break;
-                case Tool.Rect:
-                    selectedColliderTool = Tool.None;
-                    break;
-            }
-        }
 
         TouchAreaGUI(current, 0);
 
@@ -264,11 +202,6 @@ public class CompositeTouchAreaEditor : Editor
         GUI.SetNextControlName("area" + i);
         Rect touchAreaSection = EditorGUILayout.BeginHorizontal();
 
-        if (selectedTouchArea == i)
-        {
-            EditorGUI.DrawRect(touchAreaSection, Color.grey);
-        }
-
         if (touchAreaSection.Contains(current.mousePosition) && current.type == EventType.ContextClick)
         {
             CreateTouchAreaContextMenu(current, i, name);
@@ -281,24 +214,6 @@ public class CompositeTouchAreaEditor : Editor
 
         showIndividualTouchAreas[i] = EditorGUILayout.Foldout(showIndividualTouchAreas[i], name, false);
 
-        if (selectedTouchArea == i)
-        {
-            Rect dropDownRect = EditorGUILayout.BeginHorizontal(GUILayout.Width(75));
-
-            if (EditorGUILayout.DropdownButton(new GUIContent($"{selectedColliderTool}"), FocusType.Keyboard))
-            {
-                GenericMenu menu = new GenericMenu();
-                AddSelectedColliderToolMenuItem(menu, Tool.Move);
-                AddSelectedColliderToolMenuItem(menu, Tool.Scale);
-                AddSelectedColliderToolMenuItem(menu, Tool.Rotate);
-                AddSelectedColliderToolMenuItem(menu, Tool.Rect);
-                AddSelectedColliderToolMenuItem(menu, Tool.None);
-                menu.DropDown(dropDownRect);
-            }
-
-            GUILayout.EndHorizontal();
-        }
-
         GUILayout.EndHorizontal();
 
         if (i < touchAreasProp.arraySize && showIndividualTouchAreas[i])
@@ -310,11 +225,6 @@ public class CompositeTouchAreaEditor : Editor
                 EditorGUILayout.PropertyField(touchArea.FindPropertyRelative("compositeType"));
             }
         }
-    }
-
-    private static void AddSelectedColliderToolMenuItem(GenericMenu menu, Tool tool)
-    {
-        menu.AddItem(new GUIContent($"{tool}"), selectedColliderTool == tool, () => { selectedColliderTool = tool; });
     }
 
     private void CreateTouchAreaContextMenu(Event current, int i, string name)
