@@ -29,7 +29,6 @@ public class MultiTouchManager : MonoBehaviour
         }
     }
 
-    public Collider2D m_captureArea = null;
     public TouchInfo[] currentTouches;
 
     private Dictionary<int, TouchInfo> Touches { get; set; } = new Dictionary<int, TouchInfo>();
@@ -103,14 +102,6 @@ public class MultiTouchManager : MonoBehaviour
         foreach (Touch t in Input.touches)
         {
             Touch touch = t;
-
-            if (m_captureArea != null)
-            {
-                if (!m_captureArea.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.position)))
-                {
-                    touch.phase = TouchPhase.Ended;
-                }
-            }
 
             if (touch.phase != TouchPhase.Began && Touches.ContainsKey(touch.fingerId))
             {
