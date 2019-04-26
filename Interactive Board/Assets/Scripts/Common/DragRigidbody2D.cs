@@ -3,11 +3,11 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
+[RequireComponent(typeof(CompositeTouchArea), typeof(Rigidbody2D))]
 public class DragRigidbody2D : MonoBehaviour
 {
     private SpringJoint2D m_springJoint = null;
-    private Collider2D m_collider = null;
+    private CompositeTouchArea m_collider = null;
     private Rigidbody2D m_rigidbody = null;
 
     public float m_dampingRatio = .05f;
@@ -26,7 +26,7 @@ public class DragRigidbody2D : MonoBehaviour
 
     private void Start()
     {
-        m_collider = GetComponent<Collider2D>();
+        m_collider = GetComponent<CompositeTouchArea>();
         m_rigidbody = GetComponent<Rigidbody2D>();
 
         m_touchManager = MultiTouchManager.Instance;
