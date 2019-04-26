@@ -48,13 +48,12 @@ public class AH_CanvasManager : MonoBehaviour
     [SerializeField]
     private Vector3 scoreIncreaseSpawnOffsetRight = Vector3.zero;
 
-
     /// <summary>
     /// Starts the Animation for Point Incrase on respective side
     /// </summary>
     public void OnPointEarned(bool scoredGoalIsRight)
     {
-        AH_GameMaster.Instance.IncreaseScore(scoredGoalIsRight);
+        AH_GameMaster.instance.IncreaseScore(scoredGoalIsRight);
         StartCoroutine(ScoreAnimationCoroutine(scoredGoalIsRight));
     }
 
@@ -81,8 +80,8 @@ public class AH_CanvasManager : MonoBehaviour
 
     private void UpdateScore(bool scoredGoalIsRight)
     {
-        scoreTextReferences.leftText.text = "" + AH_GameMaster.Instance.GetPlayerOneScore();
-        scoreTextReferences.rightText.text = "" + AH_GameMaster.Instance.GetPlayerTwoScore();
+        scoreTextReferences.leftText.text = "" + AH_GameMaster.instance.GetPlayerOneScore();
+        scoreTextReferences.rightText.text = "" + AH_GameMaster.instance.GetPlayerTwoScore();
     }
 
     /// <summary>
