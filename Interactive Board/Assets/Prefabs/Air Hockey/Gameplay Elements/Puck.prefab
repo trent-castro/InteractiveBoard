@@ -266,10 +266,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_debugMode: 0
   m_maxSpeed: 30
-  m_hitParticle:
-  - {fileID: 6646229345303283166, guid: ef196dc2b3845974ca328438b1ac88dc, type: 3}
-  - {fileID: 3747383342048667951, guid: 854b9632bbf86014287fcf33ae5ad6af, type: 3}
-  - {fileID: 1780118268067406192, guid: 63d8315b9d28aea4f8c8b42e581318d5, type: 3}
   audioClips:
   - {fileID: 8300000, guid: 0a831086d05ab644293b8097a9d0c561, type: 3}
   - {fileID: 8300000, guid: 50a43dafade71f74fb928e657cf2e0a3, type: 3}
@@ -337,7 +333,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0a831086d05ab644293b8097a9d0c561, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
