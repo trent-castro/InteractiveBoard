@@ -23,8 +23,8 @@ public class CompositeTouchAreaEditor : Editor
 
     private static int previewLinesPerUnit = 20;
     private static float previewPointTolerance = 0.001f;
-    private static bool drawHorizontalPreviewLines = true;
-    private static bool drawVerticalPreviewLines = true;
+    private static bool drawHorizontalPreviewLines = false;
+    private static bool drawVerticalPreviewLines = false;
 
     private static bool showTouchAreas = false;
     private static List<bool> showIndividualTouchAreas = new List<bool>();
