@@ -19,7 +19,7 @@ public struct TouchArea
     public ECompositeType compositeType;
 }
 
-public class CompositeTouchArea : MonoBehaviour
+public class CompositeTouchArea: MonoBehaviour
 {
     private Collider2D BaseArea { get { return m_touchAreas[0].area; } }
 

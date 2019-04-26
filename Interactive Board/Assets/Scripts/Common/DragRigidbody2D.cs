@@ -30,8 +30,7 @@ public class DragRigidbody2D : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody2D>();
 
         m_touchManager = MultiTouchManager.Instance;
-        m_touchManager.ListenForNewTouchesOnCollider(m_collider, CheckNewTouch);
-        m_touchManager.ListenForCurrentTouchesOnCollider(m_collider, CheckNewTouch);
+        m_touchManager.ListenForTouchesOnOverlap(m_collider.OverlapPoint, CheckNewTouch, EListenType.BOTH);
     }
 
     private void CheckNewTouch(TouchInfo touchInfo)
@@ -74,7 +73,7 @@ public class DragRigidbody2D : MonoBehaviour
 
         OnTouchMove(m_touchInfo);
 
-        createDebugString("Grabbed");
+        CreateDebugString("Grabbed");
     }
 
     private void OnTouchEnd(TouchInfo touchInfo)
@@ -88,7 +87,7 @@ public class DragRigidbody2D : MonoBehaviour
 
         m_touchInfo = null;
 
-        createDebugString("Let Go");
+        CreateDebugString("Let Go");
     }
 
     private void OnTouchMove(TouchInfo touchInfo)
@@ -96,10 +95,10 @@ public class DragRigidbody2D : MonoBehaviour
         Debug.DrawLine(m_springJoint.transform.position, transform.position, Color.red);
         m_springJoint.transform.position = Camera.main.ScreenToWorldPoint(touchInfo.Position);
 
-        createDebugString("Dragging");
+        CreateDebugString("Dragging");
     }
 
-    private void createDebugString(string state)
+    private void CreateDebugString(string state)
     {
         if (m_debugOutput != null)
         {
