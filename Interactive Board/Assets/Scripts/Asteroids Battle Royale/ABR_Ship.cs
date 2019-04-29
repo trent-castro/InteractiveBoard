@@ -77,7 +77,7 @@ public abstract class ABR_Ship : MonoBehaviour
         else
         {
             float lastGoalTurn = m_goalTurn;
-            m_goalTurn = Mathf.Clamp(m_turnGoal - transform.eulerAngles.z, -1, 1);
+            m_goalTurn = Mathf.Clamp(Mathf.DeltaAngle(transform.eulerAngles.z, m_turnGoal), -1, 1);
 
             if (lastGoalTurn != 0 && (lastGoalTurn > 0 && m_goalTurn <= 0 || lastGoalTurn < 0 && m_goalTurn >= 0))
             {

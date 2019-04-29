@@ -31,17 +31,21 @@ public class ABR_QuickAI : ABR_StateAI
         gameObject.SetActive(true);
     }
 
-    protected override void Start()
+    protected void Start()
     {
         m_stateMachine = new StackStateMachine<ABR_QuickAI>();
         m_stateMachine.AddState("APPROACH", new ApproachState<ABR_QuickAI>(this));
         m_stateMachine.AddState("WANDER", new WanderState<ABR_QuickAI>(this));
         m_stateMachine.PushState("WANDER");
+
+        base.Start();
     }
 
-    protected override void Update()
+    protected void Update()
     {
         m_stateMachine.Update();
+
+        base.Update();
     }
 
 
@@ -63,11 +67,13 @@ public class ABR_QuickAI : ABR_StateAI
 
         public override void Update()
         {
-            quickAI.RotateToTarget();
+            Quaternion targetRotation = Quaternion.LookRotation(quickAI.m_currentTarget.transform.position - quickAI.transform.position);
+            quickAI.TurnTo(targetRotation.eulerAngles.z);
+
             float distance = Vector3.Distance(m_owner.transform.position, quickAI.m_currentTarget.transform.position);
-            if(distance > quickAI.maxDetectionDistance)
+            if(distance < quickAI.maxDetectionDistance)
             {
-                quickAI.AdjustVelocityForwardsly();
+                quickAI.Thrust(1.0f);
             }
             else
             {
@@ -113,6 +119,7 @@ public class ABR_QuickAI : ABR_StateAI
                 }
             }
             quickAI.m_distanceToClosestPlayer = distance;
+            quickAI.m_currentTarget = closest;
 
             if(distance < quickAI.maxDetectionDistance)
             {
