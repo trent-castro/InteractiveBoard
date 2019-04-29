@@ -3,38 +3,92 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class ABR_Ship : MonoBehaviour
+public abstract class ABR_Ship : MonoBehaviour
 {
     private Rigidbody2D m_rigidBody = null;
 
     private float m_thrustMult = 1;
     private bool m_doThrust = false;
-    private int m_turn = 0;
+    private float m_turn = 0;
 
-    private float m_thrustPower = 10.0f;
+    private float m_maxSpeed = 10.0f;
     private float m_turnPower = 240.0f;
+
+    private float m_turnGoal = 0;
+    private bool m_doTurnTo = false;
+    private float m_goalTurn = 0;
 
     private Vector2 m_acceleration = Vector2.zero;
 
-    public float ThrustMult { get { return m_thrustMult; } set { m_thrustMult = value; } }
-    public bool DoThrust { get { return m_doThrust; } set { m_doThrust = value; } }
-    public int Turn { get { return m_turn; } set { m_turn = Mathf.Clamp(value, -1, 1); } }
+    public void Thrust(float mult)
+    {
+        m_thrustMult = mult;
+        m_doThrust = true;
+    }
 
+    public void StopThrust()
+    {
+        m_doThrust = false;
+    }
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetMaxSpeed(float power)
+    {
+        m_maxSpeed = Mathf.Max(0, power);
+    }
+
+    public void TurnClockwise()
+    {
+        m_turn = Mathf.Clamp(--m_turn, -1, 1);
+    }
+
+    public void TurnCounterClockWise()
+    {
+        m_turn = Mathf.Clamp(++m_turn, -1, 1);
+    }
+
+    public void StopTurn()
+    {
+        m_turn = 0;
+    }
+
+    public void TurnTo(float degrees)
+    {
+        m_turnGoal = degrees;
+        m_doTurnTo = true;
+        m_goalTurn = 0;
+    }
+
+    public void StopTurnTo()
+    {
+        m_doTurnTo = false;
+    }
+
+    protected void Start()
     {
         m_rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void Update()
     {
-        m_rigidBody.angularVelocity = m_turnPower * m_turn;
+        if (!m_doTurnTo)
+        {
+            m_rigidBody.angularVelocity = m_turnPower * m_turn / (m_doThrust ? 2 : 1);
+        }
+        else
+        {
+            float lastGoalTurn = m_goalTurn;
+            m_goalTurn = Mathf.Clamp(m_turnGoal - transform.eulerAngles.z, -1, 1);
+
+            if (lastGoalTurn != 0 && (lastGoalTurn > 0 && m_goalTurn <= 0 || lastGoalTurn < 0 && m_goalTurn >= 0))
+            {
+                StopTurnTo();
+            }
+            m_rigidBody.angularVelocity = m_turnPower * m_goalTurn / (m_doThrust ? 2 : 1);
+        }
 
         if (m_doThrust)
         {
-            m_rigidBody.velocity = Vector2.SmoothDamp(m_rigidBody.velocity, transform.up * m_thrustPower * m_thrustMult, ref m_acceleration, .25f);
+            m_rigidBody.velocity = Vector2.SmoothDamp(m_rigidBody.velocity, transform.up * m_maxSpeed * m_thrustMult, ref m_acceleration, .25f);
         }
     }
 }
