@@ -1,13 +1,15 @@
-﻿using System;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(CompositeTouchArea), typeof(Rigidbody2D))]
+[RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
 public class DragRigidbody2D : MonoBehaviour
 {
     private SpringJoint2D m_springJoint = null;
-    private CompositeTouchArea m_collider = null;
+    [SerializeField]
+    private CompositeTouchArea m_touchArea = null;
+    private Collider2D m_collider = null;
     private Rigidbody2D m_rigidbody = null;
 
     public float m_dampingRatio = .05f;
@@ -26,8 +28,8 @@ public class DragRigidbody2D : MonoBehaviour
 
     private void Start()
     {
-        m_collider = GetComponent<CompositeTouchArea>();
         m_rigidbody = GetComponent<Rigidbody2D>();
+        m_collider = GetComponent<Collider2D>();
 
         m_touchManager = MultiTouchManager.Instance;
         m_touchManager.ListenForTouchesOnOverlap(m_collider.OverlapPoint,
@@ -41,11 +43,11 @@ public class DragRigidbody2D : MonoBehaviour
         {
             touchInfo.owners++;
             m_touchInfo = touchInfo;
-            Grab();
-
             m_touchInfo.ListenForMove(OnTouchMove);
             m_touchInfo.ListenForEnd(OnTouchEnd);
             //m_touchInfo.ListenForStationary(OnTouchStationary);
+            Grab();
+
         }
     }
 
@@ -74,8 +76,6 @@ public class DragRigidbody2D : MonoBehaviour
         m_springJoint.connectedBody.angularDrag = m_angularDrag;
 
         OnTouchMove(m_touchInfo);
-
-        CreateDebugString("Grabbed");
     }
 
     private void OnTouchEnd(TouchInfo touchInfo)
@@ -86,14 +86,21 @@ public class DragRigidbody2D : MonoBehaviour
             m_springJoint.connectedBody.angularDrag = m_oldAngularDrag;
             m_springJoint.connectedBody = null;
         }
+        m_touchInfo.StopListenForMove(OnTouchMove);
+        m_touchInfo.StopListenForEnd(OnTouchEnd);
+        m_touchInfo.owners = 0;
 
         m_touchInfo = null;
-
-        CreateDebugString("Let Go");
     }
 
     private void OnTouchMove(TouchInfo touchInfo)
     {
+        if (!m_touchArea.OverlapPoint(Camera.main.ScreenToWorldPoint(touchInfo.Position)))
+        {
+            OnTouchEnd(touchInfo);
+            return;
+        }
+
         Debug.DrawLine(m_springJoint.transform.position, transform.position, Color.red);
         m_springJoint.transform.position = Camera.main.ScreenToWorldPoint(touchInfo.Position);
 

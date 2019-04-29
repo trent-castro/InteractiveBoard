@@ -7,6 +7,7 @@ TagManager:
   - Puck
   - Paddle
   - Wall
+  - Bullet
   layers:
   - Default
   - TransparentFX
