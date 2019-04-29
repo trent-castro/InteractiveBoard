@@ -1107,5 +1107,10 @@ PrefabInstance:
       propertyPath: m_bulletPool
       value: 
       objectReference: {fileID: 1612127019}
+    - target: {fileID: 7235185101172691738, guid: a25d8ccd8429b9c469c80074e5a98c10,
+        type: 3}
+      propertyPath: m_audioSource
+      value: 
+      objectReference: {fileID: 1916338993}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a25d8ccd8429b9c469c80074e5a98c10, type: 3}
