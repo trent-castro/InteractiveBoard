@@ -444,12 +444,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
---- !u!58 &90859516 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 8848358941729463623, guid: 80e3123112a9c654e9705bbe048e202e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1148415549}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &114501849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,8 +1252,6 @@ MonoBehaviour:
   - area: {fileID: 2098000747}
     compositeType: 0
   - area: {fileID: 1345294748}
-    compositeType: 2
-  - area: {fileID: 1778415442}
     compositeType: 2
 --- !u!1 &407986928
 GameObject:
@@ -3899,6 +3891,11 @@ PrefabInstance:
       propertyPath: m_collider
       value: 
       objectReference: {fileID: 1907316641}
+    - target: {fileID: 2972610878398249213, guid: 80e3123112a9c654e9705bbe048e202e,
+        type: 3}
+      propertyPath: m_touchArea
+      value: 
+      objectReference: {fileID: 1907316641}
     - target: {fileID: 244287225, guid: 80e3123112a9c654e9705bbe048e202e, type: 3}
       propertyPath: m_Name
       value: Sprite Renderer
@@ -5593,12 +5590,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
---- !u!58 &1778415442 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 8848358941729463623, guid: 80e3123112a9c654e9705bbe048e202e,
-    type: 3}
-  m_PrefabInstance: {fileID: 8848358942128387072}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1784260403 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8848358941729463625, guid: 80e3123112a9c654e9705bbe048e202e,
@@ -6071,8 +6062,6 @@ MonoBehaviour:
   - area: {fileID: 21215224}
     compositeType: 0
   - area: {fileID: 1345294748}
-    compositeType: 2
-  - area: {fileID: 90859516}
     compositeType: 2
 --- !u!4 &1907316642
 Transform:
@@ -6781,6 +6770,11 @@ PrefabInstance:
     - target: {fileID: 2972610878398249213, guid: 80e3123112a9c654e9705bbe048e202e,
         type: 3}
       propertyPath: m_collider
+      value: 
+      objectReference: {fileID: 386924126}
+    - target: {fileID: 2972610878398249213, guid: 80e3123112a9c654e9705bbe048e202e,
+        type: 3}
+      propertyPath: m_touchArea
       value: 
       objectReference: {fileID: 386924126}
     - target: {fileID: 244287225, guid: 80e3123112a9c654e9705bbe048e202e, type: 3}
