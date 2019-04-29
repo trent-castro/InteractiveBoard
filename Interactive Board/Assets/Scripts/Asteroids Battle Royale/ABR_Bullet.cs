@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class ABR_Bullet : MonoBehaviour
 {
-    [SerializeField] float lifeTime = 10.0f;
-    [SerializeField] float speed = 5.0f;
+    [Header("Configuration")]
+    [Tooltip("How long it will take for the bullets to time out")]
+    [SerializeField] float m_lifeTime = 10.0f;
+    [Tooltip("The Speed at which the bullets are traveling  ")]
+    [SerializeField] float m_speed = 5.0f;
+    [Header("Debug")]
     [SerializeField] bool DebugMode = false;
 
     private Vector2 movementDirection = Vector2.zero;
     void Update()
     {
-        lifeTime -= Time.deltaTime;
-        if (lifeTime <= 0.0f)
+        m_lifeTime -= Time.deltaTime;
+        if (m_lifeTime <= 0.0f)
             gameObject.SetActive(false);
 
-        gameObject.transform.position += (Vector3)(movementDirection * speed);
+        gameObject.transform.position += (Vector3)(movementDirection * m_speed);
 
     }
 
@@ -24,7 +28,10 @@ public class ABR_Bullet : MonoBehaviour
         //TODO put damage and or hit detection logic here
         gameObject.SetActive(false);
     }
-
+    /// <summary>
+    /// Sets the bullets movement direction to the passed in direction
+    /// </summary>
+    /// <param name="direction">desired movement direction</param>
     public void Fire(Vector2 direction)
     {
         movementDirection = direction;
