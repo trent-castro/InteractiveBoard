@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ABR_ShipKeyController : ABR_Ship
+public class ABR_ShipTouchController : ABR_Ship
 {
+    private Transform m_target = null;
     new void Update()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
