@@ -30,6 +30,11 @@ public class ABR_ShipKeyController : ABR_Ship
             StopThrust();
         }
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            GetComponentInChildren<ABR_Turret>().FireBullet();
+        }
+
         base.Update();
     }
 }
