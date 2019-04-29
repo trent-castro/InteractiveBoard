@@ -5,6 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class ABR_ParalaxCamera : MonoBehaviour
 {
-    [SerializeField]
-    //private List<>
+    //[SerializeField]
+    ////private List<>
 }
