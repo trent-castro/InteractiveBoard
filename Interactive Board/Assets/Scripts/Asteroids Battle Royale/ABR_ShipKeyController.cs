@@ -27,6 +27,11 @@ public class ABR_ShipKeyController : MonoBehaviour
             doThrust = true;
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            m_ship.GetComponentInChildren<ABR_Turret>().FireBullet();
+        }
+
         m_ship.Turn = turn;
         m_ship.DoThrust = doThrust;
     }
