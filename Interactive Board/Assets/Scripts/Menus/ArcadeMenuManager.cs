@@ -31,14 +31,13 @@ public class ArcadeMenuManager : MonoBehaviour
 
 	public void ChangeScenes(string scene)
 	{
-		if (SceneManager.GetSceneByName(scene).IsValid())
 		{
 			SceneManager.LoadScene(scene);
 		}
-		else
-		{
-			Debug.Log("Your scene is either not loaded in Build Settings, or you can't spell. Please check " + 
-				scene +"(scene) in MenuManager.ChangesScenes on " + this.gameObject.name);
-		}
+		//else
+		//{
+		//	Debug.Log("Your scene is either not loaded in Build Settings, or you can't spell. Please check " + 
+		//		scene +"(scene) in MenuManager.ChangesScenes on " + this.gameObject.name);
+		//}
 	}
 }
