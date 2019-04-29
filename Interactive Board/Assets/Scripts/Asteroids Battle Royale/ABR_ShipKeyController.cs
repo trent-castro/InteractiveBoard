@@ -10,19 +10,10 @@ public class ABR_ShipKeyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int turn = 0;
+        float turn = Input.GetAxis("Horizontal");
         bool doThrust = false;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            ++turn;
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            --turn;
-        }
-
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetAxis("Vertical") == 1)
         {
             doThrust = true;
         }
