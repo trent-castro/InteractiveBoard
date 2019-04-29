@@ -2,28 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles the making of goals
+/// </summary>
 public class AH_Goal : MonoBehaviour
 {
+    [Header("Configuration")]
+    [Tooltip("Whether or not this is the goal on the right side")]
     [SerializeField]
-    bool IsRightGoal = true;
+    bool isRightGoal = true;
+    [Tooltip("A reference to the prefab child with a particle system")]
     [SerializeField]
-    GameObject m_GoalParticle = null;
+    GameObject goalParticles = null;
     
-
-    private AH_GameMaster gm;
     private AudioSource audioSource;
 
     private void Start()
     {
-        gm = FindObjectOfType<AH_GameMaster>();
         audioSource = GetComponent<AudioSource>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.GetComponent<AH_Puck>() != null)
         {
-            gm.GivePointToPlayer(IsRightGoal, collision);
-            m_GoalParticle.GetComponent<ParticleSystem>().Play();
+            AH_GameMaster.instance.GivePointToPlayer(isRightGoal, collision);
+            goalParticles.GetComponent<ParticleSystem>().Play();
             audioSource.Play();
         }
     }
