@@ -30,7 +30,9 @@ public class DragRigidbody2D : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody2D>();
 
         m_touchManager = MultiTouchManager.Instance;
-        m_touchManager.ListenForTouchesOnOverlap(m_collider.OverlapPoint, CheckNewTouch, EListenType.BOTH);
+        m_touchManager.ListenForTouchesOnOverlap(m_collider.OverlapPoint, 
+			CheckNewTouch,
+			EListenType.BOTH);
     }
 
     private void CheckNewTouch(TouchInfo touchInfo)
