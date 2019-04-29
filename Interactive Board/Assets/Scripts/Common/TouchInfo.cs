@@ -33,14 +33,29 @@ public class TouchInfo
         HandleMove += handler;
     }
 
+    public void StopListenForMove(HandleTouchInfo handler)
+    {
+        HandleMove -= handler;
+    }
+
     public void ListenForEnd(HandleTouchInfo handler)
     {
         HandleEnd += handler;
     }
 
+    public void StopListenForEnd(HandleTouchInfo handler)
+    {
+        HandleEnd -= handler;
+    }
+
     public void ListenForStationary(HandleTouchInfo handler)
     {
         HandleStationary += handler;
+    }
+
+    public void StopListenForStationary(HandleTouchInfo handler)
+    {
+        HandleStationary -= handler;
     }
 
     public TouchInfo(Touch t)
