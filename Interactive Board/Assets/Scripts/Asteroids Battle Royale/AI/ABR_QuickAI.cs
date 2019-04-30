@@ -67,8 +67,9 @@ public class ABR_QuickAI : ABR_StateAI
 
         public override void Update()
         {
-            Quaternion targetRotation = Quaternion.LookRotation(quickAI.m_currentTarget.transform.position - quickAI.transform.position);
-            quickAI.TurnTo(targetRotation.eulerAngles.z);
+            Vector2 toTarget = (quickAI.m_currentTarget.transform.position - quickAI.transform.position).normalized;
+            float targetRotation = Mathf.Rad2Deg * Mathf.Atan2(toTarget.y, toTarget.x) - 90;
+            quickAI.TurnTo(targetRotation);
 
             float distance = Vector3.Distance(m_owner.transform.position, quickAI.m_currentTarget.transform.position);
             if(distance < quickAI.maxDetectionDistance)
