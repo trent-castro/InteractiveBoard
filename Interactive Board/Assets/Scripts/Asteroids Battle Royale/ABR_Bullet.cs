@@ -18,7 +18,7 @@ public class ABR_Bullet : MonoBehaviour
         m_lifeTime -= Time.deltaTime;
         if (m_lifeTime <= 0.0f)
             gameObject.SetActive(false);
-
+         
         gameObject.transform.position += (Vector3)(movementDirection * m_speed);
 
     }
@@ -28,6 +28,7 @@ public class ABR_Bullet : MonoBehaviour
         //TODO put damage and or hit detection logic here
         gameObject.SetActive(false);
     }
+
     /// <summary>
     /// Sets the bullets movement direction to the passed in direction
     /// </summary>
