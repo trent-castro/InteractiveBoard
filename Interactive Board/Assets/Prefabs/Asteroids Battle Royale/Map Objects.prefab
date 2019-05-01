@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4296681247965894358}
   - component: {fileID: 4296681247965894357}
   - component: {fileID: 4296681247965894356}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &4296681248080119943
 GameObject:
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 4296681248080119942}
   - component: {fileID: 4296681248080119940}
   - component: {fileID: 4296681248080119941}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Gravity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4296681248172560543}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Map Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4296681248279676720}
   - component: {fileID: 4296681248279676727}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Particle System Force Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 4296681249172464785}
   - component: {fileID: 4296681249172464784}
   - component: {fileID: 4296681249172464791}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Sun (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -885,7 +885,7 @@ GameObject:
   - component: {fileID: 4296681249430543845}
   - component: {fileID: 4296681249430543844}
   - component: {fileID: 4296681249430543851}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -986,7 +986,8 @@ GameObject:
   - component: {fileID: 4296681249551126789}
   - component: {fileID: 4296681249551126790}
   - component: {fileID: 4296681249551126788}
-  m_Layer: 0
+  - component: {fileID: 1789402334}
+  m_Layer: 15
   m_Name: planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1086,6 +1087,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.20341913
+--- !u!50 &1789402334
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4296681249551126784}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &4296681249668967837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1119,7 @@ GameObject:
   - component: {fileID: 4296681249668967836}
   - component: {fileID: 4296681249668967842}
   - component: {fileID: 4296681249668967843}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Gravity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1157,7 +1179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4296681249673738793}
   - component: {fileID: 4296681249673738792}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Particle System Force Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1685,7 +1707,8 @@ GameObject:
   - component: {fileID: 4296681249774300732}
   - component: {fileID: 4296681249774300733}
   - component: {fileID: 4296681249774300739}
-  m_Layer: 0
+  - component: {fileID: 978065681}
+  m_Layer: 15
   m_Name: planet (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1785,3 +1808,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1951392
+--- !u!50 &978065681
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4296681249774300735}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
