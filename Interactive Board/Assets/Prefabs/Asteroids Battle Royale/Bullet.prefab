@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49cecd7372040446a6f65df3199c006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 5
-  speed: 3
+  m_lifeTime: 4
+  m_speed: 3
   DebugMode: 0
 --- !u!70 &9074703988584456360
 CapsuleCollider2D:
@@ -101,7 +101,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 421b4a0d0c4412c47b93ae4b17c163f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1a6f8fc49c9efa44a66847e0c842887, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
