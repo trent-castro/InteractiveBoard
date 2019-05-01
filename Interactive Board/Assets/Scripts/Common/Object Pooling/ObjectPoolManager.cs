@@ -100,20 +100,20 @@ public class ObjectPoolManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Gets a reference to the next available particle pool with the specified tag.
+    /// Gets a reference to the next available object from a pool with the specified tag.
     /// </summary>
     /// <param name="tag">The tag of which pool to pull from.</param>
-    /// <returns>A particle system from the pool with the associated tag requested.</returns>
-    public GameObject GetTaggedParticleSystem(string tag)
+    /// <returns>An object dervied the pool with the associated tag requested.</returns>
+    public GameObject GetObjectFromTaggedPool(string tag)
     {
-        GameObject particlePool = null;
+        GameObject gameObject = null;
         for (int x = 0; x < objectPoolConfigurations.Length; ++x)
         {
             if (objectPoolConfigurations[x].associatedTag == tag)
             {
-                particlePool = objectPoolConfigurations[x].objectPool.GetNextPooledObject();
-                particlePool.SetActive(true);
-                return particlePool;
+                gameObject = objectPoolConfigurations[x].objectPool.GetNextPooledObject();
+                gameObject.SetActive(true);
+                return gameObject;
             }
         }
 

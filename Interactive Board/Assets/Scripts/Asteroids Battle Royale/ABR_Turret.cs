@@ -8,29 +8,39 @@ public class ABR_Turret : MonoBehaviour
     [Tooltip("The Spawn Location for the bullets")]
     [SerializeField] Transform m_spawnLocation = null;
     [Tooltip("Refference to the respecive players bullet pool")]
-    [SerializeField] ObjectPool m_bulletPool = null;
-    [Tooltip("Refference to the AudioSource attached to the object")]
-    [SerializeField] AudioSource m_audioSource = null;
 
     [Header("Debug")]
     [SerializeField] bool DebugMode = false;
+    [SerializeField] eBulletType bulletType = eBulletType.BASIC;
+
+    private AudioSource m_audioSource = null;
+    private Weapon m_weapon = new BasicWeapon();
 
     private void Start()
     {
-        if(m_audioSource == null)
+        if (m_audioSource == null)
         {
             m_audioSource = GetComponent<AudioSource>();
         }
-    }
-
-    private void Update()
-    {
         if (DebugMode)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            switch (bulletType)
             {
-                Debug.Log("Firing Bullet");
-                FireBullet();
+                case eBulletType.BASIC:
+                    m_weapon = new BasicWeapon();
+                    break;
+                case eBulletType.SHOTGUN:
+                    m_weapon = new Shotgun();
+                    break;
+                case eBulletType.EXPLOSION:
+                    m_weapon = new Explosion();
+                    break;
+                case eBulletType.PIERCE:
+                    m_weapon = new Pierce();
+                    break;
+                case eBulletType.LASER:
+                    m_weapon = new Laser();
+                    break;
             }
         }
     }
@@ -39,21 +49,11 @@ public class ABR_Turret : MonoBehaviour
     /// </summary>
     public void FireBullet()
     {
-        //Get bullet from the bullet pool
-        GameObject bullet = m_bulletPool.GetNextPooledObject();
-        //Set bullet position to the desired spawn locaion
-        bullet.transform.position = m_spawnLocation.position;
-        //Activate the bullet
-        bullet.gameObject.SetActive(true);
-
-        //Determine the direction the bullet will travel
         Vector3 fireDirection = m_spawnLocation.position - gameObject.transform.position;
-
-        //fire the bullet in the desired direction
-        bullet.GetComponent<ABR_Bullet>().Fire(fireDirection);
+        Debug.Log(m_weapon.GetType());
+        m_weapon.Fire(m_spawnLocation.position, fireDirection);
         //Plays Shot Audio
         m_audioSource.Play();
 
     }
-
 }

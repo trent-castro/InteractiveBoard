@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9074703988584456360}
   - component: {fileID: 579717359438552671}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Shotgun Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49cecd7372040446a6f65df3199c006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lifeTime: 4
-  m_speed: 3
+  m_lifeTime: 0.44
+  m_speed: 1
   DebugMode: 0
 --- !u!70 &9074703988584456360
 CapsuleCollider2D:

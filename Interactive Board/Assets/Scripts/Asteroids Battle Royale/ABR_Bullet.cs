@@ -17,16 +17,15 @@ public class ABR_Bullet : MonoBehaviour
     {
         m_lifeTime -= Time.deltaTime;
         if (m_lifeTime <= 0.0f)
-            gameObject.SetActive(false);
-         
+            gameObject.SetActive(false);   
+        
         gameObject.transform.position += (Vector3)(movementDirection * m_speed);
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //TODO put damage and or hit detection logic here
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -35,6 +34,7 @@ public class ABR_Bullet : MonoBehaviour
     /// <param name="direction">desired movement direction</param>
     public void Fire(Vector2 direction)
     {
+        Debug.Log("FIRE!!!");
         movementDirection = direction;
     }
 }
