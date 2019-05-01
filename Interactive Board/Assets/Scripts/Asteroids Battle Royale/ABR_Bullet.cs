@@ -25,7 +25,7 @@ public class ABR_Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //TODO put damage and or hit detection logic here
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     /// <summary>
