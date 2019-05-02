@@ -13,6 +13,16 @@ public enum EListenType
     BOTH = 3,
 }
 
+public enum ETouchEventType
+{
+    ENTER,
+    EXIT,
+    IN,
+    NEW
+}
+
+public delegate void HandleTouchEvent(TouchInfo touch, ETouchEventType eventType);
+
 public class MultiTouchManager : MonoBehaviour
 {
     public static MultiTouchManager Instance { get; set; }
@@ -46,7 +56,7 @@ public class MultiTouchManager : MonoBehaviour
         HandleCurrentTouches += handler;
     }
 
-    public void ListenForTouchesOnOverlap(OverlapPointDelegate overlapPoint, HandleTouchInfo handler, EListenType listenType)
+    public void ListenForTouchesOnOverlap(OverlapPointDelegate overlapPoint, HandleTouchEvent handler, EListenType listenType)
     {
         if (listenType.HasFlag(EListenType.NEW))
         {
@@ -59,13 +69,15 @@ public class MultiTouchManager : MonoBehaviour
         }
     }
 
-    private static HandleTouchInfo TouchAreaHandler(OverlapPointDelegate overlapPoint, HandleTouchInfo handler)
+    private static HandleTouchInfo TouchAreaHandler(OverlapPointDelegate overlapPoint, HandleTouchEvent handler)
     {
+        
+
         return touch =>
         {
             if (overlapPoint(Camera.main.ScreenToWorldPoint(touch.Position)))
             {
-                handler(touch);
+                handler(touch, ETouchEventType.IN);
             }
         };
     }
@@ -75,7 +87,7 @@ public class MultiTouchManager : MonoBehaviour
         int count = 0;
         TouchInfo[] taps = new TouchInfo[tapCount];
 
-        ListenForNewTouches(TouchAreaHandler(overlapPoint, touch =>
+        ListenForNewTouches(TouchAreaHandler(overlapPoint, (touch, type) =>
         {
             while (touch.startTime - taps[0].startTime > maxTime)
             {
