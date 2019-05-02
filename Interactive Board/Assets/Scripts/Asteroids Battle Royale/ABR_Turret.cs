@@ -14,7 +14,7 @@ public class ABR_Turret : MonoBehaviour
     [SerializeField] eBulletType bulletType = eBulletType.BASIC;
 
     private AudioSource m_audioSource = null;
-    private Weapon m_weapon = new BasicWeapon();
+    private ABR_Weapon m_weapon = new ABR_BasicWeapon();
 
     private void Start()
     {
@@ -27,19 +27,19 @@ public class ABR_Turret : MonoBehaviour
             switch (bulletType)
             {
                 case eBulletType.BASIC:
-                    m_weapon = new BasicWeapon();
+                    m_weapon = new ABR_BasicWeapon();
                     break;
                 case eBulletType.SHOTGUN:
-                    m_weapon = new Shotgun();
+                    m_weapon = new ABR_ShotguWeapon();
                     break;
                 case eBulletType.EXPLOSION:
-                    m_weapon = new Explosion();
+                    m_weapon = new ABR_ExplosionWeapon();
                     break;
                 case eBulletType.PIERCE:
-                    m_weapon = new Pierce();
+                    m_weapon = new ABR_PierceWeapon();
                     break;
                 case eBulletType.LASER:
-                    m_weapon = new Laser();
+                    m_weapon = new ABR_LaserWeapon();
                     break;
             }
         }
@@ -54,6 +54,8 @@ public class ABR_Turret : MonoBehaviour
         m_weapon.Fire(m_spawnLocation.position, fireDirection);
         //Plays Shot Audio
         m_audioSource.Play();
+        if (DebugMode)
+            Debug.Log(m_weapon.GetAmmo());
 
     }
 }

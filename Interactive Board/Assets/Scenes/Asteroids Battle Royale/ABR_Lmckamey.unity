@@ -412,6 +412,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbef27d41e8623b42a60177350a14977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_maxSpeed: 10
+  m_turnPower: 240
+  m_turnPowerWhenThrusting: 120
+  m_acceleration: {x: 0, y: 0}
   m_debugMode: 1
   rotationSpeed: 1
   maxMovementSpeed: 1
@@ -527,7 +531,7 @@ PrefabInstance:
     - target: {fileID: 739319038948159969, guid: 0589c7fdddb6712428f44a3833cf4b29,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 739319038948159969, guid: 0589c7fdddb6712428f44a3833cf4b29,
         type: 3}
@@ -608,7 +612,7 @@ PrefabInstance:
     - target: {fileID: 739319038948159969, guid: 0589c7fdddb6712428f44a3833cf4b29,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 739319038948159969, guid: 0589c7fdddb6712428f44a3833cf4b29,
         type: 3}

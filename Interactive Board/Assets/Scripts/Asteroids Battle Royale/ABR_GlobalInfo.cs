@@ -5,7 +5,7 @@ using UnityEngine;
 public class ABR_GlobalInfo : MonoBehaviour
 {
     [SerializeField]
-    ObjectPoolManager m_bulletManager;
+    ObjectPoolManager m_bulletManager = null;
 
     public static ObjectPoolManager BulletManager;
 

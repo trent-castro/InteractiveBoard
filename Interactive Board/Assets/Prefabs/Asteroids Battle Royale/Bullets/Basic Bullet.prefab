@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7287679256057233933}
-  - component: {fileID: 4040356390554627287}
+  - component: {fileID: 3571657867723843787}
   - component: {fileID: 9074703988584456360}
   - component: {fileID: 579717359438552671}
   m_Layer: 0
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4040356390554627287
+--- !u!114 &3571657867723843787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,11 +42,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2881793147127287657}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c49cecd7372040446a6f65df3199c006, type: 3}
+  m_Script: {fileID: 11500000, guid: 57e154afa09e2a042a868df74a15e1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_lifeTime: 1.5
-  m_speed: 0.5
+  m_speed: 1
+  m_damage: 10
   DebugMode: 0
 --- !u!70 &9074703988584456360
 CapsuleCollider2D:
@@ -58,7 +59,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
