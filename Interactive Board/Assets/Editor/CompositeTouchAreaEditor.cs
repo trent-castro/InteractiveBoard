@@ -69,8 +69,6 @@ public class CompositeTouchAreaEditor : Editor
                 DrawPreviewLines(new Vector2(x, bounds.min.y), new Vector2(x, bounds.max.y), Vector2.up, Vector2.down, t, 1);
             }
         }
-
-        serializedObject.Update();
     }
 
     private void DrawPreviewLines(Vector2 pointA, Vector2 pointB, Vector2 a2bUnit, Vector2 b2aUnit, CompositeTouchArea t, int index)
