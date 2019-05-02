@@ -26,17 +26,17 @@ public struct Reaction2D
     public bool UsePosition { get { return path != null; } }
     public bool UseRotation { get { return !(rotationAtMax == 0 && rotationAtMin == 0); } }
 
-    public float GetT(float angularVelocity)
+    public float GetT(float scalar)
     {
-        return Mathf.Clamp01((angularVelocity - min) / (max - min));
+            return Mathf.Clamp01((scalar - min) / (max - min));
     }
 
-    public float GetT(Vector3 velocity)
+    public float GetT(Vector3 vector)
     {
-        velocity = Vector3.Project(velocity, normal);
-        float magnitude = velocity.magnitude * (Vector3.Dot(velocity, normal) > 0 ? 1 : -1);
+        vector = Vector3.Project(vector, normal);
+        float magnitude = vector.magnitude * (Vector3.Dot(vector, normal) > 0 ? 1 : -1);
 
-        return Mathf.Clamp01((magnitude - min) / (max - min));
+        return GetT(magnitude);
     }
 
     public Vector3 GetPosition(float t)
@@ -70,9 +70,9 @@ public class ReactivePart2D : MonoBehaviour
 
 
         Vector2 velocity = Quaternion.Inverse(transform.rotation) * m_rigidbody2D.velocity;
-            //Debug.Log(velocity);
+        Debug.Log(velocity);
         Vector3 acceleration = Quaternion.Inverse(transform.rotation) * m_rigidbody2D.GetComponent<ABR_Ship>().m_acceleration;
-            //Debug.Log(acceleration);
+        Debug.Log(acceleration);
         m_lastLinearVelocity = velocity;
         float angularAcceleration = (m_rigidbody2D.angularVelocity - m_lastAngularVelocity);
         m_lastAngularVelocity = m_rigidbody2D.angularVelocity;
@@ -96,6 +96,11 @@ public class ReactivePart2D : MonoBehaviour
                     t = reaction.GetT(acceleration);
                     break;
             }
+
+            //if (t < 0 || t > 1)
+            //{
+            //    continue;
+            //}
 
             if (reaction.UsePosition)
             {

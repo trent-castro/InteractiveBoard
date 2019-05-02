@@ -17,11 +17,11 @@ public class ABR_GravityWell : MonoBehaviour
 	/// <param name="other">Any object within reach of gravity's collider</param>
 	void OnTriggerStay2D(Collider2D other)
 	{
-		if (other.attachedRigidbody)
+		if (other.attachedRigidbody && other.gameObject.tag != "Asteroid")
 		{
 			float gravityIntensity = Vector3.Distance(transform.position, other.transform.position) / m_GravityRadius;
 			other.attachedRigidbody.AddForce((transform.position - other.transform.position) * gravityIntensity * other.attachedRigidbody.mass * GRAVITY_PULL * Time.smoothDeltaTime);
-			Debug.DrawRay(other.transform.position, transform.position - other.transform.position);
+			//Debug.DrawRay(other.transform.position, transform.position - other.transform.position);
 		}
 	}
 }
