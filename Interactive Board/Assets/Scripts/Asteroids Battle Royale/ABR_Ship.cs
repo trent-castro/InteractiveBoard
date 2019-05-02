@@ -11,14 +11,20 @@ public abstract class ABR_Ship : MonoBehaviour
     private bool m_doThrust = false;
     private float m_turn = 0;
 
+    [SerializeField]
     private float m_maxSpeed = 10.0f;
+
+    [SerializeField]
     private float m_turnPower = 240.0f;
+
+    [SerializeField]
+    private float m_turnPowerWhenThrusting = 120.0f;
 
     private float m_turnGoal = 0;
     private bool m_doTurnTo = false;
     private float m_goalTurn = 0;
 
-    private Vector2 m_acceleration = Vector2.zero;
+    public Vector2 m_acceleration = Vector2.zero;
 
     public void Thrust(float mult)
     {
@@ -72,7 +78,7 @@ public abstract class ABR_Ship : MonoBehaviour
     {
         if (!m_doTurnTo)
         {
-            m_rigidBody.angularVelocity = m_turnPower * m_turn / (m_doThrust ? 2 : 1);
+            m_rigidBody.angularVelocity = (m_doThrust ? m_turnPowerWhenThrusting : m_turnPower) * m_turn;
         }
         else
         {
@@ -89,6 +95,10 @@ public abstract class ABR_Ship : MonoBehaviour
         if (m_doThrust)
         {
             m_rigidBody.velocity = Vector2.SmoothDamp(m_rigidBody.velocity, transform.up * m_maxSpeed * m_thrustMult, ref m_acceleration, .25f);
+        }
+        else
+        {
+            m_acceleration = -m_rigidBody.velocity * m_rigidBody.drag;
         }
     }
 }
