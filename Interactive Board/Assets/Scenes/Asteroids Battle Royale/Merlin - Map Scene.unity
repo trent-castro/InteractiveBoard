@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1634381250194314952, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5281934780971882851, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5539,6 +5544,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5cd545351acd34980fb6af92b9e170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_maxSpeed: 10
+  m_turnPower: 240
+  m_turnPowerWhenThrusting: 120
+  m_acceleration: {x: 0, y: 0}
 --- !u!50 &1709684583
 Rigidbody2D:
   serializedVersion: 4
