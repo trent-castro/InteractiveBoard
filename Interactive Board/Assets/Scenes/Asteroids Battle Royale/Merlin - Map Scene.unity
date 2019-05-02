@@ -7059,16 +7059,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6354177029168603210, guid: 188f851d6a79e68479e39b10a5585162,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6354177029168603210, guid: 188f851d6a79e68479e39b10a5585162,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1752146024420371654, guid: 188f851d6a79e68479e39b10a5585162,
         type: 3}
       propertyPath: m_havePropertiesChanged

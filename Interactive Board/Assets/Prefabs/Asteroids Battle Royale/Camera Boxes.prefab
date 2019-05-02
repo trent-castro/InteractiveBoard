@@ -219,15 +219,20 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4702293546000685687, guid: b17fcdb9d589b544cb7b087a98dff1d3,
+    - target: {fileID: 8329910699233746026, guid: b17fcdb9d589b544cb7b087a98dff1d3,
         type: 3}
-      propertyPath: m_havePropertiesChanged
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4702293546000685687, guid: b17fcdb9d589b544cb7b087a98dff1d3,
         type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702293546000685687, guid: b17fcdb9d589b544cb7b087a98dff1d3,
+        type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b17fcdb9d589b544cb7b087a98dff1d3, type: 3}
@@ -384,16 +389,6 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4702293546000685687, guid: b17fcdb9d589b544cb7b087a98dff1d3,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4702293546000685687, guid: b17fcdb9d589b544cb7b087a98dff1d3,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6867431740761859425, guid: b17fcdb9d589b544cb7b087a98dff1d3,
         type: 3}
       propertyPath: m_Sprite
@@ -545,16 +540,6 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4702293546000685687, guid: b17fcdb9d589b544cb7b087a98dff1d3,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4702293546000685687, guid: b17fcdb9d589b544cb7b087a98dff1d3,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6867431740761859425, guid: b17fcdb9d589b544cb7b087a98dff1d3,
         type: 3}
       propertyPath: m_Sprite
@@ -695,16 +680,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.73333335
-      objectReference: {fileID: 0}
-    - target: {fileID: 4702293546000685687, guid: b17fcdb9d589b544cb7b087a98dff1d3,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4702293546000685687, guid: b17fcdb9d589b544cb7b087a98dff1d3,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6867431740761859425, guid: b17fcdb9d589b544cb7b087a98dff1d3,
         type: 3}

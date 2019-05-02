@@ -20,5 +20,9 @@ public class ABR_Border : MonoBehaviour
 	{
 		Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
 		rb.velocity = rb.velocity * -2;
+
+		//float gravityIntensity = Vector3.Distance(GetComponent<BoxCollider2D>().bounds.ClosestPoint(collision.transform.position), rb.transform.position);
+		//rb.AddForce((transform.position - rb.transform.position) * gravityIntensity * rb.mass * gravityIntensity * Time.smoothDeltaTime);
+
 	}
 }

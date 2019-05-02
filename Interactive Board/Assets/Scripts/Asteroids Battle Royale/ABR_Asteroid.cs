@@ -10,6 +10,7 @@ public class ABR_Asteroid : MonoBehaviour
 	[SerializeField] Vector2 m_startLocation = Vector2.zero;
 	[SerializeField] Vector2 m_endLocation = Vector2.zero;
 	[SerializeField] Vector2 velocity = Vector2.zero;
+	GameObject m_item;
 	[SerializeField] Camera boy = null;
 	ParticleSystem m_shards = null;
 	Rigidbody2D m_rb = null;
@@ -25,6 +26,32 @@ public class ABR_Asteroid : MonoBehaviour
 		velocity = m_rb.velocity;
 		transform.position = m_startLocation;
 		m_shards = GetComponentInChildren<ParticleSystem>();
+	}
+
+	/// <summary>
+	/// Adds an item to this object that it will carry around until broken
+	/// </summary>
+	/// <param name="item"></param>
+	public void AddItem(GameObject item)
+	{
+		m_item = item;
+		m_item.transform.SetParent(this.transform);
+		m_item.transform.localPosition = Vector3.zero;
+		m_item.SetActive(false);
+	}
+
+	/// <summary>
+	/// Releases the item being carried by this object
+	/// </summary>
+	/// <returns></returns>
+	private GameObject ReleaseItem()
+	{
+		m_item.transform.SetParent(null);
+		m_item.transform.position = this.transform.position;
+		m_item.SetActive(true);
+		GameObject item = m_item;
+		m_item = null;
+		return item;
 	}
 
 	/// <summary>
@@ -63,6 +90,9 @@ public class ABR_Asteroid : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// When this object loses all health, this function cleans it up and returns it to object pool.
+	/// </summary>
 	void OnKillObject()
 	{
 		//Reset Object
@@ -72,12 +102,7 @@ public class ABR_Asteroid : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Wall")
 		{
-			m_startLocation = new Vector2(Mathf.Clamp(boy.ScreenToWorldPoint(Input.mousePosition).x, -c_maxXDirection, c_maxXDirection), c_maxYDirection);
-			m_endLocation   = new Vector2(Mathf.Clamp(boy.ScreenToWorldPoint(Input.mousePosition).x, -c_maxXDirection, c_maxXDirection), -c_maxYDirection);
-			m_rb.angularVelocity = 0;
-			m_rb.velocity = ( m_endLocation - m_startLocation) * speed;
-			m_rb.velocity = new Vector2(Mathf.Clamp(m_rb.velocity.x, -10, 10), Mathf.Clamp(m_rb.velocity.y, -10, 10));
-			transform.position = m_startLocation;
+			Target(new Vector2(boy.ScreenToWorldPoint(Input.mousePosition).x, c_maxYDirection), new Vector2(boy.ScreenToWorldPoint(Input.mousePosition).x, -c_maxYDirection));
 		}
 	}
 }
