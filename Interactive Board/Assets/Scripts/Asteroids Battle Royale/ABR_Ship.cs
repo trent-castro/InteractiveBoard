@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class ABR_Ship : MonoBehaviour
 {
-    private Rigidbody2D m_rigidBody = null;
+    public Rigidbody2D m_rigidBody = null;
 
     private float m_thrustMult = 1;
     private bool m_doThrust = false;
@@ -44,11 +44,13 @@ public abstract class ABR_Ship : MonoBehaviour
 
     public void TurnClockwise()
     {
+        StopTurnTo();
         m_turn = Mathf.Clamp(--m_turn, -1, 1);
     }
 
     public void TurnCounterClockWise()
     {
+        StopTurnTo();
         m_turn = Mathf.Clamp(++m_turn, -1, 1);
     }
 
