@@ -2621,6 +2621,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1354819055}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &626071610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4541715549925569430, guid: a82e27eced9bbc24389d596c4dfe766e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1803565818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &720350935
 GameObject:
   m_ObjectHideFlags: 0
@@ -4627,7 +4633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRightGoal: 0
-  goalParticles: {fileID: 1496544194}
+  goalParticles: {fileID: 626071610}
 --- !u!61 &1430035456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4943,12 +4949,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
---- !u!1 &1496544194 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4541715549925569430, guid: a82e27eced9bbc24389d596c4dfe766e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1803565818}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1505864338
 GameObject:
   m_ObjectHideFlags: 0
