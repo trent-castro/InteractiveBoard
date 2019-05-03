@@ -12288,7 +12288,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: If you do not interact with the board in the next 30 seconds, the board
+  m_text: If you do not interact with the board in the next 10 seconds, the board
     will return to the interactive map.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 56fa1d605c50fea4b8cce307e37f0f88, type: 2}
@@ -12367,11 +12367,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -14663,8 +14663,8 @@ MonoBehaviour:
   m_currentMenu: Arcade
   m_launchMenu: Arcade
   m_timeWarning: {fileID: 976062796}
+  m_timerText: {fileID: 0}
   m_timer: 30
-  m_time: 0
 --- !u!114 &2079528485
 MonoBehaviour:
   m_ObjectHideFlags: 0

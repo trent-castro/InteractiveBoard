@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
+	[Tooltip("The currently active submenu.")]
 	[SerializeField] private string m_currentSubMenu = null;
+
+	[Tooltip("The submenu that will be lauched first on startup.")]
 	[SerializeField] private string m_launchMenu = null;
+
+	[Tooltip("All submenus childed to this menu root.")]
 	[SerializeField] public List<GameObject> SubMenus = null;
 
 	private void Start()
 	{
+		foreach (var item in SubMenus)
+		{
+			item.gameObject.SetActive(false);
+		}
 		TurnOnSubMenu(m_launchMenu);
 	}
 

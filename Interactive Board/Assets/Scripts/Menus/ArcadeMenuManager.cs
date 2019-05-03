@@ -1,30 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class ArcadeMenuManager : MonoBehaviour
 {
-
+	[Tooltip("All menu roots.")]
 	[SerializeField] List<Menu> m_Menus = null;
+	[Tooltip("The currently active menu.")]
 	[SerializeField] string m_currentMenu = null;
+	[Tooltip("The menu root that will be lauched first on startup.")]
 	[SerializeField] string m_launchMenu= null;
 
 	[SerializeField] GameObject m_timeWarning = null;
+	[SerializeField] TextMeshProUGUI m_timerText = null;
 
 	[SerializeField] float m_timer = 30;
-	[SerializeField] float m_time = 0;
+	float m_time = 0;
 	bool HasOpenedTab = false;
 	private void Start()
 	{
+		foreach (var item in m_Menus)
+		{
+			item.gameObject.SetActive(false);
+		}
 		ChangeMenu(m_launchMenu);
 		Time.timeScale = 1.0f;
 	}
 
 	void Update()
 	{
+		if (Input.anyKeyDown)
+		{
+			m_time = 0;
+		}
 		m_time += Time.unscaledDeltaTime;
-		if (m_time >= m_timer / 2)
+		if (m_time >=( m_timer - 10))
 		{
 			TurnOnWarning();
 		}
@@ -68,6 +80,6 @@ public class ArcadeMenuManager : MonoBehaviour
 
 	private void TimedReturnToMap()
 	{
-		Application.OpenURL("https://interactive.neumont.edu/");
+		if (!Application.isEditor) Application.OpenURL("https://interactive.neumont.edu/");
 	}
 }
