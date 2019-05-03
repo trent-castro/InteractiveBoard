@@ -2651,6 +2651,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1354819055}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &626071610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4541715549925569430, guid: a82e27eced9bbc24389d596c4dfe766e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1803565818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &720350935
 GameObject:
   m_ObjectHideFlags: 0
@@ -3186,7 +3192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRightGoal: 1
-  goalParticles: {fileID: 0}
+  goalParticles: {fileID: 1940556164}
 --- !u!82 &825029287
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4657,7 +4663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRightGoal: 1
-  goalParticles: {fileID: 0}
+  goalParticles: {fileID: 626071610}
 --- !u!61 &1430035456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6222,6 +6228,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 2}
   m_EdgeRadius: 0
+--- !u!1 &1940556164 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4541715549925569430, guid: a82e27eced9bbc24389d596c4dfe766e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079856946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1961852542
 GameObject:
   m_ObjectHideFlags: 0
@@ -6574,36 +6586,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puck
       objectReference: {fileID: 0}
-    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: audioClips.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: m_hitParticle.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: audioClips.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 136753f7c7c87c548b16b5235de90faa, type: 3}
-    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: m_image
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: audioClips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 364a7e6812ecad94eabae3f59f28c57d, type: 3}
-    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
-        type: 3}
-      propertyPath: audioClips.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 136753f7c7c87c548b16b5235de90faa, type: 3}
     - target: {fileID: 2737984711776480545, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6659,6 +6641,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: audioClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: m_hitParticle.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: audioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 136753f7c7c87c548b16b5235de90faa, type: 3}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: m_image
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 364a7e6812ecad94eabae3f59f28c57d, type: 3}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: audioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 136753f7c7c87c548b16b5235de90faa, type: 3}
     - target: {fileID: 151959694, guid: 44c7f9f9516e84f449b2c2de68c7ebb8, type: 3}
       propertyPath: m_audioClip
       value: 
