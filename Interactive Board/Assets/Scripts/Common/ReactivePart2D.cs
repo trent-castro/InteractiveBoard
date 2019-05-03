@@ -70,9 +70,9 @@ public class ReactivePart2D : MonoBehaviour
 
 
         Vector2 velocity = Quaternion.Inverse(transform.rotation) * m_rigidbody2D.velocity;
-        Debug.Log(velocity);
+        //Debug.Log(velocity);
         Vector3 acceleration = Quaternion.Inverse(transform.rotation) * m_rigidbody2D.GetComponent<ABR_Ship>().m_acceleration;
-        Debug.Log(acceleration);
+        //Debug.Log(acceleration);
         m_lastLinearVelocity = velocity;
         float angularAcceleration = (m_rigidbody2D.angularVelocity - m_lastAngularVelocity);
         m_lastAngularVelocity = m_rigidbody2D.angularVelocity;

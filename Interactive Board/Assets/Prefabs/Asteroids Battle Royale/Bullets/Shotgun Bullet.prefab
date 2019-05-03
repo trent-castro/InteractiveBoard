@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 667764544724495410}
   - component: {fileID: 579717359438552671}
   - component: {fileID: 4079815795922132513}
+  - component: {fileID: 5644656295761231054}
   m_Layer: 0
   m_Name: Shotgun Bullet
   m_TagString: Bullet
@@ -45,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e154afa09e2a042a868df74a15e1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lifeTime: 0.4
-  m_speed: 0.75
+  m_lifeTime: 0.75
+  m_speed: 20
   m_damage: 10
   DebugMode: 0
 --- !u!212 &579717359438552671
@@ -87,7 +88,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c1a6f8fc49c9efa44a66847e0c842887, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -113,3 +114,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!50 &5644656295761231054
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2881793147127287657}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
