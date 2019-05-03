@@ -549,7 +549,6 @@ GameObject:
   m_Component:
   - component: {fileID: 166671859}
   - component: {fileID: 166671861}
-  - component: {fileID: 166671860}
   m_Layer: 8
   m_Name: Paddle Blocker
   m_TagString: Untagged
@@ -571,20 +570,6 @@ Transform:
   m_Father: {fileID: 364441502}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &166671860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166671858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4860bc8140d2f64bb8b03ac33127610, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRightGoal: 1
-  goalParticles: {fileID: 0}
 --- !u!61 &166671861
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1970,7 +1955,6 @@ GameObject:
   m_Component:
   - component: {fileID: 518677605}
   - component: {fileID: 518677607}
-  - component: {fileID: 518677606}
   m_Layer: 8
   m_Name: Paddle Blocker
   m_TagString: Untagged
@@ -1992,20 +1976,6 @@ Transform:
   m_Father: {fileID: 1938267062}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &518677606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518677604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4860bc8140d2f64bb8b03ac33127610, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRightGoal: 1
-  goalParticles: {fileID: 0}
 --- !u!61 &518677607
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3192,7 +3162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRightGoal: 1
-  goalParticles: {fileID: 1940556164}
+  goalParticles: {fileID: 1701955107}
 --- !u!82 &825029287
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4662,8 +4632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4860bc8140d2f64bb8b03ac33127610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRightGoal: 1
-  goalParticles: {fileID: 626071610}
+  isRightGoal: 0
+  goalParticles: {fileID: 1496544194}
 --- !u!61 &1430035456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4979,6 +4949,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
+--- !u!1 &1496544194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4541715549925569430, guid: a82e27eced9bbc24389d596c4dfe766e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1803565818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1505864338
 GameObject:
   m_ObjectHideFlags: 0
@@ -5495,6 +5471,12 @@ Transform:
   m_Father: {fileID: 1199901007}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1701955107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4541715549925569430, guid: a82e27eced9bbc24389d596c4dfe766e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079856946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1730675520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6808871324004018575, guid: 215a4cdc3eaf05647914b6ffbf7cafc1,

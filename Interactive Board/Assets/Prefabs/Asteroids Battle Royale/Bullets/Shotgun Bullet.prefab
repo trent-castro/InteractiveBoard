@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7287679256057233933}
-  - component: {fileID: 4040356390554627287}
-  - component: {fileID: 9074703988584456360}
+  - component: {fileID: 667764544724495410}
   - component: {fileID: 579717359438552671}
+  - component: {fileID: 4079815795922132513}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Shotgun Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4040356390554627287
+--- !u!114 &667764544724495410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,28 +42,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2881793147127287657}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c49cecd7372040446a6f65df3199c006, type: 3}
+  m_Script: {fileID: 11500000, guid: 57e154afa09e2a042a868df74a15e1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 5
-  speed: 3
+  m_lifeTime: 0.4
+  m_speed: 0.75
+  m_damage: 10
   DebugMode: 0
---- !u!70 &9074703988584456360
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2881793147127287657}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
 --- !u!212 &579717359438552671
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -101,7 +86,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 421b4a0d0c4412c47b93ae4b17c163f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1a6f8fc49c9efa44a66847e0c842887, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -112,3 +97,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &4079815795922132513
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2881793147127287657}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4
