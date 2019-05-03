@@ -14,8 +14,13 @@ public abstract class ABR_Bullet : MonoBehaviour
     [Header("Debug")]
     [SerializeField] protected bool DebugMode = false;
 
-    protected Vector2 movementDirection = Vector2.zero;
     protected float m_elapsedLifeTime = 0.0f;
+    protected Rigidbody2D m_rigidbody = null;
+
+    private void Awake()
+    {
+        m_rigidbody = GetComponent<Rigidbody2D>();
+    }
 
     private void Update()
     {
@@ -23,12 +28,9 @@ public abstract class ABR_Bullet : MonoBehaviour
         if (m_elapsedLifeTime >= m_lifeTime)
             gameObject.SetActive(false);
 
-        gameObject.transform.position += (Vector3)(movementDirection * m_speed);
-        Debug.Log("Bullet Update");
     }
     private void OnDisable()
     {
-        movementDirection = Vector2.zero;
         m_elapsedLifeTime = 0.0f;
     }
 
@@ -41,6 +43,6 @@ public abstract class ABR_Bullet : MonoBehaviour
     /// Sets the bullets movement direction to the passed in direction
     /// </summary>
     /// <param name="direction">desired movement direction</param>
-    abstract public void Fire(Vector2 direction);
+    abstract public void Fire(Vector2 direction, Vector2 shipVelocity);
 
 }

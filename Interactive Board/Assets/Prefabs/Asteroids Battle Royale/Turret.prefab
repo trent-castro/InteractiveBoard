@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7235185101172691739}
   - component: {fileID: 7235185101172691738}
+  - component: {fileID: 5778048015641710237}
   - component: {fileID: 8397217901831383059}
   m_Layer: 0
   m_Name: Turret
@@ -46,9 +47,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spawnLocation: {fileID: 7235185102702586911}
-  m_bulletPool: {fileID: 0}
-  m_audioSource: {fileID: 8397217901831383059}
   DebugMode: 0
+  bulletType: 0
+--- !u!114 &5778048015641710237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235185101172691737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fac0820488f4114a91079d736ab77ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BulletSpawnPosition: {fileID: 7235185102702586911}
 --- !u!82 &8397217901831383059
 AudioSource:
   m_ObjectHideFlags: 0
@@ -169,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7235185102702586910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7235185101172691739}
