@@ -80,6 +80,11 @@ public class AH_GameMaster : MonoBehaviour
     private void Start()
     {
         GetSiblingComponents();
+
+		if (PlayerPrefs.HasKey("AirHockeyPointsRequired"))
+		{
+			m_scoreToWin = PlayerPrefs.GetInt("AirHockeyPointsRequired");
+		}
     }
 
     /// <summary>

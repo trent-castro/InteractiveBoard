@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class ABR_BasicBullet : ABR_Bullet
 {
-    public override void Fire(Vector2 direction)
+
+    public override void Fire(Vector2 direction, Vector2 shipVelocity)
     {
-        movementDirection = direction;
+        m_rigidbody.velocity = (direction * m_speed) + shipVelocity;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
     }
 }
