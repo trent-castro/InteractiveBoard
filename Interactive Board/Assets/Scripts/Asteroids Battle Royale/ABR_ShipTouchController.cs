@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class ABR_ShipTouchController : ABR_Ship
 {
-    private Transform m_target = null;
+    private void Start()
+    {
+        base.Start();
+    }
+
     new void Update()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
