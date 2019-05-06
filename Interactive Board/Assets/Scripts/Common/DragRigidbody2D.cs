@@ -20,7 +20,6 @@ public class DragRigidbody2D : MonoBehaviour
     private float m_oldDrag;
     private float m_oldAngularDrag;
 
-    private MultiTouchManager m_touchManager = null;
     private TouchInfo m_touchInfo = null;
 
     public TextMeshPro m_debugOutput = null;
@@ -31,23 +30,22 @@ public class DragRigidbody2D : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_collider = GetComponent<Collider2D>();
 
-        m_touchManager = MultiTouchManager.Instance;
-        m_touchManager.ListenForTouchesOnOverlap(m_collider.OverlapPoint,
-            CheckNewTouch,
-            EListenType.BOTH);
+        MultiTouchManager.Instance.ListenForTouchesOnOverlapWithEvents(m_collider.OverlapPoint, CheckNewTouch);
     }
 
-    private void CheckNewTouch(TouchInfo touchInfo)
+    private void CheckNewTouch(TouchInfo touchInfo, ETouchEventType eventType)
     {
-        if (m_touchInfo == null && touchInfo.owners == 0)
+        if (eventType != ETouchEventType.EXIT && m_touchInfo == null && touchInfo.m_owners == 0)
         {
-            touchInfo.owners++;
+            touchInfo.m_owners++;
             m_touchInfo = touchInfo;
             m_touchInfo.ListenForMove(OnTouchMove);
             m_touchInfo.ListenForEnd(OnTouchEnd);
-            //m_touchInfo.ListenForStationary(OnTouchStationary);
             Grab();
-
+        }
+        else if (eventType == ETouchEventType.EXIT && m_touchInfo != null && touchInfo.FingerId == m_touchInfo.FingerId)
+        {
+            OnTouchEnd(touchInfo);
         }
     }
 
@@ -88,19 +86,13 @@ public class DragRigidbody2D : MonoBehaviour
         }
         m_touchInfo.StopListenForMove(OnTouchMove);
         m_touchInfo.StopListenForEnd(OnTouchEnd);
-        m_touchInfo.owners = 0;
+        m_touchInfo.m_owners--;
 
         m_touchInfo = null;
     }
 
     private void OnTouchMove(TouchInfo touchInfo)
     {
-        if (!m_touchArea.OverlapPoint(Camera.main.ScreenToWorldPoint(touchInfo.Position)))
-        {
-            OnTouchEnd(touchInfo);
-            return;
-        }
-
         Debug.DrawLine(m_springJoint.transform.position, transform.position, Color.red);
         m_springJoint.transform.position = Camera.main.ScreenToWorldPoint(touchInfo.Position);
 
