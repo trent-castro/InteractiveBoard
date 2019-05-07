@@ -21,7 +21,7 @@ public class ABR_ShotgunWeapon : ABR_Weapon
     /// </summary>
     /// <param name="shipVelocity">The position in which the bullet will spawn</param>
     /// <param name="fireDirection">The direction in which the bullet will travel</param>
-    public override void Fire(Vector3 shipVelocity)
+    public override bool Fire(Vector3 shipVelocity)
     {
         if (m_ammo > 0 )
         {
@@ -46,7 +46,9 @@ public class ABR_ShotgunWeapon : ABR_Weapon
             }
             //reduce Ammo by one
             m_ammo--;
+            return true;
         }
+        return false;
     }
 
 }

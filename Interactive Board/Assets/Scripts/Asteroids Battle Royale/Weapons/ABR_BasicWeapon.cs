@@ -11,7 +11,7 @@ public class ABR_BasicWeapon : ABR_Weapon
         m_fireDelay = 0.2f;
     }
 
-    public override void Fire(Vector3 shipVelocity)
+    public override bool Fire(Vector3 shipVelocity)
     {
         ABR_Bullet bullet = ABR_GlobalInfo.BulletManager.GetObjectFromTaggedPool(m_bulletTye).GetComponent<ABR_Bullet>();
         bullet.gameObject.SetActive(true);
@@ -19,5 +19,6 @@ public class ABR_BasicWeapon : ABR_Weapon
         Vector3 fireDir = m_bulletSpawnLocation.transform.up;
 
         bullet.Fire(fireDir, shipVelocity);
+        return true;
     }
 }
