@@ -15,11 +15,11 @@ public abstract class ABR_StateAI : ABR_Ship
     [Tooltip("The rotation speed of the state AI.")]
     [SerializeField]
     [Range(0.0f, 2.0f)]
-    private float rotationSpeed = 1.0f;
+    protected float rotationSpeed = 1.0f;
     [Tooltip("The max movement speed of the state AI.")]
     [SerializeField]
     [Range(0.0f, 10.0f)]
-    private float maxMovementSpeed = 1.0f;
+    protected float maxMovementSpeed = 1.0f;
    
     // Protected Sibling Components
     protected Rigidbody2D m_rigidbody2D = null;
@@ -48,6 +48,16 @@ public abstract class ABR_StateAI : ABR_Ship
     {
         GetSiblingComponents();
         players = GameObject.FindGameObjectsWithTag("Player");
+    }
+
+    protected new void Update()
+    {
+        if(m_rigidbody2D.velocity.magnitude > maxMovementSpeed)
+        {
+            m_rigidbody2D.velocity = m_rigidbody2D.velocity.normalized * maxMovementSpeed;
+        }
+
+        base.Update();
     }
 
     private void GetSiblingComponents()

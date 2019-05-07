@@ -11,10 +11,14 @@ public class ABR_Turret : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] bool DebugMode = false;
-    [SerializeField] eBulletType bulletType = eBulletType.BASIC;
 
     private AudioSource m_audioSource = null;
-    private ABR_Weapon m_weapon = new ABR_BasicWeapon();
+    private ABR_Weapon m_weapon = null;
+    private Rigidbody2D m_rigidbody = null;
+    private bool m_isOkayToFire = true;
+
+    private float m_fireTimer = 0.0f;
+    private float m_fireTimeElapsed = 0.0f;
 
     private void Start()
     {
@@ -22,28 +26,31 @@ public class ABR_Turret : MonoBehaviour
         {
             m_audioSource = GetComponent<AudioSource>();
         }
-        if (DebugMode)
+        m_rigidbody = GetComponentInParent<Rigidbody2D>();
+        m_weapon = GetComponent<ABR_Weapon>();
+        m_weapon.m_bulletSpawnLocation = m_spawnLocation;
+        m_fireTimer = m_weapon.GetFireDelay();
+    }
+
+    private void Update()
+    {
+        if (!m_isOkayToFire)
         {
-            switch (bulletType)
+            m_fireTimeElapsed += Time.deltaTime;
+            if (m_fireTimeElapsed >= m_fireTimer)
             {
-                case eBulletType.BASIC:
-                    m_weapon = new ABR_BasicWeapon();
-                    break;
-                case eBulletType.SHOTGUN:
-                    m_weapon = new ABR_ShotguWeapon();
-                    break;
-                case eBulletType.EXPLOSION:
-                    m_weapon = new ABR_ExplosionWeapon();
-                    break;
-                case eBulletType.PIERCE:
-                    m_weapon = new ABR_PierceWeapon();
-                    break;
-                case eBulletType.LASER:
-                    m_weapon = new ABR_LaserWeapon();
-                    break;
+                Reload();
             }
         }
     }
+
+
+    private void Reload()
+    {
+        m_isOkayToFire = true;
+        m_fireTimeElapsed = 0.0f;
+    }
+
     /// <summary>
     /// Will fire a bullet in the direction that the spawn location
     /// </summary>
@@ -51,9 +58,15 @@ public class ABR_Turret : MonoBehaviour
     {
         Vector3 fireDirection = m_spawnLocation.position - gameObject.transform.position;
         Debug.Log(m_weapon.GetType());
-        m_weapon.Fire(m_spawnLocation.position, fireDirection);
-        //Plays Shot Audio
-        m_audioSource.Play();
+
+        if (m_isOkayToFire)
+        {
+            m_weapon.Fire(m_rigidbody.velocity);
+            //Plays Shot Audio
+            m_audioSource.Play();
+            m_isOkayToFire = false;
+        }
+
         if (DebugMode)
             Debug.Log(m_weapon.GetAmmo());
 

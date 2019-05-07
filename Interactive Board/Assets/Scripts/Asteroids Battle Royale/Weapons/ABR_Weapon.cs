@@ -11,22 +11,23 @@ public enum eBulletType
     LASER
 }
 
-public abstract class ABR_Weapon
+public abstract class ABR_Weapon : MonoBehaviour
 {
-
+    public Transform m_bulletSpawnLocation;
     protected float m_fireDelay;
     protected string m_bulletTye;
     protected uint m_ammo;
-    protected bool isOkayToFire = true;
-    abstract public void Fire(Vector3 firePos, Vector3 fireDir);
+
     public uint GetAmmo()
     {
         return m_ammo;
     }
 
-    protected void ResetIsOkayToFire()
+    public float GetFireDelay()
     {
-        isOkayToFire = true;
+        return m_fireDelay;
     }
+
+    abstract public void Fire(Vector3 shipVelocity);
 
 }

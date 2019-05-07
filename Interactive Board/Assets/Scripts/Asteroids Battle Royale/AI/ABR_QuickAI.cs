@@ -31,7 +31,7 @@ public class ABR_QuickAI : ABR_StateAI
         gameObject.SetActive(true);
     }
 
-    protected void Start()
+    protected new void Start()
     {
         m_stateMachine = new StackStateMachine<ABR_QuickAI>();
         m_stateMachine.AddState("APPROACH", new ApproachState<ABR_QuickAI>(this));
@@ -41,7 +41,7 @@ public class ABR_QuickAI : ABR_StateAI
         base.Start();
     }
 
-    protected void Update()
+    protected new void Update()
     {
         m_stateMachine.Update();
 
@@ -67,14 +67,13 @@ public class ABR_QuickAI : ABR_StateAI
 
         public override void Update()
         {
-            Vector2 toTarget = (quickAI.m_currentTarget.transform.position - quickAI.transform.position).normalized;
-            float targetRotation = Mathf.Rad2Deg * Mathf.Atan2(toTarget.y, toTarget.x) - 90;
+            float targetRotation = quickAI.m_currentTarget.transform.position.ZAngleTo(quickAI.transform.position);
             quickAI.TurnTo(targetRotation);
 
             float distance = Vector3.Distance(m_owner.transform.position, quickAI.m_currentTarget.transform.position);
             if(distance < quickAI.maxDetectionDistance)
             {
-                quickAI.Thrust(1.0f);
+                quickAI.Thrust(quickAI.rotationSpeed);
             }
             else
             {

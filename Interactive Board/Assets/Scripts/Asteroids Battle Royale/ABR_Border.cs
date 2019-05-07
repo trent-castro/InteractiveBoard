@@ -27,8 +27,7 @@ public class ABR_Border : MonoBehaviour
 
             if (ship != null)
             {
-                Vector2 toTarget = (target - ship.m_rigidBody.position).normalized;
-                float targetRotation = Mathf.Rad2Deg * Mathf.Atan2(toTarget.y, toTarget.x) - 90;
+                float targetRotation = ship.m_rigidBody.position.ZAngleTo(target);
                 if (Mathf.Abs(Mathf.DeltaAngle(ship.transform.eulerAngles.z, targetRotation)) > 30)
                 {
                     ship.TurnTo(targetRotation);
