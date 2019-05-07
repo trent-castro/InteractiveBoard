@@ -67,8 +67,7 @@ public class ABR_QuickAI : ABR_StateAI
 
         public override void Update()
         {
-            Vector2 toTarget = (quickAI.m_currentTarget.transform.position - quickAI.transform.position).normalized;
-            float targetRotation = Mathf.Rad2Deg * Mathf.Atan2(toTarget.y, toTarget.x) - 90;
+            float targetRotation = quickAI.m_currentTarget.transform.position.ZAngleTo(quickAI.transform.position);
             quickAI.TurnTo(targetRotation);
 
             float distance = Vector3.Distance(m_owner.transform.position, quickAI.m_currentTarget.transform.position);
