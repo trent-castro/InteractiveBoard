@@ -14,6 +14,7 @@ public class AH_Puck : MonoBehaviour
     private float m_maxSpeed = 30;
     [SerializeField]
     AudioClip[] audioClips = null;
+    
 
     // ASK SEN ABOUT OBJECT POOLING RIGHT HERE
     public bool delete = false;
@@ -105,11 +106,11 @@ public class AH_Puck : MonoBehaviour
         return m_maxSpeed;
     }
 
-    public void ResetPuck()
+    public void ResetPuck(Vector3 puckResetPosition)
     {
 		if (this)
 		{
-			transform.localPosition = Vector3.zero;
+			transform.localPosition = puckResetPosition;
 			GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 			GetComponentInChildren<TrailRenderer>().enabled = true;
 			if (delete)
