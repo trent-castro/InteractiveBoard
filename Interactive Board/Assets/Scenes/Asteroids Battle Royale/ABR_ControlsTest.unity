@@ -122,7 +122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 120611199}
   - component: {fileID: 120611198}
-  - component: {fileID: 120611197}
   - component: {fileID: 120611200}
   m_Layer: 0
   m_Name: P3 Camera
@@ -131,14 +130,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &120611197
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120611196}
-  m_Enabled: 1
 --- !u!20 &120611198
 Camera:
   m_ObjectHideFlags: 0
@@ -193,7 +184,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &120611200
 MonoBehaviour:
@@ -451,6 +442,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbef27d41e8623b42a60177350a14977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_rigidBody: {fileID: 0}
+  m_maxSpeed: 10
+  m_turnPower: 240
+  m_turnPowerWhenThrusting: 120
+  m_acceleration: {x: 0, y: 0}
   m_debugMode: 1
   rotationSpeed: 1
   maxMovementSpeed: 1
@@ -577,6 +573,36 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 147538032}
+    - target: {fileID: 1752146024420371654, guid: 188f851d6a79e68479e39b10a5585162,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752146024420371654, guid: 188f851d6a79e68479e39b10a5585162,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696676123994817883, guid: 188f851d6a79e68479e39b10a5585162,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696676123994817883, guid: 188f851d6a79e68479e39b10a5585162,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3701450305307103898, guid: 188f851d6a79e68479e39b10a5585162,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3701450305307103898, guid: 188f851d6a79e68479e39b10a5585162,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 188f851d6a79e68479e39b10a5585162, type: 3}
 --- !u!1 &1632029064
@@ -589,7 +615,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1632029067}
   - component: {fileID: 1632029066}
-  - component: {fileID: 1632029065}
   - component: {fileID: 1632029068}
   m_Layer: 0
   m_Name: P4 Camera
@@ -598,14 +623,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1632029065
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632029064}
-  m_Enabled: 1
 --- !u!20 &1632029066
 Camera:
   m_ObjectHideFlags: 0
@@ -660,7 +677,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1632029068
 MonoBehaviour:
@@ -766,7 +783,7 @@ PrefabInstance:
     - target: {fileID: 1634381250194314952, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_Name
-      value: Player 2
+      value: Player Two Environment
       objectReference: {fileID: 0}
     - target: {fileID: 5281934780971882851, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
@@ -806,7 +823,7 @@ PrefabInstance:
     - target: {fileID: 5281934780971882851, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5281934780971882851, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
@@ -974,7 +991,7 @@ PrefabInstance:
     - target: {fileID: 1634381250194314952, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_Name
-      value: Player 1
+      value: Player One Environment
       objectReference: {fileID: 0}
     - target: {fileID: 5281934780971882851, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}

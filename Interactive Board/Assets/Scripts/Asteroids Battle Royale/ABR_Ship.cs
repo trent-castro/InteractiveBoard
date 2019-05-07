@@ -56,6 +56,7 @@ public abstract class ABR_Ship : MonoBehaviour
 
     public void StopTurn()
     {
+        m_rigidBody.angularVelocity = 0;
         m_turn = 0;
     }
 
@@ -66,8 +67,16 @@ public abstract class ABR_Ship : MonoBehaviour
         m_goalTurn = 0;
     }
 
+    public void Turn(float degrees)
+    {
+        m_turnGoal = transform.eulerAngles.z + degrees;
+        m_doTurnTo = true;
+        m_goalTurn = 0;
+    }
+
     public void StopTurnTo()
     {
+        m_rigidBody.angularVelocity = 0;
         m_doTurnTo = false;
     }
 

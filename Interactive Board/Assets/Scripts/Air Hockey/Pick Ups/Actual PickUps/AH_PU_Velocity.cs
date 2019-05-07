@@ -11,6 +11,7 @@ public class AH_PU_Velocity : AH_PickUp
     public override void OnEffectBegin()
     {
         afflictedPuck.GetComponent<AH_Puck>().SetMaxSpeed(afflictedPuck.GetComponent<AH_Puck>().GetMaxSpeed() * m_velocityScale);
+        afflictedPuck.GetComponent<Rigidbody2D>().velocity = afflictedPuck.GetComponent<Rigidbody2D>().velocity * m_velocityScale;
     }
 
     public override void OnEffectEnd()
