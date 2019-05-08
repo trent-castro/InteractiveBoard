@@ -9,12 +9,12 @@ using UnityEngine;
 public class AH_GameMaster : MonoBehaviour
 {
     // Singleton Paradigm
-    public static AH_GameMaster instance = null;
+    public static AH_GameMaster Instance = null;
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
         else
             Destroy(this.gameObject);
     }
@@ -48,6 +48,13 @@ public class AH_GameMaster : MonoBehaviour
     [Tooltip("The lose text displayed after losing the game")]
     [SerializeField]
     private string m_loseText = "LOSE!!";
+    [Tooltip("The offset of the puck after the puck goes into the right goal")]
+    [SerializeField]
+    Transform m_PuckResetOffsetForRightGoal = null;
+    [Tooltip("The offset of the puck after the puck goes into the left goal")]
+    [SerializeField]
+    Transform m_PuckResetOffsetForLeftGoal = null;
+
 
     [Header("Exposed Editor Values - Do Not Touch")]
     [Tooltip("The scores for the respective player")]
@@ -122,7 +129,8 @@ public class AH_GameMaster : MonoBehaviour
         yield return new WaitForSecondsRealtime(m_checkGameStateDelay);
 
         // Reset the puck location
-        scoringPuck.ResetPuck();
+        if (isRightGoal) scoringPuck.ResetPuck(m_PuckResetOffsetForRightGoal.position);
+        else scoringPuck.ResetPuck(m_PuckResetOffsetForLeftGoal.position);
 
         // Check the game scene
         if (DetermineWinState() && !m_winEffectsTriggered)
@@ -142,6 +150,7 @@ public class AH_GameMaster : MonoBehaviour
         // Stop this coroutine from constantly occuring
         StopCoroutine(CheckGameState(scoringPuck, isRightGoal));
     }
+    
 
     /// <summary>
     /// Handles the operations carried out upon game completion
@@ -149,6 +158,8 @@ public class AH_GameMaster : MonoBehaviour
     /// <returns>Time taken before action of the coroutine</returns>
     IEnumerator EndGame()
     {
+        GetComponent<MultiTouchManager>().enabled = false;
+
         // Wait an appropriate amount of time before proceeding
         yield return new WaitForSecondsRealtime(m_endGameDelay);
 
