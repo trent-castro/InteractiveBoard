@@ -1348,9 +1348,11 @@ MonoBehaviour:
   canvasManager: {fileID: 534401925}
   m_scoreToWin: 5
   m_checkGameStateDelay: 0.5
-  m_endGameDelay: 0.75
+  m_endGameDelay: 2
   m_winText: WIN!!
   m_loseText: LOSE!!
+  m_PuckResetOffsetForRightGoal: {fileID: 1041249965}
+  m_PuckResetOffsetForLeftGoal: {fileID: 1516836369}
   m_PlayerOneScore: 0
   m_PlayerTwoScore: 0
 --- !u!114 &410517781
@@ -1745,12 +1747,22 @@ PrefabInstance:
     - target: {fileID: 1970551657357621225, guid: 0f6fb188b989555418c0cf3263f0b931,
         type: 3}
       propertyPath: m_timeToReachDesiredScale
-      value: 0.75
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970551657357621225, guid: 0f6fb188b989555418c0cf3263f0b931,
+        type: 3}
+      propertyPath: m_desiredScale
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 1970551658152600753, guid: 0f6fb188b989555418c0cf3263f0b931,
         type: 3}
       propertyPath: m_timeToReachDesiredScale
-      value: 0.75
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970551658152600753, guid: 0f6fb188b989555418c0cf3263f0b931,
+        type: 3}
+      propertyPath: m_desiredScale
+      value: 1.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f6fb188b989555418c0cf3263f0b931, type: 3}
@@ -3566,6 +3578,8 @@ Transform:
   - {fileID: 1590052029}
   - {fileID: 258774047}
   - {fileID: 1348951242}
+  - {fileID: 1516836369}
+  - {fileID: 1041249965}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3626,6 +3640,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
+--- !u!1 &1041249964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1041249965}
+  m_Layer: 0
+  m_Name: Right Goal Score Puck Offset (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1041249965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041249964}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.65, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 994489603}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1079856946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5021,6 +5065,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505864338}
   m_CullTransparentMesh: 0
+--- !u!1 &1516836368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1516836369}
+  m_Layer: 0
+  m_Name: Left Goal Score Puck Offset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1516836369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516836368}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.65, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 994489603}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1535509707
 GameObject:
   m_ObjectHideFlags: 0
