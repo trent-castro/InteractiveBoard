@@ -1384,6 +1384,7 @@ MonoBehaviour:
   m_puck: {fileID: 238146966}
   m_player1: {fileID: 8848358942128387073}
   m_player2: {fileID: 1148415550}
+  m_particleParent: {fileID: 470761421}
   m_backgrounds:
   - {fileID: 21300000, guid: 00edb0e0092601a4abce45e21d91ef69, type: 3}
   - {fileID: 21300000, guid: ed4bd7afd391cc3478e11f8f58ba21b2, type: 3}
@@ -1406,6 +1407,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 863dbf5eb6255c74fa18918bad4c60f1, type: 3}
   - {fileID: 21300000, guid: f089319bc29f2304d93034dd5948ab59, type: 3}
   - {fileID: 21300000, guid: ea1f3e268e34b0e46993e5002acb04c1, type: 3}
+  m_particleEffects:
+  - {fileID: 8695846010973746066, guid: b4e9c81dd0e47fd4f90b4f38756db1c0, type: 3}
+  - {fileID: 8695846010973746066, guid: b2becea51b1413c4181e2a651f111624, type: 3}
+  - {fileID: 8695846010973746066, guid: b2becea51b1413c4181e2a651f111624, type: 3}
 --- !u!82 &410517783
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2137,7 +2142,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 00edb0e0092601a4abce45e21d91ef69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6660,7 +6665,7 @@ PrefabInstance:
     - target: {fileID: 767849405, guid: 44c7f9f9516e84f449b2c2de68c7ebb8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 6c79cfda64a00dc408d15bdfb2f2c6c5, type: 2}
     - target: {fileID: 767849405, guid: 44c7f9f9516e84f449b2c2de68c7ebb8, type: 3}
       propertyPath: m_Time
       value: 0.25
