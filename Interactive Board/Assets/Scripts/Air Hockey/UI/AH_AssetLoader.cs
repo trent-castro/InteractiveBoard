@@ -20,12 +20,14 @@ public class AH_AssetLoader : MonoBehaviour
 	[SerializeField] SpriteRenderer m_puck          = null;
 	[SerializeField] SpriteRenderer m_player1       = null;
 	[SerializeField] SpriteRenderer m_player2       = null;
+	[SerializeField] Transform m_particleParent		= null;
 
     [Header("Asset References")]
 	[SerializeField] Sprite[] m_backgrounds = null;
 	[SerializeField] Sprite[] m_foregrounds = null;
 	[SerializeField] Sprite[] m_paddles     = null;
 	[SerializeField] Sprite[] m_pucks       = null;
+	[SerializeField] GameObject[] m_particleEffects = null;
 
     /// <summary>
     /// [DEBUG MODE] Records a message if debug mode is enabled.
@@ -60,6 +62,7 @@ public class AH_AssetLoader : MonoBehaviour
 		if (m_puck) m_puck.sprite = m_pucks[(int)theme];
 		if (m_background) m_background.sprite = m_backgrounds[(int)theme];
 		if (m_foreground) m_foreground.sprite = m_foregrounds[(int)theme];
+		if (m_particleParent) Instantiate<GameObject>(m_particleEffects[(int)theme], m_particleParent);
 		switch (theme)
 		{
 			case ETheme.BASIC:

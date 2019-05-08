@@ -28,6 +28,6 @@ public abstract class ABR_Weapon : MonoBehaviour
         return m_fireDelay;
     }
 
-    abstract public void Fire(Vector3 shipVelocity);
+    abstract public bool Fire(Vector3 shipVelocity);
 
 }

@@ -25,7 +25,7 @@ public class AH_Goal : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<AH_Puck>() != null)
         {
-            AH_GameMaster.instance.GivePointToPlayer(isRightGoal, collision);
+            AH_GameMaster.Instance.GivePointToPlayer(isRightGoal, collision);
             goalParticles.GetComponent<ParticleSystem>().Play();
             audioSource.Play();
         }
