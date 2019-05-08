@@ -83,33 +83,48 @@ public abstract class AH_PickUp : MonoBehaviour
         {
             // Increment the lifespan timer
             m_lifespanTimer += Time.deltaTime;
-            
-            // Check if the pick up life span has expired
-            if (m_lifespanTimer >= m_lifeSpan)
-            {
-                DisablePickUp();
-            }
+
+            ValidateLifespanDuration();
         }
         else
         {
             // Increment the effect timer
             m_effectTimer += Time.deltaTime;
-            
-            // Check if the effect has expired
-            if(m_effectTimer >= m_powerUpDuration)
+
+            ValidateEffectDuration();
+        }
+    }
+
+    /// <summary>
+    /// Check if the pick up life span has expired before it has been picked up.
+    /// </summary>
+    private void ValidateLifespanDuration()
+    {
+        if (m_lifespanTimer >= m_lifeSpan)
+        {
+            DisablePickUp();
+        }
+    }
+
+    /// <summary>
+    /// Checks if the pick up effect has expired.
+    /// </summary>
+    private void ValidateEffectDuration()
+    {
+        // Check if the effect has expired
+        if (m_effectTimer >= m_powerUpDuration)
+        {
+            // If the afflicted puck exists, start the end 
+            if (afflictedPuck)
             {
-                // If the afflicted puck existsm start the end 
-                if (afflictedPuck)
+                if (afflictedPuck.GetComponent<AH_BitFlagReceiver>()
+                    .Contains(m_bitFlagBroadcaster.Broadcast()))
                 {
-                    if (afflictedPuck.GetComponent<AH_BitFlagReceiver>()
-                        .Contains(m_bitFlagBroadcaster.Broadcast()))
-                    {
-                        OnEffectEnd();
-                        afflictedPuck.GetComponent<AH_BitFlagReceiver>()
-                            .RemoveFlag(m_bitFlagBroadcaster.Broadcast());
-                    }
-                    DisablePickUp();
+                    OnEffectEnd();
+                    afflictedPuck.GetComponent<AH_BitFlagReceiver>()
+                        .RemoveFlag(m_bitFlagBroadcaster.Broadcast());
                 }
+                DisablePickUp();
             }
         }
     }
@@ -141,21 +156,42 @@ public abstract class AH_PickUp : MonoBehaviour
         // Disable pick up from being interacted with in the scene
         DisablePickUpRendering();
 
-        if(!afflictedPuck.GetComponent<AH_BitFlagReceiver>()
-            .Contains(m_bitFlagBroadcaster.Broadcast()))
+        if(ValidateOnPickUpEffects())
         {
-            // Begin the pick up effects
-            GameObject pickUpParticles = AH_ParticlePools.instance.GetTaggedParticleSystem("Pick Up");
+            ActivateOnPickUpEffects();
+        }
+    }
 
-            if(pickUpParticles)
-            {
-                pickUpParticles.transform.position = transform.position;
-                pickUpParticles.GetComponent<ParticleSystem>().Play();
-            }
+    /// <summary>
+    /// Validates that the pick up is not currently being affected by an equivalent pick up effect.
+    /// </summary>
+    /// <returns>A bool describing whether or not the effect is already in play for this puck.</returns>
+    private bool ValidateOnPickUpEffects()
+    {
+        return !afflictedPuck.GetComponent<AH_BitFlagReceiver>().Contains(m_bitFlagBroadcaster.Broadcast());
+    }
 
-            OnEffectBegin();
-            afflictedPuck.GetComponent<AH_BitFlagReceiver>()
-                .AddFlag(m_bitFlagBroadcaster.Broadcast());
+    /// <summary>
+    /// Starts the on pick up effect event.
+    /// </summary>
+    private void ActivateOnPickUpEffects()
+    {
+        PlayParticleEffect();
+        OnEffectBegin();
+        afflictedPuck.GetComponent<AH_BitFlagReceiver>().AddFlag(m_bitFlagBroadcaster.Broadcast());
+    }
+
+    /// <summary>
+    /// Plays particle effects for pick ups if they exist.
+    /// </summary>
+    private void PlayParticleEffect()
+    {
+        GameObject pickUpParticles = AH_ParticlePools.instance.GetTaggedParticleSystem("Pick Up");
+
+        if (pickUpParticles)
+        {
+            pickUpParticles.transform.position = transform.position;
+            pickUpParticles.GetComponent<ParticleSystem>().Play();
         }
     }
 
