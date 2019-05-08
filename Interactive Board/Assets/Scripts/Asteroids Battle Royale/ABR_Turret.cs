@@ -44,7 +44,9 @@ public class ABR_Turret : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Resets the isOkayToFire boolean and the associated timer
+    /// </summary>
     private void Reload()
     {
         m_isOkayToFire = true;
@@ -57,18 +59,17 @@ public class ABR_Turret : MonoBehaviour
     public void FireBullet()
     {
         Vector3 fireDirection = m_spawnLocation.position - gameObject.transform.position;
-        Debug.Log(m_weapon.GetType());
-
+        if (DebugMode) Debug.Log(m_weapon.GetType());
         if (m_isOkayToFire)
         {
-            m_weapon.Fire(m_rigidbody.velocity);
-            //Plays Shot Audio
-            m_audioSource.Play();
+            //checks if the weapon successfully fired
+            if (m_weapon.Fire(m_rigidbody.velocity))
+            {
+                //Plays Shot Audio
+                m_audioSource.Play();
+            }
             m_isOkayToFire = false;
         }
-
-        if (DebugMode)
-            Debug.Log(m_weapon.GetAmmo());
-
+        if (DebugMode) Debug.Log(m_weapon.GetAmmo());
     }
 }

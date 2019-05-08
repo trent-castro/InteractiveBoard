@@ -39,6 +39,12 @@ public abstract class ABR_Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void DealDamage(ref GameObject damageableObject)
+    {
+        //TODO Implemetn Damage logic
+        damageableObject.SetActive(false);
+    }
+
     /// <summary>
     /// Sets the bullets movement direction to the passed in direction
     /// </summary>
