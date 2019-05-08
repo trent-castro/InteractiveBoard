@@ -3,13 +3,14 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class DragRigidbody2D : MonoBehaviour
 {
     private SpringJoint2D m_springJoint = null;
     [SerializeField]
     private CompositeTouchArea m_touchArea = null;
-    private Collider2D m_collider = null;
+    [SerializeField]
+    private Collider2D m_grabbableArea = null;
     private Rigidbody2D m_rigidbody = null;
 
     public float m_dampingRatio = .05f;
@@ -28,12 +29,12 @@ public class DragRigidbody2D : MonoBehaviour
     private void Start()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
-        m_collider = GetComponent<Collider2D>();
 
-        MultiTouchManager.Instance.ListenForTouchesOnOverlapWithEvents(m_collider.OverlapPoint, CheckNewTouch);
+        MultiTouchManager.Instance.ListenForTouchesOnOverlapWithEvents(m_grabbableArea.OverlapPoint, CheckForGrab);
+        MultiTouchManager.Instance.ListenForTouchesOnOverlapWithEvents(m_touchArea.OverlapPoint, CheckForLetGo);
     }
 
-    private void CheckNewTouch(TouchInfo touchInfo, ETouchEventType eventType)
+    private void CheckForGrab(TouchInfo touchInfo, ETouchEventType eventType)
     {
         if (eventType != ETouchEventType.EXIT && m_touchInfo == null && touchInfo.m_owners == 0)
         {
@@ -43,13 +44,17 @@ public class DragRigidbody2D : MonoBehaviour
             m_touchInfo.ListenForEnd(OnTouchEnd);
             Grab();
         }
-        else if (eventType == ETouchEventType.EXIT && m_touchInfo != null && touchInfo.FingerId == m_touchInfo.FingerId)
+    }
+
+    private void CheckForLetGo(TouchInfo touchInfo, ETouchEventType eventType)
+    {
+        if (eventType == ETouchEventType.EXIT && m_touchInfo != null && touchInfo.FingerId == m_touchInfo.FingerId)
         {
             OnTouchEnd(touchInfo);
         }
     }
 
-    private void Grab()
+        private void Grab()
     {
         if (!m_springJoint)
         {
