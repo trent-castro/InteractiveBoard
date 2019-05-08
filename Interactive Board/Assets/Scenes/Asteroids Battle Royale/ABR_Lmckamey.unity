@@ -199,6 +199,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_target: {fileID: 0}
+--- !u!1 &122970369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5903469429061020802, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+    type: 3}
+  m_PrefabInstance: {fileID: 5903469428239477899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &122970370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122970369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5cd545351acd34980fb6af92b9e170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rigidBody: {fileID: 1775321076}
+  m_maxSpeed: 10
+  m_turnPower: 240
+  m_turnPowerWhenThrusting: 120
+  m_acceleration: {x: 0, y: 0}
 --- !u!1 &147538030
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +355,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1058879300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78f3a11a89806814da2f221e19474588, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fac0820488f4114a91079d736ab77ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_bulletSpawnLocation: {fileID: 244334092}
@@ -535,7 +558,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_gameObjectPrefab
       value: 
-      objectReference: {fileID: 2881793147127287657, guid: c46bac8d7dc65854dafadb9cd8ca8783,
+      objectReference: {fileID: 6893054243730186527, guid: c46bac8d7dc65854dafadb9cd8ca8783,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0589c7fdddb6712428f44a3833cf4b29, type: 3}
@@ -1361,7 +1384,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: e5c53af58c5931d4c934649fe362828a, type: 3}
+      objectReference: {fileID: 8300000, guid: 33e37fd57b6c59d41ae08ed5cd0f949d, type: 3}
     - target: {fileID: 3846147970995330365, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_PlayOnAwake

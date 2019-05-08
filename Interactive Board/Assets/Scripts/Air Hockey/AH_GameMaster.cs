@@ -150,6 +150,7 @@ public class AH_GameMaster : MonoBehaviour
         // Stop this coroutine from constantly occuring
         StopCoroutine(CheckGameState(scoringPuck, isRightGoal));
     }
+    
 
     /// <summary>
     /// Handles the operations carried out upon game completion
