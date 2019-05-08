@@ -11,6 +11,15 @@ public abstract class AH_PickUp : MonoBehaviour
     [SerializeField] [Tooltip("Enables Debug Mode")]
     private bool m_debugMode = false;
 
+    [Header("Animation")]
+    [Tooltip("The amount of time it takes for the animation to complete")]
+    [SerializeField]
+    [Range(0.0f, 5.0f)]
+    private float m_spawnAnimationTime = 0.5f;
+    [Tooltip("The starting scale of the pick up object upon beginning the animation")]
+    [SerializeField]
+    private Vector3 m_startingScale = new Vector3(3, 3, 3);
+
     [Header("Basic Configuration")]
     [Tooltip("Whether or not a pick up can be removed based on lifespan")]
     [SerializeField]
@@ -51,6 +60,10 @@ public abstract class AH_PickUp : MonoBehaviour
     /// Float describing the amount of time elapsed since the pick up effect was set in place.
     /// </summary>
     private float m_effectTimer = 0.0f;
+    /// <summary>
+    /// Float describing the amount of time elapsed since the pick up spawn animation was enabled.
+    /// </summary>
+    private float m_animationTimer = 0.0f;
     
     /// <summary>
     /// [DEBUG MODE] Records a message if debug mode is enabled.
@@ -253,8 +266,24 @@ public abstract class AH_PickUp : MonoBehaviour
         m_lifespanTimer = 0.0f;
         m_effectTimer = 0.0f;
 
+        // Enable animation
+        StartCoroutine(OnEnableStartAnimation());
+
         // Debug
         DebugLog(gameObject.name + " has been enabled.");
+    }
+
+    public IEnumerator OnEnableStartAnimation()
+    {
+        while(m_animationTimer < m_spawnAnimationTime)
+        {
+            m_animationTimer += Time.deltaTime;
+            float t = m_animationTimer / m_spawnAnimationTime;
+            t = Interpolation.QuadraticIn(t);
+            transform.localScale = Vector3.Lerp(m_startingScale, Vector3.one, t);
+            yield return null;
+        }
+        StopCoroutine(OnEnableStartAnimation());
     }
 
     /// <summary>
