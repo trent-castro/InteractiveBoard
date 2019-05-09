@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8361775682823943749}
   - component: {fileID: 8361775682823943750}
   - component: {fileID: 8361775682823943751}
+  - component: {fileID: 1372696448457367328}
   m_Layer: 0
   m_Name: Powerup Pickup Effect
   m_TagString: Untagged
@@ -4756,3 +4757,14 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!210 &1372696448457367328
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8361775682823943744}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5

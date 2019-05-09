@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_debugMode: 0
-  m_gameObjectPrefab: {fileID: 1780118268067406192, guid: 63d8315b9d28aea4f8c8b42e581318d5,
+  m_gameObjectPrefab: {fileID: 5237907084425936573, guid: c96338d77d7356247afc81576bc49f7d,
     type: 3}
   m_maxPooledObjects: 10
   m_pooledObjectName: Pick Up Failure Particle
@@ -201,7 +201,9 @@ MonoBehaviour:
   - objectPool: {fileID: 7196773263416771381}
     associatedTag: Puck
   - objectPool: {fileID: 1665264753705765958}
-    associatedTag: Pick Up
+    associatedTag: Pick Up Success
+  - objectPool: {fileID: 461090135278687628}
+    associatedTag: Pick Up Failure
 --- !u!1 &7196773264003091602
 GameObject:
   m_ObjectHideFlags: 0
