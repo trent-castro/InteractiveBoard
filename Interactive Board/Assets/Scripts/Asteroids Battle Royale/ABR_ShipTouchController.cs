@@ -21,11 +21,7 @@ public class ABR_ShipTouchController : ABR_Ship
 
     private void Start()
     {
-        MultiTouchManager
-            .Instance
-            .ListenForTouchesOnOverlapWithEvents(
-            m_touchArea
-            .OverlapPoint, CheckNewTouch, m_viewport);
+        MultiTouchManager.Instance.ListenForTouchesOnOverlapWithEvents(m_touchArea.OverlapPoint, CheckNewTouch, m_viewport);
 
         base.Start();
     }
