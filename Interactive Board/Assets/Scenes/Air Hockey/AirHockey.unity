@@ -1411,7 +1411,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ea1f3e268e34b0e46993e5002acb04c1, type: 3}
   m_particleEffects:
   - {fileID: 8695846010973746066, guid: b4e9c81dd0e47fd4f90b4f38756db1c0, type: 3}
-  - {fileID: 8695846010973746066, guid: b2becea51b1413c4181e2a651f111624, type: 3}
+  - {fileID: 8695846010973746066, guid: 1b0a42c1e23de8b41a19c190f426c939, type: 3}
   - {fileID: 8695846010973746066, guid: b2becea51b1413c4181e2a651f111624, type: 3}
 --- !u!82 &410517783
 AudioSource:
@@ -4597,36 +4597,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7196773263416771381, guid: e05f15e8210629448b564c04faa7f91f,
-        type: 3}
-      propertyPath: m_maxPooledObjects
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7196773264003091604, guid: e05f15e8210629448b564c04faa7f91f,
-        type: 3}
-      propertyPath: m_maxPooledObjects
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7196773264886767670, guid: e05f15e8210629448b564c04faa7f91f,
-        type: 3}
-      propertyPath: m_maxPooledObjects
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7196773263416771379, guid: e05f15e8210629448b564c04faa7f91f,
-        type: 3}
-      propertyPath: m_Name
-      value: Puck
-      objectReference: {fileID: 0}
-    - target: {fileID: 7196773264003091602, guid: e05f15e8210629448b564c04faa7f91f,
-        type: 3}
-      propertyPath: m_Name
-      value: Paddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 7196773264886767668, guid: e05f15e8210629448b564c04faa7f91f,
-        type: 3}
-      propertyPath: m_Name
-      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05f15e8210629448b564c04faa7f91f, type: 3}
