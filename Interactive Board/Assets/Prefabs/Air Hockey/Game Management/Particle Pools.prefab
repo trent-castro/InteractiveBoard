@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_debugMode: 0
-  m_gameObjectPrefab: {fileID: 1780118268067406192, guid: 63d8315b9d28aea4f8c8b42e581318d5,
+  m_gameObjectPrefab: {fileID: 8361775682823943744, guid: d697975f7e6b2304c925d57bdab35f38,
     type: 3}
   m_maxPooledObjects: 10
   m_pooledObjectName: Pick Up Particle
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 7196773263416771380}
   - component: {fileID: 7196773263416771381}
   m_Layer: 0
-  m_Name: Puck Particles
+  m_Name: Puck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_debugMode: 0
   m_gameObjectPrefab: {fileID: 1780118268067406192, guid: 63d8315b9d28aea4f8c8b42e581318d5,
     type: 3}
-  m_maxPooledObjects: 40
+  m_maxPooledObjects: 15
   m_pooledObjectName: Puck Particle
 --- !u!1 &7196773263725300795
 GameObject:
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 7196773264003091603}
   - component: {fileID: 7196773264003091604}
   m_Layer: 0
-  m_Name: Paddle Particles
+  m_Name: Paddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,9 +197,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_debugMode: 0
-  m_gameObjectPrefab: {fileID: 1780118268067406192, guid: 63d8315b9d28aea4f8c8b42e581318d5,
+  m_gameObjectPrefab: {fileID: 8361775682823943744, guid: dd76b55cbe7aea749b749dcd0f912fdb,
     type: 3}
-  m_maxPooledObjects: 40
+  m_maxPooledObjects: 15
   m_pooledObjectName: Paddle Particle
 --- !u!1 &7196773264886767668
 GameObject:
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 7196773264886767669}
   - component: {fileID: 7196773264886767670}
   m_Layer: 0
-  m_Name: Wall Particles
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,5 +247,5 @@ MonoBehaviour:
   m_debugMode: 0
   m_gameObjectPrefab: {fileID: 1780118268067406192, guid: 63d8315b9d28aea4f8c8b42e581318d5,
     type: 3}
-  m_maxPooledObjects: 40
+  m_maxPooledObjects: 15
   m_pooledObjectName: Wall Particle

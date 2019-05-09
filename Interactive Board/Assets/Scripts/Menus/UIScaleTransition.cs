@@ -8,11 +8,9 @@ public class UIScaleTransition : MonoBehaviour
 	[SerializeField] Vector3 m_endScale = Vector3.zero;
 	[SerializeField] float m_timer = 0;
 	[SerializeField] float m_timeOffset = 0;
-	[SerializeField] float m_timeVariance = 2;
 	RectTransform m_transform = null;
 	Vector3 m_startScale = Vector3.zero;
 	float m_time = 0;
-	float m_timerRandom = 0;
 	IEnumerator c_Transition = null;
 
 	Vector3 m_start = Vector3.zero;
@@ -44,7 +42,6 @@ public class UIScaleTransition : MonoBehaviour
 	}
 	public void StartTransformation()
 	{
-		m_timerRandom = Random.Range(m_timer - m_timeVariance, m_timer);
 		m_time = 0 - m_timeOffset;
 		m_reverse = false;
 		m_transform.localScale = m_startScale;
