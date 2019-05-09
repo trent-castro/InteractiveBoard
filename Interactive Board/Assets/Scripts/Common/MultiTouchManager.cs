@@ -18,6 +18,8 @@ public delegate void HandleTouchEventDelegate(TouchInfo touch, ETouchEventType e
 
 public class MultiTouchManager : MonoBehaviour
 {
+    public static int MOUSE_FINGER_ID = -1;
+    public static Touch lastMouseTouch = new Touch();
     public static MultiTouchManager Instance { get; set; }
 
     private void Awake()
@@ -30,6 +32,8 @@ public class MultiTouchManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        lastMouseTouch.phase = TouchPhase.Ended;
     }
 
     public TouchInfo[] currentTouches;
@@ -119,35 +123,19 @@ public class MultiTouchManager : MonoBehaviour
         foreach (Touch t in Input.touches)
         {
             Touch touch = t;
+            TrackTouch(touch);
+        }
 
-            if (touch.phase != TouchPhase.Began && Touches.ContainsKey(touch.fingerId))
-            {
-                Touches[touch.fingerId].UpdateTouchInfo(touch);
-
-                if (touch.phase == TouchPhase.Ended)
-                {
-                    Touches.Remove(touch.fingerId);
-                }
-                else
-                {
-                    HandleTouches?.Invoke(Touches[touch.fingerId]);
-                }
-            }
-            else if (!Touches.ContainsKey(touch.fingerId))
-            {
-                TouchInfo newTouch = new TouchInfo(touch);
-
-                Touches.Add(touch.fingerId, newTouch);
-
-                HandleTouches?.Invoke(newTouch);
-            }
+        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonDown(0) || Input.GetMouseButton(0))
+        {
+            TrackMouseTouch();
         }
 
         int[] keys = Touches.Keys.ToArray();
 
         for (int i = 0; i < keys.Length; i++)
         {
-            if (!Input.touches.Any(t => t.fingerId == keys[i]))
+            if (!Input.touches.Any(t => t.fingerId == keys[i]) && keys[i] != MOUSE_FINGER_ID)
             {
                 Touch t = Touches[keys[i]].m_touch;
 
@@ -158,5 +146,71 @@ public class MultiTouchManager : MonoBehaviour
                 Touches.Remove(keys[i]);
             }
         }
+    }
+
+    private void TrackTouch(Touch touch)
+    {
+        if (touch.phase != TouchPhase.Began && Touches.ContainsKey(touch.fingerId))
+        {
+
+            Touches[touch.fingerId].UpdateTouchInfo(touch);
+
+            if (touch.phase == TouchPhase.Ended)
+            {
+                Touches.Remove(touch.fingerId);
+            }
+            else
+            {
+                HandleTouches?.Invoke(Touches[touch.fingerId]);
+            }
+        }
+        else if (!Touches.ContainsKey(touch.fingerId))
+        {
+            TouchInfo newTouch = new TouchInfo(touch);
+
+            Touches.Add(touch.fingerId, newTouch);
+
+            HandleTouches?.Invoke(newTouch);
+        }
+    }
+
+    public void TrackMouseTouch()
+    {
+        Touch mouseTouch = new Touch
+        {
+            fingerId = MOUSE_FINGER_ID,
+            deltaTime = Time.deltaTime,
+            position = Input.mousePosition
+        };
+
+        mouseTouch.deltaPosition = lastMouseTouch.phase != TouchPhase.Ended ? mouseTouch.position - lastMouseTouch.position : Vector2.zero;
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            mouseTouch.phase = TouchPhase.Ended;
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            mouseTouch.phase = TouchPhase.Began;
+        }
+        else if (Input.GetMouseButton(0))
+        {
+            if (mouseTouch.deltaPosition == Vector2.zero)
+            {
+                mouseTouch.phase = TouchPhase.Stationary;
+            }
+            else
+            {
+                mouseTouch.phase = TouchPhase.Moved;
+            }
+        }
+        else
+        {
+            return;
+        }
+
+        TrackTouch(mouseTouch);
+
+        lastMouseTouch = mouseTouch;
     }
 }
