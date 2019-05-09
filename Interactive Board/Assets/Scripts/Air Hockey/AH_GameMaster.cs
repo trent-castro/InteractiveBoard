@@ -164,11 +164,18 @@ public class AH_GameMaster : MonoBehaviour
         yield return new WaitUntil(() => !canvasManager.IsGameStartPanelActive());
         AH_PickUpManager.instance.gameObject.SetActive(true);
 
-        m_LeftPaddle.SetActive(true);
-        m_RightPaddle.SetActive(true);
         //drop paddles
+        m_LeftPaddle.gameObject.SetActive(true);
+        yield return new WaitUntil(() => m_LeftPaddle.activeInHierarchy);
+        m_LeftPaddle.GetComponent<AH_Paddle>().StartDropAnimation();
+        m_RightPaddle.gameObject.SetActive(true);
+        yield return new WaitUntil(() => m_RightPaddle.activeInHierarchy);
+        m_RightPaddle.GetComponent<AH_Paddle>().StartDropAnimation();
+        yield return new WaitForSeconds(0.2f);
         //drop puck
-        m_Puck.SetActive(true);
+        m_Puck.gameObject.SetActive(true);
+        yield return new WaitUntil(() => m_Puck.activeInHierarchy);
+        m_Puck.GetComponent<AH_Puck>().StartDropAnimation();
 
     }
 
