@@ -2916,7 +2916,7 @@ PrefabInstance:
     - target: {fileID: 6808871324004018572, guid: 215a4cdc3eaf05647914b6ffbf7cafc1,
         type: 3}
       propertyPath: m_pickUpPools.Array.data[2].poolWeight
-      value: 6
+      value: 999999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 215a4cdc3eaf05647914b6ffbf7cafc1, type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8762957110579376159}
   - component: {fileID: 1665264753705765958}
   m_Layer: 0
-  m_Name: Pick Up Particles
+  m_Name: Pick Up Success Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,55 @@ MonoBehaviour:
   m_gameObjectPrefab: {fileID: 8361775682823943744, guid: d697975f7e6b2304c925d57bdab35f38,
     type: 3}
   m_maxPooledObjects: 10
-  m_pooledObjectName: Pick Up Particle
+  m_pooledObjectName: Pick Up Success Particle
+--- !u!1 &5834252733215683057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 440174056643588028}
+  - component: {fileID: 461090135278687628}
+  m_Layer: 0
+  m_Name: Pick Up Failure Particles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &440174056643588028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5834252733215683057}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7196773263725300796}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &461090135278687628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5834252733215683057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422b61f5deaefac438c5f16604a2175c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_debugMode: 0
+  m_gameObjectPrefab: {fileID: 5237907084425936573, guid: c96338d77d7356247afc81576bc49f7d,
+    type: 3}
+  m_maxPooledObjects: 10
+  m_pooledObjectName: Pick Up Failure Particle
 --- !u!1 &7196773263416771379
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +107,7 @@ GameObject:
   - component: {fileID: 7196773263416771380}
   - component: {fileID: 7196773263416771381}
   m_Layer: 0
-  m_Name: Puck
+  m_Name: Puck Collision Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,6 +176,7 @@ Transform:
   - {fileID: 7196773264003091603}
   - {fileID: 7196773263416771380}
   - {fileID: 8762957110579376159}
+  - {fileID: 440174056643588028}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -152,7 +201,9 @@ MonoBehaviour:
   - objectPool: {fileID: 7196773263416771381}
     associatedTag: Puck
   - objectPool: {fileID: 1665264753705765958}
-    associatedTag: Pick Up
+    associatedTag: Pick Up Success
+  - objectPool: {fileID: 461090135278687628}
+    associatedTag: Pick Up Failure
 --- !u!1 &7196773264003091602
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +215,7 @@ GameObject:
   - component: {fileID: 7196773264003091603}
   - component: {fileID: 7196773264003091604}
   m_Layer: 0
-  m_Name: Paddle
+  m_Name: Paddle Collision Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +263,7 @@ GameObject:
   - component: {fileID: 7196773264886767669}
   - component: {fileID: 7196773264886767670}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: Wall Collision Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

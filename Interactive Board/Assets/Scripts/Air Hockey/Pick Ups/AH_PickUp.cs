@@ -174,6 +174,10 @@ public abstract class AH_PickUp : MonoBehaviour
         {
             ActivateOnPickUpEffects();
         }
+        else
+        {
+            PlayParticleEffect("Pick Up Failure");
+        }
     }
 
     /// <summary>
@@ -190,7 +194,7 @@ public abstract class AH_PickUp : MonoBehaviour
     /// </summary>
     private void ActivateOnPickUpEffects()
     {
-        PlayParticleEffect();
+        PlayParticleEffect("Pick Up Success");
         OnEffectBegin();
         afflictedPuck.GetComponent<AH_BitFlagReceiver>().AddFlag(m_bitFlagBroadcaster.Broadcast());
     }
@@ -198,9 +202,9 @@ public abstract class AH_PickUp : MonoBehaviour
     /// <summary>
     /// Plays particle effects for pick ups if they exist.
     /// </summary>
-    private void PlayParticleEffect()
+    private void PlayParticleEffect(string particleSystemTag)
     {
-        GameObject pickUpParticles = AH_ParticlePools.instance.GetTaggedParticleSystem("Pick Up");
+        GameObject pickUpParticles = AH_ParticlePools.instance.GetTaggedParticleSystem(particleSystemTag);
 
         if (pickUpParticles)
         {
@@ -286,7 +290,6 @@ public abstract class AH_PickUp : MonoBehaviour
             yield return null;
         }
         m_collider2D.enabled = true;
-        StopCoroutine(OnEnableStartAnimation());
     }
 
     /// <summary>

@@ -493,7 +493,6 @@ MonoBehaviour:
   m_endScale: {x: -2, y: 2, z: 0}
   m_timer: 0.75
   m_timeOffset: 0.2
-  m_timeVariance: 0
 --- !u!114 &53468725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +508,7 @@ MonoBehaviour:
   direction: {x: 0, y: 1}
   frequency: 1
   amplitude: 10
-  offset: 0
+  offset: 1
 --- !u!1 &78430118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,6 +2169,7 @@ GameObject:
   - component: {fileID: 389118835}
   - component: {fileID: 389118837}
   - component: {fileID: 389118836}
+  - component: {fileID: 389118838}
   m_Layer: 0
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -2193,7 +2193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 125}
+  m_AnchoredPosition: {x: 0, y: 110}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &389118836
@@ -2320,6 +2320,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389118834}
   m_CullTransparentMesh: 0
+--- !u!114 &389118838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389118834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864ef8612d4ff42499cd69f2187bb871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 1}
+  frequency: 1
+  amplitude: 10
+  offset: 1
 --- !u!1 &394070805
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,7 +2441,6 @@ MonoBehaviour:
   m_endScale: {x: 1.75, y: 1.75, z: 0}
   m_timer: 1
   m_timeOffset: 0
-  m_timeVariance: 2
 --- !u!1 &397580423
 GameObject:
   m_ObjectHideFlags: 0
@@ -5942,7 +5957,6 @@ MonoBehaviour:
   m_endScale: {x: 2, y: 2, z: 0}
   m_timer: 0.75
   m_timeOffset: 0.3
-  m_timeVariance: 0
 --- !u!114 &833344033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6251,7 +6265,6 @@ MonoBehaviour:
   m_endScale: {x: 3.5, y: 3.5, z: 0}
   m_timer: 0.75
   m_timeOffset: 0.1
-  m_timeVariance: 0
 --- !u!1 &874901003
 GameObject:
   m_ObjectHideFlags: 0
@@ -6965,7 +6978,6 @@ MonoBehaviour:
   m_endScale: {x: 2, y: 2, z: 0}
   m_timer: 0.75
   m_timeOffset: 0.5
-  m_timeVariance: 0
 --- !u!114 &911588604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6981,7 +6993,7 @@ MonoBehaviour:
   direction: {x: 0, y: 1}
   frequency: 1
   amplitude: 10
-  offset: 1
+  offset: 2
 --- !u!1 &930398176
 GameObject:
   m_ObjectHideFlags: 0
@@ -7519,6 +7531,7 @@ GameObject:
   - component: {fileID: 989310855}
   - component: {fileID: 989310857}
   - component: {fileID: 989310856}
+  - component: {fileID: 989310858}
   m_Layer: 0
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -7542,7 +7555,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 125}
+  m_AnchoredPosition: {x: 0, y: 110}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &989310856
@@ -7669,6 +7682,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989310854}
   m_CullTransparentMesh: 0
+--- !u!114 &989310858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989310854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864ef8612d4ff42499cd69f2187bb871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 1}
+  frequency: 1
+  amplitude: 10
+  offset: 0
 --- !u!1 &1000265031
 GameObject:
   m_ObjectHideFlags: 0
@@ -8415,7 +8444,6 @@ MonoBehaviour:
   m_endScale: {x: 5, y: 5, z: 0}
   m_timer: 1
   m_timeOffset: 0.2
-  m_timeVariance: 2
 --- !u!1 &1066616305
 GameObject:
   m_ObjectHideFlags: 0
@@ -9609,7 +9637,6 @@ MonoBehaviour:
   m_endScale: {x: 5, y: 5, z: 0}
   m_timer: 1
   m_timeOffset: 0.4
-  m_timeVariance: 2
 --- !u!1 &1201468430
 GameObject:
   m_ObjectHideFlags: 0
@@ -10109,6 +10136,7 @@ GameObject:
   - component: {fileID: 1327478089}
   - component: {fileID: 1327478088}
   - component: {fileID: 1327478087}
+  - component: {fileID: 1327478090}
   m_Layer: 0
   m_Name: Point to win
   m_TagString: Untagged
@@ -10187,8 +10215,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10205,7 +10233,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -10270,6 +10298,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327478085}
   m_CullTransparentMesh: 0
+--- !u!114 &1327478090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327478085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864ef8612d4ff42499cd69f2187bb871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 1}
+  frequency: 1
+  amplitude: 5
+  offset: 3
 --- !u!1 &1344888371
 GameObject:
   m_ObjectHideFlags: 0
@@ -10767,7 +10811,6 @@ MonoBehaviour:
   m_endScale: {x: -2, y: 2, z: 0}
   m_timer: 0.75
   m_timeOffset: 0
-  m_timeVariance: 0
 --- !u!114 &1390058124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11147,7 +11190,6 @@ GameObject:
   - component: {fileID: 1456655788}
   - component: {fileID: 1456655787}
   - component: {fileID: 1456655789}
-  - component: {fileID: 1456655790}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -11307,23 +11349,6 @@ MonoBehaviour:
   m_endScale: {x: -2, y: 2, z: 0}
   m_timer: 0.75
   m_timeOffset: 0.2
-  m_timeVariance: 0
---- !u!114 &1456655790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456655782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 864ef8612d4ff42499cd69f2187bb871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 0, y: 1}
-  frequency: 1
-  amplitude: 5
-  offset: 3
 --- !u!1 &1489074631
 GameObject:
   m_ObjectHideFlags: 0
@@ -12037,7 +12062,6 @@ MonoBehaviour:
   m_endScale: {x: 3.5, y: 3.5, z: 0}
   m_timer: 0.75
   m_timeOffset: 0.2
-  m_timeVariance: 0
 --- !u!1 &1578218529
 GameObject:
   m_ObjectHideFlags: 0
@@ -12938,7 +12962,6 @@ GameObject:
   - component: {fileID: 1688675049}
   - component: {fileID: 1688675048}
   - component: {fileID: 1688675050}
-  - component: {fileID: 1688675051}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -13098,23 +13121,6 @@ MonoBehaviour:
   m_endScale: {x: 2, y: 2, z: 0}
   m_timer: 0.75
   m_timeOffset: 0.3
-  m_timeVariance: 2
---- !u!114 &1688675051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1688675043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 864ef8612d4ff42499cd69f2187bb871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 0, y: 1}
-  frequency: 1
-  amplitude: 5
-  offset: 1
 --- !u!1 &1717933839
 GameObject:
   m_ObjectHideFlags: 0
@@ -13786,7 +13792,6 @@ MonoBehaviour:
   m_endScale: {x: 5, y: 5, z: 0}
   m_timer: 1
   m_timeOffset: 0.2
-  m_timeVariance: 2
 --- !u!1 &1823237414
 GameObject:
   m_ObjectHideFlags: 0
@@ -14232,6 +14237,7 @@ GameObject:
   - component: {fileID: 1872935732}
   - component: {fileID: 1872935734}
   - component: {fileID: 1872935733}
+  - component: {fileID: 1872935735}
   m_Layer: 0
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -14255,7 +14261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 125}
+  m_AnchoredPosition: {x: 0, y: 110}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1872935733
@@ -14382,6 +14388,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872935731}
   m_CullTransparentMesh: 0
+--- !u!114 &1872935735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872935731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864ef8612d4ff42499cd69f2187bb871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 1}
+  frequency: 1
+  amplitude: 10
+  offset: 2
 --- !u!1 &1881476390
 GameObject:
   m_ObjectHideFlags: 0
@@ -15160,7 +15182,6 @@ MonoBehaviour:
   m_endScale: {x: -2, y: 2, z: 0}
   m_timer: 0.75
   m_timeOffset: 0.4
-  m_timeVariance: 0
 --- !u!114 &2014479244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15176,7 +15197,7 @@ MonoBehaviour:
   direction: {x: 0, y: 1}
   frequency: 1
   amplitude: 10
-  offset: 0
+  offset: 2
 --- !u!1 &2025330112
 GameObject:
   m_ObjectHideFlags: 0
@@ -15457,7 +15478,6 @@ MonoBehaviour:
   m_endScale: {x: 2, y: 2, z: 0}
   m_timer: 0.75
   m_timeOffset: 0.1
-  m_timeVariance: 0
 --- !u!114 &2034521586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15473,7 +15493,7 @@ MonoBehaviour:
   direction: {x: 0, y: 1}
   frequency: 1
   amplitude: 10
-  offset: 1
+  offset: 0
 --- !u!1 &2036456215
 GameObject:
   m_ObjectHideFlags: 0
@@ -15672,7 +15692,6 @@ MonoBehaviour:
   m_endScale: {x: 3.5, y: 3.5, z: 0}
   m_timer: 0.75
   m_timeOffset: 0.3
-  m_timeVariance: 0
 --- !u!1 &2066894384
 GameObject:
   m_ObjectHideFlags: 0
@@ -16174,7 +16193,6 @@ MonoBehaviour:
   m_endScale: {x: 1.25, y: 1.25, z: 0}
   m_timer: 1
   m_timeOffset: 0
-  m_timeVariance: 2
 --- !u!114 &2080958916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16576,4 +16594,3 @@ MonoBehaviour:
   m_endScale: {x: 5, y: 5, z: 0}
   m_timer: 1
   m_timeOffset: 0.4
-  m_timeVariance: 2
