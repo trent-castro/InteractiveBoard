@@ -29,7 +29,8 @@ public abstract class AH_PickUp : MonoBehaviour
     private float m_lifeSpan = 8.0f;
     [Tooltip("The duration of the pick up's effect")]
     [SerializeField]
-    protected float m_powerUpDuration = 3.0f;
+    [Range(0.0f, 30.0f)]
+    protected float m_powerUpDuration = 5.0f;
 
     // External References
     /// <summary>
@@ -275,14 +276,16 @@ public abstract class AH_PickUp : MonoBehaviour
 
     public IEnumerator OnEnableStartAnimation()
     {
+        m_collider2D.enabled = false;
         while(m_animationTimer < m_spawnAnimationTime)
         {
             m_animationTimer += Time.deltaTime;
             float t = m_animationTimer / m_spawnAnimationTime;
-            t = Interpolation.QuadraticIn(t);
-            transform.localScale = Vector3.Lerp(m_startingScale, Vector3.one, t);
+            t = Interpolation.BounceOut(t);
+            transform.localScale = Vector3.LerpUnclamped(m_startingScale, Vector3.one, t);
             yield return null;
         }
+        m_collider2D.enabled = true;
         StopCoroutine(OnEnableStartAnimation());
     }
 
