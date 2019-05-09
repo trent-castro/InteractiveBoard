@@ -176,7 +176,7 @@ public abstract class AH_PickUp : MonoBehaviour
         }
         else
         {
-            PlayParticleEffect("Pick Up Failure Particle");
+            PlayParticleEffect("Pick Up Failure");
         }
     }
 
@@ -194,7 +194,7 @@ public abstract class AH_PickUp : MonoBehaviour
     /// </summary>
     private void ActivateOnPickUpEffects()
     {
-        PlayParticleEffect("Pick Up Success Particle");
+        PlayParticleEffect("Pick Up Success");
         OnEffectBegin();
         afflictedPuck.GetComponent<AH_BitFlagReceiver>().AddFlag(m_bitFlagBroadcaster.Broadcast());
     }
