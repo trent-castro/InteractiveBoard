@@ -11,6 +11,15 @@ public abstract class AH_PickUp : MonoBehaviour
     [SerializeField] [Tooltip("Enables Debug Mode")]
     private bool m_debugMode = false;
 
+    [Header("Animation")]
+    [Tooltip("The amount of time it takes for the animation to complete")]
+    [SerializeField]
+    [Range(0.0f, 5.0f)]
+    private float m_spawnAnimationTime = 0.5f;
+    [Tooltip("The starting scale of the pick up object upon beginning the animation")]
+    [SerializeField]
+    private Vector3 m_startingScale = new Vector3(3, 3, 3);
+
     [Header("Basic Configuration")]
     [Tooltip("Whether or not a pick up can be removed based on lifespan")]
     [SerializeField]
@@ -20,7 +29,8 @@ public abstract class AH_PickUp : MonoBehaviour
     private float m_lifeSpan = 8.0f;
     [Tooltip("The duration of the pick up's effect")]
     [SerializeField]
-    protected float m_powerUpDuration = 3.0f;
+    [Range(0.0f, 30.0f)]
+    protected float m_powerUpDuration = 5.0f;
 
     // External References
     /// <summary>
@@ -51,6 +61,10 @@ public abstract class AH_PickUp : MonoBehaviour
     /// Float describing the amount of time elapsed since the pick up effect was set in place.
     /// </summary>
     private float m_effectTimer = 0.0f;
+    /// <summary>
+    /// Float describing the amount of time elapsed since the pick up spawn animation was enabled.
+    /// </summary>
+    private float m_animationTimer = 0.0f;
     
     /// <summary>
     /// [DEBUG MODE] Records a message if debug mode is enabled.
@@ -83,33 +97,48 @@ public abstract class AH_PickUp : MonoBehaviour
         {
             // Increment the lifespan timer
             m_lifespanTimer += Time.deltaTime;
-            
-            // Check if the pick up life span has expired
-            if (m_lifespanTimer >= m_lifeSpan)
-            {
-                DisablePickUp();
-            }
+
+            ValidateLifespanDuration();
         }
         else
         {
             // Increment the effect timer
             m_effectTimer += Time.deltaTime;
-            
-            // Check if the effect has expired
-            if(m_effectTimer >= m_powerUpDuration)
+
+            ValidateEffectDuration();
+        }
+    }
+
+    /// <summary>
+    /// Check if the pick up life span has expired before it has been picked up.
+    /// </summary>
+    private void ValidateLifespanDuration()
+    {
+        if (m_lifespanTimer >= m_lifeSpan)
+        {
+            DisablePickUp();
+        }
+    }
+
+    /// <summary>
+    /// Checks if the pick up effect has expired.
+    /// </summary>
+    private void ValidateEffectDuration()
+    {
+        // Check if the effect has expired
+        if (m_effectTimer >= m_powerUpDuration)
+        {
+            // If the afflicted puck exists, start the end 
+            if (afflictedPuck)
             {
-                // If the afflicted puck existsm start the end 
-                if (afflictedPuck)
+                if (afflictedPuck.GetComponent<AH_BitFlagReceiver>()
+                    .Contains(m_bitFlagBroadcaster.Broadcast()))
                 {
-                    if (afflictedPuck.GetComponent<AH_BitFlagReceiver>()
-                        .Contains(m_bitFlagBroadcaster.Broadcast()))
-                    {
-                        OnEffectEnd();
-                        afflictedPuck.GetComponent<AH_BitFlagReceiver>()
-                            .RemoveFlag(m_bitFlagBroadcaster.Broadcast());
-                    }
-                    DisablePickUp();
+                    OnEffectEnd();
+                    afflictedPuck.GetComponent<AH_BitFlagReceiver>()
+                        .RemoveFlag(m_bitFlagBroadcaster.Broadcast());
                 }
+                DisablePickUp();
             }
         }
     }
@@ -141,21 +170,46 @@ public abstract class AH_PickUp : MonoBehaviour
         // Disable pick up from being interacted with in the scene
         DisablePickUpRendering();
 
-        if(!afflictedPuck.GetComponent<AH_BitFlagReceiver>()
-            .Contains(m_bitFlagBroadcaster.Broadcast()))
+        if(ValidateOnPickUpEffects())
         {
-            // Begin the pick up effects
-            GameObject pickUpParticles = AH_ParticlePools.instance.GetTaggedParticleSystem("Pick Up");
+            ActivateOnPickUpEffects();
+        }
+        else
+        {
+            PlayParticleEffect("Pick Up Failure Particle");
+        }
+    }
 
-            if(pickUpParticles)
-            {
-                pickUpParticles.transform.position = transform.position;
-                pickUpParticles.GetComponent<ParticleSystem>().Play();
-            }
+    /// <summary>
+    /// Validates that the pick up is not currently being affected by an equivalent pick up effect.
+    /// </summary>
+    /// <returns>A bool describing whether or not the effect is already in play for this puck.</returns>
+    private bool ValidateOnPickUpEffects()
+    {
+        return !afflictedPuck.GetComponent<AH_BitFlagReceiver>().Contains(m_bitFlagBroadcaster.Broadcast());
+    }
 
-            OnEffectBegin();
-            afflictedPuck.GetComponent<AH_BitFlagReceiver>()
-                .AddFlag(m_bitFlagBroadcaster.Broadcast());
+    /// <summary>
+    /// Starts the on pick up effect event.
+    /// </summary>
+    private void ActivateOnPickUpEffects()
+    {
+        PlayParticleEffect("Pick Up Success Particle");
+        OnEffectBegin();
+        afflictedPuck.GetComponent<AH_BitFlagReceiver>().AddFlag(m_bitFlagBroadcaster.Broadcast());
+    }
+
+    /// <summary>
+    /// Plays particle effects for pick ups if they exist.
+    /// </summary>
+    private void PlayParticleEffect(string particleSystemTag)
+    {
+        GameObject pickUpParticles = AH_ParticlePools.instance.GetTaggedParticleSystem(particleSystemTag);
+
+        if (pickUpParticles)
+        {
+            pickUpParticles.transform.position = transform.position;
+            pickUpParticles.GetComponent<ParticleSystem>().Play();
         }
     }
 
@@ -217,8 +271,25 @@ public abstract class AH_PickUp : MonoBehaviour
         m_lifespanTimer = 0.0f;
         m_effectTimer = 0.0f;
 
+        // Enable animation
+        StartCoroutine(OnEnableStartAnimation());
+
         // Debug
         DebugLog(gameObject.name + " has been enabled.");
+    }
+
+    public IEnumerator OnEnableStartAnimation()
+    {
+        m_collider2D.enabled = false;
+        while(m_animationTimer < m_spawnAnimationTime)
+        {
+            m_animationTimer += Time.deltaTime;
+            float t = m_animationTimer / m_spawnAnimationTime;
+            t = Interpolation.BounceOut(t);
+            transform.localScale = Vector3.LerpUnclamped(m_startingScale, Vector3.one, t);
+            yield return null;
+        }
+        m_collider2D.enabled = true;
     }
 
     /// <summary>
