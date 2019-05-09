@@ -1346,13 +1346,16 @@ MonoBehaviour:
   m_debugMode: 0
   victoryParticles: {fileID: 1348951241}
   canvasManager: {fileID: 534401925}
+  m_PuckResetOffsetForRightGoal: {fileID: 2067193846}
+  m_PuckResetOffsetForLeftGoal: {fileID: 1632237133}
+  m_LeftPaddle: {fileID: 1849035375}
+  m_RightPaddle: {fileID: 599278161}
+  m_Puck: {fileID: 1497898993}
   m_scoreToWin: 1
   m_checkGameStateDelay: 0.5
   m_endGameDelay: 2
   m_winText: WIN!!
   m_loseText: LOSE!!
-  m_PuckResetOffsetForRightGoal: {fileID: 2067193846}
-  m_PuckResetOffsetForLeftGoal: {fileID: 1632237133}
   m_PlayerOneScore: 0
   m_PlayerTwoScore: 0
 --- !u!114 &410517781
@@ -2429,6 +2432,11 @@ PrefabInstance:
       propertyPath: scoreIncreaseSpawnOffsetRight.y
       value: -140
       objectReference: {fileID: 0}
+    - target: {fileID: 2102074041176276456, guid: d52d3b0298ecc0c499689a1ab2dc7722,
+        type: 3}
+      propertyPath: m_gameStartCountdownPanel
+      value: 
+      objectReference: {fileID: 1598489497}
     - target: {fileID: 2102074041176276457, guid: d52d3b0298ecc0c499689a1ab2dc7722,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2571,6 +2579,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2102074041176276457, guid: d52d3b0298ecc0c499689a1ab2dc7722,
     type: 3}
   m_PrefabInstance: {fileID: 566308166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &599278161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8848358941729463621, guid: 80e3123112a9c654e9705bbe048e202e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1148415549}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &604742745
 GameObject:
@@ -2839,6 +2853,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pick Up Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808871324004018573, guid: 215a4cdc3eaf05647914b6ffbf7cafc1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6808871324004018575, guid: 215a4cdc3eaf05647914b6ffbf7cafc1,
         type: 3}
@@ -3822,6 +3841,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player 2 Paddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848358941729463621, guid: 80e3123112a9c654e9705bbe048e202e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8848358941729463625, guid: 80e3123112a9c654e9705bbe048e202e,
         type: 3}
@@ -4965,6 +4989,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
+--- !u!1 &1497898993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2737984711776480549, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2737984712337700308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1505864338
 GameObject:
   m_ObjectHideFlags: 0
@@ -5487,6 +5517,12 @@ Transform:
   m_Father: {fileID: 1199901007}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1598489497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3146246341634294308, guid: dca1adf0c0e7ef046bfa350c235a47e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3146246340450338589}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1632237132
 GameObject:
   m_ObjectHideFlags: 0
@@ -6062,6 +6098,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4541715549925569431, guid: a82e27eced9bbc24389d596c4dfe766e,
     type: 3}
   m_PrefabInstance: {fileID: 1803565818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1849035375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8848358941729463621, guid: 80e3123112a9c654e9705bbe048e202e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8848358942128387072}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1907316640
 GameObject:
@@ -6639,6 +6681,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puck
       objectReference: {fileID: 0}
+    - target: {fileID: 2737984711776480549, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2737984711776480545, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6724,6 +6771,21 @@ PrefabInstance:
       propertyPath: audioClips.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 136753f7c7c87c548b16b5235de90faa, type: 3}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: m_startingScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: m_startingScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: m_startingScale.z
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 151959694, guid: 44c7f9f9516e84f449b2c2de68c7ebb8, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -6882,6 +6944,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3146246341696736577, guid: dca1adf0c0e7ef046bfa350c235a47e8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 3146246341696736576, guid: dca1adf0c0e7ef046bfa350c235a47e8,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -6905,6 +6972,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player 1 Paddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848358941729463621, guid: 80e3123112a9c654e9705bbe048e202e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8848358941729463625, guid: 80e3123112a9c654e9705bbe048e202e,
         type: 3}

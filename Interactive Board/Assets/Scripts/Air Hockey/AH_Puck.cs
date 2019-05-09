@@ -120,8 +120,10 @@ public class AH_Puck : MonoBehaviour
     {
 		if (this)
 		{
+            StartAnimationCoroutine();
 			transform.localPosition = puckResetPosition;
 			GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            //transform.localScale = m_startingScale;
 			GetComponentInChildren<TrailRenderer>().enabled = true;
 			if (delete)
 			{
@@ -152,6 +154,7 @@ public class AH_Puck : MonoBehaviour
             transform.localScale = Vector3.LerpUnclamped(m_startingScale, Vector3.one * 5.0f, t);
             yield return null;
         }
+        transform.localScale = Vector3.one * 5.0f;
         m_collider2D.enabled = true;
     }
 }

@@ -52,5 +52,6 @@ public class AH_Paddle : MonoBehaviour
             yield return null;
         }
         m_collider2D.enabled = true;
+        transform.localScale = Vector3.one;
     }
 }
