@@ -54,7 +54,7 @@ public class AH_GameMaster : MonoBehaviour
     [Tooltip("The offset of the puck after the puck goes into the left goal")]
     [SerializeField]
     Transform m_PuckResetOffsetForLeftGoal = null;
-
+    
 
     [Header("Exposed Editor Values - Do Not Touch")]
     [Tooltip("The scores for the respective player")]
@@ -88,10 +88,10 @@ public class AH_GameMaster : MonoBehaviour
     {
         GetSiblingComponents();
 
-		if (PlayerPrefs.HasKey("AirHockeyPointsRequired"))
-		{
-			m_scoreToWin = PlayerPrefs.GetInt("AirHockeyPointsRequired");
-		}
+        if (PlayerPrefs.HasKey("AirHockeyPointsRequired"))
+        {
+            m_scoreToWin = PlayerPrefs.GetInt("AirHockeyPointsRequired");
+        }
     }
 
     /// <summary>
@@ -146,11 +146,16 @@ public class AH_GameMaster : MonoBehaviour
             // Begin end game coroutine
             StartCoroutine(EndGame());
         }
-
-        // Stop this coroutine from constantly occuring
-        StopCoroutine(CheckGameState(scoringPuck, isRightGoal));
     }
-    
+
+    IEnumerator StartGame()
+    {
+        yield return new WaitUntil(() => !canvasManager.IsGameStartPanelActive());
+        //drop paddles
+        //drop puck
+
+    }
+
 
     /// <summary>
     /// Handles the operations carried out upon game completion
@@ -168,9 +173,6 @@ public class AH_GameMaster : MonoBehaviour
 
         // Activate the end game menu
         canvasManager.ActivateEndGameMenu();
-
-        // Stop this coroutine from constantly occuring
-        StopCoroutine(EndGame());
     }
 
     /// <summary>
