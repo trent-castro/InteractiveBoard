@@ -31,6 +31,21 @@ public class AH_GameMaster : MonoBehaviour
     [Tooltip("Referenc to the Canvas Animation Script")]
     [SerializeField]
     private AH_CanvasManager canvasManager = null;
+    [Tooltip("The offset of the puck after the puck goes into the right goal")]
+    [SerializeField]
+    Transform m_PuckResetOffsetForRightGoal = null;
+    [Tooltip("The offset of the puck after the puck goes into the left goal")]
+    [SerializeField]
+    Transform m_PuckResetOffsetForLeftGoal = null;
+
+    [SerializeField]
+    GameObject m_LeftPaddle = null;
+
+    [SerializeField]
+    GameObject m_RightPaddle = null;
+
+    [SerializeField]
+    GameObject m_Puck = null;
 
     [Header("Configuration")]
     [Tooltip("The amount of score a single player must make before the game recognizes a win")]
@@ -48,12 +63,6 @@ public class AH_GameMaster : MonoBehaviour
     [Tooltip("The lose text displayed after losing the game")]
     [SerializeField]
     private string m_loseText = "LOSE!!";
-    [Tooltip("The offset of the puck after the puck goes into the right goal")]
-    [SerializeField]
-    Transform m_PuckResetOffsetForRightGoal = null;
-    [Tooltip("The offset of the puck after the puck goes into the left goal")]
-    [SerializeField]
-    Transform m_PuckResetOffsetForLeftGoal = null;
     
 
     [Header("Exposed Editor Values - Do Not Touch")]
@@ -92,6 +101,8 @@ public class AH_GameMaster : MonoBehaviour
         {
             m_scoreToWin = PlayerPrefs.GetInt("AirHockeyPointsRequired");
         }
+        StartCoroutine(StartGameCoroutine());
+        AH_PickUpManager.instance.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -148,11 +159,16 @@ public class AH_GameMaster : MonoBehaviour
         }
     }
 
-    IEnumerator StartGame()
+    IEnumerator StartGameCoroutine()
     {
         yield return new WaitUntil(() => !canvasManager.IsGameStartPanelActive());
+        AH_PickUpManager.instance.gameObject.SetActive(true);
+
+        m_LeftPaddle.SetActive(true);
+        m_RightPaddle.SetActive(true);
         //drop paddles
         //drop puck
+        m_Puck.SetActive(true);
 
     }
 

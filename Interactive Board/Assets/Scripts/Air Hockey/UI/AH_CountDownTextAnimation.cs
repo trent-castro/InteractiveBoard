@@ -42,7 +42,7 @@ public class AH_CountDownTextAnimation : MonoBehaviour
             {
                 text.text = "BEGIN!";
             }
-            Vector3 scaleVec = Vector3.one * 1.2f;
+            Vector3 scaleVec = Vector3.one * 1.1f;
             gameObject.transform.localScale = scaleVec;
         }
         yield return new WaitForSeconds(1.5f);
