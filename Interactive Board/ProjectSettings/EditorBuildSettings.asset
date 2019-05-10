@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Air Hockey/AirHockey.unity
     guid: 768f1db8f2aeeb9428f1609b31cb0683
+  - enabled: 1
+    path: Assets/Scenes/Asteroids Battle Royale/ABR_ControlsTest.unity
+    guid: 590c9e055c467e747b8083e55d35dfc7
   m_configObjects: {}
