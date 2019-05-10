@@ -21,9 +21,6 @@ public class ABR_Border : MonoBehaviour
         foreach (ABR_Ship ship in runaways)
         {
             Vector2 target = m_playArea.bounds.ClosestPoint(ship.m_rigidBody.position);
-            Vector2 velocity = ship.m_rigidBody.velocity;
-            Vector2.SmoothDamp(ship.m_rigidBody.position, target, ref velocity, 0.2f);
-            ship.m_rigidBody.velocity = Vector2.SmoothDamp(ship.m_rigidBody.velocity, velocity, ref ship.m_acceleration, .25f);
 
             if (ship != null)
             {
@@ -31,6 +28,9 @@ public class ABR_Border : MonoBehaviour
                 if (Mathf.Abs(Mathf.DeltaAngle(ship.transform.eulerAngles.z, targetRotation)) > 30)
                 {
                     ship.TurnTo(targetRotation);
+                } else
+                {
+                    ship.Thrust(1);
                 }
             }
         }
@@ -38,19 +38,21 @@ public class ABR_Border : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        ABR_Ship rb = other.GetComponent<ABR_Ship>();
-        if (rb != null)
+        ABR_Ship ship = other.GetComponent<ABR_Ship>();
+        if (ship != null)
         {
-            runaways.Add(rb);
+            runaways.Add(ship);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        ABR_Ship rb = other.GetComponent<ABR_Ship>();
-        if (rb != null)
+        ABR_Ship ship = other.GetComponent<ABR_Ship>();
+        if (ship != null)
         {
-            runaways.Remove(rb);
+            runaways.Remove(ship);
+            ship.StopThrust();
+            ship.StopTurnTo();
         }
     }
 }

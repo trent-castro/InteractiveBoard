@@ -21,11 +21,11 @@ TagManager:
   - 
   - PaddleBlocker
   - Puck
-  - P1 Parallax
-  - P2 Parallax
-  - P3 Parallax
-  - P4 Parallax
-  - Minimap
+  - P1 Camera
+  - P2 Camera
+  - P3 Camera
+  - P4 Camera
+  - Spectator Map
   - Both
   - Paddles
   - 

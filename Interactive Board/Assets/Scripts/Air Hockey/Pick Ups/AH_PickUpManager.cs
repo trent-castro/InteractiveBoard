@@ -35,6 +35,9 @@ public class AH_PickUpManager : MonoBehaviour
 
     [Header("Configuration")]
     [SerializeField]
+    [Tooltip("Enables or disables the ability to spawn objects")]
+    public bool m_canSpawn = true;
+    [SerializeField]
     [Tooltip("Set a delay for the initial delay before pick ups begin spawning")]
     private float m_spawnStartDelay = 0.0f;
     [SerializeField]
@@ -159,7 +162,7 @@ public class AH_PickUpManager : MonoBehaviour
         // Check if the timer has expired while one can place a pick up.
         if (m_pickUpCount != m_maxFieldPickUps)
         {
-            if (m_timer <= 0.0f)
+            if (m_timer <= 0.0f && m_canSpawn)
             {
                 m_timer += m_spawnDelay;
                 SpawnRandomObject();
