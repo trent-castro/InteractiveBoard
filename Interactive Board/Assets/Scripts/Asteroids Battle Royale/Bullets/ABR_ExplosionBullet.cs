@@ -6,9 +6,9 @@ public class ABR_ExplosionBullet : ABR_Bullet
 {
     [Header("Explosion Bullet Configuration")]
     [SerializeField]
-    GameObject m_explosionObjects;
+    GameObject m_explosionObjects = null;
     [SerializeField]
-    GameObject m_bulletObject;
+    GameObject m_bulletObject = null;
 
     public float m_explosionTime;
 
