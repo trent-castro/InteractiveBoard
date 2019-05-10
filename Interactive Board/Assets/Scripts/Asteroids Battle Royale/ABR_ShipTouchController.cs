@@ -72,5 +72,35 @@ public class ABR_ShipTouchController : ABR_Ship
         {
             StopThrust();
         }
+
+        //debug controls
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            TurnCounterClockWise();
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            TurnClockwise();
+        }
+
+        if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        {
+            StopTurn();
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            Thrust(1);
+        }
+        else
+        {
+            StopThrust();
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            GetComponentInChildren<ABR_Turret>().FireBullet();
+        }
     }
 }

@@ -19,9 +19,7 @@ public abstract class ABR_Ship : MonoBehaviour
 
     [SerializeField]
     private float m_turnPowerWhenThrusting = 120.0f;
-
-    private float m_turnGoal = 0;
-    public float TurnGoal { get { return m_turnGoal; } }
+    public float TurnGoal { get; private set; } = 0;
     private bool m_doTurnTo = false;
     private float m_goalTurn = 0;
 
@@ -64,14 +62,14 @@ public abstract class ABR_Ship : MonoBehaviour
 
     public void TurnTo(float degrees)
     {
-        m_turnGoal = degrees;
+        TurnGoal = degrees;
         m_doTurnTo = true;
         m_goalTurn = 0;
     }
 
     public void Turn(float degrees)
     {
-        m_turnGoal = transform.eulerAngles.z + degrees;
+        TurnGoal = transform.eulerAngles.z + degrees;
         m_doTurnTo = true;
         m_goalTurn = 0;
     }
@@ -96,7 +94,7 @@ public abstract class ABR_Ship : MonoBehaviour
         else
         {
             float lastGoalTurn = m_goalTurn;
-            m_goalTurn = Mathf.Clamp(Mathf.DeltaAngle(transform.eulerAngles.z, m_turnGoal), -1, 1);
+            m_goalTurn = Mathf.Clamp(Mathf.DeltaAngle(transform.eulerAngles.z, TurnGoal), -1, 1);
 
             if (lastGoalTurn != 0 && (lastGoalTurn > 0 && m_goalTurn <= 0 || lastGoalTurn < 0 && m_goalTurn >= 0))
             {
