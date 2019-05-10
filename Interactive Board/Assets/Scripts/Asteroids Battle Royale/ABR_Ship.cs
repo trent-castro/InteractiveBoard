@@ -44,13 +44,11 @@ public abstract class ABR_Ship : MonoBehaviour
 
     public void TurnClockwise()
     {
-        StopTurnTo();
         m_turn = Mathf.Clamp(--m_turn, -1, 1);
     }
 
     public void TurnCounterClockWise()
     {
-        StopTurnTo();
         m_turn = Mathf.Clamp(++m_turn, -1, 1);
     }
 
