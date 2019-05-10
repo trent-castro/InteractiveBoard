@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowCamera2D : MonoBehaviour
+public class ABR_FollowShipCamera2D : MonoBehaviour
 {
     public Rigidbody2D m_target = null;
     private Vector2 m_velocity = Vector2.zero;

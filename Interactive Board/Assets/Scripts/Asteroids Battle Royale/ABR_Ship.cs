@@ -21,10 +21,12 @@ public abstract class ABR_Ship : MonoBehaviour
     private float m_turnPowerWhenThrusting = 120.0f;
 
     private float m_turnGoal = 0;
+    public float TurnGoal { get { return m_turnGoal; } }
     private bool m_doTurnTo = false;
     private float m_goalTurn = 0;
 
     public Vector2 m_acceleration = Vector2.zero;
+    public float m_angularAcceleration = 0;
 
     public void Thrust(float mult)
     {
@@ -89,7 +91,7 @@ public abstract class ABR_Ship : MonoBehaviour
     {
         if (!m_doTurnTo)
         {
-            m_rigidBody.angularVelocity = (m_doThrust ? m_turnPowerWhenThrusting : m_turnPower) * m_turn;
+            m_rigidBody.angularVelocity = SmoothDampAngularVelocity((m_doThrust ? m_turnPowerWhenThrusting : m_turnPower) * m_turn);
         }
         else
         {
@@ -100,7 +102,7 @@ public abstract class ABR_Ship : MonoBehaviour
             {
                 StopTurnTo();
             }
-            m_rigidBody.angularVelocity = m_turnPower * m_goalTurn / (m_doThrust ? 2 : 1);
+            m_rigidBody.angularVelocity = SmoothDampAngularVelocity(m_turnPower * m_goalTurn / (m_doThrust ? 2 : 1));
         }
 
         if (m_doThrust)
@@ -111,5 +113,10 @@ public abstract class ABR_Ship : MonoBehaviour
         {
             m_acceleration = -m_rigidBody.velocity * m_rigidBody.drag;
         }
+    }
+
+    private float SmoothDampAngularVelocity(float target)
+    {
+        return Mathf.SmoothDamp(m_rigidBody.angularVelocity, target, ref m_angularAcceleration, .1f);
     }
 }

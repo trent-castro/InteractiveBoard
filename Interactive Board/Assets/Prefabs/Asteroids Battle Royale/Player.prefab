@@ -10965,6 +10965,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5903469429061020806}
     m_Modifications:
+    - target: {fileID: 2543573324875408642, guid: cd4cbfefc1813dc4691d4e2a4698ae70,
+        type: 3}
+      propertyPath: m_Name
+      value: Ship Trail
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543573324875408642, guid: cd4cbfefc1813dc4691d4e2a4698ae70,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2543573324875408645, guid: cd4cbfefc1813dc4691d4e2a4698ae70,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11020,16 +11030,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2543573324875408642, guid: cd4cbfefc1813dc4691d4e2a4698ae70,
-        type: 3}
-      propertyPath: m_Name
-      value: Ship Trail
-      objectReference: {fileID: 0}
-    - target: {fileID: 2543573324875408642, guid: cd4cbfefc1813dc4691d4e2a4698ae70,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd4cbfefc1813dc4691d4e2a4698ae70, type: 3}
 --- !u!4 &2151560665891403128 stripped
@@ -11045,6 +11045,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5903469429061020806}
     m_Modifications:
+    - target: {fileID: 7235185101172691737, guid: a25d8ccd8429b9c469c80074e5a98c10,
+        type: 3}
+      propertyPath: m_Name
+      value: Turret
+      objectReference: {fileID: 0}
     - target: {fileID: 7235185101172691739, guid: a25d8ccd8429b9c469c80074e5a98c10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11099,11 +11104,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7235185101172691737, guid: a25d8ccd8429b9c469c80074e5a98c10,
-        type: 3}
-      propertyPath: m_Name
-      value: Turret
       objectReference: {fileID: 0}
     - target: {fileID: 5778048015641710237, guid: a25d8ccd8429b9c469c80074e5a98c10,
         type: 3}
