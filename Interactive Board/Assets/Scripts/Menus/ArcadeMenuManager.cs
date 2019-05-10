@@ -14,7 +14,6 @@ public class ArcadeMenuManager : MonoBehaviour
 	[SerializeField] string m_launchMenu= null;
 
 	[SerializeField] GameObject m_timeWarning = null;
-	[SerializeField] TextMeshProUGUI m_timerText = null;
 
 	[SerializeField] float m_timer = 30;
 	float m_time = 0;
