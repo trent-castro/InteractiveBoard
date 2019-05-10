@@ -59,7 +59,7 @@ public class ABR_ShipTouchController : ABR_Ship
 
         float turnAngle = transform.position.ZAngleTo(touchPosition);
 
-        if (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.z, turnAngle)) > m_tolerance)
+        if (Mathf.Abs(Mathf.DeltaAngle(TurnGoal, turnAngle)) > m_tolerance)
         {
             TurnTo(turnAngle);
         }
