@@ -101,7 +101,7 @@ public class AH_GameMaster : MonoBehaviour
         {
             m_scoreToWin = PlayerPrefs.GetInt("AirHockeyPointsRequired");
         }
-        StartCoroutine(StartGameCoroutine());
+        StartCoroutine(DropObjectsAnimationCoroutine());
         AH_PickUpManager.instance.gameObject.SetActive(false);
     }
 
@@ -159,7 +159,7 @@ public class AH_GameMaster : MonoBehaviour
         }
     }
 
-    IEnumerator StartGameCoroutine()
+    IEnumerator DropObjectsAnimationCoroutine()
     {
         yield return new WaitUntil(() => !canvasManager.IsGameStartPanelActive());
         AH_PickUpManager.instance.gameObject.SetActive(true);
