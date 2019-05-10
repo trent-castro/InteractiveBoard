@@ -31,6 +31,21 @@ public class AH_GameMaster : MonoBehaviour
     [Tooltip("Referenc to the Canvas Animation Script")]
     [SerializeField]
     private AH_CanvasManager canvasManager = null;
+    [Tooltip("The offset of the puck after the puck goes into the right goal")]
+    [SerializeField]
+    Transform m_PuckResetOffsetForRightGoal = null;
+    [Tooltip("The offset of the puck after the puck goes into the left goal")]
+    [SerializeField]
+    Transform m_PuckResetOffsetForLeftGoal = null;
+
+    [SerializeField]
+    GameObject m_LeftPaddle = null;
+
+    [SerializeField]
+    GameObject m_RightPaddle = null;
+
+    [SerializeField]
+    GameObject m_Puck = null;
 
     [Header("Configuration")]
     [Tooltip("The amount of score a single player must make before the game recognizes a win")]
@@ -48,13 +63,7 @@ public class AH_GameMaster : MonoBehaviour
     [Tooltip("The lose text displayed after losing the game")]
     [SerializeField]
     private string m_loseText = "LOSE!!";
-    [Tooltip("The offset of the puck after the puck goes into the right goal")]
-    [SerializeField]
-    Transform m_PuckResetOffsetForRightGoal = null;
-    [Tooltip("The offset of the puck after the puck goes into the left goal")]
-    [SerializeField]
-    Transform m_PuckResetOffsetForLeftGoal = null;
-
+    
 
     [Header("Exposed Editor Values - Do Not Touch")]
     [Tooltip("The scores for the respective player")]
@@ -88,10 +97,12 @@ public class AH_GameMaster : MonoBehaviour
     {
         GetSiblingComponents();
 
-		if (PlayerPrefs.HasKey("AirHockeyPointsRequired"))
-		{
-			m_scoreToWin = PlayerPrefs.GetInt("AirHockeyPointsRequired");
-		}
+        if (PlayerPrefs.HasKey("AirHockeyPointsRequired"))
+        {
+            m_scoreToWin = PlayerPrefs.GetInt("AirHockeyPointsRequired");
+        }
+        StartCoroutine(StartGameCoroutine());
+        AH_PickUpManager.instance.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -146,11 +157,28 @@ public class AH_GameMaster : MonoBehaviour
             // Begin end game coroutine
             StartCoroutine(EndGame());
         }
-
-        // Stop this coroutine from constantly occuring
-        StopCoroutine(CheckGameState(scoringPuck, isRightGoal));
     }
-    
+
+    IEnumerator StartGameCoroutine()
+    {
+        yield return new WaitUntil(() => !canvasManager.IsGameStartPanelActive());
+        AH_PickUpManager.instance.gameObject.SetActive(true);
+
+        //drop paddles
+        m_LeftPaddle.gameObject.SetActive(true);
+        yield return new WaitUntil(() => m_LeftPaddle.activeInHierarchy);
+        m_LeftPaddle.GetComponent<AH_Paddle>().StartDropAnimation();
+        m_RightPaddle.gameObject.SetActive(true);
+        yield return new WaitUntil(() => m_RightPaddle.activeInHierarchy);
+        m_RightPaddle.GetComponent<AH_Paddle>().StartDropAnimation();
+        yield return new WaitForSeconds(0.2f);
+        //drop puck
+        m_Puck.gameObject.SetActive(true);
+        yield return new WaitUntil(() => m_Puck.activeInHierarchy);
+        m_Puck.GetComponent<AH_Puck>().StartDropAnimation();
+
+    }
+
 
     /// <summary>
     /// Handles the operations carried out upon game completion
@@ -168,9 +196,6 @@ public class AH_GameMaster : MonoBehaviour
 
         // Activate the end game menu
         canvasManager.ActivateEndGameMenu();
-
-        // Stop this coroutine from constantly occuring
-        StopCoroutine(EndGame());
     }
 
     /// <summary>
