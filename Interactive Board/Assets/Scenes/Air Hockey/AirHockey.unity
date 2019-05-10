@@ -596,6 +596,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 3.5}
   m_EdgeRadius: 0
+--- !u!58 &189208147 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 677069199527787095, guid: 80e3123112a9c654e9705bbe048e202e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1148415549}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &223493328
 GameObject:
   m_ObjectHideFlags: 0
@@ -3528,6 +3534,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 2.5}
   m_EdgeRadius: 0
+--- !u!58 &889641776 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 677069199527787095, guid: 80e3123112a9c654e9705bbe048e202e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8848358942128387072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &930978579
 GameObject:
   m_ObjectHideFlags: 0
@@ -4055,6 +4067,11 @@ PrefabInstance:
       propertyPath: m_touchArea
       value: 
       objectReference: {fileID: 1907316641}
+    - target: {fileID: 2972610878398249213, guid: 80e3123112a9c654e9705bbe048e202e,
+        type: 3}
+      propertyPath: m_grabbableArea
+      value: 
+      objectReference: {fileID: 189208147}
     - target: {fileID: 244287225, guid: 80e3123112a9c654e9705bbe048e202e, type: 3}
       propertyPath: m_Name
       value: Sprite Renderer
@@ -6851,6 +6868,11 @@ PrefabInstance:
       propertyPath: m_startingScale.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: m_debugMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 151959694, guid: 44c7f9f9516e84f449b2c2de68c7ebb8, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -6980,6 +7002,11 @@ PrefabInstance:
       propertyPath: m_touchArea
       value: 
       objectReference: {fileID: 386924126}
+    - target: {fileID: 2972610878398249213, guid: 80e3123112a9c654e9705bbe048e202e,
+        type: 3}
+      propertyPath: m_grabbableArea
+      value: 
+      objectReference: {fileID: 889641776}
     - target: {fileID: 244287225, guid: 80e3123112a9c654e9705bbe048e202e, type: 3}
       propertyPath: m_Name
       value: Sprite Renderer
