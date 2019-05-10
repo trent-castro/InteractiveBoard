@@ -9,20 +9,29 @@ public class AH_Puck : MonoBehaviour
     [Tooltip("Enables Debug Mode")]
     private bool m_debugMode = false;
 
+    [Header("Animation")]
+    [Tooltip("The amount of time it takes for the animation to complete")]
+    [SerializeField]
+    [Range(0.0f, 5.0f)]
+    private float m_spawnAnimationTime = 0.5f;
+    [Tooltip("The starting scale of the pick up object upon beginning the animation")]
+    [SerializeField]
+    private Vector3 m_startingScale = new Vector3(10, 10, 10);
+
     [SerializeField]
     [Tooltip("Clamps the maximum speed for the puck.")]
     private float m_maxSpeed = 30;
     [SerializeField]
     AudioClip[] audioClips = null;
     
-
-    // ASK SEN ABOUT OBJECT POOLING RIGHT HERE
     public bool delete = false;
-    private AudioSource m_audioSource;
+    private float m_animationTimer = 0.0f;
 
     // Private Sibling Components
+    private AudioSource m_audioSource;
     private Rigidbody2D rigidBody;
     private SpriteRenderer m_spriteRenderer;
+    private Collider2D m_collider2D;
 
     /// <summary>
     /// [DEBUG MODE] Records a message if debug mode is enabled.
@@ -51,6 +60,7 @@ public class AH_Puck : MonoBehaviour
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
         m_audioSource = GetComponent<AudioSource>();
         m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        m_collider2D = GetComponent<CircleCollider2D>();
     }
 
     public void SetImageActive(bool active)
@@ -110,8 +120,10 @@ public class AH_Puck : MonoBehaviour
     {
 		if (this)
 		{
+            StartAnimationCoroutine();
 			transform.localPosition = puckResetPosition;
 			GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            //transform.localScale = m_startingScale;
 			GetComponentInChildren<TrailRenderer>().enabled = true;
 			if (delete)
 			{
@@ -124,5 +136,25 @@ public class AH_Puck : MonoBehaviour
     {
         int num = Random.Range(0, audioClips.Length);
         m_audioSource.clip = audioClips[num];
+    }
+
+    public void StartDropAnimation()
+    {
+        StartCoroutine(StartAnimationCoroutine());
+    }
+
+    public IEnumerator StartAnimationCoroutine()
+    {
+        m_collider2D.enabled = false;
+        while (m_animationTimer < m_spawnAnimationTime)
+        {
+            m_animationTimer += Time.deltaTime;
+            float t = m_animationTimer / m_spawnAnimationTime;
+            t = Interpolation.BounceOut(t);
+            transform.localScale = Vector3.LerpUnclamped(m_startingScale, Vector3.one * 5.0f, t);
+            yield return null;
+        }
+        transform.localScale = Vector3.one * 5.0f;
+        m_collider2D.enabled = true;
     }
 }

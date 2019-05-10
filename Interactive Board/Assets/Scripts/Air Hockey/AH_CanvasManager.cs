@@ -40,6 +40,9 @@ public class AH_CanvasManager : MonoBehaviour
     [Tooltip("The reference to the parent object for the win loss texts")]
     [SerializeField]
     private GameObject winLossResultTextParentReference = null;
+    [Tooltip("The Panel that shows the countdown before the beginning of the game")]
+    [SerializeField]
+    private GameObject m_gameStartCountdownPanel = null;
 
 
     [Header("Configuration")]
@@ -135,5 +138,10 @@ public class AH_CanvasManager : MonoBehaviour
             // Activates the menu
             gameOverMenu.SetActive(true);
         }
+    }
+
+    public bool IsGameStartPanelActive()
+    {
+        return m_gameStartCountdownPanel.activeInHierarchy;
     }
 }
