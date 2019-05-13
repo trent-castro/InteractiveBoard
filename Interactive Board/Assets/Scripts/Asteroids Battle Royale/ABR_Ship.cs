@@ -103,7 +103,7 @@ public abstract class ABR_Ship : MonoBehaviour
             {
                 StopTurnTo();
             }
-            m_rigidBody.angularVelocity = SmoothDampAngularVelocity(m_turnPower * m_goalTurn / (m_doThrust ? 2 : 1));
+            m_rigidBody.angularVelocity = SmoothDampAngularVelocity((m_doThrust ? m_turnPowerWhenThrusting : m_turnPower) * m_goalTurn);
         }
 
         if (m_doThrust)
@@ -123,7 +123,7 @@ public abstract class ABR_Ship : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("weapon"))
+        if (collision.CompareTag("Weapon"))
         {
             //TODO IMPLAMENT THIS PROPERLY!!!!
 
