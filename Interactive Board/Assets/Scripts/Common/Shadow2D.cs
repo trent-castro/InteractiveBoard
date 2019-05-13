@@ -17,10 +17,14 @@ public class Shadow2D : MonoBehaviour
     private Vector2 m_baseScale;
     public Vector2 m_scaleMultiplier = Vector3.one;
 
-    private Vector2 m_baseOffset;
+    public Vector2 m_baseOffset;
     public Vector2 m_offsetMultiplier = Vector3.one;
-    
+
     void Start()
+    {
+    }
+
+    private void Awake()
     {
         if (m_ownedByParent)
         {
@@ -34,25 +38,31 @@ public class Shadow2D : MonoBehaviour
 
         m_ownerBaseScale = m_owner.transform.localScale;
 
-        m_baseScale = transform.lossyScale;
+        m_baseScale = transform.localScale;
         m_baseOffset = transform.position - m_owner.transform.position;
-    }
 
-    private void Awake()
-    {
         m_spriteRenderer = GetComponent<SpriteRenderer>();
-        m_spriteRenderer.sortingOrder = -1;
         if (m_toCopy != null)
         {
+            m_spriteRenderer.sortingOrder = m_toCopy.sortingOrder - 1;
             m_spriteRenderer.sprite = m_toCopy.sprite;
             m_spriteRenderer.color = Color.black;
         }
     }
-    
+
     void Update()
     {
         //Vector2 scale = (Vector2)m_owner.transform.localScale - m_ownerBaseScale;
 
         transform.position = (Vector2)m_owner.transform.position + m_baseOffset;
+
+        if (m_toCopy != null)
+        {
+            m_spriteRenderer.enabled = m_toCopy.enabled && m_toCopy.gameObject.activeInHierarchy && m_owner.gameObject.activeInHierarchy;
+        }
+        else
+        {
+            m_spriteRenderer.enabled = m_owner.gameObject.activeInHierarchy;
+        }
     }
 }
