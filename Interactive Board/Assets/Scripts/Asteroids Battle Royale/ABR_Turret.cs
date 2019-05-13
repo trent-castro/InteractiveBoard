@@ -14,6 +14,7 @@ public class ABR_Turret : MonoBehaviour
 
     private AudioSource m_audioSource = null;
     private ABR_Weapon m_weapon = null;
+    private ABR_Weapon m_baseWeapon = null;
     private Rigidbody2D m_rigidbody = null;
     private bool m_isOkayToFire = true;
 
@@ -28,6 +29,7 @@ public class ABR_Turret : MonoBehaviour
         }
         m_rigidbody = GetComponentInParent<Rigidbody2D>();
         m_weapon = GetComponent<ABR_Weapon>();
+        m_baseWeapon = m_weapon;
         m_weapon.m_bulletSpawnLocation = m_spawnLocation;
         m_fireTimer = m_weapon.GetFireDelay();
     }
@@ -54,12 +56,12 @@ public class ABR_Turret : MonoBehaviour
     }
 
     /// <summary>
-    /// Will fire a bullet in the direction that the spawn location
+    /// Will fire a bullet in the direction of the spawn location
     /// </summary>
     public void FireBullet()
     {
+        //fireDirection is the vector from the turret position to the spawnlocation
         Vector3 fireDirection = m_spawnLocation.position - gameObject.transform.position;
-        if (DebugMode) Debug.Log(m_weapon.GetType());
         if (m_isOkayToFire)
         {
             //checks if the weapon successfully fired
@@ -70,6 +72,28 @@ public class ABR_Turret : MonoBehaviour
             }
             m_isOkayToFire = false;
         }
-        if (DebugMode) Debug.Log(m_weapon.GetAmmo());
+        if (DebugMode)
+        {
+            Debug.Log("Weapon Type: " + m_weapon.GetType());
+            Debug.Log("Ammo: " + m_weapon.GetAmmo());
+        }
+
+    }
+
+    public void SwitchWeapons(eBulletType bulletType)
+    {
+        switch (bulletType)
+        {
+            case eBulletType.BASIC:
+                break;
+            case eBulletType.SHOTGUN:
+                break;
+            case eBulletType.EXPLOSION:
+                break;
+            case eBulletType.PIERCE:
+                break;
+            case eBulletType.LASER:
+                break;
+        }
     }
 }
