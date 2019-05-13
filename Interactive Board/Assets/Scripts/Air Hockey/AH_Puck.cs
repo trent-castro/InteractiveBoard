@@ -16,7 +16,7 @@ public class AH_Puck : MonoBehaviour
     private float m_spawnAnimationTime = 0.5f;
     [Tooltip("The starting scale of the pick up object upon beginning the animation")]
     [SerializeField]
-    private Vector3 m_startingScale = new Vector3(10, 10, 10);
+    private Vector3 m_startingScale = new Vector3(3, 3, 3);
 
     [SerializeField]
     [Tooltip("Clamps the maximum speed for the puck.")]
@@ -151,10 +151,10 @@ public class AH_Puck : MonoBehaviour
             m_animationTimer += Time.deltaTime;
             float t = m_animationTimer / m_spawnAnimationTime;
             t = Interpolation.BounceOut(t);
-            transform.localScale = Vector3.LerpUnclamped(m_startingScale, Vector3.one * 5.0f, t);
+            transform.localScale = Vector3.LerpUnclamped(m_startingScale, Vector3.one, t);
             yield return null;
         }
-        transform.localScale = Vector3.one * 5.0f;
+        transform.localScale = Vector3.one;
         m_collider2D.enabled = true;
     }
 }

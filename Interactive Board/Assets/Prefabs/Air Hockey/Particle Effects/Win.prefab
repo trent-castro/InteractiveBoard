@@ -212,6 +212,16 @@ PrefabInstance:
       propertyPath: ShapeModule.angle
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 4541715549925569429, guid: a82e27eced9bbc24389d596c4dfe766e,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541715549925569429, guid: a82e27eced9bbc24389d596c4dfe766e,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[1].probability
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a82e27eced9bbc24389d596c4dfe766e, type: 3}
 --- !u!4 &3747383342259542015 stripped
@@ -227,6 +237,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3747383342048667948}
     m_Modifications:
+    - target: {fileID: 6646229345303283166, guid: ef196dc2b3845974ca328438b1ac88dc,
+        type: 3}
+      propertyPath: m_Name
+      value: SW
+      objectReference: {fileID: 0}
     - target: {fileID: 6646229345303283167, guid: ef196dc2b3845974ca328438b1ac88dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -282,11 +297,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6646229345303283166, guid: ef196dc2b3845974ca328438b1ac88dc,
-        type: 3}
-      propertyPath: m_Name
-      value: SW
-      objectReference: {fileID: 0}
     - target: {fileID: 6646229345303283161, guid: ef196dc2b3845974ca328438b1ac88dc,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -296,6 +306,16 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.angle
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646229345303283161, guid: ef196dc2b3845974ca328438b1ac88dc,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646229345303283161, guid: ef196dc2b3845974ca328438b1ac88dc,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[1].probability
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef196dc2b3845974ca328438b1ac88dc, type: 3}
@@ -312,6 +332,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3747383342048667948}
     m_Modifications:
+    - target: {fileID: 6646229345303283166, guid: ef196dc2b3845974ca328438b1ac88dc,
+        type: 3}
+      propertyPath: m_Name
+      value: SE
+      objectReference: {fileID: 0}
     - target: {fileID: 6646229345303283167, guid: ef196dc2b3845974ca328438b1ac88dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -367,11 +392,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6646229345303283166, guid: ef196dc2b3845974ca328438b1ac88dc,
-        type: 3}
-      propertyPath: m_Name
-      value: SE
-      objectReference: {fileID: 0}
     - target: {fileID: 6646229345303283161, guid: ef196dc2b3845974ca328438b1ac88dc,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -381,6 +401,16 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.angle
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646229345303283161, guid: ef196dc2b3845974ca328438b1ac88dc,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646229345303283161, guid: ef196dc2b3845974ca328438b1ac88dc,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[1].probability
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef196dc2b3845974ca328438b1ac88dc, type: 3}
@@ -456,6 +486,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118932641507549757, guid: d72660a2c3c1fd645a4f621f29fb8018,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118932641507549757, guid: d72660a2c3c1fd645a4f621f29fb8018,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[1].probability
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72660a2c3c1fd645a4f621f29fb8018, type: 3}
@@ -542,6 +582,16 @@ PrefabInstance:
       propertyPath: ShapeModule.angle
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 4541715549925569429, guid: a82e27eced9bbc24389d596c4dfe766e,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541715549925569429, guid: a82e27eced9bbc24389d596c4dfe766e,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[1].probability
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a82e27eced9bbc24389d596c4dfe766e, type: 3}
 --- !u!4 &8246467140602973675 stripped
@@ -557,6 +607,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3747383342048667948}
     m_Modifications:
+    - target: {fileID: 6646229345303283166, guid: ef196dc2b3845974ca328438b1ac88dc,
+        type: 3}
+      propertyPath: m_Name
+      value: NE
+      objectReference: {fileID: 0}
     - target: {fileID: 6646229345303283167, guid: ef196dc2b3845974ca328438b1ac88dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -612,11 +667,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6646229345303283166, guid: ef196dc2b3845974ca328438b1ac88dc,
-        type: 3}
-      propertyPath: m_Name
-      value: NE
-      objectReference: {fileID: 0}
     - target: {fileID: 6646229345303283161, guid: ef196dc2b3845974ca328438b1ac88dc,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -626,6 +676,16 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.angle
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646229345303283161, guid: ef196dc2b3845974ca328438b1ac88dc,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646229345303283161, guid: ef196dc2b3845974ca328438b1ac88dc,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[1].probability
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef196dc2b3845974ca328438b1ac88dc, type: 3}
@@ -701,6 +761,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541715549925569429, guid: a82e27eced9bbc24389d596c4dfe766e,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541715549925569429, guid: a82e27eced9bbc24389d596c4dfe766e,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[1].probability
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a82e27eced9bbc24389d596c4dfe766e, type: 3}
@@ -786,6 +856,16 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.angle
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541715549925569429, guid: a82e27eced9bbc24389d596c4dfe766e,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541715549925569429, guid: a82e27eced9bbc24389d596c4dfe766e,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[1].probability
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a82e27eced9bbc24389d596c4dfe766e, type: 3}
