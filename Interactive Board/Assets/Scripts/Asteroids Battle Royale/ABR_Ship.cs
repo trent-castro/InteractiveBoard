@@ -19,9 +19,13 @@ public abstract class ABR_Ship : MonoBehaviour
 
     [SerializeField]
     private float m_turnPowerWhenThrusting = 120.0f;
+
+
     public float TurnGoal { get; private set; } = 0;
     private bool m_doTurnTo = false;
     private float m_goalTurn = 0;
+    private ABR_Turret m_turret = null;
+
 
     public Vector2 m_acceleration = Vector2.zero;
     public float m_angularAcceleration = 0;
@@ -83,6 +87,7 @@ public abstract class ABR_Ship : MonoBehaviour
     protected void Start()
     {
         m_rigidBody = GetComponent<Rigidbody2D>();
+        m_turret = GetComponentInChildren<ABR_Turret>();
     }
 
     protected void Update()
@@ -116,5 +121,20 @@ public abstract class ABR_Ship : MonoBehaviour
     private float SmoothDampAngularVelocity(float target)
     {
         return Mathf.SmoothDamp(m_rigidBody.angularVelocity, target, ref m_angularAcceleration, .1f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("weapon"))
+        {
+            //TODO IMPLAMENT THIS PROPERLY!!!!
+
+            //Get collision component of Powerup
+            //Case/Switch powerup weapon type
+            //call turret.changeWeapon(new weapon of powerup weapon type)
+            eBulletType bullet = eBulletType.BASIC;
+
+            m_turret.SwitchWeapons(bullet);
+        }
     }
 }

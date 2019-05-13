@@ -80,9 +80,20 @@ public class ABR_Turret : MonoBehaviour
 
     }
 
-    public void switchWeapons(ABR_Weapon newWeapon)
+    public void SwitchWeapons(eBulletType bulletType)
     {
-        m_weapon = newWeapon;
-        m_fireTimer = newWeapon.GetFireDelay();
+        switch (bulletType)
+        {
+            case eBulletType.BASIC:
+                break;
+            case eBulletType.SHOTGUN:
+                break;
+            case eBulletType.EXPLOSION:
+                break;
+            case eBulletType.PIERCE:
+                break;
+            case eBulletType.LASER:
+                break;
+        }
     }
 }

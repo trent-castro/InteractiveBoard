@@ -102,7 +102,7 @@ public class AH_GameMaster : MonoBehaviour
             m_scoreToWin = PlayerPrefs.GetInt("AirHockeyPointsRequired");
         }
         StartCoroutine(DropObjectsAnimationCoroutine());
-        AH_PickUpManager.instance.gameObject.SetActive(false);
+        AH_PickUpManager.instance.m_canSpawn = false;
     }
 
     /// <summary>
@@ -162,7 +162,7 @@ public class AH_GameMaster : MonoBehaviour
     IEnumerator DropObjectsAnimationCoroutine()
     {
         yield return new WaitUntil(() => !canvasManager.IsGameStartPanelActive());
-        AH_PickUpManager.instance.gameObject.SetActive(true);
+        AH_PickUpManager.instance.m_canSpawn = true;
 
         //drop paddles
         m_LeftPaddle.gameObject.SetActive(true);
