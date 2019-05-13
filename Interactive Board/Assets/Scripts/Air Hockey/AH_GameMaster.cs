@@ -191,9 +191,6 @@ public class AH_GameMaster : MonoBehaviour
         // Wait an appropriate amount of time before proceeding
         yield return new WaitForSecondsRealtime(m_endGameDelay);
 
-        // Stop the game from being active
-        Time.timeScale = 0.0f;
-
         // Activate the end game menu
         canvasManager.ActivateEndGameMenu();
     }
