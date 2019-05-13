@@ -82,28 +82,40 @@ public class ABR_Turret : MonoBehaviour
 
     public void SwitchWeapons(eBulletType bulletType)
     {
+        //Weapon reference to replace m_weapon
         ABR_Weapon newWeapon = null;
+
+        //Determine Which weapon is going to be added and then add them
         switch (bulletType)
         {
             case eBulletType.BASIC:
-                Destroy(m_weapon);
+                //New weapon will be a basic weapon
                 newWeapon = gameObject.AddComponent<ABR_BasicWeapon>();
                 break;
             case eBulletType.SHOTGUN:
+                //newWeapon will be a shotgun weapon
                 newWeapon = gameObject.AddComponent<ABR_ShotgunWeapon>();
                 break;
             case eBulletType.EXPLOSION:
+                //new weapon will be an explosion weapon
                 newWeapon = gameObject.AddComponent<ABR_ExplosionWeapon>();
                 break;
             case eBulletType.PIERCE:
+                //new weapon will be a piece weapon
                 newWeapon = gameObject.AddComponent<ABR_PierceWeapon>();
                 break;
             case eBulletType.LASER:
+                //new weapon will be a laser weapon
                 newWeapon = gameObject.AddComponent<ABR_LaserWeapon>();
                 break;
         }
+        //set the fire timer to the weapons delay
+        m_fireTimer = newWeapon.GetFireDelay();
+        //set the bullet spawn location of the new weapon to the current spawn location
         newWeapon.m_bulletSpawnLocation = m_weapon.m_bulletSpawnLocation;
+        //remove old weapon component
         Destroy(m_weapon);
+        //set the m_weapon reference to the new Weapon
         m_weapon = newWeapon;
     }
 }

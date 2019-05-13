@@ -120,20 +120,4 @@ public abstract class ABR_Ship : MonoBehaviour
     {
         return Mathf.SmoothDamp(m_rigidBody.angularVelocity, target, ref m_angularAcceleration, .1f);
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Weapon"))
-        {
-            print("Weapon pickup!");
-            //TODO IMPLAMENT THIS PROPERLY!!!!
-
-            //Get collision component of Powerup
-            //Case/Switch powerup weapon type
-            eBulletType weapontype = collision.gameObject.GetComponent<ABR_WeaponPickup>().m_weaponType;
-
-
-            m_turret.SwitchWeapons(weapontype);
-        }
-    }
 }
