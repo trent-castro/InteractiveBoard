@@ -19,7 +19,6 @@ public abstract class ABR_Health : MonoBehaviour
 		m_health = health;
 		m_maxHealth = maxHealth;
 		m_isAlive = true;
-
 	}
 
     protected abstract void Die();
