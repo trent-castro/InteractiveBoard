@@ -125,6 +125,7 @@ public abstract class ABR_Ship : MonoBehaviour
     {
         if (collision.CompareTag("Weapon"))
         {
+            print("Weapon pickup!");
             //TODO IMPLAMENT THIS PROPERLY!!!!
 
             //Get collision component of Powerup

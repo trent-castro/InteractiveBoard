@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Asteroid
   - Weapon
+  - TouchArea
   layers:
   - Default
   - TransparentFX
