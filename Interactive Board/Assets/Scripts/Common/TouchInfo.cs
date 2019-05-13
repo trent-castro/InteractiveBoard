@@ -37,8 +37,7 @@ public class TouchInfo
     public float m_startTime;
     public float m_endTime;
     public int m_owners = 0;
-
-    private bool m_track = false;
+    
     private int m_trackCounter = 0;
     private int m_trackOn = 1;
 
