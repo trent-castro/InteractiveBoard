@@ -26,7 +26,6 @@ public class ABR_ExplosionBullet : ABR_Bullet
         {
             Explode();
         }
-
     }
 
     public void ResetExplosionBullet()
@@ -43,8 +42,6 @@ public class ABR_ExplosionBullet : ABR_Bullet
         m_bulletObject.SetActive(false);
         m_explosionObjects.SetActive(true);
         isExploding = true;
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
