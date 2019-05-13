@@ -51,26 +51,25 @@ public class ABR_ShipTouchController : ABR_Ship
 
     new void Update()
     {
-        base.Update();
-
-        if (m_touchInfo == null) return;
-
-        Vector2 touchPosition = m_touchInfo.WorldPosition(m_viewport);
-
-        float turnAngle = transform.position.ZAngleTo(touchPosition);
-
-        if (Mathf.Abs(Mathf.DeltaAngle(TurnGoal, turnAngle)) > m_tolerance)
+        if (m_touchInfo != null)
         {
-            TurnTo(turnAngle);
-        }
+            Vector2 touchPosition = m_touchInfo.WorldPosition(m_viewport);
 
-        if ((touchPosition - (Vector2)transform.position).magnitude > m_turnOnlyRadius)
-        {
-            Thrust(1);
-        }
-        else
-        {
-            StopThrust();
+            float turnAngle = transform.position.ZAngleTo(touchPosition);
+
+            if (Mathf.Abs(Mathf.DeltaAngle(TurnGoal, turnAngle)) > m_tolerance)
+            {
+                TurnTo(turnAngle);
+            }
+
+            if ((touchPosition - (Vector2)transform.position).magnitude > m_turnOnlyRadius)
+            {
+                Thrust(1);
+            }
+            else
+            {
+                StopThrust();
+            }
         }
 
         //debug controls
@@ -84,7 +83,7 @@ public class ABR_ShipTouchController : ABR_Ship
             TurnClockwise();
         }
 
-        if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKeyUp(KeyCode.LeftArrow) != Input.GetKeyUp(KeyCode.RightArrow))
         {
             StopTurn();
         }
@@ -93,7 +92,7 @@ public class ABR_ShipTouchController : ABR_Ship
         {
             Thrust(1);
         }
-        else
+        else if (Input.GetKeyUp(KeyCode.UpArrow))
         {
             StopThrust();
         }
@@ -102,5 +101,7 @@ public class ABR_ShipTouchController : ABR_Ship
         {
             GetComponentInChildren<ABR_Turret>().FireBullet();
         }
+
+        base.Update();
     }
 }
