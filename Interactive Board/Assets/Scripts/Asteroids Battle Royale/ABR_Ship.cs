@@ -125,14 +125,15 @@ public abstract class ABR_Ship : MonoBehaviour
     {
         if (collision.CompareTag("Weapon"))
         {
+            print("Weapon pickup!");
             //TODO IMPLAMENT THIS PROPERLY!!!!
 
             //Get collision component of Powerup
             //Case/Switch powerup weapon type
-            //call turret.changeWeapon(new weapon of powerup weapon type)
-            eBulletType bullet = eBulletType.BASIC;
+            eBulletType weapontype = collision.gameObject.GetComponent<ABR_WeaponPickup>().m_weaponType;
 
-            m_turret.SwitchWeapons(bullet);
+
+            m_turret.SwitchWeapons(weapontype);
         }
     }
 }

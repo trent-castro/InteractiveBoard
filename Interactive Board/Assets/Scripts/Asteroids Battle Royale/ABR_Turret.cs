@@ -82,18 +82,28 @@ public class ABR_Turret : MonoBehaviour
 
     public void SwitchWeapons(eBulletType bulletType)
     {
+        ABR_Weapon newWeapon = null;
         switch (bulletType)
         {
             case eBulletType.BASIC:
+                Destroy(m_weapon);
+                newWeapon = gameObject.AddComponent<ABR_BasicWeapon>();
                 break;
             case eBulletType.SHOTGUN:
+                newWeapon = gameObject.AddComponent<ABR_ShotgunWeapon>();
                 break;
             case eBulletType.EXPLOSION:
+                newWeapon = gameObject.AddComponent<ABR_ExplosionWeapon>();
                 break;
             case eBulletType.PIERCE:
+                newWeapon = gameObject.AddComponent<ABR_PierceWeapon>();
                 break;
             case eBulletType.LASER:
+                newWeapon = gameObject.AddComponent<ABR_LaserWeapon>();
                 break;
         }
+        newWeapon.m_bulletSpawnLocation = m_weapon.m_bulletSpawnLocation;
+        Destroy(m_weapon);
+        m_weapon = newWeapon;
     }
 }
