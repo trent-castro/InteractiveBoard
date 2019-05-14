@@ -9,6 +9,7 @@ public abstract class ABR_Ship : MonoBehaviour
 
     private float m_thrustMult = 1;
     private bool m_doThrust = false;
+    private bool m_forceThrust = false;
     private float m_turn = 0;
 
     [SerializeField]
@@ -23,6 +24,7 @@ public abstract class ABR_Ship : MonoBehaviour
 
     public float TurnGoal { get; private set; } = 0;
     private bool m_doTurnTo = false;
+    private bool m_forceTurnTo = false;
     private float m_goalTurn = 0;
     private ABR_Turret m_turret = null;
 
@@ -30,15 +32,29 @@ public abstract class ABR_Ship : MonoBehaviour
     public Vector2 m_acceleration = Vector2.zero;
     public float m_angularAcceleration = 0;
 
-    public void Thrust(float mult)
+    public void Thrust(float mult, bool force = false)
     {
-        m_thrustMult = mult;
-        m_doThrust = true;
+        if (!m_forceThrust || force)
+        {
+            if (force)
+            {
+                m_forceThrust = true;
+            }
+            m_thrustMult = mult;
+            m_doThrust = true;
+        }
     }
 
-    public void StopThrust()
+    public void StopThrust(bool force = false)
     {
-        m_doThrust = false;
+        if (!m_forceThrust || force)
+        {
+            if (force)
+            {
+                m_forceThrust = false;
+            }
+            m_doThrust = false;
+        }
     }
 
     public void SetMaxSpeed(float power)
@@ -62,24 +78,39 @@ public abstract class ABR_Ship : MonoBehaviour
         m_turn = 0;
     }
 
-    public void TurnTo(float degrees)
+    public void TurnTo(float degrees, bool force = false)
     {
-        TurnGoal = degrees;
-        m_doTurnTo = true;
-        m_goalTurn = 0;
+        if (!m_forceTurnTo || force)
+        {
+            if (force)
+            {
+                m_forceTurnTo = true;
+            }
+            TurnGoal = degrees;
+            m_doTurnTo = true;
+            m_goalTurn = 0;
+        }
     }
 
-    public void Turn(float degrees)
+    public void Turn(float degrees, bool force = false)
     {
-        TurnGoal = transform.eulerAngles.z + degrees;
-        m_doTurnTo = true;
-        m_goalTurn = 0;
+        if (!m_forceTurnTo || force)
+        {
+            TurnTo(transform.eulerAngles.z + degrees, force);
+        }
     }
 
-    public void StopTurnTo()
+    public void StopTurnTo(bool force = false)
     {
-        m_rigidBody.angularVelocity = 0;
-        m_doTurnTo = false;
+        if (!m_forceTurnTo || force)
+        {
+            if (force)
+            {
+                m_forceTurnTo = false;
+            }
+            m_rigidBody.angularVelocity = 0;
+            m_doTurnTo = false;
+        }
     }
 
     protected void Start()
@@ -90,7 +121,7 @@ public abstract class ABR_Ship : MonoBehaviour
 
     protected void Update()
     {
-        if (!m_doTurnTo)
+        if (!m_doTurnTo && !m_forceTurnTo)
         {
             m_rigidBody.angularVelocity = SmoothDampAngularVelocity((m_doThrust ? m_turnPowerWhenThrusting : m_turnPower) * m_turn);
         }
@@ -101,12 +132,13 @@ public abstract class ABR_Ship : MonoBehaviour
 
             if (lastGoalTurn != 0 && (lastGoalTurn > 0 && m_goalTurn <= 0 || lastGoalTurn < 0 && m_goalTurn >= 0))
             {
+                m_forceTurnTo = false;
                 StopTurnTo();
             }
             m_rigidBody.angularVelocity = SmoothDampAngularVelocity((m_doThrust ? m_turnPowerWhenThrusting : m_turnPower) * m_goalTurn);
         }
 
-        if (m_doThrust)
+        if (m_doThrust || m_forceThrust)
         {
             m_rigidBody.velocity = Vector2.SmoothDamp(m_rigidBody.velocity, transform.up * m_maxSpeed * m_thrustMult, ref m_acceleration, .25f);
         }
