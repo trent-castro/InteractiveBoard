@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Asteroids_Battle_Royale;
 
 public class ABR_BasicBullet : ABR_Bullet
 {
@@ -10,12 +11,13 @@ public class ABR_BasicBullet : ABR_Bullet
         m_rigidbody.velocity = (direction * m_speed) + shipVelocity;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private new void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision);
-        if(!collision.CompareTag("Wall") && ! collision.CompareTag("TouchArea"))
+        Debug.Log(collision.name);
+        if(!collision.CompareTag(ABR_Tags.WallTag) && ! collision.CompareTag(ABR_Tags.ShipCollisionTag))
         {
             Debug.Log("Collided with something else");
         }
+		base.OnTriggerEnter2D(collision);
     }
 }

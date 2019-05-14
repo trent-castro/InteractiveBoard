@@ -33,9 +33,4 @@ public abstract class ABR_Weapon : MonoBehaviour
 		return true;
 	}
 
-	virtual public void ContactDamage(GameObject collision)
-	{
-
-	}
-
 }
