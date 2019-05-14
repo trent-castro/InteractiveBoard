@@ -28,7 +28,7 @@ public struct Reaction2D
 
     public float GetT(float scalar)
     {
-            return Mathf.Clamp01((scalar - min) / (max - min));
+        return Mathf.Clamp01((scalar - min) / (max - min));
     }
 
     public float GetT(Vector3 vector)
@@ -41,7 +41,7 @@ public struct Reaction2D
 
     public Vector3 GetPosition(float t)
     {
-        return path.GetPoint(t);
+        return path.transform.InverseTransformPoint(path.GetNonUniformPoint(t));
     }
 
     public float GetRotation(float t)
@@ -104,6 +104,7 @@ public class ReactivePart2D : MonoBehaviour
 
             if (reaction.UsePosition)
             {
+                //Debug.Log(reaction.GetPosition(t));
                 position += reaction.GetPosition(t);
                 positions++;
             }
@@ -118,6 +119,8 @@ public class ReactivePart2D : MonoBehaviour
         position /= positions;
         rotation /= rotations;
 
+        Debug.Log(transform.localPosition);
+        Debug.Log(position);
         transform.localPosition = Vector3.Lerp(transform.localPosition, position, Time.deltaTime * 5);
         transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(0, 0, rotation), Time.deltaTime * 5);
     }
