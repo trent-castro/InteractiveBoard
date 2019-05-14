@@ -3325,7 +3325,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9389a1b01f4ab5c48a469594f0339461, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ff8062201c14fb74a9860b95b220d13f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -4846,7 +4846,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9389a1b01f4ab5c48a469594f0339461, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ff8062201c14fb74a9860b95b220d13f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -4985,7 +4985,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 1754038cc9c0f1d42ac9351718599a2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6821,6 +6821,11 @@ PrefabInstance:
     - target: {fileID: 2737984711776480545, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737984711776480546, guid: 44c7f9f9516e84f449b2c2de68c7ebb8,
+        type: 3}
+      propertyPath: m_debugMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

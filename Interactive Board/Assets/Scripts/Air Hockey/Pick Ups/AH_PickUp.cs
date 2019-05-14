@@ -286,7 +286,7 @@ public abstract class AH_PickUp : MonoBehaviour
             m_animationTimer += Time.deltaTime;
             float t = m_animationTimer / m_spawnAnimationTime;
             t = Interpolation.BounceOut(t);
-            transform.localScale = Vector3.LerpUnclamped(m_startingScale, Vector3.one, t);
+            transform.localScale = Vector3.Lerp(m_startingScale, Vector3.one, t);
             yield return null;
         }
         m_collider2D.enabled = true;

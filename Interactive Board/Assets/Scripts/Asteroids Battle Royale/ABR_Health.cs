@@ -14,21 +14,21 @@ public abstract class ABR_Health : MonoBehaviour
     {
     }
 
-	public void Init(float health, float maxHealth)
+	public void InitializeHealth(float health, float maxHealth)
 	{
 		m_health = health;
 		m_maxHealth = maxHealth;
 		m_isAlive = true;
-
 	}
 
-	public void Death()
-	{
-		//Perish
-	}
+    protected abstract void Die();
 
-	public void OnHit(float damage)
+	public void TakeDamage(float damage)
 	{
-		//DO a thing
+        m_health -= damage;
+        if (m_health < 0)
+        {
+            Die();
+        }
 	}
 }

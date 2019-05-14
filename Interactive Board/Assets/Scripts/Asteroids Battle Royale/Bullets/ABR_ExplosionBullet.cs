@@ -6,9 +6,9 @@ public class ABR_ExplosionBullet : ABR_Bullet
 {
     [Header("Explosion Bullet Configuration")]
     [SerializeField]
-    GameObject m_explosionObjects;
+    GameObject m_explosionObjects = null;
     [SerializeField]
-    GameObject m_bulletObject;
+    GameObject m_bulletObject = null;
 
     public float m_explosionTime;
 
@@ -26,7 +26,6 @@ public class ABR_ExplosionBullet : ABR_Bullet
         {
             Explode();
         }
-
     }
 
     public void ResetExplosionBullet()
@@ -43,15 +42,18 @@ public class ABR_ExplosionBullet : ABR_Bullet
         m_bulletObject.SetActive(false);
         m_explosionObjects.SetActive(true);
         isExploding = true;
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!isExploding)
-            Explode();
-        //Do explosion damage here
+        Debug.Log(collision);
+        if (!collision.CompareTag("Wall") && !collision.CompareTag("TouchArea"))
+        {
+            Debug.Log("Collided with something else");
+            if (!isExploding)
+                Explode();
+            //Do explosion damage here
+        }
     }
 
 }
