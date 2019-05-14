@@ -28,6 +28,14 @@ public abstract class ABR_Weapon : MonoBehaviour
         return m_fireDelay;
     }
 
-    abstract public bool Fire(Vector3 shipVelocity);
+	virtual public bool Fire(Vector3 shipVelocity)
+	{
+		return true;
+	}
+
+	virtual public void ContactDamage(GameObject collision)
+	{
+
+	}
 
 }
