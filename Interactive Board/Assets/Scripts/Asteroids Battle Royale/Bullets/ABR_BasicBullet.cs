@@ -12,10 +12,8 @@ public class ABR_BasicBullet : ABR_Bullet
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision);
         if(!collision.CompareTag("Wall") && ! collision.CompareTag("TouchArea"))
         {
-            Debug.Log("Collided with something else");
         }
     }
 }
