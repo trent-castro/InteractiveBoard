@@ -47,7 +47,7 @@ public class ABR_ExplosionBullet : ABR_Bullet
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision);
-        if (!collision.CompareTag("Wall") && !collision.CompareTag("TouchArea"))
+        if (!collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.ShipCollisionTag))
         {
             Debug.Log("Collided with something else");
             if (!isExploding)
