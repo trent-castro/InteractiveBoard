@@ -10,10 +10,10 @@ public class ABR_PierceBullet : ABR_Bullet
         m_rigidbody.velocity = (direction * m_speed) + shipVelocity;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private new void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision);
-        if (!collision.CompareTag("Wall") && !collision.CompareTag("TouchArea"))
+        if (!collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.ShipCollisionTag))
         {
             Debug.Log("Collided with something else");
             m_numOfPierced++;
@@ -22,6 +22,7 @@ public class ABR_PierceBullet : ABR_Bullet
                 gameObject.SetActive(false);
             }
         }
-    }
+		base.OnTriggerEnter2D(collision);
+	}
 
 }

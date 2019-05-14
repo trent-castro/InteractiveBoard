@@ -95,7 +95,7 @@ public class ABR_Asteroid : MonoBehaviour
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		if (collision.gameObject.tag == "Wall")
+		if (collision.gameObject.CompareTag(ABR_Tags.WallTag))
 		{
 			Target(new Vector2(boy.ScreenToWorldPoint(Input.mousePosition).x, c_maxYDirection), new Vector2(boy.ScreenToWorldPoint(Input.mousePosition).x, -c_maxYDirection));
 		}
