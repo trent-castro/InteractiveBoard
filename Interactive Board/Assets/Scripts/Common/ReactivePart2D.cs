@@ -104,7 +104,6 @@ public class ReactivePart2D : MonoBehaviour
 
             if (reaction.UsePosition)
             {
-                //Debug.Log(reaction.GetPosition(t));
                 position += reaction.GetPosition(t);
                 positions++;
             }
@@ -119,8 +118,6 @@ public class ReactivePart2D : MonoBehaviour
         position /= positions;
         rotation /= rotations;
 
-        Debug.Log(transform.localPosition);
-        Debug.Log(position);
         transform.localPosition = Vector3.Lerp(transform.localPosition, position, Time.deltaTime * 5);
         transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(0, 0, rotation), Time.deltaTime * 5);
     }
