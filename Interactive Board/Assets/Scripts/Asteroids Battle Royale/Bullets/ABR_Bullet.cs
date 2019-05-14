@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Scripts.Asteroids_Battle_Royale;
 
 public abstract class ABR_Bullet : MonoBehaviour
 {
