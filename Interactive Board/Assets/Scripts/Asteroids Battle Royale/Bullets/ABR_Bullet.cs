@@ -40,7 +40,6 @@ public abstract class ABR_Bullet : MonoBehaviour
 		{
 			gameObject.SetActive(false);
 			ABR_Health health = collision.GetComponent<ABR_Health>();
-			Debug.Log(health);
 			if (health)
 			{
 				health.TakeDamage(m_damage);

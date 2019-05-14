@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_startLocation: {x: 0, y: 0}
   m_endLocation: {x: 0, y: 0}
-  velocity: {x: 0, y: 0}
+  velocity: {x: 0, y: -1}
   boy: {fileID: 0}
 --- !u!50 &3410173485555929447
 Rigidbody2D:
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec6b7f43159fbb43950c6473696895d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_health: 100
-  m_maxHealth: 100
+  m_health: 10
+  m_maxHealth: 10
   m_isAlive: 1
 --- !u!1 &3410173486653999609
 GameObject:
