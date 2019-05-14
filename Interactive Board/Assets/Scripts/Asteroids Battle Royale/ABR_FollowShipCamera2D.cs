@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,12 @@ public class ABR_FollowShipCamera2D : MonoBehaviour
     public Rigidbody2D m_target = null;
     private Vector2 m_velocity = Vector2.zero;
     private Vector2 m_targetOffset = Vector2.zero;
+
+    internal void ResetTo(Transform spawnPoint)
+    {
+        transform.position = spawnPoint.position;
+        transform.position += Vector3.forward * -10;
+    }
 
     // Update is called once per frame
     void FixedUpdate()

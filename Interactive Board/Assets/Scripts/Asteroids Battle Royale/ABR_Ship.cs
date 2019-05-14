@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -166,6 +167,19 @@ public abstract class ABR_Ship : MonoBehaviour
 
 
             m_turret.SwitchWeapons(weapontype);
+        }
+    }
+
+    public void ResetTo(Transform spawnPoint)
+    {
+        transform.position = spawnPoint.position;
+        transform.rotation = spawnPoint.rotation;
+
+        //Reset Health
+
+        if (m_turret != null)
+        {
+            m_turret.SwitchWeapons(eBulletType.BASIC);
         }
     }
 }
