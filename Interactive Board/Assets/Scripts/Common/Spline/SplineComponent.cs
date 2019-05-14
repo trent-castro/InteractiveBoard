@@ -41,7 +41,6 @@ public class SplineComponent : MonoBehaviour, ISpline
     }
 
     public Vector3 GetPoint(float t) => Index.GetPoint(t);
-    public Vector3 GetWorldPoint(float t) => transform.rotation * Index.GetPoint(t) + transform.position;
 
     Vector3 GetPointByIndex(int i)
     {
