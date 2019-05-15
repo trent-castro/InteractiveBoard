@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_lifeTime: 1
-  m_speed: 1
+  m_speed: 10
   m_damage: 10
   DebugMode: 0
 --- !u!212 &579717359438552671

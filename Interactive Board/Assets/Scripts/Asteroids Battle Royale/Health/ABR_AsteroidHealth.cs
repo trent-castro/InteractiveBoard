@@ -9,8 +9,8 @@ public class ABR_AsteroidHealth : ABR_Health
 	{
 		ABR_Asteroid asteroid = GetComponent<ABR_Asteroid>();
 		asteroid.ReleaseItem();
-		
-		this.gameObject.SetActive(false);
+		asteroid.Perish();
+		//this.gameObject.SetActive(false);
 	}
 
 }

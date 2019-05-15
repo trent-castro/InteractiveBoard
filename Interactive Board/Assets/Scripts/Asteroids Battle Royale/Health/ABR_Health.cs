@@ -21,7 +21,7 @@ public abstract class ABR_Health : MonoBehaviour
 	public void TakeDamage(float damage)
 	{
         m_health -= damage;
-        if (m_health < 0)
+        if (m_health <= 0)
         {
             Die();
         }
