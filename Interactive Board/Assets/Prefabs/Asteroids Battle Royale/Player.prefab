@@ -10872,6 +10872,9 @@ MonoBehaviour:
   m_thrustRadius: 5
   m_turnOnlyRadius: 2.5
   m_tolerance: 5
+  m_touchVisual: {fileID: 3779956259872657180}
+  m_thrustVisual: {fileID: 21300000, guid: ba8d78bce640eb14b812ea10f1db8ed7, type: 3}
+  m_noThrustVisual: {fileID: 21300000, guid: 896d6452de9fc2c478210a4446922461, type: 3}
 --- !u!114 &3949379455858348904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10888,9 +10891,6 @@ MonoBehaviour:
   m_maxHealth: 100
   m_isAlive: 1
   DeathUI: {fileID: 0}
-  m_touchVisual: {fileID: 3779956259872657180}
-  m_thrustVisual: {fileID: 21300000, guid: ba8d78bce640eb14b812ea10f1db8ed7, type: 3}
-  m_noThrustVisual: {fileID: 21300000, guid: 896d6452de9fc2c478210a4446922461, type: 3}
 --- !u!1001 &4510204878419873917
 PrefabInstance:
   m_ObjectHideFlags: 0
