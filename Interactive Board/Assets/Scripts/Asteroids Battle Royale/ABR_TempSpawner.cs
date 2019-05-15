@@ -97,13 +97,13 @@ public class ABR_TempSpawner : MonoBehaviour
 
         ///Change later
         ABR_Asteroid asteroid = objectToSpawn.GetComponent<ABR_Asteroid>();
-        if (asteroid && m_powerUps.Length > 0)
+        if (asteroid)
         {
             GameObject pickup = ABR_GlobalInfo.WeaponPickupManager.GetObjectFromTaggedPool(RandomEnumValue<eBulletType>().ToString());
             asteroid.AddItem(pickup);
         }
 
-    }
+    }   
 
     private T RandomEnumValue<T>()
     {
