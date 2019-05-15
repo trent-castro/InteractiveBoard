@@ -13,5 +13,6 @@ public static class ABR_Tags
 	public static string ShipCollisionTag	= "TouchArea";
 	public static string WallTag			= "Wall";
 	public static string WeaponTag			= "Weapon";
+	public static string GravityTag			= "Gravity";
 }
 

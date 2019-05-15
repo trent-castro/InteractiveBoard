@@ -12,6 +12,7 @@ TagManager:
   - Asteroid
   - Weapon
   - TouchArea
+  - Gravity
   layers:
   - Default
   - TransparentFX
