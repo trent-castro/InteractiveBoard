@@ -12,6 +12,7 @@ public class ABR_WeaponPickup : MonoBehaviour
         if (collision.CompareTag(ABR_Tags.PlayerTag))
         {
             collision.gameObject.GetComponentInChildren<ABR_Turret>().SwitchWeapons(m_weaponType);
+            Destroy(gameObject);
         }
     }
 }
