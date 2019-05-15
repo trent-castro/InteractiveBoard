@@ -53,6 +53,11 @@ public class ABR_PlayerSpawner : MonoBehaviour
         Transform spawnPoint = GetBestSpawnPoint(playerIndex);
 
         m_players[playerIndex].ResetTo(spawnPoint);
+		ABR_ShipHealth health = m_players[playerIndex].ship.GetComponent<ABR_ShipHealth>();
+		if (health)
+		{
+			health.Respawn();
+		}
     }
 
     public Transform GetBestSpawnPoint(int playerToSpawnIndex)

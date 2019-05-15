@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ABR_ShipHealth : ABR_Health
 {
+	[SerializeField] GameObject DeathUI = null;
 	protected override void Die()
 	{
-		//scREAM
-		throw new System.NotImplementedException();
+		m_isAlive = false;
+		//this.gameObject.SetActive(false);
+		if (DeathUI) DeathUI.SetActive(true);
 	}
 }
