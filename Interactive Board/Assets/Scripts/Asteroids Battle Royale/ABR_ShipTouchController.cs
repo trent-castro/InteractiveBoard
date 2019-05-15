@@ -71,34 +71,39 @@ public class ABR_ShipTouchController : ABR_Ship
                 StopThrust();
             }
         }
+        else
+        {
+            //debug controls
 
-		//debug controls
+            if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+                TurnClockwise();
+            }
+            else if (Input.GetAxisRaw("Horizontal") < 0)
+            {
+                TurnCounterClockWise();
+            }
+            else if (Input.GetAxisRaw("Horizontal") == 0)
+            {
+                StopTurn();
+            }
 
-		if (Input.GetAxisRaw("Horizontal") > 0)
-		{
-			TurnClockwise();
-		}
-		else if (Input.GetAxisRaw("Horizontal") < 0)
-		{
-			TurnCounterClockWise();
-		}
-		else if (Input.GetAxisRaw("Horizontal") == 0)
-		{
-			StopTurn();
-		}
-		if (Input.GetAxisRaw("Vertical") > 0)
-		{
-			Thrust(1);
-		}
-		else if (Input.GetAxisRaw("Vertical") == 0)
-		{
-			StopThrust();
-		}
-		if (Input.GetAxisRaw("Fire") == 1)
-		{
-			GetComponentInChildren<ABR_Turret>().FireBullet();
-		}
+            if (Input.GetAxisRaw("Vertical") > 0)
+            {
+                Thrust(1);
+            }
+            else if (Input.GetAxisRaw("Vertical") == 0)
+            {
+                StopThrust();
+            }
 
-		base.Update();
+            if (Input.GetAxisRaw("Fire") == 1)
+            {
+                GetComponentInChildren<ABR_Turret>().FireBullet();
+            }
+        }
+
+
+        base.Update();
     }
 }
