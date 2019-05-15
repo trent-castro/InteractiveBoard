@@ -37,7 +37,7 @@ public class TouchInfo
     public float m_startTime;
     public float m_endTime;
     public int m_owners = 0;
-    
+
     private int m_trackCounter = 0;
     private int m_trackOn = 1;
 
@@ -90,11 +90,6 @@ public class TouchInfo
     public void UpdateTouchInfo(Touch t)
     {
         m_touch = t;
-
-        for (int i = 0; i < m_lastHistoryIndex; i++)
-        {
-            Debug.DrawLine(Camera.main.ScreenToWorldPoint((Vector3)m_history[i].position + Vector3.forward * 10), Camera.main.ScreenToWorldPoint((Vector3)m_history[i + 1].position + Vector3.forward * 10), Color.blue);
-        }
 
         m_trackCounter++;
         if (m_trackCounter == m_trackOn)
