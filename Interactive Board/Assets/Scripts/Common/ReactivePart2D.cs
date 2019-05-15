@@ -104,7 +104,6 @@ public class ReactivePart2D : MonoBehaviour
 
             if (reaction.UsePosition)
             {
-                //Debug.Log(reaction.GetPosition(t));
                 position += reaction.GetPosition(t);
                 positions++;
             }
