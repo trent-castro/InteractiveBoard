@@ -10603,6 +10603,7 @@ GameObject:
   - component: {fileID: 1188599903058839521}
   - component: {fileID: 4909039108895160935}
   - component: {fileID: 874200478}
+  - component: {fileID: 3949379455858348904}
   m_Layer: 15
   m_Name: Ship
   m_TagString: Player
@@ -10791,6 +10792,22 @@ MonoBehaviour:
   m_thrustRadius: 5
   m_turnOnlyRadius: 2.5
   m_tolerance: 5
+--- !u!114 &3949379455858348904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903469429061020802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36928e6d96925834daf01ab2cce559e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_health: 100
+  m_maxHealth: 100
+  m_isAlive: 1
+  DeathUI: {fileID: 0}
 --- !u!1001 &4510204878419873917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10960,15 +10977,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a25d8ccd8429b9c469c80074e5a98c10, type: 3}
---- !u!4 &2702195542215697973 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7235185101172691739, guid: a25d8ccd8429b9c469c80074e5a98c10,
-    type: 3}
-  m_PrefabInstance: {fileID: 4749232738281846062}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2702195541591775537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7235185102702586911, guid: a25d8ccd8429b9c469c80074e5a98c10,
+    type: 3}
+  m_PrefabInstance: {fileID: 4749232738281846062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2702195542215697973 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7235185101172691739, guid: a25d8ccd8429b9c469c80074e5a98c10,
     type: 3}
   m_PrefabInstance: {fileID: 4749232738281846062}
   m_PrefabAsset: {fileID: 0}

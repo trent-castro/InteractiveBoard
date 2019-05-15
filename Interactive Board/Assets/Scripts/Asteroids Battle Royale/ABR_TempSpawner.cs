@@ -26,6 +26,9 @@ public class ABR_TempSpawner : MonoBehaviour
 	[Tooltip("List of all possible power ups and pick up spawning weights")]
 	private ObjectPool m_objectPool = null;
 	[SerializeField]
+	[Tooltip("List of all possible power ups and pick up spawning weights")]
+	private GameObject[] m_powerUps = null;
+	[SerializeField]
 	[Tooltip("Vector describing the x bounds and y bounds of the spawning area")]
 	private Vector2 m_spawningArea = Vector2.zero;
 
@@ -91,5 +94,14 @@ public class ABR_TempSpawner : MonoBehaviour
 		objectToSpawn.SetActive(true);
 		objectToSpawn.transform.position = targetLocation;
 		objectToSpawn.tag = ABR_Tags.AsteroidTag;
+
+		///Change later
+		ABR_Asteroid asteroid = objectToSpawn.GetComponent<ABR_Asteroid>();
+		if (asteroid && m_powerUps.Length > 0)
+		{
+			int randomindex = Random.Range(0, m_powerUps.Length);
+			GameObject powerup = Instantiate(m_powerUps[randomindex], objectToSpawn.transform);
+			asteroid.AddItem(powerup);
+		}
 	}
 }

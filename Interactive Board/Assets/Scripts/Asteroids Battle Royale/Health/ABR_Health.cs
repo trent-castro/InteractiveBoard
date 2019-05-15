@@ -6,7 +6,7 @@ public abstract class ABR_Health : MonoBehaviour
 {
 	[SerializeField] float m_health = 0;
 	[SerializeField] float m_maxHealth = 0;
-	[SerializeField] bool m_isAlive = true;
+	[SerializeField] protected bool m_isAlive = true;
 
 	public void InitializeHealth(float health, float maxHealth)
 	{
@@ -15,6 +15,11 @@ public abstract class ABR_Health : MonoBehaviour
 		m_isAlive = true;
 	}
 
+	public void Respawn()
+	{
+		m_isAlive = true;
+		m_health = m_maxHealth;
+	}
 	protected abstract void Die();
 
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ABR_GlobalInfo : MonoBehaviour
 {
@@ -18,4 +19,10 @@ public class ABR_GlobalInfo : MonoBehaviour
         BulletManager = m_bulletManager;
         WeaponPickupManager = m_weaponPickupManager;
     }
+
+	public void ReturntoAracde()
+	{
+		Time.timeScale = 1.0f;
+		SceneManager.LoadScene("ArcadeMenu");
+	}
 }
