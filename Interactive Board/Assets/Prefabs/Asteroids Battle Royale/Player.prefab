@@ -10891,6 +10891,8 @@ MonoBehaviour:
   m_maxHealth: 100
   m_isAlive: 1
   DeathUI: {fileID: 0}
+  m_root: {fileID: 1634381250194314952}
+  m_healthBar: {fileID: 0}
 --- !u!1001 &4510204878419873917
 PrefabInstance:
   m_ObjectHideFlags: 0
