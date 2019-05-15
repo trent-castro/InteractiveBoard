@@ -1529,10 +1529,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422b61f5deaefac438c5f16604a2175c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_debugMode: 0
+  m_debugMode: 1
   m_gameObjectPrefab: {fileID: 3410173485555929443, guid: d27fecba540bed547bd04f420d074c86,
     type: 3}
-  m_maxPooledObjects: 400
+  m_maxPooledObjects: 20
   m_pooledObjectName: Pooled Object
 --- !u!4 &1871152418
 Transform:
@@ -1577,11 +1577,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604d05bd6c7635a4a8bcb3c166011cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_debugMode: 0
+  m_debugMode: 1
   m_canSpawn: 1
   m_spawnStartDelay: 0
   m_spawnDelay: 3
-  m_spawnDelayVariance: 3
+  m_spawnDelayVariance: 0
   m_objectPool: {fileID: 1871152417}
   m_spawningArea: {x: 135, y: 50}
 --- !u!4 &2060274493
