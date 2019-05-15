@@ -15,7 +15,6 @@ public class ABR_BasicBullet : ABR_Bullet
         Debug.Log(collision.name);
         if(!collision.CompareTag(ABR_Tags.WallTag) && ! collision.CompareTag(ABR_Tags.ShipCollisionTag))
         {
-            Debug.Log("Collided with something else");
         }
 		base.OnTriggerEnter2D(collision);
     }
