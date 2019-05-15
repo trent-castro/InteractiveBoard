@@ -13,7 +13,7 @@ public class AH_Puck : MonoBehaviour
     [Tooltip("The amount of time it takes for the animation to complete")]
     [SerializeField]
     [Range(0.0f, 5.0f)]
-    private float m_spawnAnimationTime = 0.5f;
+    private float m_animationDurationTime = 0.5f;
     [Tooltip("The starting scale of the pick up object upon beginning the animation")]
     [SerializeField]
     private Vector3 m_startingScale = new Vector3(3, 3, 3);
@@ -25,7 +25,7 @@ public class AH_Puck : MonoBehaviour
     AudioClip[] audioClips = null;
     
     public bool delete = false;
-    private float m_animationTimer = 0.0f;
+    private float m_animationTimeElapsed = 0.0f;
 
     // Private Sibling Components
     private AudioSource m_audioSource;
@@ -120,8 +120,8 @@ public class AH_Puck : MonoBehaviour
     {
 		if (this)
 		{
-            StartAnimationCoroutine();
 			transform.localPosition = puckResetPosition;
+            StartDropAnimation();
 			GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             //transform.localScale = m_startingScale;
 			GetComponentInChildren<TrailRenderer>().enabled = true;
@@ -143,18 +143,19 @@ public class AH_Puck : MonoBehaviour
         StartCoroutine(StartAnimationCoroutine());
     }
 
-    public IEnumerator StartAnimationCoroutine()
+    private IEnumerator StartAnimationCoroutine()
     {
         m_collider2D.enabled = false;
-        while (m_animationTimer < m_spawnAnimationTime)
+        while (m_animationTimeElapsed < m_animationDurationTime)
         {
-            m_animationTimer += Time.deltaTime;
-            float t = m_animationTimer / m_spawnAnimationTime;
+            m_animationTimeElapsed += Time.deltaTime;
+            float t = m_animationTimeElapsed / m_animationDurationTime;
             t = Interpolation.BounceOut(t);
             transform.localScale = Vector3.LerpUnclamped(m_startingScale, Vector3.one, t);
             yield return null;
         }
         transform.localScale = Vector3.one;
         m_collider2D.enabled = true;
+        m_animationTimeElapsed = 0.0f;
     }
 }
