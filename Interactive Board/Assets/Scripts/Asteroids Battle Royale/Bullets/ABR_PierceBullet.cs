@@ -15,7 +15,6 @@ public class ABR_PierceBullet : ABR_Bullet
         Debug.Log(collision);
         if (!collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.ShipCollisionTag))
         {
-            Debug.Log("Collided with something else");
             m_numOfPierced++;
             if (m_numOfPierced >= 3)
             {
