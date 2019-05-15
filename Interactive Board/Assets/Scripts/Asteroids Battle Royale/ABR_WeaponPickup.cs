@@ -9,7 +9,7 @@ public class ABR_WeaponPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag(ABR_Tags.PlayerTag))
         {
             collision.gameObject.GetComponentInChildren<ABR_Turret>().SwitchWeapons(m_weaponType);
         }

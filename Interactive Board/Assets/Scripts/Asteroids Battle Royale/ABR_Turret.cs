@@ -14,7 +14,6 @@ public class ABR_Turret : MonoBehaviour
 
     private AudioSource m_audioSource = null;
     private ABR_Weapon m_weapon = null;
-    private ABR_Weapon m_baseWeapon = null;
     private Rigidbody2D m_rigidbody = null;
     private bool m_isOkayToFire = true;
 
@@ -29,7 +28,6 @@ public class ABR_Turret : MonoBehaviour
         }
         m_rigidbody = GetComponentInParent<Rigidbody2D>();
         m_weapon = GetComponent<ABR_Weapon>();
-        m_baseWeapon = m_weapon;
         m_weapon.m_bulletSpawnLocation = m_spawnLocation;
         m_fireTimer = m_weapon.GetFireDelay();
     }

@@ -44,14 +44,16 @@ public class ABR_ExplosionBullet : ABR_Bullet
         isExploding = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private new void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Wall") && !collision.CompareTag("TouchArea"))
+        Debug.Log(collision);
+        if (!collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.ShipCollisionTag))
         {
             if (!isExploding)
                 Explode();
             //Do explosion damage here
         }
-    }
+		base.OnTriggerEnter2D(collision);
+	}
 
 }

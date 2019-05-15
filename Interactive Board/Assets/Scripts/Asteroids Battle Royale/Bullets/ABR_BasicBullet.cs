@@ -10,10 +10,12 @@ public class ABR_BasicBullet : ABR_Bullet
         m_rigidbody.velocity = (direction * m_speed) + shipVelocity;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private new void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!collision.CompareTag("Wall") && ! collision.CompareTag("TouchArea"))
+        Debug.Log(collision.name);
+        if(!collision.CompareTag(ABR_Tags.WallTag) && ! collision.CompareTag(ABR_Tags.ShipCollisionTag))
         {
         }
+		base.OnTriggerEnter2D(collision);
     }
 }

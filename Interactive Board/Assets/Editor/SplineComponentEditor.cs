@@ -109,6 +109,17 @@ public class SplineComponentEditor : Editor
         EditorGUILayout.HelpBox("Hold Shift and click to append and insert curve points. Backspace to delete points.", MessageType.Info);
         var spline = target as SplineComponent;
 
+        var points = serializedObject.FindProperty("points");
+        for (int i = 0; i < spline.points.Count; i++)
+        {
+            var prop = points.GetArrayElementAtIndex(i);
+
+            if (hotIndex == i)
+            {
+                prop.vector3Value = EditorGUILayout.Vector3Field($"Point {i}", prop.vector3Value);
+            }
+        }
+
         snap = EditorGUILayout.Toggle("Snap", snap);
 
         if (snap)

@@ -19,7 +19,7 @@ public class ABR_ShipTouchController : ABR_Ship
 
     private TouchInfo m_touchInfo = null;
 
-    private void Start()
+    private new void Start()
     {
         MultiTouchManager.Instance.ListenForTouchesOnOverlapWithEvents(m_touchArea.OverlapPoint, CheckNewTouch, m_viewport);
 
@@ -72,36 +72,33 @@ public class ABR_ShipTouchController : ABR_Ship
             }
         }
 
-        //debug controls
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            TurnCounterClockWise();
-        }
+		//debug controls
 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            TurnClockwise();
-        }
+		if (Input.GetAxisRaw("Horizontal") > 0)
+		{
+			TurnClockwise();
+		}
+		else if (Input.GetAxisRaw("Horizontal") < 0)
+		{
+			TurnCounterClockWise();
+		}
+		else if (Input.GetAxisRaw("Horizontal") == 0)
+		{
+			StopTurn();
+		}
+		if (Input.GetAxisRaw("Vertical") > 0)
+		{
+			Thrust(1);
+		}
+		else if (Input.GetAxisRaw("Vertical") == 0)
+		{
+			StopThrust();
+		}
+		if (Input.GetAxisRaw("Fire") == 1)
+		{
+			GetComponentInChildren<ABR_Turret>().FireBullet();
+		}
 
-        if (Input.GetKeyUp(KeyCode.LeftArrow) != Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            StopTurn();
-        }
-
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            Thrust(1);
-        }
-        else if (Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            StopThrust();
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            GetComponentInChildren<ABR_Turret>().FireBullet();
-        }
-
-        base.Update();
+		base.Update();
     }
 }

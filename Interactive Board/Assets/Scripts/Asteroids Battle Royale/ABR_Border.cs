@@ -27,10 +27,10 @@ public class ABR_Border : MonoBehaviour
                 float targetRotation = ship.m_rigidBody.position.ZAngleTo(target);
                 if (Mathf.Abs(Mathf.DeltaAngle(ship.transform.eulerAngles.z, targetRotation)) > 30)
                 {
-                    ship.TurnTo(targetRotation);
+                    ship.TurnTo(targetRotation, true);
                 } else
                 {
-                    ship.Thrust(1);
+                    ship.Thrust(1, true);
                 }
             }
         }
@@ -51,8 +51,8 @@ public class ABR_Border : MonoBehaviour
         if (ship != null)
         {
             runaways.Remove(ship);
-            ship.StopThrust();
-            ship.StopTurnTo();
+            ship.StopThrust(true);
+            ship.StopTurnTo(true);
         }
     }
 }

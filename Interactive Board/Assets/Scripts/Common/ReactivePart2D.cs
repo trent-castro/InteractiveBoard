@@ -28,7 +28,7 @@ public struct Reaction2D
 
     public float GetT(float scalar)
     {
-            return Mathf.Clamp01((scalar - min) / (max - min));
+        return Mathf.Clamp01((scalar - min) / (max - min));
     }
 
     public float GetT(Vector3 vector)
@@ -41,7 +41,7 @@ public struct Reaction2D
 
     public Vector3 GetPosition(float t)
     {
-        return path.GetPoint(t);
+        return path.transform.InverseTransformPoint(path.GetNonUniformPoint(t));
     }
 
     public float GetRotation(float t)

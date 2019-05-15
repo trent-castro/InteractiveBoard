@@ -7,12 +7,6 @@ public abstract class ABR_Health : MonoBehaviour
 	[SerializeField] float m_health = 0;
 	[SerializeField] float m_maxHealth = 0;
 	[SerializeField] bool m_isAlive = true;
-	[SerializeField] float m_touchDamage = 0;
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-    }
 
 	public void InitializeHealth(float health, float maxHealth)
 	{
@@ -21,7 +15,8 @@ public abstract class ABR_Health : MonoBehaviour
 		m_isAlive = true;
 	}
 
-    protected abstract void Die();
+	protected abstract void Die();
+
 
 	public void TakeDamage(float damage)
 	{

@@ -34,12 +34,21 @@ public abstract class ABR_Bullet : MonoBehaviour
         m_elapsedLifeTime = 0.0f;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
-        gameObject.SetActive(false);
+		if (!collision.gameObject.CompareTag(ABR_Tags.BulletTag) && !collision.gameObject.CompareTag(ABR_Tags.ShipCollisionTag) && !collision.CompareTag(ABR_Tags.WallTag))
+		{
+			gameObject.SetActive(false);
+			ABR_Health health = collision.GetComponent<ABR_Health>();
+			Debug.Log(health);
+			if (health)
+			{
+				health.TakeDamage(m_damage);
+			}
+		}
     }
 
-    public void DealDamage(ref GameObject damageableObject)
+	public void DealDamage(ref GameObject damageableObject)
     {
         //TODO Implemetn Damage logic
         damageableObject.SetActive(false);

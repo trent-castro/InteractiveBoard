@@ -118,7 +118,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 91.60882, y: -24.784561}
+  m_ConnectedAnchor: {x: 90.8, y: -24.5}
   m_AutoConfigureDistance: 0
   m_Distance: 1
   m_DampingRatio: 0.5
