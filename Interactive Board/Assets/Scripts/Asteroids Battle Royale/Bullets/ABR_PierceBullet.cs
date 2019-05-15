@@ -12,7 +12,6 @@ public class ABR_PierceBullet : ABR_Bullet
 
     private new void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision);
         if (!collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.ShipCollisionTag))
         {
             m_numOfPierced++;
