@@ -8,6 +8,14 @@ public abstract class ABR_Health : MonoBehaviour
 	[SerializeField] float m_maxHealth = 0;
 	[SerializeField] protected bool m_isAlive = true;
 
+	public float GetHealth()
+	{
+		return m_health;
+	}
+	public float GetMaxHealth()
+	{
+		return m_maxHealth;
+	}
 	public void InitializeHealth(float health, float maxHealth)
 	{
 		m_health = health;
@@ -23,7 +31,7 @@ public abstract class ABR_Health : MonoBehaviour
 	protected abstract void Die();
 
 
-	public void TakeDamage(float damage)
+	public virtual void TakeDamage(float damage)
 	{
         m_health -= damage;
         if (m_health <= 0)
