@@ -19,6 +19,14 @@ public class ABR_ShipTouchController : ABR_Ship
 
     private TouchInfo m_touchInfo = null;
 
+    [SerializeField]
+    private SpriteRenderer m_touchVisual = null;
+
+    [SerializeField]
+    private Sprite m_thrustVisual = null;
+    [SerializeField]
+    private Sprite m_noThrustVisual = null;
+
     private new void Start()
     {
         MultiTouchManager.Instance.ListenForTouchesOnOverlapWithEvents(m_touchArea.OverlapPoint, CheckNewTouch, m_viewport);
@@ -33,6 +41,8 @@ public class ABR_ShipTouchController : ABR_Ship
             touchInfo.m_owners++;
             touchInfo.ListenForEnd(OnEnd);
             m_touchInfo = touchInfo;
+            ToggleTouchVisual(true);
+
         }
         else if (eventType == ETouchEventType.EXIT && m_touchInfo != null && touchInfo.FingerId == m_touchInfo.FingerId)
         {
@@ -47,6 +57,15 @@ public class ABR_ShipTouchController : ABR_Ship
         m_touchInfo = null;
         StopThrust();
         StopTurnTo();
+        ToggleTouchVisual(false);
+    }
+
+    private void ToggleTouchVisual(bool visible)
+    {
+        if (m_touchVisual != null)
+        {
+            m_touchVisual.gameObject.SetActive(visible);
+        }
     }
 
     new void Update()
@@ -54,6 +73,12 @@ public class ABR_ShipTouchController : ABR_Ship
         if (m_touchInfo != null)
         {
             Vector2 touchPosition = m_touchInfo.WorldPosition(m_viewport);
+            if (m_touchVisual != null)
+            {
+                m_touchVisual.transform.position = touchPosition;
+                Quaternion visualRotation = Quaternion.Euler(0, 0, transform.position.ZAngleTo(touchPosition));
+                m_touchVisual.transform.rotation = visualRotation;
+            }
 
             float turnAngle = transform.position.ZAngleTo(touchPosition);
 
@@ -64,10 +89,18 @@ public class ABR_ShipTouchController : ABR_Ship
 
             if ((touchPosition - (Vector2)transform.position).magnitude > m_turnOnlyRadius)
             {
+                if (m_touchVisual != null)
+                {
+                    m_touchVisual.sprite = m_thrustVisual;
+                }
                 Thrust(1);
             }
             else
             {
+                if (m_touchVisual != null)
+                {
+                    m_touchVisual.sprite = m_noThrustVisual;
+                }
                 StopThrust();
             }
         }

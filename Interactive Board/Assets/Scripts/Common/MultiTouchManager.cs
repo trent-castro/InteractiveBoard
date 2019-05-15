@@ -34,6 +34,7 @@ public class MultiTouchManager : MonoBehaviour
         }
 
         lastMouseTouch.phase = TouchPhase.Ended;
+        Input.simulateMouseWithTouches = false;
     }
 
     public TouchInfo[] currentTouches;
@@ -150,6 +151,7 @@ public class MultiTouchManager : MonoBehaviour
 
     private void TrackTouch(Touch touch)
     {
+
         if (touch.phase != TouchPhase.Began && Touches.ContainsKey(touch.fingerId))
         {
 
