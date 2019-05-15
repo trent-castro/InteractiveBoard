@@ -9,17 +9,10 @@ public class ABR_WeaponPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag(ABR_Tags.PlayerTag))
         {
-            print("Weapon pickup!");
-            //TODO IMPLAMENT THIS PROPERLY!!!!
-
-            //Get collision component of Powerup
-            //Case/Switch powerup weapon type
-
-
             collision.gameObject.GetComponentInChildren<ABR_Turret>().SwitchWeapons(m_weaponType);
-            
+            Destroy(gameObject);
         }
     }
 }

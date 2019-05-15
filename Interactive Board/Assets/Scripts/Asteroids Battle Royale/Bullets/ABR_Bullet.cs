@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Scripts.Asteroids_Battle_Royale;
 
 public abstract class ABR_Bullet : MonoBehaviour
 {
@@ -37,11 +36,10 @@ public abstract class ABR_Bullet : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-		if (!collision.gameObject.CompareTag(ABR_Tags.BulletTag) && !collision.gameObject.CompareTag(ABR_Tags.ShipCollisionTag) && !collision.CompareTag(ABR_Tags.WallTag))
+		if (!collision.gameObject.CompareTag(ABR_Tags.BulletTag) && !collision.gameObject.CompareTag(ABR_Tags.ShipCollisionTag) && !collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.GravityTag))
 		{
 			gameObject.SetActive(false);
 			ABR_Health health = collision.GetComponent<ABR_Health>();
-			Debug.Log(health);
 			if (health)
 			{
 				health.TakeDamage(m_damage);

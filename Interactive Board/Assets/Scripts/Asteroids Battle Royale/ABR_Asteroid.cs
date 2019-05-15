@@ -17,8 +17,15 @@ public class ABR_Asteroid : MonoBehaviour
 	float speed = 3;
 	bool isMoving = false;
 
+
+	//Controls for perish animation
+	float m_perishTimer = 0;
+	float m_perishMaxTime = 1.5f;
+	Vector3 m_normalScale = Vector2.zero;
+
 	private void Start()
 	{
+		m_normalScale = transform.localScale;
 		if (isMoving)
 		{
 			m_startLocation = new Vector2(Random.Range(-c_maxXDirection, c_maxXDirection), c_maxYDirection);
@@ -87,15 +94,29 @@ public class ABR_Asteroid : MonoBehaviour
 		}
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	public void Perish()
 	{
 		m_shards.Play();
+		StartCoroutine("Perishing");
 	}
 
+	private IEnumerator Perishing()
+	{
+		while (m_perishTimer <= m_perishMaxTime)
+		{
+			
+			m_perishTimer += Time.deltaTime;
+			float t = m_perishTimer / m_perishMaxTime;
+			t = Interpolation.SineInOut(t);
+			transform.localScale = Vector3.LerpUnclamped(m_normalScale, Vector3.zero, t);
+			yield return null;
+		}
 
+		this.gameObject.SetActive(false);
+	}
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		if (collision.gameObject.tag == "Wall")
+		if (isMoving && collision.gameObject.CompareTag(ABR_Tags.WallTag))
 		{
 			Target(new Vector2(boy.ScreenToWorldPoint(Input.mousePosition).x, c_maxYDirection), new Vector2(boy.ScreenToWorldPoint(Input.mousePosition).x, -c_maxYDirection));
 		}

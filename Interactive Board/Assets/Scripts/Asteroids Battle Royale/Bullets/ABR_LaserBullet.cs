@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ABR_LaserBullet : ABR_Bullet
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private new void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision);
-        if (!collision.CompareTag("Wall") && !collision.CompareTag("TouchArea"))
+        if (!collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.ShipCollisionTag))
         {
-            Debug.Log("Collided with something else");
+            //Do lots o' damage
         }
-    }
-    public override void Fire(Vector2 direction, Vector2 shipVelocity)
+		base.OnTriggerEnter2D(collision);
+	}
+	public override void Fire(Vector2 direction, Vector2 shipVelocity)
     {
         m_rigidbody.velocity = (direction * m_speed) + shipVelocity;
     }

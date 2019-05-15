@@ -156,7 +156,7 @@ public abstract class ABR_Ship : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Weapon"))
+        if (collision.CompareTag(ABR_Tags.WeaponTag))
         {
             print("Weapon pickup!");
             //TODO IMPLAMENT THIS PROPERLY!!!!
