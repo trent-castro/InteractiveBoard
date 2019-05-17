@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class ABR_ShipUIOverlay : MonoBehaviour
 {
 	[SerializeField] Slider m_healthbar = null;
+	[SerializeField] TextMeshProUGUI m_percentage = null;
 	[SerializeField] ABR_Ship m_ship = null;
 
 	ABR_ShipHealth m_health = null;
@@ -20,6 +21,8 @@ public class ABR_ShipUIOverlay : MonoBehaviour
     
 	public void UpdateHealth()
 	{
+		
 		m_healthbar.value = m_health.GetHealth();
+		m_percentage.text = System.String.Format("{0:0}", ((m_health.GetHealth() / m_health.GetMaxHealth()) * 100)) + "%";
 	}
 }
