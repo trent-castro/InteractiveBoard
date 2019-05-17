@@ -15,17 +15,16 @@ public abstract class ABR_Weapon : MonoBehaviour
 {
     public Transform m_bulletSpawnLocation;
     protected float m_fireDelay;
-    protected string m_bulletTye;
-    protected uint m_ammo;
-
-    public uint GetAmmo()
-    {
-        return m_ammo;
-    }
+    protected eBulletType m_bulletTye;
 
     public float GetFireDelay()
     {
         return m_fireDelay;
+    }
+
+    public eBulletType GetBulletType()
+    {
+        return m_bulletTye;
     }
 
 	virtual public bool Fire(Vector3 shipVelocity)
