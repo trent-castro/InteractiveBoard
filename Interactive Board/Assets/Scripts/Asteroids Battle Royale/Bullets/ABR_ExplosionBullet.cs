@@ -46,13 +46,12 @@ public class ABR_ExplosionBullet : ABR_Bullet
 
     private new void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.ShipCollisionTag))
+        if (!collision.gameObject.CompareTag(ABR_Tags.BulletTag) && !collision.gameObject.CompareTag(ABR_Tags.ShipCollisionTag) && !collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.GravityTag))
         {
             if (!isExploding)
                 Explode();
             //Do explosion damage here
         }
-		base.OnTriggerEnter2D(collision);
 	}
 
 }
