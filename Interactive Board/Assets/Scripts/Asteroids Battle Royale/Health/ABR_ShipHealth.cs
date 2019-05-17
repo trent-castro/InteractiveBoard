@@ -16,6 +16,7 @@ public class ABR_ShipHealth : ABR_Health
 	}
 	protected override void Die()
 	{
+        base.Die();
 		m_isAlive = false;
 		if (m_root) m_root.SetActive(false);
 		if (DeathUI) DeathUI.SetActive(true);
