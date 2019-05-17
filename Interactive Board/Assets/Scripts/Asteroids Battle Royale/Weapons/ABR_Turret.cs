@@ -73,7 +73,6 @@ public class ABR_Turret : MonoBehaviour
         if (DebugMode)
         {
             Debug.Log("Weapon Type: " + m_weapon.GetType());
-            Debug.Log("Ammo: " + m_weapon.GetAmmo());
         }
 
     }

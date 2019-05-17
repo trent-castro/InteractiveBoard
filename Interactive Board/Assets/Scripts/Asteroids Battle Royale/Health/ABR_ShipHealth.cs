@@ -6,7 +6,7 @@ public class ABR_ShipHealth : ABR_Health
 {
 	[SerializeField] GameObject DeathUI = null;
 	[SerializeField] GameObject m_root = null;
-	[HideInInspector] public ABR_HealthBar m_healthBar = null;
+	[HideInInspector] public ABR_ShipUIOverlay m_healthBar = null;
 
 
 	public override void TakeDamage(float damage)

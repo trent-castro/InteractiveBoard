@@ -12,15 +12,18 @@ public class ABR_PierceBullet : ABR_Bullet
 
     private new void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.ShipCollisionTag))
+        if (!collision.gameObject.CompareTag(ABR_Tags.BulletTag) && !collision.gameObject.CompareTag(ABR_Tags.ShipCollisionTag) && !collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.GravityTag))
         {
+            ABR_Health health = collision.GetComponent<ABR_Health>();
+            if (health)
+            {
+                health.TakeDamage(m_damage);
+            }
             m_numOfPierced++;
             if (m_numOfPierced >= 3)
             {
                 gameObject.SetActive(false);
             }
         }
-		base.OnTriggerEnter2D(collision);
 	}
-
 }
