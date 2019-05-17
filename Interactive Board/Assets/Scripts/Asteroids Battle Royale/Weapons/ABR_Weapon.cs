@@ -31,5 +31,4 @@ public abstract class ABR_Weapon : MonoBehaviour
 	{
 		return true;
 	}
-
 }
