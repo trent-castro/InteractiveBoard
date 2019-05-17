@@ -63,7 +63,7 @@ public class AH_GameMaster : MonoBehaviour
     [Tooltip("The lose text displayed after losing the game")]
     [SerializeField]
     private string m_loseText = "LOSE!!";
-    
+
 
     [Header("Exposed Editor Values - Do Not Touch")]
     [Tooltip("The scores for the respective player")]
@@ -133,29 +133,33 @@ public class AH_GameMaster : MonoBehaviour
     /// <returns>Time taken before action of the coroutine</returns>
     IEnumerator CheckGameState(AH_Puck scoringPuck, bool isRightGoal)
     {
-        // Start score update
-        canvasManager.OnPointEarned(isRightGoal);
-
-        // Wait an appropriate amount of time before proceeding
-        yield return new WaitForSecondsRealtime(m_checkGameStateDelay);
-
-        // Reset the puck location
-        if (isRightGoal) scoringPuck.ResetPuck(m_PuckResetOffsetForRightGoal.position);
-        else scoringPuck.ResetPuck(m_PuckResetOffsetForLeftGoal.position);
-
-        // Check the game scene
-        if (DetermineWinState() && !m_winEffectsTriggered)
+        if (!m_winEffectsTriggered)
         {
-            // Activate win effects
-            victoryParticles.SetActive(true);
-            canvasManager.ActivateWinLossText();
-            m_audioSource.Play();
+            // Start score update
+            canvasManager.OnPointEarned(isRightGoal);
 
-            // Mark effects as triggered
-            m_winEffectsTriggered = true;
+            // Wait an appropriate amount of time before proceeding
+            yield return new WaitForSecondsRealtime(m_checkGameStateDelay);
 
-            // Begin end game coroutine
-            StartCoroutine(EndGame());
+            // Reset the puck location
+            if (isRightGoal) scoringPuck.ResetPuck(m_PuckResetOffsetForRightGoal.position);
+            else scoringPuck.ResetPuck(m_PuckResetOffsetForLeftGoal.position);
+
+            // Check the game scene
+            if (DetermineWinState() && !m_winEffectsTriggered)
+            {
+                // Activate win effects
+                victoryParticles.SetActive(true);
+                canvasManager.ActivateWinLossText();
+                m_audioSource.Play();
+                AH_PickUpManager.instance.m_canSpawn = false;
+
+                // Mark effects as triggered
+                m_winEffectsTriggered = true;
+
+                // Begin end game coroutine
+                StartCoroutine(EndGame());
+            }
         }
     }
 
