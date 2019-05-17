@@ -217,6 +217,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3678472812992875489, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5903469428777604343, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -236,7 +241,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_enemies.Array.data[1]
       value: 
-      objectReference: {fileID: 181708495}
+      objectReference: {fileID: 0}
     - target: {fileID: 4688184295001136608, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_enemies.Array.data[2]
@@ -272,11 +277,11 @@ PrefabInstance:
       propertyPath: DeathUI
       value: 
       objectReference: {fileID: 896924555}
-    - target: {fileID: 3678472812992875489, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+    - target: {fileID: 3949379455858348904, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: m_root
+      value: 
+      objectReference: {fileID: 1395163541}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
 --- !u!1 &114819701
@@ -315,7 +320,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 72613314}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1114592777}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc7a46d62dfe7624ead4443289459bb0, type: 3}
@@ -487,7 +492,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 309079669}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 539345652}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc7a46d62dfe7624ead4443289459bb0, type: 3}
@@ -658,31 +663,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 194725693, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 194919215, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 290662881, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 902354583, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
       propertyPath: m_TagString
       value: TouchArea
-      objectReference: {fileID: 0}
-    - target: {fileID: 1393272776, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3678472812992875489, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 3678472812992875489, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fcbcda9f650072c4f953c133d37b27a0,
+        type: 3}
     - target: {fileID: 5903469428777604343, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -727,7 +722,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_enemies.Array.data[1]
       value: 
-      objectReference: {fileID: 181708495}
+      objectReference: {fileID: 0}
     - target: {fileID: 4688184295001136608, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_enemies.Array.data[2]
@@ -763,6 +758,32 @@ PrefabInstance:
       propertyPath: DeathUI
       value: 
       objectReference: {fileID: 31571003}
+    - target: {fileID: 3949379455858348904, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+        type: 3}
+      propertyPath: DeathUI
+      value: 
+      objectReference: {fileID: 31571003}
+    - target: {fileID: 3949379455858348904, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+        type: 3}
+      propertyPath: m_root
+      value: 
+      objectReference: {fileID: 793597694}
+    - target: {fileID: 194725693, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 194919215, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 290662881, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393272776, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1211771740, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -777,17 +798,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f248be82633c50d419bcf3f064204739,
-        type: 3}
-    - target: {fileID: 3949379455858348904, guid: 97df5ad1eb3b4d14cb47b6644237a219,
-        type: 3}
-      propertyPath: DeathUI
-      value: 
-      objectReference: {fileID: 31571003}
-    - target: {fileID: 3678472812992875489, guid: 97df5ad1eb3b4d14cb47b6644237a219,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fcbcda9f650072c4f953c133d37b27a0,
         type: 3}
     - target: {fileID: 5903469429061020807, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
@@ -1272,31 +1282,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 194725693, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 194919215, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 290662881, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 902354583, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
       propertyPath: m_TagString
       value: TouchArea
-      objectReference: {fileID: 0}
-    - target: {fileID: 1393272776, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
-      propertyPath: m_Layer
-      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3678472812992875489, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 3678472812992875489, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fcbcda9f650072c4f953c133d37b27a0,
+        type: 3}
     - target: {fileID: 5903469428777604343, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -1346,7 +1346,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_enemies.Array.data[2]
       value: 
-      objectReference: {fileID: 181708495}
+      objectReference: {fileID: 0}
     - target: {fileID: 4688184295001136608, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_drawColor.g
@@ -1372,6 +1372,32 @@ PrefabInstance:
       propertyPath: DeathUI
       value: 
       objectReference: {fileID: 262015805}
+    - target: {fileID: 3949379455858348904, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+        type: 3}
+      propertyPath: DeathUI
+      value: 
+      objectReference: {fileID: 262015805}
+    - target: {fileID: 3949379455858348904, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+        type: 3}
+      propertyPath: m_root
+      value: 
+      objectReference: {fileID: 719242415}
+    - target: {fileID: 194725693, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 194919215, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 290662881, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393272776, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 1211771740, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1386,17 +1412,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4453a9e8136573b41816fc417ee22f90,
-        type: 3}
-    - target: {fileID: 3949379455858348904, guid: 97df5ad1eb3b4d14cb47b6644237a219,
-        type: 3}
-      propertyPath: DeathUI
-      value: 
-      objectReference: {fileID: 262015805}
-    - target: {fileID: 3678472812992875489, guid: 97df5ad1eb3b4d14cb47b6644237a219,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fcbcda9f650072c4f953c133d37b27a0,
         type: 3}
     - target: {fileID: 5903469429061020807, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
@@ -1531,31 +1546,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 194725693, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 194919215, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 290662881, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 902354583, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
       propertyPath: m_TagString
       value: TouchArea
-      objectReference: {fileID: 0}
-    - target: {fileID: 1393272776, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
-      propertyPath: m_Layer
-      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3678472812992875489, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 3678472812992875489, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fcbcda9f650072c4f953c133d37b27a0,
+        type: 3}
     - target: {fileID: 5903469428777604343, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -1636,6 +1641,32 @@ PrefabInstance:
       propertyPath: DeathUI
       value: 
       objectReference: {fileID: 1407883783}
+    - target: {fileID: 3949379455858348904, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+        type: 3}
+      propertyPath: DeathUI
+      value: 
+      objectReference: {fileID: 1407883783}
+    - target: {fileID: 3949379455858348904, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+        type: 3}
+      propertyPath: m_root
+      value: 
+      objectReference: {fileID: 1382667425}
+    - target: {fileID: 194725693, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 194919215, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 290662881, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393272776, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 1211771740, guid: 97df5ad1eb3b4d14cb47b6644237a219, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1650,17 +1681,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: db73f6be2e44186469441e56f5ca1323,
-        type: 3}
-    - target: {fileID: 3949379455858348904, guid: 97df5ad1eb3b4d14cb47b6644237a219,
-        type: 3}
-      propertyPath: DeathUI
-      value: 
-      objectReference: {fileID: 1407883783}
-    - target: {fileID: 3678472812992875489, guid: 97df5ad1eb3b4d14cb47b6644237a219,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fcbcda9f650072c4f953c133d37b27a0,
         type: 3}
     - target: {fileID: 5903469429061020807, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
@@ -2491,7 +2511,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1059535404}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1307983138}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc7a46d62dfe7624ead4443289459bb0, type: 3}
