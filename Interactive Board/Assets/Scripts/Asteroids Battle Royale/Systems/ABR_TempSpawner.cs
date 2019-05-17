@@ -26,9 +26,6 @@ public class ABR_TempSpawner : MonoBehaviour
     [Tooltip("List of all possible power ups and pick up spawning weights")]
     private ObjectPool m_objectPool = null;
     [SerializeField]
-    [Tooltip("List of all possible power ups and pick up spawning weights")]
-    private GameObject[] m_powerUps = null;
-    [SerializeField]
     [Tooltip("Vector describing the x bounds and y bounds of the spawning area")]
     private Vector2 m_spawningArea = Vector2.zero;
 
@@ -59,7 +56,6 @@ public class ABR_TempSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         // Update timers
         m_timer -= Time.deltaTime;
 
