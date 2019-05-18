@@ -6,9 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class ABR_Ship : MonoBehaviour
 {
-    public Rigidbody2D m_rigidBody = null;
+    public Rigidbody2D m_RigidBody { get; private set; } = null;
+    public float m_ThrustMult { get; private set; } = 1;
 
-    private float m_thrustMult = 1;
     private bool m_doThrust = false;
     private bool m_forceThrust = false;
     private float m_turn = 0;
@@ -41,7 +41,7 @@ public abstract class ABR_Ship : MonoBehaviour
             {
                 m_forceThrust = true;
             }
-            m_thrustMult = mult;
+            m_ThrustMult = mult;
             m_doThrust = true;
         }
     }
@@ -75,7 +75,7 @@ public abstract class ABR_Ship : MonoBehaviour
 
     public void StopTurn()
     {
-        m_rigidBody.angularVelocity = 0;
+        m_RigidBody.angularVelocity = 0;
         m_turn = 0;
     }
 
@@ -109,14 +109,14 @@ public abstract class ABR_Ship : MonoBehaviour
             {
                 m_forceTurnTo = false;
             }
-            m_rigidBody.angularVelocity = 0;
+            m_RigidBody.angularVelocity = 0;
             m_doTurnTo = false;
         }
     }
 
     protected void Start()
     {
-        m_rigidBody = GetComponent<Rigidbody2D>();
+        m_RigidBody = GetComponent<Rigidbody2D>();
         m_turret = GetComponentInChildren<ABR_Turret>();
     }
 
@@ -124,7 +124,7 @@ public abstract class ABR_Ship : MonoBehaviour
     {
         if (!m_doTurnTo && !m_forceTurnTo)
         {
-            m_rigidBody.angularVelocity = SmoothDampAngularVelocity((m_doThrust ? m_turnPowerWhenThrusting : m_turnPower) * m_turn);
+            m_RigidBody.angularVelocity = SmoothDampAngularVelocity((m_doThrust ? m_turnPowerWhenThrusting : m_turnPower) * m_turn);
         }
         else
         {
@@ -136,22 +136,22 @@ public abstract class ABR_Ship : MonoBehaviour
                 m_forceTurnTo = false;
                 StopTurnTo();
             }
-            m_rigidBody.angularVelocity = SmoothDampAngularVelocity((m_doThrust ? m_turnPowerWhenThrusting : m_turnPower) * m_goalTurn);
+            m_RigidBody.angularVelocity = SmoothDampAngularVelocity((m_doThrust ? m_turnPowerWhenThrusting : m_turnPower) * m_goalTurn);
         }
 
         if (m_doThrust || m_forceThrust)
         {
-            m_rigidBody.velocity = Vector2.SmoothDamp(m_rigidBody.velocity, transform.up * m_maxSpeed * m_thrustMult, ref m_acceleration, .25f);
+            m_RigidBody.velocity = Vector2.SmoothDamp(m_RigidBody.velocity, transform.up * m_maxSpeed * m_ThrustMult, ref m_acceleration, .25f);
         }
         else
         {
-            m_acceleration = -m_rigidBody.velocity * m_rigidBody.drag;
+            m_acceleration = -m_RigidBody.velocity * m_RigidBody.drag;
         }
     }
 
     private float SmoothDampAngularVelocity(float target)
     {
-        return Mathf.SmoothDamp(m_rigidBody.angularVelocity, target, ref m_angularAcceleration, .1f);
+        return Mathf.SmoothDamp(m_RigidBody.angularVelocity, target, ref m_angularAcceleration, .1f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
