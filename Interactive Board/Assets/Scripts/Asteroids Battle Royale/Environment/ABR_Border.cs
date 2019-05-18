@@ -20,11 +20,11 @@ public class ABR_Border : MonoBehaviour
     {
         foreach (ABR_Ship ship in runaways)
         {
-            Vector2 target = m_playArea.bounds.ClosestPoint(ship.m_rigidBody.position);
+            Vector2 target = m_playArea.bounds.ClosestPoint(ship.m_RigidBody.position);
 
             if (ship != null)
             {
-                float targetRotation = ship.m_rigidBody.position.ZAngleTo(target);
+                float targetRotation = ship.m_RigidBody.position.ZAngleTo(target);
                 if (Mathf.Abs(Mathf.DeltaAngle(ship.transform.eulerAngles.z, targetRotation)) > 30)
                 {
                     ship.TurnTo(targetRotation, true);

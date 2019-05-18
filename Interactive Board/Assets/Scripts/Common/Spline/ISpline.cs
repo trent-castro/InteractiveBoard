@@ -10,7 +10,7 @@ using UnityEngine;
 /// </summary>
 public interface ISpline
 {
-    Vector3 GetNonUniformPoint(float t);
+    Vector3 GetNonUniformPoint(float t, bool localSpace);
     Vector3 GetPoint(float t);
 
 
