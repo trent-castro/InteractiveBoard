@@ -320,36 +320,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a78cf73e04694841ba0433bdecef79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rigidbody2D: {fileID: 5903469429061020800}
-  reactions:
-  - max: 10
+  m_reactions:
+  - reactionType: 3
+    max: 10
     min: -4
+    normal: {x: 0, y: 1, z: 0}
+    usePosition: 1
+    useRotation: 1
+    useScale: 0
     path: {fileID: 1281763081}
-    normal: {x: 0, y: 1}
-    rotationAtMax: -150
-    rotationAtMin: 60
-    reactionType: 3
-  - max: 10
+    maxRotation: {x: 0, y: 0, z: -120}
+    minRotation: {x: 0, y: 0, z: 48}
+    maxScale: {x: 0, y: 0, z: 0}
+    minScale: {x: 0, y: 0, z: 0}
+  - reactionType: 2
+    max: 10
     min: -4
+    normal: {x: 0, y: 1, z: 0}
+    usePosition: 1
+    useRotation: 1
+    useScale: 0
     path: {fileID: 1281763081}
-    normal: {x: 0, y: 1}
-    rotationAtMax: 75
-    rotationAtMin: -30
-    reactionType: 2
-  - max: 240
+    maxRotation: {x: 0, y: 0, z: 40}
+    minRotation: {x: 0, y: 0, z: -16}
+    maxScale: {x: 0, y: 0, z: 0}
+    minScale: {x: 0, y: 0, z: 0}
+  - reactionType: 0
+    max: 240
     min: -120
+    normal: {x: 0, y: 0, z: 0}
+    usePosition: 1
+    useRotation: 1
+    useScale: 0
     path: {fileID: 666047349}
-    normal: {x: 0, y: 0}
-    rotationAtMax: -180
-    rotationAtMin: 90
-    reactionType: 0
-  - max: 10
+    maxRotation: {x: 0, y: 0, z: -120}
+    minRotation: {x: 0, y: 0, z: 60}
+    maxScale: {x: 0, y: 0, z: 0}
+    minScale: {x: 0, y: 0, z: 0}
+  - reactionType: 2
+    max: 10
     min: -10
+    normal: {x: 1, y: 0, z: 0}
+    usePosition: 1
+    useRotation: 1
+    useScale: 0
     path: {fileID: 8235344897529709348}
-    normal: {x: 1, y: 0}
-    rotationAtMax: -80
-    rotationAtMin: 80
-    reactionType: 2
+    maxRotation: {x: 0, y: 0, z: -80}
+    minRotation: {x: 0, y: 0, z: 80}
+    maxScale: {x: 0, y: 0, z: 0}
+    minScale: {x: 0, y: 0, z: 0}
+  m_reactable: {fileID: 8878663262046801235}
+  m_reactionTime: 5
+  m_positionStrategy: 1
+  m_rotationStrategy: 1
+  m_scaleStrategy: 1
 --- !u!1 &666047347
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +529,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14, y: 11}
+  m_Size: {x: 18, y: 14}
   m_EdgeRadius: 0
 --- !u!1 &975071916
 GameObject:
@@ -10314,36 +10338,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a78cf73e04694841ba0433bdecef79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rigidbody2D: {fileID: 5903469429061020800}
-  reactions:
-  - max: 10
+  m_reactions:
+  - reactionType: 3
+    max: 10
     min: -4
+    normal: {x: 0, y: 1, z: 0}
+    usePosition: 1
+    useRotation: 1
+    useScale: 0
     path: {fileID: 975071918}
-    normal: {x: 0, y: 1}
-    rotationAtMax: 150
-    rotationAtMin: -60
-    reactionType: 3
-  - max: 10
+    maxRotation: {x: 0, y: 0, z: 120}
+    minRotation: {x: 0, y: 0, z: -48}
+    maxScale: {x: 0, y: 0, z: 0}
+    minScale: {x: 0, y: 0, z: 0}
+  - reactionType: 2
+    max: 10
     min: -4
+    normal: {x: 0, y: 1, z: 0}
+    usePosition: 1
+    useRotation: 1
+    useScale: 0
     path: {fileID: 975071918}
-    normal: {x: 0, y: 1}
-    rotationAtMax: -75
-    rotationAtMin: 30
-    reactionType: 2
-  - max: -240
+    maxRotation: {x: 0, y: 0, z: -40}
+    minRotation: {x: 0, y: 0, z: 16}
+    maxScale: {x: 0, y: 0, z: 0}
+    minScale: {x: 0, y: 0, z: 0}
+  - reactionType: 0
+    max: -240
     min: 120
+    normal: {x: 0, y: 0, z: 0}
+    usePosition: 1
+    useRotation: 1
+    useScale: 0
     path: {fileID: 674909458}
-    normal: {x: 0, y: 0}
-    rotationAtMax: 180
-    rotationAtMin: -90
-    reactionType: 0
-  - max: -10
-    min: 10
+    maxRotation: {x: 0, y: 0, z: 120}
+    minRotation: {x: 0, y: 0, z: -60}
+    maxScale: {x: 0, y: 0, z: 0}
+    minScale: {x: 0, y: 0, z: 0}
+  - reactionType: 2
+    max: 10
+    min: -10
+    normal: {x: -1, y: 0, z: 0}
+    usePosition: 1
+    useRotation: 1
+    useScale: 0
     path: {fileID: 5036026557916792250}
-    normal: {x: 1, y: 0}
-    rotationAtMax: 80
-    rotationAtMin: -80
-    reactionType: 2
+    maxRotation: {x: 0, y: 0, z: 80}
+    minRotation: {x: 0, y: 0, z: -80}
+    maxScale: {x: 0, y: 0, z: 0}
+    minScale: {x: 0, y: 0, z: 0}
+  m_reactable: {fileID: 8878663262046801235}
+  m_reactionTime: 5
+  m_positionStrategy: 1
+  m_rotationStrategy: 1
+  m_scaleStrategy: 1
 --- !u!1 &1634381250194314952
 GameObject:
   m_ObjectHideFlags: 0
@@ -10355,7 +10403,7 @@ GameObject:
   - component: {fileID: 5281934780971882851}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10749,7 +10797,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -10828,6 +10876,7 @@ GameObject:
   - component: {fileID: 874200478}
   - component: {fileID: 3949379455858348904}
   - component: {fileID: 272786523607989012}
+  - component: {fileID: 8878663262046801235}
   m_Layer: 15
   m_Name: Ship
   m_TagString: Player
@@ -11000,7 +11049,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7a46d62dfe7624ead4443289459bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rigidBody: {fileID: 0}
   m_maxSpeed: 10
   m_turnPower: 240
   m_turnPowerWhenThrusting: 120
@@ -11029,6 +11077,8 @@ MonoBehaviour:
   m_health: 100
   m_maxHealth: 100
   m_isAlive: 1
+  m_invincibilityDuration: 0
+  m_invincibilityDurationDelay: 0
   DeathUI: {fileID: 0}
   m_root: {fileID: 0}
   m_healthBar: {fileID: 0}
@@ -11046,6 +11096,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_indicatorPrefab: {fileID: 2451497769577338089}
   m_spaceFromEdge: 50
+--- !u!114 &8878663262046801235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903469429061020802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f9e202414a14647aeb074ae48455a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5903919387358566730
 GameObject:
   m_ObjectHideFlags: 0
