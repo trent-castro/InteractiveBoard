@@ -114,7 +114,7 @@ public abstract class ABR_Ship : MonoBehaviour
         }
     }
 
-    protected void Start()
+    protected void Awake()
     {
         m_RigidBody = GetComponent<Rigidbody2D>();
         m_turret = GetComponentInChildren<ABR_Turret>();

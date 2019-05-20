@@ -31,14 +31,14 @@ public class ABR_QuickAI : ABR_StateAI
         gameObject.SetActive(true);
     }
 
-    protected new void Start()
+    protected new void Awake()
     {
         m_stateMachine = new StackStateMachine<ABR_QuickAI>();
         m_stateMachine.AddState("APPROACH", new ApproachState<ABR_QuickAI>(this));
         m_stateMachine.AddState("WANDER", new WanderState<ABR_QuickAI>(this));
         m_stateMachine.PushState("WANDER");
 
-        base.Start();
+        base.Awake();
     }
 
     protected new void Update()
