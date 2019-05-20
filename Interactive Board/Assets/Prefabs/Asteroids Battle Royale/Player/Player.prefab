@@ -329,8 +329,8 @@ MonoBehaviour:
     useRotation: 1
     useScale: 0
     path: {fileID: 1281763081}
-    maxRotation: {x: 0, y: 0, z: -150}
-    minRotation: {x: 0, y: 0, z: 60}
+    maxRotation: {x: 0, y: 0, z: -120}
+    minRotation: {x: 0, y: 0, z: 48}
     maxScale: {x: 0, y: 0, z: 0}
     minScale: {x: 0, y: 0, z: 0}
   - reactionType: 2
@@ -341,8 +341,8 @@ MonoBehaviour:
     useRotation: 1
     useScale: 0
     path: {fileID: 1281763081}
-    maxRotation: {x: 0, y: 0, z: 75}
-    minRotation: {x: 0, y: 0, z: -30}
+    maxRotation: {x: 0, y: 0, z: 40}
+    minRotation: {x: 0, y: 0, z: -16}
     maxScale: {x: 0, y: 0, z: 0}
     minScale: {x: 0, y: 0, z: 0}
   - reactionType: 0
@@ -353,8 +353,8 @@ MonoBehaviour:
     useRotation: 1
     useScale: 0
     path: {fileID: 666047349}
-    maxRotation: {x: 0, y: 0, z: -180}
-    minRotation: {x: 0, y: 0, z: 90}
+    maxRotation: {x: 0, y: 0, z: -120}
+    minRotation: {x: 0, y: 0, z: 60}
     maxScale: {x: 0, y: 0, z: 0}
     minScale: {x: 0, y: 0, z: 0}
   - reactionType: 2
@@ -371,6 +371,9 @@ MonoBehaviour:
     minScale: {x: 0, y: 0, z: 0}
   m_reactable: {fileID: 8878663262046801235}
   m_reactionTime: 5
+  m_positionStrategy: 1
+  m_rotationStrategy: 1
+  m_scaleStrategy: 1
 --- !u!1 &666047347
 GameObject:
   m_ObjectHideFlags: 0
@@ -10344,8 +10347,8 @@ MonoBehaviour:
     useRotation: 1
     useScale: 0
     path: {fileID: 975071918}
-    maxRotation: {x: 0, y: 0, z: 150}
-    minRotation: {x: 0, y: 0, z: -60}
+    maxRotation: {x: 0, y: 0, z: 120}
+    minRotation: {x: 0, y: 0, z: -48}
     maxScale: {x: 0, y: 0, z: 0}
     minScale: {x: 0, y: 0, z: 0}
   - reactionType: 2
@@ -10356,8 +10359,8 @@ MonoBehaviour:
     useRotation: 1
     useScale: 0
     path: {fileID: 975071918}
-    maxRotation: {x: 0, y: 0, z: -75}
-    minRotation: {x: 0, y: 0, z: 30}
+    maxRotation: {x: 0, y: 0, z: -40}
+    minRotation: {x: 0, y: 0, z: 16}
     maxScale: {x: 0, y: 0, z: 0}
     minScale: {x: 0, y: 0, z: 0}
   - reactionType: 0
@@ -10368,8 +10371,8 @@ MonoBehaviour:
     useRotation: 1
     useScale: 0
     path: {fileID: 674909458}
-    maxRotation: {x: 0, y: 0, z: 180}
-    minRotation: {x: 0, y: 0, z: -90}
+    maxRotation: {x: 0, y: 0, z: 120}
+    minRotation: {x: 0, y: 0, z: -60}
     maxScale: {x: 0, y: 0, z: 0}
     minScale: {x: 0, y: 0, z: 0}
   - reactionType: 2
@@ -10380,12 +10383,15 @@ MonoBehaviour:
     useRotation: 1
     useScale: 0
     path: {fileID: 5036026557916792250}
-    maxRotation: {x: 0, y: 0, z: -80}
-    minRotation: {x: 0, y: 0, z: 80}
+    maxRotation: {x: 0, y: 0, z: 80}
+    minRotation: {x: 0, y: 0, z: -80}
     maxScale: {x: 0, y: 0, z: 0}
     minScale: {x: 0, y: 0, z: 0}
   m_reactable: {fileID: 8878663262046801235}
   m_reactionTime: 5
+  m_positionStrategy: 1
+  m_rotationStrategy: 1
+  m_scaleStrategy: 1
 --- !u!1 &1634381250194314952
 GameObject:
   m_ObjectHideFlags: 0
@@ -11071,6 +11077,8 @@ MonoBehaviour:
   m_health: 100
   m_maxHealth: 100
   m_isAlive: 1
+  m_invincibilityDuration: 0
+  m_invincibilityDurationDelay: 0
   DeathUI: {fileID: 0}
   m_root: {fileID: 0}
   m_healthBar: {fileID: 0}

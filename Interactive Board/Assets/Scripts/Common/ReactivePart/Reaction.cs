@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum eReactionType
+public enum EReactionType
 {
     ANGULAR_VELOCITY,
     ANGULAR_ACCELERATION,
@@ -17,7 +17,7 @@ public enum eReactionType
 [Serializable]
 public struct Reaction
 {
-    public eReactionType reactionType;
+    public EReactionType reactionType;
 
     public float max;
     public float min;
@@ -49,8 +49,9 @@ public struct Reaction
 
     public float GetT(Vector3 vector)
     {
+        int negative = (Vector3.Dot(vector, normal) > 0 ? 1 : -1);
         vector = Vector3.Project(vector, normal);
-        float magnitude = vector.magnitude * (Vector3.Dot(vector, normal) > 0 ? 1 : -1);
+        float magnitude = vector.magnitude * negative;
 
         return GetT(magnitude);
     }

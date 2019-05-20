@@ -89,13 +89,13 @@ public class ABR_ShipTouchController : ABR_Ship
 
             float distanceFromCenter = (touchPosition - (Vector2)transform.position).magnitude;
 
+            Thrust(Mathf.Clamp01((distanceFromCenter - m_turnOnlyRadius) / (m_thrustRadius - m_turnOnlyRadius)));
             if (distanceFromCenter > m_turnOnlyRadius)
             {
                 if (m_touchVisual != null)
                 {
                     m_touchVisual.sprite = m_thrustVisual;
                 }
-                Thrust(Mathf.Clamp01((distanceFromCenter - m_turnOnlyRadius) / (m_thrustRadius - m_turnOnlyRadius)));
             }
             else
             {
@@ -103,7 +103,6 @@ public class ABR_ShipTouchController : ABR_Ship
                 {
                     m_touchVisual.sprite = m_noThrustVisual;
                 }
-                StopThrust();
             }
         }
         else
