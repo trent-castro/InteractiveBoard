@@ -14,7 +14,7 @@ public class ABR_Asteroid : MonoBehaviour
 	[SerializeField] Camera boy = null;
 	ParticleSystem m_shards = null;
 	Rigidbody2D m_rb = null;
-	float speed = 3;
+	public float speed = 3;
 	bool isMoving = false;
 
 
