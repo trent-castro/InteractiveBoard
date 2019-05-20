@@ -14,6 +14,12 @@ public class ABR_ShipHealth : ABR_Health
 		base.TakeDamage(damage);
 		if (m_healthBar) m_healthBar.UpdateHealth();
 	}
+
+	public override void Respawn()
+	{
+		base.Respawn();
+		if (m_healthBar) m_healthBar.UpdateHealth();
+	}
 	protected override void Die()
 	{
         base.Die();

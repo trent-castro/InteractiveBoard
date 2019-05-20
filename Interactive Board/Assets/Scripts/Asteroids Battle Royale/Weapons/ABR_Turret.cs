@@ -20,7 +20,7 @@ public class ABR_Turret : MonoBehaviour
     private float m_fireTimer = 0.0f;
     private float m_fireTimeElapsed = 0.0f;
 
-    private void Start()
+    private void Awake()
     {
         if (m_audioSource == null)
         {

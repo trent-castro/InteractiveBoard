@@ -35,7 +35,7 @@ public abstract class ABR_Health : MonoBehaviour
 		m_isAlive = true;
 	}
 
-	public void Respawn()
+	public virtual void Respawn()
 	{
 		m_isAlive = true;
 		m_health = m_maxHealth;
