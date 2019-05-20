@@ -23,6 +23,9 @@ public class ABR_Asteroid : MonoBehaviour
 	float m_perishMaxTime = 1.5f;
 	Vector3 m_normalScale = Vector2.zero;
 
+	float m_decayTimer = 0;
+	float m_decayMaxTime = 30;
+
 	private void Start()
 	{
 		m_normalScale = transform.localScale;
@@ -36,6 +39,21 @@ public class ABR_Asteroid : MonoBehaviour
 			transform.position = m_startLocation;
 		}
 		m_shards = GetComponentInChildren<ParticleSystem>();
+	}
+
+	private void OnEnable()
+	{
+		m_decayTimer = 0;
+	}
+
+	private void Update()
+	{
+		m_decayTimer += Time.deltaTime;
+
+		if (m_decayTimer >= m_decayMaxTime)
+		{
+			this.gameObject.SetActive(false);
+		}
 	}
 
 	/// <summary>
