@@ -17,7 +17,7 @@ public class ABR_PierceBullet : ABR_Bullet
             ABR_Health health = collision.GetComponent<ABR_Health>();
             if (health)
             {
-                health.TakeDamage(m_damage);
+                DealDamage(ref health);
             }
             m_numOfPierced++;
             if (m_numOfPierced >= 3)
@@ -25,5 +25,12 @@ public class ABR_PierceBullet : ABR_Bullet
                 gameObject.SetActive(false);
             }
         }
-	}
+    }
+
+    private new void DealDamage(ref ABR_Health health)
+    {
+        int modifiedDamage = (int)m_damage;
+            modifiedDamage = modifiedDamage / (m_numOfPierced + 1);
+        health.TakeDamage(modifiedDamage);
+    }
 }
