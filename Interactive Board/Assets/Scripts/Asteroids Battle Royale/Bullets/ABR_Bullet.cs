@@ -47,10 +47,9 @@ public abstract class ABR_Bullet : MonoBehaviour
 		}
     }
 
-	public void DealDamage(ref GameObject damageableObject)
+	public void DealDamage(ref ABR_Health damageableObject)
     {
-        //TODO Implemetn Damage logic
-        damageableObject.SetActive(false);
+        damageableObject.TakeDamage(m_damage);
     }
 
     /// <summary>

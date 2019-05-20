@@ -39,6 +39,7 @@ public class ABR_ExplosionBullet : ABR_Bullet
     private void Explode()
     {
         //Enable Explosion collider
+        m_rigidbody.velocity = Vector3.zero;
         m_bulletObject.SetActive(false);
         m_explosionObjects.SetActive(true);
         isExploding = true;
