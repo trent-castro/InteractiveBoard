@@ -20,12 +20,7 @@ public class ABR_ShipTouchController : ABR_Ship
     private TouchInfo m_touchInfo = null;
 
     [SerializeField]
-    private SpriteRenderer m_touchVisual = null;
-
-    [SerializeField]
-    private Sprite m_thrustVisual = null;
-    [SerializeField]
-    private Sprite m_noThrustVisual = null;
+    private GameObject m_touchVisual = null;
 
     private new void Start()
     {
@@ -90,20 +85,6 @@ public class ABR_ShipTouchController : ABR_Ship
             float distanceFromCenter = (touchPosition - (Vector2)transform.position).magnitude;
 
             Thrust(Mathf.Clamp01((distanceFromCenter - m_turnOnlyRadius) / (m_thrustRadius - m_turnOnlyRadius)));
-            if (distanceFromCenter > m_turnOnlyRadius)
-            {
-                if (m_touchVisual != null)
-                {
-                    m_touchVisual.sprite = m_thrustVisual;
-                }
-            }
-            else
-            {
-                if (m_touchVisual != null)
-                {
-                    m_touchVisual.sprite = m_noThrustVisual;
-                }
-            }
         }
         else
         {
