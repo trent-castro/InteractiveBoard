@@ -21,7 +21,7 @@ public class Locator : MonoBehaviour
 
     private void Awake()
     {
-        LocatorManager.Register(this);
+        LocatorManager.Instance.Register(this);
     }
 
     void Start()
