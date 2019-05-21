@@ -6,8 +6,6 @@ public class ABR_ExplosionEffect : MonoBehaviour
 {
     [SerializeField]
     float m_lifetime = 0.25f;
-    [SerializeField]
-    GameObject m_siblingRendererGameObject = default;
 
     private ParticleSystem m_particleSystem = default;
     private ABR_ExplosionBullet m_bulletParent = default;
