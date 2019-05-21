@@ -7,6 +7,7 @@ public class ABR_LeaveManager : MonoBehaviour
 {
 	[HideInInspector] public bool[] m_isReadyToLeave = null;
 	public ABR_ShipHealth[] m_shipHealth = null;
+	public GameObject[] m_LeaveUI = null;
 
     // Start is called before the first frame update
     void Awake()
@@ -27,7 +28,7 @@ public class ABR_LeaveManager : MonoBehaviour
 	public void SetLeaveStateTrue(int player)
 	{
 		m_isReadyToLeave[player] = true;
-
+		m_LeaveUI[player].SetActive(true);
 		bool leave = true;
 		for (int i = 0; i < m_isReadyToLeave.Length; i++)
 		{
@@ -44,6 +45,7 @@ public class ABR_LeaveManager : MonoBehaviour
 	public void SetLeaveStateFalse(int player)
 	{
 		m_isReadyToLeave[player] = false;
+		m_LeaveUI[player].SetActive(false);
 
 	}
 
