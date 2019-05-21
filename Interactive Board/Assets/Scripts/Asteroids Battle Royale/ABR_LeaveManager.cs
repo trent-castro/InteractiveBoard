@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ABR_LeaveManager : MonoBehaviour
@@ -52,5 +53,6 @@ public class ABR_LeaveManager : MonoBehaviour
 	private void LeaveGame()
 	{
 		Debug.Log("End Game");
+		SceneManager.LoadScene("ArcadeMenu");
 	}
 }

@@ -45,7 +45,7 @@ public abstract class ABR_Health : MonoBehaviour
 	}
     protected virtual void Die()
     {
-		OnDeath();
+		if (OnDeath != null) OnDeath();
         StopCoroutine(Invincibility());
     }
 
