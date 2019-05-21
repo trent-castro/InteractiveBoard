@@ -16,7 +16,7 @@ public class Locatable : MonoBehaviour
 
     private void Awake()
     {
-        LocatorManager.Register(this);
+        LocatorManager.Instance.Register(this);
     }
 
 
