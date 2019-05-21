@@ -155,7 +155,6 @@ public abstract class ABR_Ship : MonoBehaviour
         {
             m_acceleration = -m_RigidBody.velocity * m_RigidBody.drag;
         }
-        Debug.Log(m_acceleration);
     }
 
     private float SmoothDampAngularVelocity(float target)
