@@ -29,7 +29,7 @@ public class ABR_PlayerSpawner : MonoBehaviour
 
     private Player[] m_players = null;
 
-    void Start()
+    void Awake()
     {
         m_players = new Player[m_playerObjects.Length];
         for (int i = 0; i < m_players.Length; i++)

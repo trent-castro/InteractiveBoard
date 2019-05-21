@@ -22,11 +22,11 @@ public class ABR_ShipTouchController : ABR_Ship
     [SerializeField]
     private GameObject m_touchVisual = null;
 
-    private new void Start()
+    private new void Awake()
     {
         MultiTouchManager.Instance.ListenForTouchesOnOverlapWithEvents(m_touchArea.OverlapPoint, CheckNewTouch, m_viewport);
 
-        base.Start();
+        base.Awake();
     }
 
     private void CheckNewTouch(TouchInfo touchInfo, ETouchEventType eventType)

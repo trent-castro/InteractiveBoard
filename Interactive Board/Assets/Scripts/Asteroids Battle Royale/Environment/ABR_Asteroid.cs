@@ -14,7 +14,7 @@ public class ABR_Asteroid : MonoBehaviour
 	[SerializeField] Camera boy = null;
 	ParticleSystem m_shards = null;
 	Rigidbody2D m_rb = null;
-	float speed = 3;
+	public float speed = 3;
 	bool isMoving = false;
 
 
@@ -22,6 +22,9 @@ public class ABR_Asteroid : MonoBehaviour
 	float m_perishTimer = 0;
 	float m_perishMaxTime = 1.5f;
 	Vector3 m_normalScale = Vector2.zero;
+
+	float m_decayTimer = 0;
+	float m_decayMaxTime = 30;
 
 	private void Start()
 	{
@@ -36,6 +39,21 @@ public class ABR_Asteroid : MonoBehaviour
 			transform.position = m_startLocation;
 		}
 		m_shards = GetComponentInChildren<ParticleSystem>();
+	}
+
+	private void OnEnable()
+	{
+		m_decayTimer = 0;
+	}
+
+	private void Update()
+	{
+		m_decayTimer += Time.deltaTime;
+
+		if (m_decayTimer >= m_decayMaxTime)
+		{
+			this.gameObject.SetActive(false);
+		}
 	}
 
 	/// <summary>

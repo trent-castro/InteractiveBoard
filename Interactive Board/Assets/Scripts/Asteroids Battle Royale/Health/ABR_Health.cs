@@ -6,7 +6,7 @@ public abstract class ABR_Health : MonoBehaviour
 {
 	[SerializeField] float m_health = 0;
 	[SerializeField] float m_maxHealth = 0;
-	[SerializeField] protected bool m_isAlive = true;
+	[SerializeField] public bool m_isAlive = false;
     [Tooltip("Duration of invincibility")]
     [SerializeField]
     private float m_invincibilityDuration = 0.0f;
@@ -16,6 +16,9 @@ public abstract class ABR_Health : MonoBehaviour
 
     protected bool isInvincible = false;
     protected bool invincibilityCoroutineHasStarted = false;
+
+	public delegate void DeathAction();
+	public event DeathAction OnDeath;
 
 
     public float GetHealth()
@@ -35,13 +38,14 @@ public abstract class ABR_Health : MonoBehaviour
 		m_isAlive = true;
 	}
 
-	public void Respawn()
+	public virtual void Respawn()
 	{
 		m_isAlive = true;
 		m_health = m_maxHealth;
 	}
     protected virtual void Die()
     {
+		OnDeath();
         StopCoroutine(Invincibility());
     }
 

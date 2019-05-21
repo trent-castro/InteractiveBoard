@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6893054242478722973}
   - component: {fileID: 6893054242478722962}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 6893054242673623743}
   - component: {fileID: 1448096987482492188}
   - component: {fileID: 47006260357737094}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 6893054243730186524}
   - component: {fileID: 6893054243730186515}
   - component: {fileID: 6893054243730186514}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Explosion Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,6 +244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Explosion Particle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567096013711094712, guid: c2068cedbc1d2284da3812313ca9f0b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6567096013711094717, guid: c2068cedbc1d2284da3812313ca9f0b9,
         type: 3}

@@ -95,6 +95,7 @@ public class ABR_TempSpawner : MonoBehaviour
         ABR_Asteroid asteroid = objectToSpawn.GetComponent<ABR_Asteroid>();
         if (asteroid)
         {
+			asteroid.GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle * asteroid.speed;
             GameObject pickup = ABR_GlobalInfo.WeaponPickupManager.GetObjectFromTaggedPool(RandomEnumValue<eBulletType>().ToString());
             asteroid.AddItem(pickup);
         }
