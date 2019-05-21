@@ -25,7 +25,7 @@ public class ABR_PlayerSpawner : MonoBehaviour
     private GameObject[] m_playerObjects = null;
 
     [SerializeField]
-    private float m_PuppyGaurdRadius = 25f;
+    private float m_PuppyGuardRadius = 25.0f;
 
     private Player[] m_players = null;
 
@@ -42,7 +42,7 @@ public class ABR_PlayerSpawner : MonoBehaviour
         }
     }
 
-    public void Respawn(int playerIndex)
+    public void JoinGame(int playerIndex)
     {
         if (playerIndex > m_players.Length)
         {
@@ -70,7 +70,7 @@ public class ABR_PlayerSpawner : MonoBehaviour
             bool valid = true;
             foreach (Player p in m_players)
             {
-                if (Vector3.Distance(p.ship.transform.position, sp.position) <= m_PuppyGaurdRadius && p.ship.isActiveAndEnabled)
+                if (Vector3.Distance(p.ship.transform.position, sp.position) <= m_PuppyGuardRadius && p.ship.isActiveAndEnabled)
                 {
                     valid = false;
                     break;
@@ -83,5 +83,10 @@ public class ABR_PlayerSpawner : MonoBehaviour
         }
 
         return validSpawns.Count > 0 ? validSpawns[Random.Range(0, validSpawns.Count)] : transform;
+    }
+
+    public Player[] GetListOfPlayers()
+    {
+        return m_players;
     }
 }
