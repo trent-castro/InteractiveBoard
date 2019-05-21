@@ -51,7 +51,6 @@ public class ABR_ExplosionBullet : ABR_Bullet
         {
             if (!isExploding)
                 Explode();
-            //Do explosion damage here
         }
 	}
 
