@@ -14,7 +14,10 @@ public class ABR_LeaveManager : MonoBehaviour
     void Awake()
     {
         m_isReadyToLeave = new bool[]{ false, false, false, false };
-		//m_isActive = new bool[]{ false, false, false, false };
+		foreach (var item in m_shipHealth)
+		{
+			item.m_isAlive = false;
+		}
 		if (PlayerPrefs.HasKey("ABR_PlayerCount"))
 		{
 			int playercount = PlayerPrefs.GetInt("ABR_PlayerCount");
