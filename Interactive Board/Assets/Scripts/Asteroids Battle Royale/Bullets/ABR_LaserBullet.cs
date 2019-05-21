@@ -27,7 +27,7 @@ public class ABR_LaserBullet : ABR_Bullet
     }
 
     private IEnumerator DamageCoroutine(ABR_Health health)
-    {
+    {   
         while (isDealingDamage)
         {
             DealDamage(ref health);
