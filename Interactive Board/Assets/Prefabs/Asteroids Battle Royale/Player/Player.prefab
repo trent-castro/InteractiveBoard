@@ -11402,11 +11402,10 @@ GameObject:
   - component: {fileID: 5903469429061020800}
   - component: {fileID: 1188599903058839521}
   - component: {fileID: 4909039108895160935}
-  - component: {fileID: 874200478}
   - component: {fileID: 3949379455858348904}
   - component: {fileID: 272786523607989012}
   - component: {fileID: 8878663262046801235}
-  - component: {fileID: 7675370881183231335}
+  - component: {fileID: 2797613115881608425}
   m_Layer: 15
   m_Name: Ship
   m_TagString: Player
@@ -11567,29 +11566,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.34472656
---- !u!114 &874200478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5903469429061020802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc7a46d62dfe7624ead4443289459bb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_maxSpeed: 10
-  m_turnPower: 240
-  m_turnPowerWhenThrusting: 120
-  m_acceleration: {x: 0, y: 0}
-  m_angularAcceleration: 0
-  m_touchArea: {fileID: 902354584}
-  m_viewport: {fileID: 5903469428777604343}
-  m_thrustRadius: 5
-  m_turnOnlyRadius: 2.5
-  m_tolerance: 5
-  m_touchVisual: {fileID: 3678472812992875489}
 --- !u!114 &3949379455858348904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11637,7 +11613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09f9e202414a14647aeb074ae48455a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7675370881183231335
+--- !u!114 &2797613115881608425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11646,10 +11622,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5903469429061020802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8f1db84f1be295488f164ce25deaff8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ff2c4ba4acb90543b7943485975f436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_forceModifier: 3
+  m_maxSpeed: 10
+  m_turnPower: 240
+  m_turnPowerWhenThrusting: 120
+  m_acceleration: {x: 0, y: 0}
+  m_angularAcceleration: 0
+  m_input: {fileID: 0}
+  m_thrustRadius: 50
+  m_turnOnlyRadius: 25
+  m_tolerance: 5
+  m_touchVisual: {fileID: 3678472812992875489}
 --- !u!1 &5903919387358566730
 GameObject:
   m_ObjectHideFlags: 0
