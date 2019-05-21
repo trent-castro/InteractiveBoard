@@ -6,6 +6,7 @@ public class ABR_ShipHealth : ABR_Health
 {
 	[SerializeField] GameObject DeathUI = null;
 	[SerializeField] GameObject m_root = null;
+	public int ShipId = 0;
 	[HideInInspector] public ABR_ShipUIOverlay m_healthBar = null;
 
 
@@ -18,6 +19,7 @@ public class ABR_ShipHealth : ABR_Health
 	public override void Respawn()
 	{
 		base.Respawn();
+		m_isAlive = true;
 		if (m_healthBar) m_healthBar.UpdateHealth();
 	}
 	protected override void Die()
