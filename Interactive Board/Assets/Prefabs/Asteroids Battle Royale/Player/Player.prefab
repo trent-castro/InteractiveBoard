@@ -11406,6 +11406,7 @@ GameObject:
   - component: {fileID: 3949379455858348904}
   - component: {fileID: 272786523607989012}
   - component: {fileID: 8878663262046801235}
+  - component: {fileID: 7675370881183231335}
   m_Layer: 15
   m_Name: Ship
   m_TagString: Player
@@ -11608,6 +11609,7 @@ MonoBehaviour:
   m_invincibilityDurationDelay: 0
   DeathUI: {fileID: 0}
   m_root: {fileID: 0}
+  ShipId: 0
   m_healthBar: {fileID: 0}
 --- !u!114 &272786523607989012
 MonoBehaviour:
@@ -11635,6 +11637,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09f9e202414a14647aeb074ae48455a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7675370881183231335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903469429061020802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f1db84f1be295488f164ce25deaff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_forceModifier: 3
 --- !u!1 &5903919387358566730
 GameObject:
   m_ObjectHideFlags: 0
