@@ -22,8 +22,14 @@ public class ABR_LaserBullet : ABR_Bullet
     }
     public override void Fire(Vector2 direction, Vector2 shipVelocity)
     {
-
+        print(direction);
+        Vector3 directionConversion = Vector3.zero;
+        directionConversion.z = direction.x;
         m_rigidbody.velocity = (direction * m_speed) + shipVelocity;
+        Quaternion lookRation = Quaternion.LookRotation(directionConversion);
+        print(lookRation);
+
+        transform.rotation = lookRation;
     }
 
     private IEnumerator DamageCoroutine(ABR_Health health)

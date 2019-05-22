@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6893054242478722972}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 6893054243730186525}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &6893054242478722962
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -68,8 +68,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c1a6f8fc49c9efa44a66847e0c842887, type: 3}
-  m_Color: {r: 1, g: 0.5615012, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 507944a6b4122bc4c9cd457422196974, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 6893054243730186525}
   - component: {fileID: 6893054243730186524}
   - component: {fileID: 6893054243730186515}
-  - component: {fileID: 6893054243730186514}
+  - component: {fileID: 8246947135572084924}
   m_Layer: 15
   m_Name: Explosion Bullet
   m_TagString: Untagged
@@ -216,8 +216,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &6893054243730186514
-CircleCollider2D:
+--- !u!61 &8246947135572084924
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -229,9 +229,19 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.25}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Size: {x: 0.5, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &5108712122424554414
 PrefabInstance:
   m_ObjectHideFlags: 0
