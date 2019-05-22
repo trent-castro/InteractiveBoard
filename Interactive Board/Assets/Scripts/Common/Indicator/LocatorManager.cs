@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class LocatorManager : MonoBehaviour
 {
-    public static List<Locatable> Locatables { get; private set; } = new List<Locatable>();
+    public List<Locatable> Locatables { get; private set; } = new List<Locatable>();
 
-    public static List<GameObject> IndicatorPrefabs { get; private set; } = new List<GameObject>();
+    public List<GameObject> IndicatorPrefabs { get; private set; } = new List<GameObject>();
 
-    public static List<Locator> Locators { get; private set; } = new List<Locator>();
+    public List<Locator> Locators { get; private set; } = new List<Locator>();
 
     public static LocatorManager Instance { get; set; }
 
-    private static bool Started = false;
+    private bool Started = false;
 
     private void Awake()
     {
@@ -36,7 +36,7 @@ public class LocatorManager : MonoBehaviour
         Started = true;
     }
 
-    public static void Register(Locatable locatable)
+    public void Register(Locatable locatable)
     {
         Locatables.Add(locatable);
         IndicatorPrefabs.Add(locatable.IndicatorPrefab);
@@ -50,7 +50,7 @@ public class LocatorManager : MonoBehaviour
         }
     }
 
-    public static void Register(Locator locator)
+    public void Register(Locator locator)
     {
         Locators.Add(locator);
 

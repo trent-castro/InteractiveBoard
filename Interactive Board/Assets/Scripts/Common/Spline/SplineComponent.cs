@@ -83,20 +83,33 @@ public class SplineComponent : MonoBehaviour, ISpline
     public Vector3 GetBackward(float t) => -GetForward(t);
 
 
-    public Vector3 GetNonUniformPoint(float t)
+    public Vector3 GetNonUniformPoint(float t, bool localSpace = false)
     {
+        Vector3 result;
         switch (points.Count)
         {
             case 0:
-                return Vector3.zero;
+                result = Vector3.zero;
+                break;
             case 1:
-                return transform.TransformPoint(points[0]);
+                result = points[0];
+                break;
             case 2:
-                return transform.TransformPoint(Vector3.Lerp(points[0], points[1], t));
+                result = Vector3.Lerp(points[0], points[1], t);
+                break;
             case 3:
-                return transform.TransformPoint(points[1]);
+                result = points[1];
+                break;
             default:
-                return Hermite(t);
+                result = Hermite(t);
+                break;
+        }
+        if (localSpace)
+        {
+            return result;
+        } else
+        {
+            return transform.TransformPoint(result);
         }
     }
 
@@ -138,7 +151,7 @@ public class SplineComponent : MonoBehaviour, ISpline
         var b = GetPointByIndex(i + 1);
         var c = GetPointByIndex(i + 2);
         var d = GetPointByIndex(i + 3);
-        return transform.TransformPoint(Interpolate(a, b, c, d, u));
+        return Interpolate(a, b, c, d, u);
     }
 
     public float GetLength(float step = 0.001f)

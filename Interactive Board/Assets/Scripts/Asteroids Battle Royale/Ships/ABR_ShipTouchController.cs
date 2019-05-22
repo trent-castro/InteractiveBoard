@@ -20,18 +20,13 @@ public class ABR_ShipTouchController : ABR_Ship
     private TouchInfo m_touchInfo = null;
 
     [SerializeField]
-    private SpriteRenderer m_touchVisual = null;
+    private GameObject m_touchVisual = null;
 
-    [SerializeField]
-    private Sprite m_thrustVisual = null;
-    [SerializeField]
-    private Sprite m_noThrustVisual = null;
-
-    private new void Start()
+    private new void Awake()
     {
         MultiTouchManager.Instance.ListenForTouchesOnOverlapWithEvents(m_touchArea.OverlapPoint, CheckNewTouch, m_viewport);
 
-        base.Start();
+        base.Awake();
     }
 
     private void CheckNewTouch(TouchInfo touchInfo, ETouchEventType eventType)
@@ -89,22 +84,7 @@ public class ABR_ShipTouchController : ABR_Ship
 
             float distanceFromCenter = (touchPosition - (Vector2)transform.position).magnitude;
 
-            if (distanceFromCenter > m_turnOnlyRadius)
-            {
-                if (m_touchVisual != null)
-                {
-                    m_touchVisual.sprite = m_thrustVisual;
-                }
-                Thrust(Mathf.Clamp01((distanceFromCenter - m_turnOnlyRadius) / (m_thrustRadius - m_turnOnlyRadius)));
-            }
-            else
-            {
-                if (m_touchVisual != null)
-                {
-                    m_touchVisual.sprite = m_noThrustVisual;
-                }
-                StopThrust();
-            }
+            Thrust(Mathf.Clamp01((distanceFromCenter - m_turnOnlyRadius) / (m_thrustRadius - m_turnOnlyRadius)));
         }
         else
         {

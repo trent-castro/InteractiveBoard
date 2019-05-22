@@ -20,11 +20,11 @@ public class ABR_Border : MonoBehaviour
     {
         foreach (ABR_Ship ship in runaways)
         {
-            Vector2 target = m_playArea.bounds.ClosestPoint(ship.m_rigidBody.position);
+            Vector2 target = m_playArea.bounds.ClosestPoint(ship.m_RigidBody.position);
 
             if (ship != null)
             {
-                float targetRotation = ship.m_rigidBody.position.ZAngleTo(target);
+                float targetRotation = ship.m_RigidBody.position.ZAngleTo(target);
                 if (Mathf.Abs(Mathf.DeltaAngle(ship.transform.eulerAngles.z, targetRotation)) > 30)
                 {
                     ship.TurnTo(targetRotation, true);
@@ -43,16 +43,25 @@ public class ABR_Border : MonoBehaviour
         {
             runaways.Add(ship);
         }
-    }
+		else
+		{
+			ABR_Asteroid asteroid = other.GetComponent<ABR_Asteroid>();
+
+			if (asteroid)
+			{
+				other.gameObject.SetActive(false);
+			}
+		}
+	}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         ABR_Ship ship = other.GetComponent<ABR_Ship>();
-        if (ship != null)
-        {
-            runaways.Remove(ship);
-            ship.StopThrust(true);
-            ship.StopTurnTo(true);
-        }
+		if (ship != null)
+		{
+			runaways.Remove(ship);
+			ship.StopThrust(true);
+			ship.StopTurnTo(true);
+		}
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -29,7 +30,8 @@ public class ABR_PlayerSpawner : MonoBehaviour
 
     private Player[] m_players = null;
 
-    void Start()
+
+    void Awake()
     {
         m_players = new Player[m_playerObjects.Length];
         for (int i = 0; i < m_players.Length; i++)
@@ -53,11 +55,11 @@ public class ABR_PlayerSpawner : MonoBehaviour
         Transform spawnPoint = GetBestSpawnPoint(playerIndex);
 
         m_players[playerIndex].ResetTo(spawnPoint);
-		ABR_ShipHealth health = m_players[playerIndex].ship.GetComponent<ABR_ShipHealth>();
-		if (health)
-		{
-			health.Respawn();
-		}
+        ABR_ShipHealth health = m_players[playerIndex].ship.GetComponent<ABR_ShipHealth>();
+        if (health)
+        {
+            health.Respawn();
+        }
     }
 
     public Transform GetBestSpawnPoint(int playerToSpawnIndex)
@@ -82,7 +84,11 @@ public class ABR_PlayerSpawner : MonoBehaviour
             }
         }
 
-        return validSpawns.Count > 0 ? validSpawns[Random.Range(0, validSpawns.Count)] : transform;
+        return validSpawns.Count > 0 ? validSpawns[UnityEngine.Random.Range(0, validSpawns.Count)] : transform;
+    }
+    public Player[] GetListOfPlayers()
+    {
+        return null;
     }
 
     public Player[] GetListOfPlayers()

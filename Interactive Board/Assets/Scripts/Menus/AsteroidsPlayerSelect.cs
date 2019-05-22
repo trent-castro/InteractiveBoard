@@ -28,5 +28,9 @@ public class AsteroidsPlayerSelect : MonoBehaviour
 		}
 	}
 
+	public void StartGame()
+	{
+		PlayerPrefs.SetInt("ABR_PlayerCount", m_playerCount);
+	}
     
 }
