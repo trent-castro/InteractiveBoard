@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 47006260357737094}
   m_Layer: 15
   m_Name: Explosion
-  m_TagString: Untagged
+  m_TagString: Explosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_lifetime: 0.25
-  m_siblingRendererGameObject: {fileID: 6893054242478722972}
 --- !u!1 &6893054243730186527
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +262,7 @@ PrefabInstance:
     - target: {fileID: 6567096013711094717, guid: c2068cedbc1d2284da3812313ca9f0b9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6567096013711094717, guid: c2068cedbc1d2284da3812313ca9f0b9,
         type: 3}
