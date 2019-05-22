@@ -124,7 +124,6 @@ public class TouchInfo
                 HandleEnd?.Invoke(this);
                 break;
             case TouchPhase.Canceled:
-
                 break;
         }
     }
