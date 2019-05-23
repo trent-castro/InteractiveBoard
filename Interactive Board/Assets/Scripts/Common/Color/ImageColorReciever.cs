@@ -9,6 +9,7 @@ public class ImageColorReciever : ColorReciever
 {
     public override void SetColors(NameAndColorPair[] colors)
     {
-        GetComponent<Image>().color = colors.Where(ncp => ncp.name.Equals(m_colorToRecieve)).Select(npc => npc.color).FirstOrDefault();
+        GetComponent<Image>().color = GetColor(colors, m_colorToRecieve);
+
     }
 }
