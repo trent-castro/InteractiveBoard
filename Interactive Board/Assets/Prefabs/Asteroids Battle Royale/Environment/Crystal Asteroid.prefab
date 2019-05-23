@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3410173485555929441}
   - component: {fileID: 3410173485555929440}
-  - component: {fileID: 3410173485555929446}
-  - component: {fileID: 3410173485555929447}
   - component: {fileID: 3410173485555929444}
+  - component: {fileID: 3410173485555929447}
+  - component: {fileID: 2933925702656246107}
+  - component: {fileID: 3410173485555929446}
   - component: {fileID: 3410173485555929445}
   m_Layer: 15
-  m_Name: crystal asteroid
+  m_Name: Crystal Asteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,22 +85,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3410173485555929446
-MonoBehaviour:
+--- !u!58 &3410173485555929444
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3410173485555929443}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad4ba720217cfad4fb82f619f3e0ce13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_startLocation: {x: 0, y: 0}
-  m_endLocation: {x: 0, y: 0}
-  velocity: {x: 0, y: -1}
-  boy: {fileID: 0}
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.21333334
 --- !u!50 &3410173485555929447
 Rigidbody2D:
   serializedVersion: 4
@@ -121,22 +122,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &3410173485555929444
-CircleCollider2D:
+--- !u!114 &2933925702656246107
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3410173485555929443}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.21333334
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f1db84f1be295488f164ce25deaff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_forceModifier: 5
+--- !u!114 &3410173485555929446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410173485555929443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad4ba720217cfad4fb82f619f3e0ce13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_startLocation: {x: 0, y: 0}
+  m_endLocation: {x: 0, y: 0}
+  velocity: {x: 0, y: -1}
+  boy: {fileID: 0}
+  speed: 3
 --- !u!114 &3410173485555929445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +167,8 @@ MonoBehaviour:
   m_health: 10
   m_maxHealth: 10
   m_isAlive: 1
+  m_invincibilityDuration: 0
+  m_invincibilityDurationDelay: 0
 --- !u!1 &3410173486653999609
 GameObject:
   m_ObjectHideFlags: 0

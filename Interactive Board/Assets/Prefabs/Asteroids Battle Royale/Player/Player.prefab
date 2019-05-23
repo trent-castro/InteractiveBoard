@@ -13392,6 +13392,7 @@ GameObject:
   - component: {fileID: 272786523607989012}
   - component: {fileID: 8878663262046801235}
   - component: {fileID: 2797613115881608425}
+  - component: {fileID: 7354309556667884108}
   m_Layer: 15
   m_Name: Ship
   m_TagString: Player
@@ -13621,6 +13622,19 @@ MonoBehaviour:
   m_turnOnlyRadius: 25
   m_tolerance: 5
   m_touchVisual: {fileID: 3678472812992875489}
+--- !u!114 &7354309556667884108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903469429061020802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f1db84f1be295488f164ce25deaff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_forceModifier: 3
 --- !u!1 &5903919387358566730
 GameObject:
   m_ObjectHideFlags: 0
