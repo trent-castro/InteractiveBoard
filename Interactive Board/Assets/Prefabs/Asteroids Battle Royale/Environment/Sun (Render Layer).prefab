@@ -5334,7 +5334,7 @@ GameObject:
   - component: {fileID: 6511597745559682967}
   - component: {fileID: 6511597745559682968}
   m_Layer: 15
-  m_Name: Sun Test
+  m_Name: Sun (Render Layer)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
