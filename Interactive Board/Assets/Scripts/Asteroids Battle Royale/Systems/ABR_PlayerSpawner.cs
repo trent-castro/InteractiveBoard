@@ -16,7 +16,6 @@ public struct Player
     }
 }
 
-
 public class ABR_PlayerSpawner : MonoBehaviour
 {
     [SerializeField]
@@ -38,8 +37,8 @@ public class ABR_PlayerSpawner : MonoBehaviour
         {
             m_players[i] = new Player()
             {
-                ship = m_playerObjects[i].GetComponentInChildren<ABR_Ship>(true),
-                camera = m_playerObjects[i].GetComponentInChildren<ABR_FollowShipCamera2D>(true)
+                ship = m_playerObjects[i].GetComponentInChildren<ABR_Ship>(),
+                camera = m_playerObjects[i].GetComponentInChildren<ABR_FollowShipCamera2D>()
             };
         }
     }
@@ -85,10 +84,6 @@ public class ABR_PlayerSpawner : MonoBehaviour
         }
 
         return validSpawns.Count > 0 ? validSpawns[UnityEngine.Random.Range(0, validSpawns.Count)] : transform;
-    }
-    public Player[] GetListOfPlayers()
-    {
-        return null;
     }
 
     public Player[] GetListOfPlayers()

@@ -9,24 +9,31 @@ public class ABR_Gameloop : MonoBehaviour
     [Tooltip("A reference to the player spawner.")]
     [SerializeField]
     private ABR_PlayerSpawner m_playerSpawner;
-
-    // Private data members
-    private Player[] m_players;
-
-    void Awake()
-    {
-        instance = this;
-    }
+    [Tooltip("A reference to the leave manager.")]
+    [SerializeField]
+    private ABR_LeaveManager m_leaveManager;
 
     public void CheckGameState()
     {
-        // update list of players
-        // check if win
+        bool[] playerIsAlive = m_leaveManager.GetStatesOfShips();
+        int aliveCount = 0;
+        foreach(bool state in playerIsAlive)
+        {
+            if(state)
+            {
+                ++aliveCount;
+            }
+        }
+
+        if(aliveCount <= 1)
+        {
+            EndGame();
+        }
     }
 
     public void EndGame()
     {
-        // if multiple, tie
+        // send back to screen
+        Debug.Log("HEY BY THE WAY THE GAME SHOULD HAVE ENDED");
     }
-}
 }
