@@ -7,7 +7,8 @@ public class ABR_LaserBullet : ABR_Bullet
     private bool isDealingDamage = false;
     private new void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag(ABR_Tags.BulletTag) && !collision.gameObject.CompareTag(ABR_Tags.ShipCollisionTag) && !collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.GravityTag))
+        if (!collision.gameObject.CompareTag(ABR_Tags.BulletTag) && !collision.gameObject.CompareTag(ABR_Tags.ShipCollisionTag)
+            && !collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.GravityTag) && !collision.CompareTag(ABR_Tags.WeaponTag))
         {
             isDealingDamage = true;
             ABR_Health healthComponent = collision.GetComponent<ABR_Health>();

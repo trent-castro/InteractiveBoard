@@ -63,7 +63,6 @@ public class ABR_Asteroid : MonoBehaviour
 	public void AddItem(GameObject item)
 	{
 		m_item = item;
-		m_item.transform.SetParent(this.transform);
 		m_item.transform.localPosition = Vector3.zero;
 		m_item.SetActive(false);
 	}
@@ -76,7 +75,6 @@ public class ABR_Asteroid : MonoBehaviour
 	{
 		if (m_item)
 		{
-			m_item.transform.SetParent(null);
 			m_item.transform.position = this.transform.position;
 			m_item.SetActive(true);
 			GameObject item = m_item;
