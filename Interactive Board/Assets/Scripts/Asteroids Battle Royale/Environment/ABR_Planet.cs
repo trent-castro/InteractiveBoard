@@ -20,6 +20,7 @@ public class ABR_Planet : MonoBehaviour
 	{
 
 		_angle += RotateSpeed * Time.deltaTime;
+		if (_angle > 360) _angle = _angle % 360;
 
 		var offset = Evaluate(_angle);
 		transform.localPosition = _centre + offset;
