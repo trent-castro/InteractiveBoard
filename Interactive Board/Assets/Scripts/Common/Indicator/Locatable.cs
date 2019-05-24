@@ -18,6 +18,4 @@ public class Locatable : MonoBehaviour
     {
         LocatorManager.Instance.Register(this);
     }
-
-
 }
