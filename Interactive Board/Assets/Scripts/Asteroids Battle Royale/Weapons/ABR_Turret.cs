@@ -7,7 +7,8 @@ public class ABR_Turret : MonoBehaviour
     [Header("Configuration")]
     [Tooltip("The Spawn Location for the bullets")]
     [SerializeField] Transform m_spawnLocation = null;
-    [Tooltip("Refference to the respecive players bullet pool")]
+    [Tooltip("Different Types of weapon Sounds 0:Basic 1:Shotgun 2:Explosion 3:Pierce 4:Laser")]
+    [SerializeField] AudioClip[] m_audioClips = new AudioClip[5];
 
     [Header("Debug")]
     [SerializeField] bool DebugMode = false;
@@ -66,7 +67,7 @@ public class ABR_Turret : MonoBehaviour
             if (m_weapon.Fire(m_rigidbody.velocity))
             {
                 //Plays Shot Audio
-                m_audioSource.Play();
+                PlaySound();
             }
             m_isOkayToFire = false;
         }
@@ -74,6 +75,33 @@ public class ABR_Turret : MonoBehaviour
         {
             Debug.Log("Weapon Type: " + m_weapon.GetType());
         }
+
+    }
+
+    /// <summary>
+    /// Given the weapon type will play the sound assigned to the attached weapon
+    /// </summary>
+    public void PlaySound()
+    {
+        switch (m_weapon.GetBulletType())
+        {
+            case eBulletType.BASIC:
+                m_audioSource.clip = m_audioClips[0];
+                break;
+            case eBulletType.SHOTGUN:
+                m_audioSource.clip = m_audioClips[1];
+                break;
+            case eBulletType.EXPLOSION:
+                m_audioSource.clip = m_audioClips[2];
+                break;
+            case eBulletType.PIERCE:
+                m_audioSource.clip = m_audioClips[3];
+                break;
+            case eBulletType.LASER:
+                m_audioSource.clip = m_audioClips[4];
+                break;
+        }
+        m_audioSource.Play();
 
     }
 

@@ -12,9 +12,6 @@ public class ABR_BasicBullet : ABR_Bullet
 
     private new void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!collision.CompareTag(ABR_Tags.WallTag) && ! collision.CompareTag(ABR_Tags.ShipCollisionTag))
-        {
-        }
 		base.OnTriggerEnter2D(collision);
     }
 }
