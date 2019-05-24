@@ -1543,6 +1543,23 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0589c7fdddb6712428f44a3833cf4b29, type: 3}
+--- !u!1 &1046030348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2492352805452197967, guid: 855f64fb5c3948e429e12964f4adf823,
+    type: 3}
+  m_PrefabInstance: {fileID: 4296681249535923459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!210 &1046030349
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046030348}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!114 &1054058545 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2702195542215697972, guid: 97df5ad1eb3b4d14cb47b6644237a219,
@@ -4189,6 +4206,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 513921806}
     m_Modifications:
+    - target: {fileID: 1892475733648173297, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892475733648173297, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892475733648173297, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892475733648173297, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892475733648173297, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892475733648173297, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492352805452197967, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4296681248172560536, guid: 855f64fb5c3948e429e12964f4adf823,
         type: 3}
       propertyPath: m_Name
