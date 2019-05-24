@@ -12,9 +12,11 @@ public class ABR_LaserWeapon : ABR_Weapon
 
     public override bool Fire(Vector3 shipVelocity)
     {
-        ABR_LaserBullet bullet = ABR_GlobalInfo.BulletManager.GetObjectFromTaggedPool(m_bulletTye.ToString()).GetComponent<ABR_LaserBullet>();
-        bullet.gameObject.SetActive(true);
-        bullet.gameObject.transform.position = m_bulletSpawnLocation.position;
+        GameObject go = ABR_GlobalInfo.BulletManager.GetObjectFromTaggedPool(m_bulletTye.ToString());
+        ABR_LaserBullet bullet = go.GetComponentInChildren<ABR_LaserBullet>();
+        go.gameObject.SetActive(true);
+        go.gameObject.transform.position = m_bulletSpawnLocation.position;
+        go.gameObject.transform.rotation = gameObject.transform.rotation;
         Vector3 fireDir = m_bulletSpawnLocation.transform.up;
 
         bullet.Fire(fireDir, shipVelocity);
