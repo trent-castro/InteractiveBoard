@@ -65,11 +65,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
         if (m_Indicator != null)
         {
-            m_Indicator.transform.position = m_StartPos + newPos;
+            m_Indicator.transform.localPosition = newPos;
         }
         else
         {
-            transform.position = m_StartPos + newPos;
+            transform.localPosition = m_StartPos + newPos;
         }
         Axes = newPos;
     }
@@ -78,11 +78,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         if (m_Indicator != null)
         {
-            m_Indicator.transform.position = m_StartPos;
+            m_Indicator.transform.localPosition = Vector2.zero;
         }
         else
         {
-            transform.position = m_StartPos;
+            transform.localPosition = m_StartPos;
         }
         Axes = Vector2.zero;
         PointerDown = false;
