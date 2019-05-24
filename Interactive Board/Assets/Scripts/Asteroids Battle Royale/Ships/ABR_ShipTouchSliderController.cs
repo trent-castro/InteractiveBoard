@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-
-public class ABR_ShipTouchController : ABR_Ship
+public class ABR_ShipTouchSliderController : ABR_Ship
 {
     [SerializeField]
     private Collider2D m_touchArea = null;
+
+    [SerializeField]
+    Slider m_thrustInput = null;
+
     [SerializeField]
     private Camera m_viewport = null;
 
@@ -83,9 +87,7 @@ public class ABR_ShipTouchController : ABR_Ship
                 TurnTo(turnAngle);
             }
 
-            float distanceFromCenter = (touchPosition - (Vector2)transform.position).magnitude;
-
-            Thrust(Mathf.Clamp01((distanceFromCenter - m_turnOnlyRadius) / (m_thrustRadius - m_turnOnlyRadius)));
+            Thrust(m_thrustInput.value / m_thrustInput.maxValue);
         }
         else
         {

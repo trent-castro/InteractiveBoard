@@ -14,6 +14,16 @@ public abstract class ABR_Ship : MonoBehaviour
     private float m_turn = 0;
 
     [SerializeField]
+    private float m_verticalThrustCapMult = 10.0f;
+    [SerializeField]
+    private float m_horizontalThrustCapMult = 5.0f;
+    [SerializeField]
+    private float m_thrustSmoothTime = 10.0f;
+
+    [SerializeField]
+    private float m_turnSmoothTime = 0.1f;
+
+    [SerializeField]
     private float m_maxSpeed = 10.0f;
 
     [SerializeField]
@@ -22,13 +32,11 @@ public abstract class ABR_Ship : MonoBehaviour
     [SerializeField]
     private float m_turnPowerWhenThrusting = 120.0f;
 
-
     public float TurnGoal { get; private set; } = 0;
     private bool m_doTurnTo = false;
     private bool m_forceTurnTo = false;
     private float m_goalTurn = 0;
     private ABR_Turret m_turret = null;
-
 
     public Vector2 m_acceleration = Vector2.zero;
     public float m_angularAcceleration = 0;
@@ -159,7 +167,7 @@ public abstract class ABR_Ship : MonoBehaviour
 
     private float SmoothDampAngularVelocity(float target)
     {
-        return Mathf.SmoothDamp(m_RigidBody.angularVelocity, target, ref m_angularAcceleration, .1f);
+        return Mathf.SmoothDamp(m_RigidBody.angularVelocity, target, ref m_angularAcceleration, m_turnSmoothTime);
     }
 
     private Vector2 SmoothDampVelocity(Vector2 target)
@@ -170,8 +178,8 @@ public abstract class ABR_Ship : MonoBehaviour
         Vector2 velocitySideways = m_RigidBody.velocity - velocityForward;
         Vector2 accelerationSideways = m_acceleration - accelerationForward;
 
-        Vector2 newVelocityForward = Vector2.SmoothDamp(velocityForward, target, ref accelerationForward, .25f, 10);
-        Vector2 newVelocitySideways = Vector2.SmoothDamp(velocitySideways, target, ref accelerationSideways, .25f, 10);
+        Vector2 newVelocityForward = Vector2.SmoothDamp(velocityForward, target, ref accelerationForward, m_thrustSmoothTime, m_verticalThrustCapMult * m_ThrustMult);
+        Vector2 newVelocitySideways = Vector2.SmoothDamp(velocitySideways, target, ref accelerationSideways, m_thrustSmoothTime, m_horizontalThrustCapMult * m_ThrustMult);
 
         Vector2 newVelocity = newVelocitySideways;
 
