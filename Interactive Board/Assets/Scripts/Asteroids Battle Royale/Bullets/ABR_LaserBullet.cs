@@ -7,7 +7,8 @@ public class ABR_LaserBullet : ABR_Bullet
     private bool isDealingDamage = false;
     private new void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag(ABR_Tags.BulletTag) && !collision.gameObject.CompareTag(ABR_Tags.ShipCollisionTag) && !collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.GravityTag))
+        if (!collision.gameObject.CompareTag(ABR_Tags.BulletTag) && !collision.gameObject.CompareTag(ABR_Tags.ShipCollisionTag)
+            && !collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.GravityTag) && !collision.CompareTag(ABR_Tags.WeaponTag))
         {
             isDealingDamage = true;
             ABR_Health healthComponent = collision.GetComponent<ABR_Health>();
@@ -22,8 +23,10 @@ public class ABR_LaserBullet : ABR_Bullet
     }
     public override void Fire(Vector2 direction, Vector2 shipVelocity)
     {
-
+        Vector3 directionConversion = Vector3.zero;
+        directionConversion.z = direction.x;
         m_rigidbody.velocity = (direction * m_speed) + shipVelocity;
+
     }
 
     private IEnumerator DamageCoroutine(ABR_Health health)

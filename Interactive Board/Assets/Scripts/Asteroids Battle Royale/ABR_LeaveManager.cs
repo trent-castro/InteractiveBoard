@@ -50,7 +50,6 @@ public class ABR_LeaveManager : MonoBehaviour
 	{
 		m_isReadyToLeave[player] = false;
 		m_LeaveUI[player].SetActive(false);
-
 	}
 
 	private void LeaveGame()
@@ -58,4 +57,9 @@ public class ABR_LeaveManager : MonoBehaviour
 		Debug.Log("End Game");
 		SceneManager.LoadScene("ArcadeMenu");
 	}
+
+    public bool[] GetStatesOfShips()
+    {
+        return m_isReadyToLeave;
+    }
 }
