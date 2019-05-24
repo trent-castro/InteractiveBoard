@@ -38,8 +38,8 @@ public class ABR_PlayerSpawner : MonoBehaviour
         {
             m_players[i] = new Player()
             {
-                ship = m_playerObjects[i].GetComponentInChildren<ABR_Ship>(),
-                camera = m_playerObjects[i].GetComponentInChildren<ABR_FollowShipCamera2D>()
+                ship = m_playerObjects[i].GetComponentInChildren<ABR_Ship>(true),
+                camera = m_playerObjects[i].GetComponentInChildren<ABR_FollowShipCamera2D>(true)
             };
         }
     }
