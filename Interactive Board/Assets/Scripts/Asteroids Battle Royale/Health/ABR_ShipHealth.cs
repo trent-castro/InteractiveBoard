@@ -28,5 +28,6 @@ public class ABR_ShipHealth : ABR_Health
 		m_isAlive = false;
 		if (m_root) m_root.SetActive(false);
 		if (DeathUI) DeathUI.SetActive(true);
+        ABR_Gameloop.instance.CheckGameState();
 	}
 }

@@ -19,7 +19,7 @@ public class ABR_ShipInitialization : MonoBehaviour
 		{
 			if (i < m_UI.Length) m_UI[i].SetActive(false);
 			if (i < m_players.Length) m_players[i].SetActive(true);
-			spawner.Respawn(i);
+			spawner.JoinGame(i);
 		}
 	}
 
