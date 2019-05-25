@@ -10,11 +10,9 @@ public class ABR_ShipJoystickThrustController : MonoBehaviour
     Joystick m_input = null;
 
     [SerializeField]
-    private float m_thrustRadius = 50f;
+    private float m_thrustRadius = 40f;
     [SerializeField]
-    private float m_turnOnlyRadius = 25f;
-    [SerializeField]
-    private float m_tolerance = 5f;
+    private float m_turnOnlyRadius = 20f;
 
     [SerializeField]
     private GameObject m_touchVisual = null;
@@ -22,6 +20,11 @@ public class ABR_ShipJoystickThrustController : MonoBehaviour
     private ABR_Ship m_ship = null;
 
     private bool started = false;
+
+    private void OnEnable()
+    {
+        if (started) { StartTouch(); }
+    }
 
     private void Awake()
     {
@@ -31,6 +34,8 @@ public class ABR_ShipJoystickThrustController : MonoBehaviour
     private void StartTouch()
     {
         started = true;
+        m_touchVisual.transform.localPosition = Vector3.up * 5;
+        m_touchVisual.transform.localRotation = Quaternion.identity;
         ToggleTouchVisual(true);
     }
 

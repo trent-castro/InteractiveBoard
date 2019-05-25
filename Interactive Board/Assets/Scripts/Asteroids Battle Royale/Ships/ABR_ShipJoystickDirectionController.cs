@@ -9,10 +9,6 @@ public class ABR_ShipJoystickDirectionController : MonoBehaviour
     Joystick m_input = null;
 
     [SerializeField]
-    private float m_thrustRadius = 50f;
-    [SerializeField]
-    private float m_turnOnlyRadius = 25f;
-    [SerializeField]
     private float m_tolerance = 5f;
     
     private ABR_Ship m_ship = null;

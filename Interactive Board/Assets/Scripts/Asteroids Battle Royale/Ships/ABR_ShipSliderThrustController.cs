@@ -15,22 +15,30 @@ public class ABR_ShipSliderThrustController : MonoBehaviour
 
     private ABR_Ship m_ship = null;
 
+    private bool started = false;
+
     private void Awake()
     {
         m_ship = GetComponent<ABR_Ship>();
     }
 
-    private bool started = false;
+    private void OnEnable()
+    {
+        if (started) { StartTouch(); }
+    }
 
     private void StartTouch()
     {
         started = true;
+        m_touchVisual.transform.localPosition = Vector3.up * 5;
+        m_touchVisual.transform.localRotation = Quaternion.identity;
+        ToggleTouchVisual(true);
     }
 
     private void EndTouch()
     {
         m_ship.StopThrust();
-        m_ship.StopTurnTo();
+        ToggleTouchVisual(false);
         started = false;
     }
 
