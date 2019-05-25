@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public abstract class ABR_Ship : MonoBehaviour
+public class ABR_Ship : MonoBehaviour
 {
     public Rigidbody2D m_RigidBody { get; private set; } = null;
     public float m_ThrustMult { get; private set; } = 1;
 
-    private bool m_doThrust = false;
     private bool m_forceThrust = false;
     private float m_turn = 0;
 
@@ -18,7 +17,7 @@ public abstract class ABR_Ship : MonoBehaviour
     [SerializeField]
     private float m_horizontalThrustCapMult = 5.0f;
     [SerializeField]
-    private float m_thrustSmoothTime = 10.0f;
+    private float m_thrustSmoothTime = 0.25f;
 
     [SerializeField]
     private float m_turnSmoothTime = 0.1f;
@@ -50,7 +49,6 @@ public abstract class ABR_Ship : MonoBehaviour
                 m_forceThrust = true;
             }
             m_ThrustMult = mult;
-            m_doThrust = true;
         }
     }
 
@@ -62,7 +60,7 @@ public abstract class ABR_Ship : MonoBehaviour
             {
                 m_forceThrust = false;
             }
-            m_doThrust = false;
+            m_ThrustMult = 0;
         }
     }
 
@@ -73,12 +71,18 @@ public abstract class ABR_Ship : MonoBehaviour
 
     public void TurnClockwise()
     {
-        m_turn = Mathf.Clamp(--m_turn, -1, 1);
+        if (!m_forceTurnTo)
+        {
+            m_turn = Mathf.Clamp(--m_turn, -1, 1);
+        }
     }
 
     public void TurnCounterClockWise()
     {
-        m_turn = Mathf.Clamp(++m_turn, -1, 1);
+        if (!m_forceTurnTo)
+        {
+            m_turn = Mathf.Clamp(++m_turn, -1, 1);
+        }
     }
 
     public void StopTurn(bool force = false)
@@ -105,6 +109,7 @@ public abstract class ABR_Ship : MonoBehaviour
             TurnGoal = degrees;
             m_doTurnTo = true;
             m_goalTurn = 0;
+            m_turn = 0;
         }
     }
 
@@ -126,6 +131,7 @@ public abstract class ABR_Ship : MonoBehaviour
             }
             m_RigidBody.angularVelocity = 0;
             m_doTurnTo = false;
+            m_turn = 0;
         }
     }
 
@@ -154,7 +160,7 @@ public abstract class ABR_Ship : MonoBehaviour
             m_RigidBody.angularVelocity = SmoothDampAngularVelocity(Mathf.Lerp(m_turnPower, m_turnPowerWhenThrusting, m_ThrustMult) * m_goalTurn);
         }
 
-        if (m_doThrust || m_forceThrust)
+        if (m_ThrustMult != 0 || m_forceThrust)
         {
 
             m_RigidBody.velocity = SmoothDampVelocity(transform.up * m_maxSpeed * m_ThrustMult);
