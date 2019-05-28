@@ -10,10 +10,11 @@ public class ABR_Planet : MonoBehaviour
 	private Vector2 _centre = Vector2.zero;
 	private float _angle = 0f;
 
+    private float offsetMultiplier = 25.0f;
 
 	private void Start()
 	{
-		_centre = transform.localPosition;
+		_centre = transform.position;
 	}
 
 	private void Update()
@@ -23,7 +24,7 @@ public class ABR_Planet : MonoBehaviour
 		if (_angle > 360) _angle = _angle % 360;
 
 		var offset = Evaluate(_angle);
-		transform.localPosition = _centre + offset;
+		transform.position = _centre + offset * offsetMultiplier;
 	}
 
 	public Vector2 Evaluate(float t)
