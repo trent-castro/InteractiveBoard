@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 1892475733648173297}
   - component: {fileID: 4379983576010711877}
   - component: {fileID: 3715073815561962387}
+  - component: {fileID: 3017831188758159463}
   m_Layer: 14
   m_Name: Particle System
   m_TagString: Untagged
@@ -90,9 +91,9 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -4809,6 +4810,21 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &3017831188758159463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2492352805452197967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72f562ad9b567a4cac2d96c62f5f257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spawningArea: {x: 100, y: 30}
+  m_timeBetweenPlays: 10
+  m_spawnVariance: 5
 --- !u!1 &4133380456090012963
 GameObject:
   m_ObjectHideFlags: 0
@@ -4942,7 +4958,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &4296681248172560536
 GameObject:
   m_ObjectHideFlags: 0
@@ -5110,7 +5126,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &8622577357384617165
 GameObject:
   m_ObjectHideFlags: 0
@@ -5244,7 +5260,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1001 &2189489616140840782
 PrefabInstance:
   m_ObjectHideFlags: 0
