@@ -7,7 +7,7 @@ public class ABR_ShipReactable : Reactable
 {
     private ABR_Ship m_target = null;
 
-    private void Start()
+    private void Awake()
     {
         m_target = GetComponent<ABR_Ship>();
     }
