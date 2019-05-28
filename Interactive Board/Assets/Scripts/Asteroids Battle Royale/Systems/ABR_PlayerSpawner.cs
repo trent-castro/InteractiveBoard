@@ -71,7 +71,7 @@ public class ABR_PlayerSpawner : MonoBehaviour
             bool valid = true;
             foreach (Player p in m_players)
             {
-                if (Vector3.Distance(p.ship.transform.position, sp.position) <= m_PuppyGuardRadius && p.ship.isActiveAndEnabled)
+                if (Vector3.Distance(p.ship.transform.position, sp.position) <= m_PuppyGuardRadius && p.ship.gameObject.activeInHierarchy)
                 {
                     valid = false;
                     break;

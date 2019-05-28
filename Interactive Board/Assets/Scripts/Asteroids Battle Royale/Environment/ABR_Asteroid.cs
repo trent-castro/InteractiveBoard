@@ -52,7 +52,7 @@ public class ABR_Asteroid : MonoBehaviour
 
 		if (m_decayTimer >= m_decayMaxTime)
 		{
-			this.gameObject.SetActive(false);
+            StartCoroutine("Perishing");
 		}
 	}
 
