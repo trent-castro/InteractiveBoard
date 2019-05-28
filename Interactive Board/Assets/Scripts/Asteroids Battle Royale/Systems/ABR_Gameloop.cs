@@ -5,6 +5,7 @@ using UnityEngine;
 public class ABR_Gameloop : MonoBehaviour
 {
     public static ABR_Gameloop instance;
+
     [Header("External References")]
     [Tooltip("A reference to the leave manager.")]
     [SerializeField]
