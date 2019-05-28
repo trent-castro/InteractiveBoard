@@ -6,8 +6,12 @@ using TMPro;
 public class AsteroidsPlayerSelect : MonoBehaviour
 {
 	[SerializeField] TextMeshProUGUI m_playerCountText = null;
-	[SerializeField] [Range (1, 4)] int m_playerCount = 4;
+    private const int MIN_PLAYER_COUNT = 1;
+    private const int MAX_PLAYER_COUNT = 4;
+    [SerializeField] [Range (1, MAX_PLAYER_COUNT)] int m_playerCount = MAX_PLAYER_COUNT;
 	[SerializeField] GameObject[] m_ships = null;
+    [SerializeField] GameObject[] m_visibleArrows = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +21,7 @@ public class AsteroidsPlayerSelect : MonoBehaviour
 
 	public void ChangePlayerCount(int offset)
 	{
-		m_playerCount = Mathf.Clamp(m_playerCount + offset, 1, 4);
+		m_playerCount = Mathf.Clamp(m_playerCount + offset, MIN_PLAYER_COUNT, MAX_PLAYER_COUNT);
 		m_playerCountText.text = m_playerCount.ToString();
 
 		
@@ -26,11 +30,29 @@ public class AsteroidsPlayerSelect : MonoBehaviour
 			if (i < m_playerCount) m_ships[i].gameObject.SetActive(true);
 			else m_ships[i].gameObject.SetActive(false);
 		}
+        
+        switch(m_playerCount)
+        {
+            case MIN_PLAYER_COUNT:
+                m_visibleArrows[0].SetActive(false);
+                break;
+            case MIN_PLAYER_COUNT + 1:
+                m_visibleArrows[0].SetActive(true);
+                break;
+            case MAX_PLAYER_COUNT - 1:
+                m_visibleArrows[1].SetActive(true);
+                break;
+            case MAX_PLAYER_COUNT:
+                m_visibleArrows[1].SetActive(false);
+                break;
+            default:
+                Debug.Log("Unreachable code detected");
+                break;
+        }
 	}
 
 	public void StartGame()
 	{
 		PlayerPrefs.SetInt("ABR_PlayerCount", m_playerCount);
 	}
-    
 }
