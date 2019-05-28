@@ -64,6 +64,7 @@ public class MultiTouchManager : MonoBehaviour
         {
             bool overlap = overlapPoint(touch.WorldPosition(camera));
             bool overlapLastFrame = overlapPoint(touch.LastWorldPosition(camera));
+
             if (overlap && overlapLastFrame)
             {
                 handler(touch, ETouchEventType.IN);

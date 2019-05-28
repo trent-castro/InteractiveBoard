@@ -6,8 +6,6 @@ public class LocatorManager : MonoBehaviour
 {
     public List<Locatable> Locatables { get; private set; } = new List<Locatable>();
 
-    public List<GameObject> IndicatorPrefabs { get; private set; } = new List<GameObject>();
-
     public List<Locator> Locators { get; private set; } = new List<Locator>();
 
     public static LocatorManager Instance { get; set; }
@@ -30,7 +28,7 @@ public class LocatorManager : MonoBehaviour
     {
         foreach (Locator locator in Locators)
         {
-            locator.SetupIndicators(Locatables, IndicatorPrefabs);
+            locator.SetupIndicators(Locatables);
         }
 
         Started = true;
@@ -39,13 +37,12 @@ public class LocatorManager : MonoBehaviour
     public void Register(Locatable locatable)
     {
         Locatables.Add(locatable);
-        IndicatorPrefabs.Add(locatable.IndicatorPrefab);
 
         if (Started)
         {
             foreach (Locator locator in Locators)
             {
-                locator.AddIndicator(locatable.IndicatorPrefab);
+                locator.AddIndicator(locatable);
             }
         }
     }
@@ -56,7 +53,7 @@ public class LocatorManager : MonoBehaviour
 
         if (Started)
         {
-            locator.SetupIndicators(Locatables, IndicatorPrefabs);
+            locator.SetupIndicators(Locatables);
         }
     }
 }
