@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowRotation : MonoBehaviour
 {
     [SerializeField]
-    private Transform m_target = null;
+    public Transform m_target = null;
 
     void Update()
     {
