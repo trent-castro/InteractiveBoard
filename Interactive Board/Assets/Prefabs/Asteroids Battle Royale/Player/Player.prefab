@@ -14781,11 +14781,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -15461,6 +15461,7 @@ GameObject:
   - component: {fileID: 4243930611556595047}
   - component: {fileID: 1836870079973461667}
   - component: {fileID: 6556830446898447837}
+  - component: {fileID: 8267300628613329459}
   m_Layer: 15
   m_Name: Ship
   m_TagString: Player
@@ -15808,6 +15809,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_colorToRecieve: 
+--- !u!114 &8267300628613329459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903469429061020802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303be8e38dec18c43b9eb51dcc9d0516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_notificationActions:
+  - notificationType: Lost Control
+    UINotification: {fileID: 2315660115881658309}
 --- !u!1 &5950213695119244056
 GameObject:
   m_ObjectHideFlags: 0
@@ -16309,11 +16325,11 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
