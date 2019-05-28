@@ -8,7 +8,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class ButtonColorReciever : ColorReciever
 {
-    public override void SetColors(NameAndColorPair[] colors)
+    public override void SetColors(List<NameAndColorPair> colors)
     {
         ColorBlock buttonColors = GetComponent<Button>().colors;
 
