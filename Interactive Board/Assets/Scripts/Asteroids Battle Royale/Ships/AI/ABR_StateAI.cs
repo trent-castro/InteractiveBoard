@@ -44,7 +44,7 @@ public abstract class ABR_StateAI : ABR_Ship
 
     protected abstract void DisableAI();
 
-    protected void Awake()
+    protected new void Awake()
     {
         GetSiblingComponents();
         players = GameObject.FindGameObjectsWithTag(ABR_Tags.PlayerTag);
