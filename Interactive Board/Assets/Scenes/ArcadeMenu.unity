@@ -1092,7 +1092,7 @@ GameObject:
   - component: {fileID: 167987872}
   - component: {fileID: 167987871}
   m_Layer: 0
-  m_Name: btn air hockey
+  m_Name: Air Hockey Game Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1259,8 +1259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fce3ddc8b99164196eeb11c4159e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_currentSubMenu: title
-  m_launchMenu: title
+  m_currentSubMenu: Main Title Screen
+  m_launchMenu: Main Title Screen
   SubMenus:
   - {fileID: 563712714}
   - {fileID: 1516805891}
@@ -1667,11 +1667,11 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243093864}
-  m_LocalRotation: {x: 0, y: 0, z: 0.14363082, w: 0.98963135}
+  m_LocalRotation: {x: -0, y: -0, z: 0.14363082, w: 0.98963135}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 563712715}
+  m_Father: {fileID: 1500170598}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 16.516}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3041,7 +3041,7 @@ GameObject:
   - component: {fileID: 442586195}
   - component: {fileID: 442586194}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Game Set Up Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3764,7 +3764,7 @@ GameObject:
   - component: {fileID: 525466787}
   - component: {fileID: 525466786}
   m_Layer: 0
-  m_Name: btn Return to TITLE
+  m_Name: Return to Title Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3783,7 +3783,7 @@ RectTransform:
   m_Children:
   - {fileID: 1717933840}
   m_Father: {fileID: 563712715}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3866,7 +3866,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: title
+          m_StringArgument: Main Title Screen
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -3919,7 +3919,7 @@ GameObject:
   - component: {fileID: 563712715}
   - component: {fileID: 563712716}
   m_Layer: 0
-  m_Name: Main Menu
+  m_Name: Set Up Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3936,14 +3936,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1201468431}
-  - {fileID: 935673945}
-  - {fileID: 243093865}
-  - {fileID: 594284118}
   - {fileID: 907785954}
+  - {fileID: 1500170598}
+  - {fileID: 1392357675}
   - {fileID: 1542117150}
   - {fileID: 525466785}
-  - {fileID: 1392357675}
   m_Father: {fileID: 172299915}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3971,6 +3968,9 @@ MonoBehaviour:
   - {fileID: 935673944}
   - {fileID: 243093864}
   - {fileID: 594284117}
+  m_visibleArrows:
+  - {fileID: 613557237}
+  - {fileID: 773108830}
 --- !u!1 &587154095
 GameObject:
   m_ObjectHideFlags: 0
@@ -4035,11 +4035,11 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594284117}
-  m_LocalRotation: {x: 0, y: 0, z: 0.14363082, w: 0.98963135}
+  m_LocalRotation: {x: -0, y: -0, z: 0.14363082, w: 0.98963135}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 563712715}
+  m_Father: {fileID: 1500170598}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 16.516}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4191,7 +4191,7 @@ GameObject:
   - component: {fileID: 613557243}
   - component: {fileID: 613557242}
   m_Layer: 0
-  m_Name: Left
+  m_Name: Decrease Active Players Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4760,7 +4760,7 @@ GameObject:
   - component: {fileID: 678685894}
   - component: {fileID: 678685893}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5106,7 +5106,7 @@ GameObject:
   - component: {fileID: 773108836}
   - component: {fileID: 773108835}
   m_Layer: 0
-  m_Name: Right
+  m_Name: Increase Active Players Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6985,7 +6985,7 @@ RectTransform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 563712715}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -7415,7 +7415,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 563712715}
+  m_Father: {fileID: 1500170598}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -16.516}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8025,7 +8025,7 @@ GameObject:
   - component: {fileID: 1000265034}
   - component: {fileID: 1000265033}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Return to Menu Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8421,7 +8421,7 @@ GameObject:
   - component: {fileID: 1029901143}
   - component: {fileID: 1029901142}
   m_Layer: 0
-  m_Name: Title
+  m_Name: Title Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8589,7 +8589,7 @@ GameObject:
   - component: {fileID: 1048830439}
   - component: {fileID: 1048830440}
   m_Layer: 0
-  m_Name: btn Go To SETUP
+  m_Name: Game Set Up Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8703,7 +8703,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Main Menu
+          m_StringArgument: Set Up Screen
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -9594,7 +9594,7 @@ GameObject:
   - component: {fileID: 1152716455}
   - component: {fileID: 1152716454}
   m_Layer: 0
-  m_Name: TextMeshPro Text
+  m_Name: Play Game Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9753,7 +9753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1158273280}
   m_Layer: 0
-  m_Name: title
+  m_Name: Main Title Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10016,7 +10016,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 563712715}
+  m_Father: {fileID: 1500170598}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -16.516}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -10324,7 +10324,7 @@ GameObject:
   - component: {fileID: 1314611264}
   - component: {fileID: 1314611263}
   m_Layer: 0
-  m_Name: Player count
+  m_Name: Player Count Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11186,7 +11186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1392357675}
   m_Layer: 0
-  m_Name: Adjust Players
+  m_Name: Player Adjustment Set
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11208,7 +11208,7 @@ RectTransform:
   - {fileID: 773108831}
   - {fileID: 1314611262}
   m_Father: {fileID: 563712715}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11227,7 +11227,7 @@ GameObject:
   - component: {fileID: 1393211007}
   - component: {fileID: 1393211006}
   m_Layer: 0
-  m_Name: TextMeshPro Text
+  m_Name: Player Count Title Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11711,7 +11711,7 @@ GameObject:
   - component: {fileID: 1489074634}
   - component: {fileID: 1489074633}
   m_Layer: 0
-  m_Name: highlight
+  m_Name: Screen Wipe Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11788,6 +11788,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489074631}
   m_CullTransparentMesh: 0
+--- !u!1 &1500170597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1500170598}
+  m_Layer: 0
+  m_Name: Player Visuals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1500170598
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500170597}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1201468431}
+  - {fileID: 935673945}
+  - {fileID: 243093865}
+  - {fileID: 594284118}
+  m_Father: {fileID: 563712715}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1506531419
 GameObject:
   m_ObjectHideFlags: 0
@@ -12080,7 +12119,7 @@ GameObject:
   - component: {fileID: 1542117155}
   - component: {fileID: 1542117154}
   m_Layer: 0
-  m_Name: btn Go to ASTEROIDS SCENE
+  m_Name: Play Game Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12099,7 +12138,7 @@ RectTransform:
   m_Children:
   - {fileID: 1152716453}
   m_Father: {fileID: 563712715}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12437,7 +12476,7 @@ GameObject:
   - component: {fileID: 1578218535}
   - component: {fileID: 1578218531}
   m_Layer: 0
-  m_Name: btn asteroids base
+  m_Name: Asteroid Game Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13044,7 +13083,7 @@ GameObject:
   - component: {fileID: 1661222706}
   - component: {fileID: 1661222710}
   m_Layer: 0
-  m_Name: btn air hockey base
+  m_Name: Air Hockey Game Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13161,7 +13200,7 @@ PrefabInstance:
     - target: {fileID: 5027418009194788562, guid: ba3ebe500073c704ba5882ec4eb1d85f,
         type: 3}
       propertyPath: m_Name
-      value: BackToMenuButton
+      value: Back to Map Button
       objectReference: {fileID: 0}
     - target: {fileID: 5027418009194788557, guid: ba3ebe500073c704ba5882ec4eb1d85f,
         type: 3}
@@ -13299,6 +13338,11 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+    - target: {fileID: 5027418007259035173, guid: ba3ebe500073c704ba5882ec4eb1d85f,
+        type: 3}
+      propertyPath: m_Name
+      value: Back to Map Text
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba3ebe500073c704ba5882ec4eb1d85f, type: 3}
 --- !u!224 &1675781251 stripped
@@ -13493,7 +13537,7 @@ GameObject:
   - component: {fileID: 1717933842}
   - component: {fileID: 1717933841}
   m_Layer: 0
-  m_Name: TextMeshPro Text
+  m_Name: Return to Title Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15108,7 +15152,7 @@ GameObject:
   - component: {fileID: 1933575586}
   - component: {fileID: 1933575585}
   m_Layer: 0
-  m_Name: btn asteroids
+  m_Name: Asteroid Game Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16529,7 +16573,7 @@ GameObject:
   - component: {fileID: 2080958915}
   - component: {fileID: 2080958919}
   m_Layer: 0
-  m_Name: Title with highlight
+  m_Name: Title Text Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16817,7 +16861,7 @@ GameObject:
   - component: {fileID: 2124479652}
   - component: {fileID: 2124479653}
   m_Layer: 0
-  m_Name: btn Return to ARCADE
+  m_Name: Return to Menu Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
