@@ -7,9 +7,9 @@ public abstract class ColorReciever : MonoBehaviour
     [SerializeField]
     protected string m_colorToRecieve;
 
-    public abstract void SetColors(NameAndColorPair[] colors);
+    public abstract void SetColors(List<NameAndColorPair> colors);
 
-    protected Color GetColor(NameAndColorPair[] colors, string name)
+    protected Color GetColor(List<NameAndColorPair> colors, string name)
     {
         foreach(NameAndColorPair nameAndColorPair in colors)
         {

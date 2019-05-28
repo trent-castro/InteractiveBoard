@@ -2,39 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ABR_ShipKeyController : ABR_Ship
+[RequireComponent(typeof(ABR_Ship))]
+public class ABR_ShipKeyController : MonoBehaviour
 {
-    new void Update()
+    private ABR_Ship m_ship = null;
+
+    private bool horizontal = false;
+    private bool vertical = false;
+
+    private void Awake()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        m_ship = GetComponent<ABR_Ship>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetAxis("Horizontal") > 0)
         {
-            TurnCounterClockWise();
+            m_ship.TurnClockwise();
+            horizontal = true;
+        }
+        else if (Input.GetAxis("Horizontal") < 0)
+        {
+            m_ship.TurnCounterClockWise();
+            horizontal = true;
+        }
+        else if (horizontal)
+        {
+            horizontal = false;
+            m_ship.StopTurn();
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetAxis("Vertical") > 0)
         {
-            TurnClockwise();
+            m_ship.Thrust(1);
+            vertical = true;
+        }
+        else if (vertical)
+        {
+            vertical = false;
+            m_ship.StopThrust();
         }
 
-        if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetButtonDown("Fire"))
         {
-            StopTurn();
+            m_ship.GetComponentInChildren<ABR_Turret>().FireBullet();
         }
-
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            Thrust(1);
-        }
-        else
-        {
-            StopThrust();
-        }
-
-        if(Input.GetKeyUp(KeyCode.Space))
-        {
-            GetComponentInChildren<ABR_Turret>().FireBullet();
-        }
-
-        base.Update();
     }
 }

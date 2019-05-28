@@ -4,12 +4,11 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-public class ImageColorReciever : ColorReciever
+[RequireComponent(typeof(Locatable))]
+public class LocatableColorReciever : ColorReciever
 {
     public override void SetColors(List<NameAndColorPair> colors)
     {
-        GetComponent<Image>().color = GetColor(colors, m_colorToRecieve);
-
+        GetComponent<Locatable>().SetColors(colors);
     }
 }

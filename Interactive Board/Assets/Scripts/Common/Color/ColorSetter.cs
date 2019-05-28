@@ -13,9 +13,14 @@ public struct NameAndColorPair
 public class ColorSetter : MonoBehaviour
 {
     [SerializeField]
-    private NameAndColorPair[] m_Colors = null;
+    private List<NameAndColorPair> m_Colors = null;
 
-    private void Start()
+    private void Awake()
+    {
+        SetColors();
+    }
+
+    public void SetColors()
     {
         ColorReciever[] colorRecievers = GetComponentsInChildren<ColorReciever>(true);
 
@@ -23,5 +28,27 @@ public class ColorSetter : MonoBehaviour
         {
             colorReciever.SetColors(m_Colors);
         }
+    }
+
+    public void AddColor(string name, Color color)
+    {
+        m_Colors.Add(new NameAndColorPair()
+        {
+            name = name,
+            color = color
+        });
+    }
+
+    public void AddColors(List<NameAndColorPair> colors)
+    {
+        foreach(NameAndColorPair npc in colors)
+        {
+            m_Colors.Add(npc);
+        }
+    }
+
+    public void RemoveColor(string name, Color color)
+    {
+        m_Colors.RemoveAll(npc => npc.name == name);
     }
 }

@@ -17,7 +17,10 @@ public class Locator : MonoBehaviour
     private Camera m_camera = null;
 
     private List<Locatable> m_locatables = null;
-    private List<GameObject> m_indicators = new List<GameObject>();
+    private List<Indicator> m_indicators = new List<Indicator>();
+
+    [SerializeField]
+    private Transform m_indicatorParent = null;
 
     private void Awake()
     {
@@ -29,23 +32,23 @@ public class Locator : MonoBehaviour
         m_camera = GetComponent<Camera>();
     }
 
-    public void SetupIndicators(List<Locatable> locatables, List<GameObject> indicatorPrefabs)
+    public void SetupIndicators(List<Locatable> locatables)
     {
         m_locatables = locatables;
 
-        foreach (GameObject indicatorPrefab in indicatorPrefabs)
+        foreach (Locatable locatable in locatables)
         {
-            AddIndicator(indicatorPrefab);
+            AddIndicator(locatable);
         }
     }
 
-    public void AddIndicator(GameObject indicatorPrefab)
+    public void AddIndicator(Locatable locatable)
     {
-        GameObject icon = Instantiate(indicatorPrefab, transform);
-        m_indicators.Add(icon);
-        icon.gameObject.SetActive(false);
-        icon.gameObject.layer = m_layer;
-        foreach (Transform trans in icon.GetComponentsInChildren<Transform>(true))
+        Indicator indicator = locatable.GetIndicatorInstance(m_indicatorParent ?? transform);
+        m_indicators.Add(indicator);
+        indicator.gameObject.SetActive(false);
+        indicator.gameObject.layer = m_layer;
+        foreach (Transform trans in indicator.GetComponentsInChildren<Transform>(true))
         {
             trans.gameObject.layer = m_layer;
         }
@@ -53,8 +56,6 @@ public class Locator : MonoBehaviour
 
     void Update()
     {
-        Vector3 cameraZ = new Vector3(0, 0, transform.position.z);
-
         Vector2 cameraCenter = m_camera.WorldToScreenPoint(transform.position);
         Vector2 centerOffset;
         if (m_center == null)
@@ -71,26 +72,26 @@ public class Locator : MonoBehaviour
         for (int i = 0; i < m_locatables.Count; i++)
         {
             Locatable locatable = m_locatables[i];
-            GameObject indicator = m_indicators[i];
+            Indicator indicator = m_indicators[i];
 
             Vector2 locatablePosition = m_camera.WorldToScreenPoint(locatable.transform.position);
             Vector2 direction = locatablePosition - (cameraCenter + centerOffset);
 
             if (!locatable.isActiveAndEnabled || m_camera.pixelRect.Contains(locatablePosition) || direction.magnitude > m_indicationRange)
             {
-                indicator.SetActive(false);
+                indicator.gameObject.SetActive(false);
                 continue;
             }
-            else if (!indicator.activeInHierarchy)
+            else if (!indicator.isActiveAndEnabled)
             {
-                indicator.SetActive(true);
+                indicator.gameObject.SetActive(true);
             }
 
-            Vector2 intersection = FindIntersectionWithBounds(cameraCenter, centerOffset, direction, m_camera.pixelRect) - direction.normalized * locatable.SpaceFromEdge;
+            //Vector2 intersection = FindIntersectionWithBounds(cameraCenter, centerOffset, direction, m_camera.pixelRect) - direction.normalized * locatable.SpaceFromCenter;
 
             indicator.transform.rotation = Quaternion.Euler(0, 0, direction.ZAngle());
 
-            indicator.transform.position = m_camera.ScreenToWorldPoint(intersection) - cameraZ;
+            indicator.transform.position = cameraCenter + centerOffset + direction.normalized * locatable.SpaceFromCenter;
         }
 
     }
