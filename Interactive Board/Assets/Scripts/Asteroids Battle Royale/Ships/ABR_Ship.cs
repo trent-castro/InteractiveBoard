@@ -40,6 +40,16 @@ public class ABR_Ship : MonoBehaviour
     public Vector2 m_acceleration = Vector2.zero;
     public float m_angularAcceleration = 0;
 
+	public delegate void OnWeaponPickUp();
+
+	public OnWeaponPickUp m_weaponPickupEvent = null;
+
+
+	public string GetWeaponType()
+	{
+		return m_turret.GetWeaponType();
+	}
+
     public void Thrust(float mult, bool force = false)
     {
         if (!m_forceThrust || force)
@@ -211,6 +221,7 @@ public class ABR_Ship : MonoBehaviour
         {
             eBulletType weapontype = collision.gameObject.GetComponent<ABR_WeaponPickup>().m_weaponType;
             m_turret.SwitchWeapons(weapontype);
+			m_weaponPickupEvent.Invoke();
         }
     }
 
