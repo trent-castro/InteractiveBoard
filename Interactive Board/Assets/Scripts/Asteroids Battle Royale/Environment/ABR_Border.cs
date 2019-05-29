@@ -42,6 +42,11 @@ public class ABR_Border : MonoBehaviour
         if (ship != null)
         {
             runaways.Add(ship);
+            NotificationReciever notificationReciever = ship.GetComponent<NotificationReciever>();
+            if (notificationReciever != null)
+            {
+                notificationReciever.Notify("Lost Control");
+            }
         }
 		else
 		{
@@ -60,7 +65,14 @@ public class ABR_Border : MonoBehaviour
 		if (ship != null)
 		{
 			runaways.Remove(ship);
-			ship.StopThrust(true);
+
+            NotificationReciever notificationReciever = ship.GetComponent<NotificationReciever>();
+            if (notificationReciever != null)
+            {
+                notificationReciever.Notify("Lost Control", false);
+            }
+
+            ship.StopThrust(true);
 			ship.StopTurnTo(true);
 		}
     }

@@ -58,8 +58,19 @@ public class ABR_LeaveManager : MonoBehaviour
 		SceneManager.LoadScene("ArcadeMenu");
 	}
 
+	/// <summary>
+	/// Returns an array containing the alive state of all player ships. 
+	/// If a player has not joined the game, it is considered dead. If a player is attempting to end the game early, they are still considered alive.
+	/// </summary>
+	/// <returns></returns>
     public bool[] GetStatesOfShips()
     {
-        return m_isReadyToLeave;
+		bool[] isAliveStates = new bool[m_shipHealth.Length];
+		for (int i = 0; i < m_shipHealth.Length; i++)
+		{
+			isAliveStates[i] = m_shipHealth[i].m_isAlive;
+		}
+
+        return isAliveStates;
     }
 }
