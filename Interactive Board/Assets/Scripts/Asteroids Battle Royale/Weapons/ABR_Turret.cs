@@ -105,6 +105,11 @@ public class ABR_Turret : MonoBehaviour
 
     }
 
+	public string GetWeaponType()
+	{
+		return m_weapon.GetBulletType().ToString();
+	}
+
     public void SwitchWeapons(eBulletType bulletType)
     {
         //Weapon reference to replace m_weapon
