@@ -52,7 +52,7 @@ public class ABR_Asteroid : MonoBehaviour
 
 		if (m_decayTimer >= m_decayMaxTime)
 		{
-            StartCoroutine("Perishing");
+			Perish();
 		}
 	}
 
@@ -113,6 +113,7 @@ public class ABR_Asteroid : MonoBehaviour
 	public void Perish()
 	{
 		m_shards.Play();
+		m_perishTimer = 0;
 		StartCoroutine("Perishing");
 	}
 
