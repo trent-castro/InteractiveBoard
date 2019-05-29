@@ -19,9 +19,9 @@ public class ABR_ShipUIOverlay : MonoBehaviour
 		m_healthbar.maxValue = m_health.GetMaxHealth();
 		m_ship.m_weaponPickupEvent = UpdateWeapon;
 		UpdateHealth();
-		UpdateWeapon();
 	}
-    
+
+
 	public void UpdateHealth()
 	{
 		
