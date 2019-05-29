@@ -4,15 +4,15 @@ using UnityEngine;
 
 public abstract class ABR_Health : MonoBehaviour
 {
-	[SerializeField] float m_health = 0;
-	[SerializeField] float m_maxHealth = 0;
+	[SerializeField] float m_health = 100;
+	[SerializeField] float m_maxHealth = 100;
 	[SerializeField] public bool m_isAlive = false;
     [Tooltip("Duration of invincibility")]
     [SerializeField]
-    private float m_invincibilityDuration = 0.0f;
+    private float m_invincibilityDuration =0.75f;
     [Tooltip("Invincibility duration delay")]
     [SerializeField]
-    private float m_invincibilityDurationDelay = 0.0f;
+    private float m_invincibilityDurationDelay = 0.5f;
 
     protected bool isInvincible = false;
     protected bool invincibilityCoroutineHasStarted = false;
@@ -45,7 +45,7 @@ public abstract class ABR_Health : MonoBehaviour
 	}
     protected virtual void Die()
     {
-		if (OnDeath != null) OnDeath();
+        OnDeath?.Invoke();
         StopCoroutine(Invincibility());
     }
 
