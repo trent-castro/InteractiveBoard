@@ -567,6 +567,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 272786523607989012, guid: 97df5ad1eb3b4d14cb47b6644237a219,
+        type: 3}
+      propertyPath: m_innerImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 3916ea499e0168745a4ac773e553eb73,
+        type: 3}
     - target: {fileID: 8054258585327448024, guid: 97df5ad1eb3b4d14cb47b6644237a219,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -4958,6 +4964,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BodyType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017831188758159463, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_timeBetweenPlays
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 855f64fb5c3948e429e12964f4adf823, type: 3}
