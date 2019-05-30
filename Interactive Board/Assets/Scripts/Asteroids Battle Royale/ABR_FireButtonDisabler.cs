@@ -13,23 +13,32 @@ public class ABR_FireButtonDisabler : MonoBehaviour
     private Button m_fireButton = null;
 
     [SerializeField]
-    private GameObject m_reloadVisual = null;
+    private RectTransform m_reloadVisualMask = null;
+
+    Vector2 m_baseSize;
+
+    private void Start()
+    {
+        m_baseSize = m_reloadVisualMask.rect.size;
+    }
 
     private void Update()
     {
 
         if (m_turret.IsOkayToFire && !m_fireButton.interactable)
         {
-            m_reloadVisual.gameObject.SetActive(false);
+            m_reloadVisualMask.gameObject.SetActive(false);
         }
         else if (!m_turret.IsOkayToFire)
         {
             if (m_fireButton.interactable)
             {
-                m_reloadVisual.gameObject.SetActive(true);
+                m_reloadVisualMask.gameObject.SetActive(true);
             }
 
-            m_reloadVisual.transform.localScale = Vector3.one * Mathf.Lerp(0, 1, Interpolation.QuadraticOut(m_turret.getReloadPercent()));
+            Vector2 size = m_baseSize * Mathf.Lerp(0, 1, m_turret.getReloadPercent());
+            m_reloadVisualMask.offsetMin = -size / 2;
+            m_reloadVisualMask.offsetMax = size / 2;
         }
 
         m_fireButton.interactable = m_turret.IsOkayToFire;
