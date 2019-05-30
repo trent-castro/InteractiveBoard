@@ -4299,6 +4299,7 @@ GameObject:
   - component: {fileID: 1776433145}
   - component: {fileID: 1776433147}
   - component: {fileID: 1776433146}
+  - component: {fileID: 1776433148}
   m_Layer: 0
   m_Name: Winning Ship
   m_TagString: Untagged
@@ -4362,6 +4363,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776433144}
   m_CullTransparentMesh: 0
+--- !u!114 &1776433148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776433144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f92eca9b44534458103dafeb6288c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_offsetDirection: {x: 0.8, y: -1, z: 0}
+  m_effect: 3
+  m_offsetDistance: 1000
+  m_timeToReachPosition: 1.5
 --- !u!1001 &1798116025
 PrefabInstance:
   m_ObjectHideFlags: 0
