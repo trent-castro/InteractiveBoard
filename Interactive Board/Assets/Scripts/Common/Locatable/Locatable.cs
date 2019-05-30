@@ -14,10 +14,11 @@ public class Locatable : MonoBehaviour
     public float SpaceFromCenter => m_spaceFromCenter;
 
     [SerializeField]
-    private float m_indicationRange = 1000000f;
+    private float m_indicationRange = 5500;
 
     public float IndicationRange => m_indicationRange;
-
+    
+    [SerializeField]
     private List<NameAndColorPair> m_colors = new List<NameAndColorPair>();
 
     public void SetColors(List<NameAndColorPair> colors)
@@ -31,7 +32,7 @@ public class Locatable : MonoBehaviour
     [SerializeField]
     private Sprite m_innerImage = null;
 
-    private void Awake()
+    private void Start()
     {
         LocatorManager.Instance.Register(this);
     }
