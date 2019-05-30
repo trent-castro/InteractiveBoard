@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ABR_ShotgunWeapon : ABR_Weapon
 {
-    private uint m_numOfBullets = 9;
+    private uint m_numOfBullets = 7;
     private float m_shotAngle = 60;
 
     /// <summary>
@@ -15,6 +15,7 @@ public class ABR_ShotgunWeapon : ABR_Weapon
         m_bulletTye = eBulletType.SHOTGUN;
         m_fireDelay = 1.0f;
     }
+
     /// <summary>
     /// Method extending from Weapon; Used to spawn the type of bullets this weapon uses
     /// </summary>
@@ -41,7 +42,6 @@ public class ABR_ShotgunWeapon : ABR_Weapon
             //Call the bullet fire method
             bullet.Fire(fireDirection, shipVelocity);
         }
-        //reduce Ammo by one
         return true;
     }
 
