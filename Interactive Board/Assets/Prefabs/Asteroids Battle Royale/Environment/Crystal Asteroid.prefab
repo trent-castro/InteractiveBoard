@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2933925702656246107}
   - component: {fileID: 3410173485555929446}
   - component: {fileID: 3410173485555929445}
+  - component: {fileID: 1553442169452775449}
   m_Layer: 15
   m_Name: Crystal Asteroid
   m_TagString: Untagged
@@ -169,6 +170,27 @@ MonoBehaviour:
   m_isAlive: 1
   m_invincibilityDuration: 0
   m_invincibilityDurationDelay: 0
+  m_invincibilitySprite: {fileID: 0}
+--- !u!114 &1553442169452775449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410173485555929443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cc89238f5eeea42ab654530a8d7c93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_indicatorPrefab: {fileID: 8861434554284528772, guid: 3dd02d5735107d243a185b42c9e27962,
+    type: 3}
+  m_spaceFromCenter: 40
+  m_indicationRange: 1000
+  m_colors:
+  - name: Primary
+    color: {r: 0.6525454, g: 0.7844779, b: 0.9811321, a: 1}
+  m_innerImage: {fileID: 21300000, guid: 2bded2afd1e646043bf300256d983e5e, type: 3}
 --- !u!1 &3410173486653999609
 GameObject:
   m_ObjectHideFlags: 0

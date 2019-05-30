@@ -20,13 +20,9 @@ public class Locator : MonoBehaviour
     [SerializeField]
     private Transform m_indicatorParent = null;
 
-    private void Awake()
+    private void Start()
     {
         LocatorManager.Instance.Register(this);
-    }
-
-    void Start()
-    {
         m_camera = GetComponent<Camera>();
     }
 
@@ -87,7 +83,12 @@ public class Locator : MonoBehaviour
 
             indicator.transform.rotation = Quaternion.Euler(0, 0, direction.ZAngle());
 
+            Vector2 cameraEdge = FindIntersectionWithBounds(cameraCenter, centerOffset, direction, m_camera.rect);
+            float distance = (locatablePosition - cameraEdge).magnitude;
+
             indicator.transform.position = cameraCenter + centerOffset + direction.normalized * locatable.SpaceFromCenter;
+
+            indicator.transform.localScale = Vector3.one * (1 - (0.5f * distance / locatable.IndicationRange));
         }
 
     }
