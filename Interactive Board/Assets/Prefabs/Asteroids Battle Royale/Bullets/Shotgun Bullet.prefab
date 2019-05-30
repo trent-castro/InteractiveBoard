@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_lifeTime: 0.75
   m_speed: 20
-  m_damage: 8
+  m_damage: 5
   DebugMode: 0
 --- !u!212 &579717359438552671
 SpriteRenderer:
