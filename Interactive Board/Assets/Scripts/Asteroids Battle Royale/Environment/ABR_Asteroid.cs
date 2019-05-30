@@ -16,7 +16,7 @@ public class ABR_Asteroid : MonoBehaviour
 	Rigidbody2D m_rb = null;
 	public float speed = 3;
 	bool isMoving = false;
-
+	private Vector3 m_regularScale = new Vector3(5f, 5f, 5f);
 
 	//Controls for perish animation
 	float m_perishTimer = 0;
@@ -44,6 +44,7 @@ public class ABR_Asteroid : MonoBehaviour
 	private void OnEnable()
 	{
 		m_decayTimer = 0;
+		transform.localScale = m_normalScale;
 	}
 
 	private void Update()

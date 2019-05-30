@@ -6,7 +6,7 @@ using TMPro;
 public class AsteroidsPlayerSelect : MonoBehaviour
 {
 	[SerializeField] TextMeshProUGUI m_playerCountText = null;
-    private const int MIN_PLAYER_COUNT = 1;
+    private const int MIN_PLAYER_COUNT = 2;
     private const int MAX_PLAYER_COUNT = 4;
     [SerializeField] [Range (1, MAX_PLAYER_COUNT)] int m_playerCount = MAX_PLAYER_COUNT;
 	[SerializeField] GameObject[] m_ships = null;
