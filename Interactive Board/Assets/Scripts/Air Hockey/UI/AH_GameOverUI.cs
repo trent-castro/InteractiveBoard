@@ -15,6 +15,6 @@ public class AH_GameOverUI : MonoBehaviour
 	public void QuitGame()
 	{
 		Time.timeScale = 1.0f;
-		SceneManager.LoadScene("ArcadeMenu");
+		SceneManager.LoadScene("Arcade Menu");
 	}
 }
