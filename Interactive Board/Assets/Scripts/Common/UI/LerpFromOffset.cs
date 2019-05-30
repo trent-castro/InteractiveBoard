@@ -22,7 +22,7 @@ public class LerpFromOffset : MonoBehaviour
     private Vector3 m_desiredPos = Vector3.zero;
     private float m_currentTime = 0.0f;
 
-    void Start()
+    void Awake()
     {
         m_offset = m_offsetDirection.normalized * m_offsetDistance;
         m_desiredPos = transform.position;

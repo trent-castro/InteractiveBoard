@@ -18,7 +18,7 @@ public class GrowEffect : MonoBehaviour
     [SerializeField] Effect m_interpolationEffect = Effect.ELASTIC_IN_OUT;
     private float m_currentTime = 0.0f;
 
-    private void Start()
+    private void Awake()
     {
         transform.localScale = Vector3.zero;
     }

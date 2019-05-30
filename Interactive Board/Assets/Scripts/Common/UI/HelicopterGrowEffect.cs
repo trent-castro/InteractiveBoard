@@ -12,7 +12,7 @@ public class HelicopterGrowEffect : MonoBehaviour
     private Quaternion startingRotation = Quaternion.identity;
     private float rotationAmount = 0.0f;
 
-    private void Start()
+    private void Awake()
     {
         transform.localScale = Vector3.zero;
         startingRotation = transform.rotation;
