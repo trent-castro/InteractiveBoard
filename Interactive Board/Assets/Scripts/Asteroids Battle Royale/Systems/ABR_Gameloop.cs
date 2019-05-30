@@ -57,6 +57,6 @@ public class ABR_Gameloop : MonoBehaviour
 
 	public void ReturnToArcade()
 	{
-		SceneManager.LoadScene("ArcadeMenu");
+		SceneManager.LoadScene("Arcade Menu");
 	}
 }
