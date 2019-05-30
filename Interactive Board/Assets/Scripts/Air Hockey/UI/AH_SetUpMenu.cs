@@ -19,8 +19,12 @@ public class AH_SetUpMenu : MonoBehaviour
 	[SerializeField] Sprite[] m_themeForegrounds = null;
 	[SerializeField] Image m_foreground = null;
 
+
 	[SerializeField] TextMeshProUGUI m_pointsRequiredText = null;
-	[Range(3, 7)] int m_pointsRequired = 3;
+    [SerializeField] GameObject[] m_visibleArrows = null;
+    private const int MIN_POINT_COUNT = 3;
+    private const int MAX_POINT_COUNT = 7;
+    [Range(MIN_POINT_COUNT, MAX_POINT_COUNT)] int m_pointsRequired = 5;
 
 	ETheme m_theme;
 
@@ -81,5 +85,24 @@ public class AH_SetUpMenu : MonoBehaviour
 
 		m_pointsRequiredText.text = m_pointsRequired.ToString();
 		PlayerPrefs.SetInt("AirHockeyPointsRequired", m_pointsRequired);
-	}
+
+        switch (m_pointsRequired)
+        {
+            case MIN_POINT_COUNT:
+                m_visibleArrows[0].SetActive(false);
+                break;
+            case MIN_POINT_COUNT + 1:
+                m_visibleArrows[0].SetActive(true);
+                break;
+            case MAX_POINT_COUNT - 1:
+                m_visibleArrows[1].SetActive(true);
+                break;
+            case MAX_POINT_COUNT:
+                m_visibleArrows[1].SetActive(false);
+                break;
+            default:
+                Debug.Log("Unreachable code detected");
+                break;
+        }
+    }
 }
