@@ -5333,6 +5333,7 @@ GameObject:
   - component: {fileID: 4787717557836422743}
   - component: {fileID: 6511597745559682967}
   - component: {fileID: 6511597745559682968}
+  - component: {fileID: 3195502449729149869}
   m_Layer: 15
   m_Name: Sun (Render Layer)
   m_TagString: Untagged
@@ -5407,7 +5408,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10000
   m_Sprite: {fileID: 21300000, guid: 777e065bb1a8548488f6d794616d2eb9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5435,6 +5436,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.17602
+--- !u!114 &3195502449729149869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511597745559682965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9575abb5338c871469e67d7aacfa0887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInstantKill: 1
+  m_damage: 0
 --- !u!1 &8998073106452937959
 GameObject:
   m_ObjectHideFlags: 0

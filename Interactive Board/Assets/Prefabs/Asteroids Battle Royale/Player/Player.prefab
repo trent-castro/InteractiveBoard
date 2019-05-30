@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 902354585}
   - component: {fileID: 902354584}
   m_Layer: 0
-  m_Name: TouchArea
+  m_Name: Touch Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11003,7 +11003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6285588417367747458
 Transform:
   m_ObjectHideFlags: 0
@@ -12867,7 +12867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 730188674981571119}
   m_Layer: 15
-  m_Name: "Invincibility Bubl\xE9"
+  m_Name: Invincibility Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15281,7 +15281,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_indicatorPrefab: {fileID: 8861434554284528772, guid: 3dd02d5735107d243a185b42c9e27962,
     type: 3}
-  m_spaceFromCenter: 30
+  m_spaceFromCenter: 40
+  m_indicationRange: 1000000
   m_innerImage: {fileID: 0}
 --- !u!114 &8878663262046801235
 MonoBehaviour:
@@ -18037,6 +18038,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 7235185102702586911, guid: a25d8ccd8429b9c469c80074e5a98c10,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7235185101172691739, guid: a25d8ccd8429b9c469c80074e5a98c10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18091,11 +18097,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7235185102702586911, guid: a25d8ccd8429b9c469c80074e5a98c10,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5778048015641710237, guid: a25d8ccd8429b9c469c80074e5a98c10,
         type: 3}
@@ -18164,6 +18165,12 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 0db4dbea7c38c1841bcedcd9c3d2a4c1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a25d8ccd8429b9c469c80074e5a98c10, type: 3}
+--- !u!4 &2702195542215697973 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7235185101172691739, guid: a25d8ccd8429b9c469c80074e5a98c10,
+    type: 3}
+  m_PrefabInstance: {fileID: 4749232738281846062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2702195542215697972 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7235185101172691738, guid: a25d8ccd8429b9c469c80074e5a98c10,
@@ -18179,24 +18186,6 @@ MonoBehaviour:
 --- !u!4 &2702195541591775537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7235185102702586911, guid: a25d8ccd8429b9c469c80074e5a98c10,
-    type: 3}
-  m_PrefabInstance: {fileID: 4749232738281846062}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2702195542215697973 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7235185101172691739, guid: a25d8ccd8429b9c469c80074e5a98c10,
-    type: 3}
-  m_PrefabInstance: {fileID: 4749232738281846062}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 346cfa043f9e1614f8de49e4ea9708b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2702195542215697973 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7235185101172691739, guid: a25d8ccd8429b9c469c80074e5a98c10,
     type: 3}
   m_PrefabInstance: {fileID: 4749232738281846062}
   m_PrefabAsset: {fileID: 0}
