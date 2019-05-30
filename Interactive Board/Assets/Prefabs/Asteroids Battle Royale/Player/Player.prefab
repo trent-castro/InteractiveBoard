@@ -11003,7 +11003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6285588417367747458
 Transform:
   m_ObjectHideFlags: 0
@@ -15281,7 +15281,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_indicatorPrefab: {fileID: 8861434554284528772, guid: 3dd02d5735107d243a185b42c9e27962,
     type: 3}
-  m_spaceFromCenter: 30
+  m_spaceFromCenter: 40
+  m_indicationRange: 1000000
   m_innerImage: {fileID: 0}
 --- !u!114 &8878663262046801235
 MonoBehaviour:

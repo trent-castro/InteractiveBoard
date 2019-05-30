@@ -9,9 +9,14 @@ public class Locatable : MonoBehaviour
     private Indicator m_indicatorPrefab = null;
 
     [SerializeField]
-    private float m_spaceFromCenter = 30;
+    private float m_spaceFromCenter = 40;
 
     public float SpaceFromCenter => m_spaceFromCenter;
+
+    [SerializeField]
+    private float m_indicationRange = 1000000f;
+
+    public float IndicationRange => m_indicationRange;
 
     private List<NameAndColorPair> m_colors = new List<NameAndColorPair>();
 
