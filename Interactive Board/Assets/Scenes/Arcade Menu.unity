@@ -10709,7 +10709,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 3
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa731430556457444b4fd0321f9e8be7, type: 2}
   m_sharedMaterial: {fileID: 21152483515000552, guid: fa731430556457444b4fd0321f9e8be7,
@@ -10787,11 +10787,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -14288,7 +14288,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Set Up Scene
+          m_StringArgument: Set Up Screen
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -15968,6 +15968,7 @@ GameObject:
   - component: {fileID: 2025330114}
   - component: {fileID: 2025330116}
   - component: {fileID: 2025330115}
+  - component: {fileID: 2025330117}
   m_Layer: 0
   m_Name: Set Up Screen
   m_TagString: Untagged
@@ -16024,6 +16025,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: eff8a9877573e944dab21085500acbb6, type: 3}
   m_foreground: {fileID: 1506531421}
   m_pointsRequiredText: {fileID: 1327478087}
+  m_visibleArrows:
+  - {fileID: 1456655782}
+  - {fileID: 1688675043}
 --- !u!114 &2025330115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16061,6 +16065,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2025330112}
   m_CullTransparentMesh: 0
+--- !u!114 &2025330117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025330112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc380955b34fd174fa47e1cd8ebdab77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pointCount: {fileID: 0}
+  m_visibleArrows: []
 --- !u!1 &2034521578
 GameObject:
   m_ObjectHideFlags: 0
