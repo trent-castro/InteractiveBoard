@@ -32,6 +32,7 @@ public class ABR_LeaveManager : MonoBehaviour
 	public void SetLeaveStateTrue(int player)
 	{
 		m_isReadyToLeave[player] = true;
+		m_shipHealth[player].m_isAlive = false;
 		m_LeaveUI[player].SetActive(true);
 		bool leave = true;
 		for (int i = 0; i < m_isReadyToLeave.Length; i++)
@@ -49,6 +50,7 @@ public class ABR_LeaveManager : MonoBehaviour
 	public void SetLeaveStateFalse(int player)
 	{
 		m_isReadyToLeave[player] = false;
+		m_shipHealth[player].m_isAlive = true;
 		m_LeaveUI[player].SetActive(false);
 	}
 
