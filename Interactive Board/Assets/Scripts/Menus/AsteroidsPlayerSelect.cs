@@ -43,7 +43,6 @@ public class AsteroidsPlayerSelect : MonoBehaviour
                 m_visibleArrows[1].SetActive(false);
                 break;
             default:
-                Debug.Log("Unreachable code detected");
                 break;
         }
 	}
