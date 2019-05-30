@@ -16,10 +16,17 @@ public class ABR_Turret : MonoBehaviour
     private AudioSource m_audioSource = null;
     private ABR_Weapon m_weapon = null;
     private Rigidbody2D m_rigidbody = null;
-    private bool m_isOkayToFire = true;
+
+    public bool IsOkayToFire { get; private set; } = true;
 
     private float m_fireTimer = 0.0f;
     private float m_fireTimeElapsed = 0.0f;
+
+    public float getReloadPercent()
+    {
+        return m_fireTimeElapsed / m_fireTimer;
+    }
+
 
     private void Awake()
     {
@@ -35,7 +42,7 @@ public class ABR_Turret : MonoBehaviour
 
     private void Update()
     {
-        if (!m_isOkayToFire)
+        if (!IsOkayToFire)
         {
             m_fireTimeElapsed += Time.deltaTime;
             if (m_fireTimeElapsed >= m_fireTimer)
@@ -50,7 +57,7 @@ public class ABR_Turret : MonoBehaviour
     /// </summary>
     private void Reload()
     {
-        m_isOkayToFire = true;
+        IsOkayToFire = true;
         m_fireTimeElapsed = 0.0f;
     }
 
@@ -61,7 +68,7 @@ public class ABR_Turret : MonoBehaviour
     {
         //fireDirection is the vector from the turret position to the spawnlocation
         Vector3 fireDirection = m_spawnLocation.position - gameObject.transform.position;
-        if (m_isOkayToFire)
+        if (IsOkayToFire)
         {
             //checks if the weapon successfully fired
             if (m_weapon.Fire(m_rigidbody.velocity))
@@ -69,7 +76,7 @@ public class ABR_Turret : MonoBehaviour
                 //Plays Shot Audio
                 PlaySound();
             }
-            m_isOkayToFire = false;
+            IsOkayToFire = false;
         }
         if (DebugMode)
         {
@@ -104,6 +111,11 @@ public class ABR_Turret : MonoBehaviour
         m_audioSource.Play();
 
     }
+
+	public string GetWeaponType()
+	{
+		return m_weapon.GetBulletType().ToString();
+	}
 
     public void SwitchWeapons(eBulletType bulletType)
     {
