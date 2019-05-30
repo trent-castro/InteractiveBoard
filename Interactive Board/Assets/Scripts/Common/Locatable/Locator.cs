@@ -12,8 +12,6 @@ public class Locator : MonoBehaviour
     [SerializeField, Layer]
     private int m_layer = 0;
 
-    private float m_indicationRange = 2500f;
-
     private Camera m_camera = null;
 
     private List<Locatable> m_locatables = null;
@@ -77,7 +75,7 @@ public class Locator : MonoBehaviour
             Vector2 locatablePosition = m_camera.WorldToScreenPoint(locatable.transform.position);
             Vector2 direction = locatablePosition - (cameraCenter + centerOffset);
 
-            if (!locatable.isActiveAndEnabled || m_camera.pixelRect.Contains(locatablePosition) || direction.magnitude > m_indicationRange)
+            if (!locatable.isActiveAndEnabled || m_camera.pixelRect.Contains(locatablePosition) || direction.magnitude > locatable.IndicationRange)
             {
                 indicator.gameObject.SetActive(false);
                 continue;
@@ -86,8 +84,6 @@ public class Locator : MonoBehaviour
             {
                 indicator.gameObject.SetActive(true);
             }
-
-            //Vector2 intersection = FindIntersectionWithBounds(cameraCenter, centerOffset, direction, m_camera.pixelRect) - direction.normalized * locatable.SpaceFromCenter;
 
             indicator.transform.rotation = Quaternion.Euler(0, 0, direction.ZAngle());
 
