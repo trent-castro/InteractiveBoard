@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3410173485555929440}
   - component: {fileID: 3410173485555929444}
   - component: {fileID: 3410173485555929447}
-  - component: {fileID: 2933925702656246107}
   - component: {fileID: 3410173485555929446}
   - component: {fileID: 3410173485555929445}
   - component: {fileID: 1553442169452775449}
@@ -114,7 +113,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -123,19 +122,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &2933925702656246107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3410173485555929443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8f1db84f1be295488f164ce25deaff8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_forceModifier: 5
 --- !u!114 &3410173485555929446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,10 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4ba720217cfad4fb82f619f3e0ce13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_startLocation: {x: 0, y: 0}
-  m_endLocation: {x: 0, y: 0}
-  velocity: {x: 0, y: -1}
-  boy: {fileID: 0}
   speed: 3
 --- !u!114 &3410173485555929445
 MonoBehaviour:
