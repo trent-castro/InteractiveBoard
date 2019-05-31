@@ -4683,6 +4683,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: End Game UI
       objectReference: {fileID: 0}
+    - target: {fileID: 6988324305848927760, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6988324305848927763, guid: 7855067ad8b7d4f4186ab71e030335a4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4793,6 +4798,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 147538032}
+    - target: {fileID: 6988324305848927764, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988324305848927764, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6988324305568078396, guid: 7855067ad8b7d4f4186ab71e030335a4,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -4808,5 +4823,65 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 429788109}
+    - target: {fileID: 1036079515534219878, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036079515534219878, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036079515534219878, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: VelocityModule.x.scalar
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840377102624221723, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840377102624221723, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840377102624221723, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840377102624221723, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840377102624221723, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655604998322694958, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655604998322694958, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655604998322694958, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: VelocityModule.y.scalar
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655604998322694958, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: VelocityModule.x.scalar
+      value: -45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7855067ad8b7d4f4186ab71e030335a4, type: 3}
