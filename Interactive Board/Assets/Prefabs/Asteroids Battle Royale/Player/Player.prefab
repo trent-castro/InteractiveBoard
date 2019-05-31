@@ -13925,7 +13925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8177173355202366404
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15353,10 +15353,10 @@ MonoBehaviour:
   m_invincibilityDuration: 0.75
   m_invincibilityDurationDelay: 0.5
   m_invincibilitySprite: {fileID: 3309364706239459532}
+  m_healthBar: {fileID: 0}
+  ShipId: 0
   DeathUI: {fileID: 7835811060718004755}
   m_root: {fileID: 1067965893246982681}
-  ShipId: 0
-  m_healthBar: {fileID: 0}
 --- !u!114 &272786523607989012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16386,9 +16386,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9884cb32cab43a247943a8813de5f24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ship: {fileID: 5995923342702545500}
   m_healthbar: {fileID: 8481768052721104999}
   m_percentage: {fileID: 6060482718477120721}
-  m_ship: {fileID: 5995923342702545500}
   m_weaponType: {fileID: 5927475937056573456}
 --- !u!1 &6828817245727576599
 GameObject:
