@@ -25,6 +25,7 @@ public class EnumeratedEventGroups : MonoBehaviour
     {
         m_eventGroups[index].events.Invoke();
         m_lastIndex = index;
+        m_display.text = m_eventGroups[index].name;
     }
 
     public void Up()
