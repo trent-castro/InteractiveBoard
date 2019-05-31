@@ -15165,7 +15165,6 @@ GameObject:
   - component: {fileID: 3949379455858348904}
   - component: {fileID: 272786523607989012}
   - component: {fileID: 8878663262046801235}
-  - component: {fileID: 7354309556667884108}
   - component: {fileID: 5995923342702545500}
   - component: {fileID: 4652660493829842837}
   - component: {fileID: 4292307081406397673}
@@ -15214,7 +15213,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0.5
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -15387,19 +15386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09f9e202414a14647aeb074ae48455a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7354309556667884108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5903469429061020802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8f1db84f1be295488f164ce25deaff8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_forceModifier: 3
 --- !u!114 &5995923342702545500
 MonoBehaviour:
   m_ObjectHideFlags: 0
