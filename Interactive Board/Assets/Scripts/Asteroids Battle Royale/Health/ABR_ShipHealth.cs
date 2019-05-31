@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ABR_ShipHealth : ABR_Health
 {
+	[HideInInspector] public ABR_ShipUIOverlay m_healthBar = null;
+
+	public int ShipId = 0;
+
+	[Header ("UI Elements")]
 	[SerializeField] GameObject DeathUI = null;
 	[SerializeField] GameObject m_root = null;
-	public int ShipId = 0;
-	[HideInInspector] public ABR_ShipUIOverlay m_healthBar = null;
 
 
 	public override void TakeDamage(float damage)
