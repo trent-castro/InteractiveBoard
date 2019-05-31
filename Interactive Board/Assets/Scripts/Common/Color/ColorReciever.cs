@@ -9,7 +9,7 @@ public abstract class ColorReciever : MonoBehaviour
 
     public abstract void SetColors(List<NameAndColorPair> colors);
 
-    protected Color GetColor(List<NameAndColorPair> colors, string name)
+    protected Color GetColor(List<NameAndColorPair> colors, string name, Color? defaultColor = null)
     {
         foreach(NameAndColorPair nameAndColorPair in colors)
         {
@@ -19,6 +19,6 @@ public abstract class ColorReciever : MonoBehaviour
             }
         }
 
-        return Color.clear;
+        return defaultColor ?? Color.magenta;
     }
 }

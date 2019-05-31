@@ -291,6 +291,8 @@ MonoBehaviour:
   DebugMode: 0
   m_explosionObjects: {fileID: 6893054242673623742}
   m_bulletObject: {fileID: 6893054242478722972}
+  m_explosionRaduis: 1.5
+  m_explosionForceModifier: 15
   m_explosionTime: 0
 --- !u!50 &6893054243730186515
 Rigidbody2D:

@@ -14,16 +14,7 @@ public class ABR_ExplosionEffect : MonoBehaviour
     {
         m_particleSystem = GetComponentInChildren<ParticleSystem>();
         m_bulletParent = GetComponentInParent<ABR_ExplosionBullet>();
-        StartCoroutine(lifeTimeCoroutine());
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        ABR_Health health = collision.GetComponent<ABR_Health>();
-        if (health)
-        {
-            m_bulletParent.DealDamage(ref health);
-        }
+        StartCoroutine(lifeTimeCoroutine());   
     }
 
     private void ResetExplosionEffect()

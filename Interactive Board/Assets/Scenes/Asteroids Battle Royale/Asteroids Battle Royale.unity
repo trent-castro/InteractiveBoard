@@ -4050,6 +4050,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6faad2712ef0734a9cf5712481346cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1756053013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6988324306210906366, guid: 7855067ad8b7d4f4186ab71e030335a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6988324306537425849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1756053015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756053013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7577714bfbfdf95499b803d9b5f05728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToFade: 1.5
+  DelayTimeToStart: 4
+  isFadingIn: 1
 --- !u!114 &1776433146 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6988324305885338691, guid: 7855067ad8b7d4f4186ab71e030335a4,
@@ -4823,65 +4844,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 429788109}
-    - target: {fileID: 1036079515534219878, guid: 7855067ad8b7d4f4186ab71e030335a4,
+    - target: {fileID: 6988324306210906354, guid: 7855067ad8b7d4f4186ab71e030335a4,
         type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1036079515534219878, guid: 7855067ad8b7d4f4186ab71e030335a4,
+    - target: {fileID: 6988324306253672281, guid: 7855067ad8b7d4f4186ab71e030335a4,
         type: 3}
-      propertyPath: VelocityModule.enabled
-      value: 1
+      propertyPath: m_FlyingAcrossOffsetDistance
+      value: 3500
       objectReference: {fileID: 0}
-    - target: {fileID: 1036079515534219878, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: VelocityModule.x.scalar
-      value: -45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840377102624221723, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840377102624221723, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840377102624221723, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840377102624221723, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840377102624221723, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4655604998322694958, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4655604998322694958, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: VelocityModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4655604998322694958, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: VelocityModule.y.scalar
-      value: -45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4655604998322694958, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: VelocityModule.x.scalar
-      value: -45
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6988324306210906352, guid: 7855067ad8b7d4f4186ab71e030335a4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7855067ad8b7d4f4186ab71e030335a4, type: 3}
