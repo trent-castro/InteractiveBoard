@@ -88,7 +88,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6893054242673623743}
-  - component: {fileID: 1448096987482492188}
   - component: {fileID: 47006260357737094}
   - component: {fileID: 872312815045441312}
   m_Layer: 15
@@ -113,22 +112,6 @@ Transform:
   m_Father: {fileID: 6893054243730186525}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1448096987482492188
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6893054242673623742}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
 --- !u!114 &47006260357737094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,8 +275,7 @@ MonoBehaviour:
   m_explosionObjects: {fileID: 6893054242673623742}
   m_bulletObject: {fileID: 6893054242478722972}
   m_explosionRaduis: 1.5
-  m_explosionForceModifier: 15
-  m_explosionTime: 0
+  m_explosionForceModifier: 30
 --- !u!50 &6893054243730186515
 Rigidbody2D:
   serializedVersion: 4

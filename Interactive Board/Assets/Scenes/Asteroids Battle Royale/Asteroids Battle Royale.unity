@@ -4068,9 +4068,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7577714bfbfdf95499b803d9b5f05728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToFade: 1.5
-  DelayTimeToStart: 4
-  isFadingIn: 1
+  m_timeToFade: 1.5
+  m_delayTimeToStart: 4
+  m_isFadingIn: 1
 --- !u!114 &1776433146 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6988324305885338691, guid: 7855067ad8b7d4f4186ab71e030335a4,
@@ -4829,6 +4829,11 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 6988324306253672281, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: m_FlyingAcrossOffsetDistance
+      value: 3500
+      objectReference: {fileID: 0}
     - target: {fileID: 6988324305568078396, guid: 7855067ad8b7d4f4186ab71e030335a4,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -4839,21 +4844,16 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6988324306210906355, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 429788109}
     - target: {fileID: 6988324306210906354, guid: 7855067ad8b7d4f4186ab71e030335a4,
         type: 3}
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6988324306253672281, guid: 7855067ad8b7d4f4186ab71e030335a4,
+    - target: {fileID: 6988324306210906355, guid: 7855067ad8b7d4f4186ab71e030335a4,
         type: 3}
-      propertyPath: m_FlyingAcrossOffsetDistance
-      value: 3500
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 429788109}
     m_RemovedComponents:
     - {fileID: 6988324306210906352, guid: 7855067ad8b7d4f4186ab71e030335a4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7855067ad8b7d4f4186ab71e030335a4, type: 3}

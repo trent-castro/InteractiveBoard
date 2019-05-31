@@ -53,7 +53,7 @@ public class ABR_ExplosionBullet : ABR_Bullet
             if (rigidbody)
             {
                 Vector2 directionVec = (collision.transform.position - transform.position).normalized;
-                rigidbody.AddForce(directionVec * m_explosionForceModifier);
+                rigidbody.AddForce(directionVec * m_explosionForceModifier, ForceMode2D.Impulse);
             }
         }
         
