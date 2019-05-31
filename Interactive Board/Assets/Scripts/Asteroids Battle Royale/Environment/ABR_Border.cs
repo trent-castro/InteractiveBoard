@@ -9,13 +9,11 @@ public class ABR_Border : MonoBehaviour
     private Collider2D m_playArea = null;
     private List<ABR_Ship> runaways = new List<ABR_Ship>();
 
-    // Start is called before the first frame update
     void Start()
     {
         m_playArea = GetComponent<Collider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         foreach (ABR_Ship ship in runaways)

@@ -5,9 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 public class ABR_ShipUIOverlay : MonoBehaviour
 {
+	[Header("Associated Ship")]
+	[SerializeField] ABR_Ship m_ship = null;
+
+	[Header("UI Elements")]
 	[SerializeField] Slider m_healthbar = null;
 	[SerializeField] TextMeshProUGUI m_percentage = null;
-	[SerializeField] ABR_Ship m_ship = null;
 	[SerializeField] TextMeshProUGUI m_weaponType = null;
 
 	ABR_ShipHealth m_health = null;
@@ -20,7 +23,6 @@ public class ABR_ShipUIOverlay : MonoBehaviour
 		m_ship.m_weaponPickupEvent = UpdateWeapon;
 		UpdateHealth();
 	}
-
 
 	public void UpdateHealth()
 	{
