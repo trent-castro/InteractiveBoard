@@ -10,13 +10,17 @@ public class LerpFromOffset : MonoBehaviour
         BOUNCE_OUT,
         ELASTIC_OUT,
         LINEAR,
-        CIRCULAR_OUT
+        CIRCULAR_OUT,
+        CIRCULAR_IN,
+        CIRCULAR_IN_OUT,
+        INVERSE_CIRCULAR_IN_OUT
     }
 
     [SerializeField] Vector3 m_offsetDirection = default;
     [SerializeField] Effect m_effect = default;
     [SerializeField] float m_offsetDistance = 1.0f;
     [SerializeField] float m_timeToReachPosition = 1.5f;
+    [SerializeField] float m_delayStart = 1.5f;
 
     private Vector3 m_offset = Vector3.zero;
     private Vector3 m_desiredPos = Vector3.zero;
@@ -31,27 +35,40 @@ public class LerpFromOffset : MonoBehaviour
 
     void Update()
     {
-        m_currentTime += Time.deltaTime;
-        if (m_currentTime < m_timeToReachPosition)
+        if (m_delayStart <= 0.0f)
         {
-            switch (m_effect)
+            m_currentTime += Time.deltaTime;
+            if (m_currentTime < m_timeToReachPosition)
             {
-                case Effect.BOUNCE_OUT:
-                    transform.position = Vector3.LerpUnclamped(m_desiredPos + m_offset, m_desiredPos, Interpolation.BounceOut(m_currentTime / m_timeToReachPosition));
-                    break;
-                case Effect.ELASTIC_OUT:
-                    transform.position = Vector3.LerpUnclamped(m_desiredPos + m_offset, m_desiredPos, Interpolation.ElasticOut(m_currentTime / m_timeToReachPosition));
-                    break;
-                case Effect.LINEAR:
-                    transform.position = Vector3.LerpUnclamped(m_desiredPos + m_offset, m_desiredPos, Interpolation.Linear(m_currentTime / m_timeToReachPosition));
-                    break;
-                case Effect.CIRCULAR_OUT:
-                    transform.position = Vector3.LerpUnclamped(m_desiredPos + m_offset, m_desiredPos, Interpolation.CircularOut(m_currentTime / m_timeToReachPosition));
-                    break;
-            }
+                switch (m_effect)
+                {
+                    case Effect.BOUNCE_OUT:
+                        transform.position = Vector3.LerpUnclamped(m_desiredPos + m_offset, m_desiredPos, Interpolation.BounceOut(m_currentTime / m_timeToReachPosition));
+                        break;
+                    case Effect.ELASTIC_OUT:
+                        transform.position = Vector3.LerpUnclamped(m_desiredPos + m_offset, m_desiredPos, Interpolation.ElasticOut(m_currentTime / m_timeToReachPosition));
+                        break;
+                    case Effect.LINEAR:
+                        transform.position = Vector3.LerpUnclamped(m_desiredPos + m_offset, m_desiredPos, Interpolation.Linear(m_currentTime / m_timeToReachPosition));
+                        break;
+                    case Effect.CIRCULAR_OUT:
+                        transform.position = Vector3.LerpUnclamped(m_desiredPos + m_offset, m_desiredPos, Interpolation.CircularOut(m_currentTime / m_timeToReachPosition));
+                        break;
+                    case Effect.CIRCULAR_IN_OUT:
+                        transform.position = Vector3.LerpUnclamped(m_desiredPos + m_offset, m_desiredPos, Interpolation.CircularInOut(m_currentTime / m_timeToReachPosition));
+                        break;
+                    case Effect.CIRCULAR_IN:
+                        transform.position = Vector3.LerpUnclamped(m_desiredPos + m_offset, m_desiredPos, Interpolation.SineIn(m_currentTime / m_timeToReachPosition));
+                        break;
+                }
 
-            return;
+                return;
+            }
+            transform.position = m_desiredPos;
         }
-        transform.position = m_desiredPos;
+        else
+        {
+            m_delayStart -= Time.deltaTime;
+        }
     }
 }
