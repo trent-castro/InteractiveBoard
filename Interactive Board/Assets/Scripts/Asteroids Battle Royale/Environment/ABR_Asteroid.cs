@@ -14,6 +14,7 @@ public class ABR_Asteroid : MonoBehaviour
 	float m_perishTimer = 0;
 	float m_perishMaxTime = 1.5f;
 	Vector3 m_normalScale = new Vector3(5f, 5f, 5f);
+	bool isPerishing = false;
 
 	//Decay Timer
 	float m_decayTimer = 0;
@@ -30,6 +31,7 @@ public class ABR_Asteroid : MonoBehaviour
 	private void OnEnable()
 	{
 		m_decayTimer = 0;
+		m_perishTimer = 0;
 		transform.localScale = m_normalScale;
 	}
 
@@ -65,8 +67,8 @@ public class ABR_Asteroid : MonoBehaviour
 			GameObject item = m_item;
 			m_item = null;
 
-			m_item.transform.position = this.transform.position;
-			m_item.SetActive(true);
+			item.transform.position = this.transform.position;
+			item.SetActive(true);
 			return item;
 		}
 		return null;
@@ -75,15 +77,14 @@ public class ABR_Asteroid : MonoBehaviour
 	public void Perish()
 	{
 		m_shards.Play();
-		m_perishTimer = 0;
-		StartCoroutine("Perishing");
+		if (!isPerishing) StartCoroutine("Perishing");
 	}
 
 	private IEnumerator Perishing()
 	{
 		while (m_perishTimer <= m_perishMaxTime)
 		{
-			
+			isPerishing = true;
 			m_perishTimer += Time.deltaTime;
 			float t = m_perishTimer / m_perishMaxTime;
 			t = Interpolation.SineInOut(t);
@@ -92,5 +93,6 @@ public class ABR_Asteroid : MonoBehaviour
 		}
 
 		this.gameObject.SetActive(false);
+		isPerishing = false;
 	}
 }
