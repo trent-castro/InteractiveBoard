@@ -24,7 +24,6 @@ public class HelicopterGrowEffect : MonoBehaviour
         if (m_currentTime <= m_timeToReachDesiredScale)
         {
             gameObject.transform.Rotate(Vector3.forward, (10 * (m_rotationSpeed * Time.deltaTime)));
-            //gameObject.transform.eulerAngles = rotationAmount;
             gameObject.transform.localScale = (Vector3.one * Mathf.LerpUnclamped(0, m_desiredScale, Interpolation.ElasticInOut(m_currentTime/m_timeToReachDesiredScale)));
             return;
         }
