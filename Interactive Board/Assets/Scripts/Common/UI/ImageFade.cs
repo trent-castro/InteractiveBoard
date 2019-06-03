@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
@@ -15,14 +16,18 @@ public class ImageFade : MonoBehaviour
     [SerializeField] float m_delayTimeToStart = 1.5f;
     [Tooltip("Boolean to determing if the image is fading in or out")]
     [SerializeField] bool m_isFadingIn = true;
+    [Tooltip("Boolean to determing if the image is a button or out")]
+    [SerializeField] bool m_doesHaveChildText = false;
 
     //Sibling Components
     private Image m_image;
+    private TextMeshProUGUI m_text;
 
     //Member variables
     private Color m_startColor;
+    private Color m_buttonTextStartColor;
     private float m_timeElapsed = 0.0f;
-    private float m_originalImageAlpah = 0.0f;
+    private float m_originalImageAlpha = 0.0f;
 
     private void Awake()
     {
@@ -37,17 +42,29 @@ public class ImageFade : MonoBehaviour
     private void SetStartingColor()
     {
         m_startColor = m_image.color;
+        Color modifiedColor = m_startColor;
+        Color modifiedTextColor = default;
+        if (m_doesHaveChildText)
+        {
+            m_buttonTextStartColor = m_text.color;
+            modifiedTextColor = m_buttonTextStartColor;
+        }
         //sets the starting colors alpha values
         if (m_isFadingIn)
         {
-            m_startColor.a = 0.0f;
+            modifiedColor.a = 0.0f;
+            modifiedTextColor.a = 0.0f;
         }
         else
         {
-            m_startColor.a = 1.0f;
+            modifiedColor.a = m_image.color.a;
+            modifiedTextColor.a = m_text.color.a;
         }
-        m_originalImageAlpah = m_image.color.a;
-        m_image.color = m_startColor;
+        m_image.color = modifiedColor;
+        if (m_doesHaveChildText)
+        {
+            m_text.color = modifiedTextColor;
+        }
     }
 
     /// <summary>
@@ -56,6 +73,10 @@ public class ImageFade : MonoBehaviour
     private void GetSiblingComponents()
     {
         m_image = GetComponent<Image>();
+        if (m_doesHaveChildText)
+        {
+            m_text = GetComponentInChildren<TextMeshProUGUI>();
+        }
     }
 
     /// <summary>
@@ -67,24 +88,47 @@ public class ImageFade : MonoBehaviour
         yield return new WaitForSeconds(m_delayTimeToStart);
         //create new color
         Color newColor = m_startColor;
+        Color newTextColor = default;
+        if (m_doesHaveChildText)
+        {
+            newTextColor = m_text.color;
+        }
         while (m_timeElapsed < m_timeToFade)
         {
             float time = m_timeElapsed / m_timeToFade;
             if (m_isFadingIn)
             {
                 //set new colors alpha to the lerp value of time
-                newColor.a = Mathf.Lerp(0, m_originalImageAlpah, time);
+                newColor.a = Mathf.Lerp(0, m_startColor.a, time);
+                if (m_doesHaveChildText)
+                {
+                    newTextColor.a = Mathf.Lerp(0, m_buttonTextStartColor.a, time);
+                }
             }
             else
             {
                 //set new colors alpha to the lerp value of time
-                newColor.a = Mathf.Lerp(m_originalImageAlpah, 0, time);
+                newColor.a = Mathf.Lerp(m_startColor.a, 0, time);
+                if (m_doesHaveChildText)
+                {
+                    newTextColor.a = Mathf.Lerp(m_buttonTextStartColor.a, 0, time);
+                }
             }
             //set image color to the new color
+            if (m_doesHaveChildText)
+            {
+                m_text.color = newTextColor;
+            }
             m_image.color = newColor;
             //add deltaTime to time elapsed
             m_timeElapsed += Time.deltaTime;
             yield return null;
+        }
+        m_image.color = m_startColor;
+        if (m_doesHaveChildText)
+        {
+            m_text.color = m_buttonTextStartColor;
+
         }
     }
 }

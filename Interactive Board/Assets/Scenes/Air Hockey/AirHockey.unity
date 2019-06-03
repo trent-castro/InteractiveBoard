@@ -3206,6 +3206,7 @@ MonoBehaviour:
   m_timeToFade: 1
   m_delayTimeToStart: 0.25
   m_isFadingIn: 1
+  m_doesHaveChildText: 1
 --- !u!1 &747681448
 GameObject:
   m_ObjectHideFlags: 0
@@ -3983,7 +3984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4022,6 +4023,7 @@ MonoBehaviour:
   m_timeToFade: 1
   m_delayTimeToStart: 0
   m_isFadingIn: 1
+  m_doesHaveChildText: 0
 --- !u!1001 &1148415549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4362,6 +4364,7 @@ MonoBehaviour:
   m_timeToFade: 1
   m_delayTimeToStart: 0.25
   m_isFadingIn: 1
+  m_doesHaveChildText: 1
 --- !u!1 &1247804714
 GameObject:
   m_ObjectHideFlags: 0

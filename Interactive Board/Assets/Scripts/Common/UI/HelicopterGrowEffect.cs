@@ -7,6 +7,7 @@ public class HelicopterGrowEffect : MonoBehaviour
     [SerializeField] float m_desiredScale = 1.0f;
     [SerializeField] float m_timeToReachDesiredScale = 1.0f;
     [SerializeField] float m_rotationSpeed = 2.0f;
+    [SerializeField] float m_rotationAngle = 10.0f;
     private float m_currentTime = 0.0f;
     private Quaternion startingRotation = Quaternion.identity;
 
