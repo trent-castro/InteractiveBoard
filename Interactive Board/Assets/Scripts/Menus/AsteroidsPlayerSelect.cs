@@ -36,13 +36,12 @@ public class AsteroidsPlayerSelect : MonoBehaviour
             case MIN_PLAYER_COUNT:
                 m_visibleArrows[0].SetActive(false);
                 break;
-            case MIN_PLAYER_COUNT + 1:
-                m_visibleArrows[0].SetActive(true);
-                break;
             case MAX_PLAYER_COUNT:
                 m_visibleArrows[1].SetActive(false);
                 break;
             default:
+                m_visibleArrows[0].SetActive(true);
+                m_visibleArrows[1].SetActive(true);
                 break;
         }
 	}
