@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// A class that has static references to singletons for accessibility reasons.
+/// </summary>
 public class ABR_GlobalInfo : MonoBehaviour
 {
     [Header("External Reference")]
