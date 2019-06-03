@@ -5,10 +5,10 @@ using UnityEngine;
 public class SlidePanel : MonoBehaviour
 {
     [SerializeField]
-    private Transform m_outPosition;
+    private Transform m_outPosition = null;
 
     [SerializeField]
-    private Transform m_inPosition;
+    private Transform m_inPosition = null;
 
     [SerializeField]
     private bool m_slideOut = false;

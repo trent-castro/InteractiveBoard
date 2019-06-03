@@ -16,8 +16,6 @@ public class ABR_ShipTouchThrustController : MonoBehaviour
     private float m_thrustRadius = 5f;
     [SerializeField]
     private float m_turnOnlyRadius = 2.5f;
-    [SerializeField]
-    private float m_tolerance = 5f;
 
     [SerializeField]
     private GameObject m_touchVisual = null;
