@@ -57,7 +57,7 @@ public class ABR_LeaveManager : MonoBehaviour
 	private void LeaveGame()
 	{
 		Debug.Log("End Game");
-		SceneManager.LoadScene("ArcadeMenu");
+		SceneManager.LoadScene("Arcade Menu");
 	}
 
 	/// <summary>
