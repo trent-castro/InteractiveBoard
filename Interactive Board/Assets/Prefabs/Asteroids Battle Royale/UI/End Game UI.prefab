@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 6988324306210906357}
   - component: {fileID: 6988324306210906354}
   - component: {fileID: 6988324306210906355}
-  - component: {fileID: 6988324306210906352}
+  - component: {fileID: 7071822497239754603}
   m_Layer: 0
   m_Name: BTN return to arcade
   m_TagString: Untagged
@@ -484,7 +484,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6988324306210906352
+--- !u!114 &7071822497239754603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -493,13 +493,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6988324306210906366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 006f4b17580c97847bd8e93a013d5e50, type: 3}
+  m_Script: {fileID: 11500000, guid: 7577714bfbfdf95499b803d9b5f05728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_desiredScale: 0.66
-  m_timeToReachDesiredScale: 1
-  m_timeToDelayStart: 4
-  m_interpolationEffect: 3
+  m_timeToFade: 1.5
+  m_delayTimeToStart: 4
+  m_isFadingIn: 1
+  m_doesHaveChildText: 0
 --- !u!1 &6988324306253672293
 GameObject:
   m_ObjectHideFlags: 0

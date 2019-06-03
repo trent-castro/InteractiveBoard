@@ -62,7 +62,7 @@ public class ABR_WinningShipAnimation : MonoBehaviour
         while (m_currentTime < m_FlyingAcrossTimeToReachPosition)
         {
             m_currentTime += Time.deltaTime;
-            transform.position = Vector3.LerpUnclamped(m_desiredPos + m_offset, m_desiredPos, Interpolation.CircularOut(m_currentTime / m_FlyingAcrossTimeToReachPosition));
+            transform.position = Vector3.LerpUnclamped(m_desiredPos + m_offset, m_desiredPos, Interpolation.CircularOut(m_currentTime / m_FlyingInTimeToReachPosition));
             yield return null;
         }
         transform.position = m_desiredPos;

@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Abstract Bullet Class, This has all the basic behaviour for a bullet:
+/// - Bullet can fire
+/// - Bullet will move in a constant direction
+/// - Bullet disables itself when it collides with something
+/// - if a bullet collides with something that has a health component it does it's damage
+/// </summary>
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class ABR_Bullet : MonoBehaviour
 {
-    [Header("Configuration")]
+    [Header("Base Bullet Configuration")]
     [Tooltip("How long it will take for the bullets to time out")]
     [SerializeField] protected float m_lifeTime = 1.0f;
     [Tooltip("The Speed at which the bullets are traveling  ")]
@@ -15,9 +23,17 @@ public abstract class ABR_Bullet : MonoBehaviour
     [SerializeField] protected bool DebugMode = false;
 
     protected float m_elapsedLifeTime = 0.0f;
+
+    //Sibling components
     protected Rigidbody2D m_rigidbody = null;
 
     private void Awake()
+    {
+        GetSiblingComponents();
+    }
+
+    //Sets references to the private sibling components needed in this Class
+    private void GetSiblingComponents()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
     }
