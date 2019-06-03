@@ -28,6 +28,7 @@ public class ImageFade : MonoBehaviour
     private Color m_buttonTextStartColor;
     private float m_timeElapsed = 0.0f;
     private float m_originalImageAlpha = 0.0f;
+    private Color m_desiredEndColor;
 
     private void Awake()
     {
@@ -41,25 +42,25 @@ public class ImageFade : MonoBehaviour
     //Function that sets the image color value determined on if you want to fade in or out
     private void SetStartingColor()
     {
+        //start color is set to the images current color
         m_startColor = m_image.color;
+        //create new varibles to be messed with later
         Color modifiedColor = m_startColor;
         Color modifiedTextColor = default;
         if (m_doesHaveChildText)
         {
+            //if this had childed text component buttonTextStartcolor is set to the text's current color
             m_buttonTextStartColor = m_text.color;
             modifiedTextColor = m_buttonTextStartColor;
         }
         //sets the starting colors alpha values
         if (m_isFadingIn)
         {
+            //if it is fading in set alpha values to 0
             modifiedColor.a = 0.0f;
             modifiedTextColor.a = 0.0f;
         }
-        else
-        {
-            modifiedColor.a = m_image.color.a;
-            modifiedTextColor.a = m_text.color.a;
-        }
+        //Set the current colors to be the modified colors for fading
         m_image.color = modifiedColor;
         if (m_doesHaveChildText)
         {
@@ -124,11 +125,26 @@ public class ImageFade : MonoBehaviour
             m_timeElapsed += Time.deltaTime;
             yield return null;
         }
-        m_image.color = m_startColor;
-        if (m_doesHaveChildText)
+        //when the loop finishes set the colors to be what they are supposed to be
+        if (m_isFadingIn)
         {
-            m_text.color = m_buttonTextStartColor;
-
+            m_image.color = m_startColor;
+            if (m_doesHaveChildText)
+            {
+                m_text.color = m_buttonTextStartColor;
+            }
+        }
+        else
+        {
+            Color desiredColor = m_startColor;
+            desiredColor.a = 0.0f;
+            m_image.color = desiredColor;
+            if(m_doesHaveChildText)
+            {
+                desiredColor = m_buttonTextStartColor;
+                desiredColor.a = 0.0f;
+                m_text.color = desiredColor;
+            }
         }
     }
 }
