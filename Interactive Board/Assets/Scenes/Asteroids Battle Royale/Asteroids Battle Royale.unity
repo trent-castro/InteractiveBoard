@@ -4854,6 +4854,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 429788109}
+    - target: {fileID: 6988324305568078398, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: m_rotationAngle
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6988324306210906352, guid: 7855067ad8b7d4f4186ab71e030335a4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7855067ad8b7d4f4186ab71e030335a4, type: 3}

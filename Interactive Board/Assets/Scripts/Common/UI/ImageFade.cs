@@ -8,7 +8,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class ImageFade : MonoBehaviour
 {
-    [Header("Config")]
+    [Header("Configuration")]
     [Tooltip("The Time it takes for the object to fade")]
     [SerializeField] float m_timeToFade = 1.5f;
     [Tooltip("The Time it takes before the object begins its fading")]
@@ -22,6 +22,7 @@ public class ImageFade : MonoBehaviour
     //Member variables
     private Color m_startColor;
     private float m_timeElapsed = 0.0f;
+    private float m_originalImageAlpah = 0.0f;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class ImageFade : MonoBehaviour
         {
             m_startColor.a = 1.0f;
         }
+        m_originalImageAlpah = m_image.color.a;
         m_image.color = m_startColor;
     }
 
@@ -71,12 +73,12 @@ public class ImageFade : MonoBehaviour
             if (m_isFadingIn)
             {
                 //set new colors alpha to the lerp value of time
-                newColor.a = Mathf.Lerp(0, 1, time);
+                newColor.a = Mathf.Lerp(0, m_originalImageAlpah, time);
             }
             else
             {
                 //set new colors alpha to the lerp value of time
-                newColor.a = Mathf.Lerp(1, 0, time);
+                newColor.a = Mathf.Lerp(m_originalImageAlpah, 0, time);
             }
             //set image color to the new color
             m_image.color = newColor;
