@@ -26,6 +26,8 @@ public class DragRigidbody2D : MonoBehaviour
     public TextMeshPro m_debugOutput = null;
     public string m_debugString = "";
 
+    private bool canGrab = true;
+
     private void Start()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
@@ -36,7 +38,7 @@ public class DragRigidbody2D : MonoBehaviour
 
     private void CheckForGrab(TouchInfo touchInfo, ETouchEventType eventType)
     {
-        if (eventType != ETouchEventType.EXIT && m_touchInfo == null && touchInfo.m_owners == 0)
+        if (canGrab && eventType != ETouchEventType.EXIT && m_touchInfo == null && touchInfo.m_owners == 0)
         {
             touchInfo.m_owners++;
             m_touchInfo = touchInfo;
@@ -51,10 +53,19 @@ public class DragRigidbody2D : MonoBehaviour
         if (eventType == ETouchEventType.EXIT && m_touchInfo != null && touchInfo.FingerId == m_touchInfo.FingerId)
         {
             OnTouchEnd(touchInfo);
+            canGrab = false;
+
+            StartCoroutine(SetCanGrabAfterDelay());
         }
     }
 
-        private void Grab()
+    private IEnumerator SetCanGrabAfterDelay()
+    {
+        yield return null;
+        canGrab = true;
+    }
+
+    private void Grab()
     {
         if (!m_springJoint)
         {
