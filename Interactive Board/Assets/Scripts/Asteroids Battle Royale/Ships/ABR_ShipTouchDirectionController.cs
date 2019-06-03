@@ -12,10 +12,6 @@ public class ABR_ShipTouchDirectionController : MonoBehaviour
     private Camera m_viewport = null;
 
     [SerializeField]
-    private float m_thrustRadius = 5f;
-    [SerializeField]
-    private float m_turnOnlyRadius = 2.5f;
-    [SerializeField]
     private float m_tolerance = 5f;
 
     [SerializeField]

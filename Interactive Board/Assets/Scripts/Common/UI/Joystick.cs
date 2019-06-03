@@ -15,6 +15,9 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public int MovementRange = 50;
     public AxisOption axesToUse = AxisOption.Both; // The options for the axes that the still will use
 
+    public bool m_isDynamic = false;
+    public DragPanel m_dynamicArea = null;
+
     public Vector2 Axes { get; private set; } = Vector2.zero;
     public float X { get { return Axes.x; } }
     public float Y { get { return Axes.y; } }
@@ -27,16 +30,61 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     [SerializeField]
     GameObject m_Indicator = null;
 
+    public void Toggle(bool on)
+    {
+        gameObject.SetActive(!m_isDynamic ? on : false);
+    }
+
+    public void ToggleDynamic(bool on)
+    {
+        m_isDynamic = on;
+        Toggle(true);
+    }
+
     void OnEnable()
     {
         SetAxesToUse();
     }
 
-    void Start()
+    void Awake()
     {
         m_StartPos = transform.position;
+        if (m_dynamicArea != null)
+        {
+            m_dynamicArea.AddPointerDragListener(AppearOnPointerDrag);
+            m_dynamicArea.AddPointerUpListener(AppearOnPointerUp);
+            m_dynamicArea.AddPointerDownListener(AppearOnPointerDown);
+        }
+        gameObject.SetActive(false);
     }
 
+    private void AppearOnPointerDrag(PointerEventData data)
+    {
+        if (m_isDynamic)
+        {
+            OnDrag(data);
+        }
+    }
+
+    private void AppearOnPointerUp(PointerEventData data)
+    {
+        if (m_isDynamic)
+        {
+            OnPointerUp(data);
+            transform.position = m_StartPos;
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void AppearOnPointerDown(PointerEventData data)
+    {
+        if (m_isDynamic)
+        {
+            gameObject.SetActive(true);
+            transform.position = data.position;
+            OnPointerDown(data);
+        }
+    }
 
     void SetAxesToUse()
     {
@@ -51,39 +99,28 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
         if (m_UseX)
         {
-            newPos.x = data.position.x - m_StartPos.x;
+            newPos.x = data.position.x - transform.position.x;
         }
 
         if (m_UseY)
         {
-            newPos.y = data.position.y - m_StartPos.y;
+            newPos.y = data.position.y - transform.position.y;
         }
 
         float magnitude = newPos.magnitude;
         magnitude = Mathf.Clamp(magnitude, 0, MovementRange);
         newPos = newPos.normalized * magnitude;
 
-        if (m_Indicator != null)
-        {
-            m_Indicator.transform.localPosition = newPos;
-        }
-        else
-        {
-            transform.localPosition = m_StartPos + newPos;
-        }
+
+        m_Indicator.transform.position = transform.position + newPos;
+
         Axes = newPos;
     }
 
     public void OnPointerUp(PointerEventData data)
     {
-        if (m_Indicator != null)
-        {
-            m_Indicator.transform.localPosition = Vector2.zero;
-        }
-        else
-        {
-            transform.localPosition = m_StartPos;
-        }
+        m_Indicator.transform.localPosition = Vector2.zero;
+
         Axes = Vector2.zero;
         PointerDown = false;
     }
