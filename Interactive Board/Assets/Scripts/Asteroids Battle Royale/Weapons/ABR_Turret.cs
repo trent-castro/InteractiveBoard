@@ -18,13 +18,18 @@ public class ABR_Turret : MonoBehaviour
     private ABR_Weapon m_weapon = null;
     private Rigidbody2D m_rigidbody = null;
 
-    private bool m_continuousFire = false;
-
+    //Properties
+    public bool ContinuousFire { get; set; }
     public bool IsOkayToFire { get; private set; } = true;
 
+    //private member variables
     private float m_fireTimer = 0.0f;
     private float m_fireTimeElapsed = 0.0f;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns>What percent of the relode has occured</returns>
     public float getReloadPercent()
     {
         return m_fireTimeElapsed / m_fireTimer;
@@ -33,29 +38,43 @@ public class ABR_Turret : MonoBehaviour
 
     private void Awake()
     {
+        GetSiblingComponents();
+        m_weapon.m_bulletSpawnLocation = m_spawnLocation;
+        m_fireTimer = m_weapon.GetFireDelay();
+    }
+    /// <summary>
+    /// Gets the sibling components needed for this component
+    /// </summary>
+    private void GetSiblingComponents()
+    {
         if (m_audioSource == null)
         {
             m_audioSource = GetComponent<AudioSource>();
         }
-        m_rigidbody = GetComponentInParent<Rigidbody2D>();
-        m_weapon = GetComponent<ABR_Weapon>();
-        m_weapon.m_bulletSpawnLocation = m_spawnLocation;
-        m_fireTimer = m_weapon.GetFireDelay();
+        if (m_rigidbody == null)
+            m_rigidbody = GetComponentInParent<Rigidbody2D>();
+        if (m_weapon == null)
+            m_weapon = GetComponent<ABR_Weapon>();
+
     }
 
     private void Update()
     {
+        //checks to see if the gun was already fired
         if (!IsOkayToFire)
         {
+            //if it was already fired, increment the timer
             m_fireTimeElapsed += Time.deltaTime;
+            //checks to see if the timer has expired
             if (m_fireTimeElapsed >= m_fireTimer)
             {
+                //reloads the weapon
                 Reload();
             }
         }
         else
         {
-            if (m_continuousFire)
+            if (ContinuousFire)
             {
                 FireBullet();
             }
@@ -69,10 +88,6 @@ public class ABR_Turret : MonoBehaviour
     {
         IsOkayToFire = true;
         m_fireTimeElapsed = 0.0f;
-    }
-    public void ToggleContinuousFire(bool on)
-    {
-        m_continuousFire = on;
     }
 
     /// <summary>
@@ -125,12 +140,19 @@ public class ABR_Turret : MonoBehaviour
         m_audioSource.Play();
 
     }
-
+    /// <summary>
+    /// Gets the current weapon type
+    /// </summary>
+    /// <returns>The Current weapon type as a string</returns>
     public string GetWeaponType()
     {
         return m_weapon.GetBulletType().ToString();
     }
 
+    /// <summary>
+    /// switches the current weapon to the type passed in
+    /// </summary>
+    /// <param name="bulletType">The type that the weapon will change to</param>
     public void SwitchWeapons(eBulletType bulletType)
     {
         //Weapon reference to replace m_weapon
