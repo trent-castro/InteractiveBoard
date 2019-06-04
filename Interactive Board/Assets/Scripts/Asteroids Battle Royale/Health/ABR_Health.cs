@@ -4,59 +4,109 @@ using UnityEngine;
 
 public abstract class ABR_Health : MonoBehaviour
 {
-	[SerializeField] float m_health = 100;
-	[SerializeField] float m_maxHealth = 100;
-	[SerializeField] public bool m_isAlive = false;
-    [Tooltip("Duration of invincibility")]
+    [Header("Configration")]
+    [Tooltip("The current health of the object.")]
+	[SerializeField]
+    protected float m_health = 100;
+    [Tooltip("The maximum health of the object.")]
+	[SerializeField]
+    protected float m_maxHealth = 100;
+    [Tooltip("A bool that marks whether or not the object is currently considered dead in the game.")]
+	[SerializeField]
+    public bool m_isAlive = false;
+    [Tooltip("The duration of invincibility.")]
     [SerializeField]
-    private float m_invincibilityDuration =0.75f;
-    [Tooltip("Invincibility duration delay")]
+    private float m_invincibilityDuration = 0.75f;
+    [Tooltip("The delay before an object becomes invincible after taking damage.")]
     [SerializeField]
     private float m_invincibilityDurationDelay = 0.5f;
-    [Tooltip("Invincibility Sprite")]
+    [Tooltip("The sprite that renders while the object is invincible.")]
     [SerializeField]
     private GameObject m_invincibilitySprite = null;
 
-    protected bool isInvincible = false;
-    protected bool invincibilityCoroutineHasStarted = false;
-
+    // Public delegate functions
+    /// <summary>
+    /// A delegate to handle the death of an object.
+    /// </summary>
 	public delegate void DeathAction();
+    /// <summary>
+    /// An event that is used to broadcast the death of an object.
+    /// </summary>
 	public event DeathAction OnDeath;
 
+    // Protected internal data members
+    /// <summary>
+    /// Whether or not the object is able to take damage.
+    /// </summary>
+    protected bool isInvincible = false;
+    /// <summary>
+    /// Whether or the coroutine that handles invincibility is currently runing or not.
+    /// </summary>
+    protected bool invincibilityCoroutineHasStarted = false;
+
+    // Private Data members
+    /// <summary>
+    /// The scale of the invincibility sprite before it is affected by anything.
+    /// </summary>
     private Vector3 invincibiliySpriteNormalScale = new Vector3();
 
+    /// <summary>
+    /// Public method to access information about the current health of an object.
+    /// </summary>
+    /// <returns>A float that describes the current health of an object.</returns>
     public float GetHealth()
 	{
 		return m_health;
 	}
 
+    /// <summary>
+    /// Public method to access information about the maximum health of an object.
+    /// </summary>
+    /// <returns>A float that describes the maximum amount of health for an object.</returns>
 	public float GetMaxHealth()
 	{
 		return m_maxHealth;
 	}
 
+    /// <summary>
+    /// Initializes the health of the object.
+    /// </summary>
+    /// <param name="health">The desired starting off current health.</param>
+    /// <param name="maxHealth">The desired starting off maximum health.</param>
 	public void InitializeHealth(float health, float maxHealth)
 	{
 		m_health = health;
 		m_maxHealth = maxHealth;
 		m_isAlive = true;
+
         if(m_invincibilitySprite)
         {
             invincibiliySpriteNormalScale = m_invincibilitySprite.transform.localScale;
         }
 	}
 
+    /// <summary>
+    /// Resets the internal values for the object's health.
+    /// </summary>
 	public virtual void Respawn()
 	{
 		m_isAlive = true;
 		m_health = m_maxHealth;
 	}
+    
+    /// <summary>
+    /// Causes the object to trigger an on death method as well as stops the object from becoming invincible.
+    /// </summary>
     protected virtual void Die()
     {
         OnDeath?.Invoke();
         StopCoroutine(Invincibility());
     }
 
+    /// <summary>
+    /// A method that allows an object to take a certain amount of damage.
+    /// </summary>
+    /// <param name="damage">The amount of current health the object will be losing.</param>
 	public virtual void TakeDamage(float damage)
 	{
         if (!isInvincible)
@@ -73,12 +123,16 @@ public abstract class ABR_Health : MonoBehaviour
         }
 	}
 
+    /// <summary>
+    /// Begins the invincibility coroutine.
+    /// </summary>
+    /// <returns></returns>
     protected IEnumerator Invincibility()
     {
         if (!invincibilityCoroutineHasStarted)
         {
             invincibilityCoroutineHasStarted = true;
-            // start coronary heart exam here
+            // start invincible sprite here if the animation works
             yield return new WaitForSeconds(m_invincibilityDurationDelay);
             isInvincible = true;
             if (m_invincibilitySprite)
@@ -97,6 +151,9 @@ public abstract class ABR_Health : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A coroutine that displays the force field of an object.
+    /// </summary>
     protected IEnumerator ProjectForceField()
     {
         float timer = 0;
@@ -110,6 +167,10 @@ public abstract class ABR_Health : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A coroutine that retracts the force field of an object.
+    /// </summary>
+    /// <returns></returns>
     protected IEnumerator RetractForceField()
     {
         float timer = 0;
