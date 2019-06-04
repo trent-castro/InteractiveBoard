@@ -99,6 +99,7 @@ public abstract class ABR_Health : MonoBehaviour
     /// </summary>
     protected virtual void Die()
     {
+        m_isAlive = false;
         OnDeath?.Invoke();
         StopCoroutine(Invincibility());
     }
