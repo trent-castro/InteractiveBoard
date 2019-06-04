@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A script that allows asteroids to be destroyed.
+/// </summary>
 [RequireComponent (typeof(ABR_Asteroid))]
 public class ABR_AsteroidHealth : ABR_Health
 {
@@ -11,5 +14,4 @@ public class ABR_AsteroidHealth : ABR_Health
 		asteroid.ReleaseItem();
 		asteroid.Perish();
 	}
-
 }
