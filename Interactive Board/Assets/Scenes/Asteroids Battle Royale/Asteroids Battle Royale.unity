@@ -4895,6 +4895,56 @@ PrefabInstance:
       propertyPath: m_timeBetweenPlays
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4917779690924183771, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Left Sun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941023032959569884, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Right Sun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767876445829936747, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Outer Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747412950268493542, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Scroll Left Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102916869351984302, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Scroll Right Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 165723594557039073, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Scroll Left Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622577357384617165, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133380456090012963, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Inner Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114898948067972009, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Scroll Right Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 3778895261389836049, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: OrbitSpeed
+      value: 0.025
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 855f64fb5c3948e429e12964f4adf823, type: 3}
 --- !u!4 &4296681249535923460 stripped
@@ -4919,6 +4969,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988324305568078396, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988324305568078396, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988324305568078398, guid: 7855067ad8b7d4f4186ab71e030335a4,
+        type: 3}
+      propertyPath: m_rotationAngle
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6988324305848927763, guid: 7855067ad8b7d4f4186ab71e030335a4,
         type: 3}
@@ -5040,21 +5105,6 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 6988324306253672281, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: m_FlyingAcrossOffsetDistance
-      value: 3500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6988324305568078396, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6988324305568078396, guid: 7855067ad8b7d4f4186ab71e030335a4,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6988324306210906354, guid: 7855067ad8b7d4f4186ab71e030335a4,
         type: 3}
       propertyPath: m_Color.a
@@ -5065,10 +5115,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 429788109}
-    - target: {fileID: 6988324305568078398, guid: 7855067ad8b7d4f4186ab71e030335a4,
+    - target: {fileID: 6988324306253672281, guid: 7855067ad8b7d4f4186ab71e030335a4,
         type: 3}
-      propertyPath: m_rotationAngle
-      value: 10
+      propertyPath: m_FlyingAcrossOffsetDistance
+      value: 3500
       objectReference: {fileID: 0}
     - target: {fileID: 7071822497239754603, guid: 7855067ad8b7d4f4186ab71e030335a4,
         type: 3}

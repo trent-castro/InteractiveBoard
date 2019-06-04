@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 6988324306210906355}
   - component: {fileID: 7071822497239754603}
   m_Layer: 0
-  m_Name: BTN return to arcade
+  m_Name: Return to Arcade Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,6 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FlyingAcrossOffsetDirection: {x: -1, y: -0.5, z: 0}
+  m_DelayStart: 1.5
   m_FlyingAcrossOffsetDistance: 3000
   m_FlyingAcrossTimeToReachPosition: 1.5
   m_flyingInDesiredPos: {fileID: 6988324306674247550}
@@ -595,7 +596,6 @@ MonoBehaviour:
   m_flyingInOffsetDistance: 1000
   m_FlyingInTimeToReachPosition: 1.5
   m_FlyingInStartDelay: 1
-  m_DelayStart: 1.5
 --- !u!1 &6988324306674247551
 GameObject:
   m_ObjectHideFlags: 0

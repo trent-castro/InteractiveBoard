@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A script that enables the object to deal damage based on collisions.
+/// </summary>
 public class ABR_TouchDamage : MonoBehaviour
 {
-	[SerializeField] bool isInstantKill = true;
-	[SerializeField] float m_damage = 0;
-
+    [Header("Configuration")]
+    [Tooltip("Whether or not the object will instantly kill on collision.")]
+	[SerializeField]
+    private bool isInstantKill = true;
+    [Tooltip("The amount of damage dealt upon collision.")]
+	[SerializeField]
+    private float m_damage = 0;
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
