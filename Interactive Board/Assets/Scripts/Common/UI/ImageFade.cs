@@ -26,9 +26,8 @@ public class ImageFade : MonoBehaviour
     //Member variables
     private Color m_startColor;
     private Color m_buttonTextStartColor;
-    private float m_timeElapsed = 0.0f;
-    private float m_originalImageAlpha = 0.0f;
     private Color m_desiredEndColor;
+    private float m_timeElapsed = 0.0f;
 
     private void Awake()
     {
@@ -136,6 +135,7 @@ public class ImageFade : MonoBehaviour
         }
         else
         {
+            //if not is fading in set the alpha values to 0
             Color desiredColor = m_startColor;
             desiredColor.a = 0.0f;
             m_image.color = desiredColor;
