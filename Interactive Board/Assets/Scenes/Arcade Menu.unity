@@ -2856,7 +2856,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: d24c21eac8b2b1e498ace4c120f6ae60, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -4256,7 +4256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &587154096
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5669,7 +5669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8098b41ce076b67458f1809db4765020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_endLocation: {x: 750, y: 0, z: 0}
+  m_endLocation: {x: 800, y: 0, z: 0}
   m_timer: 2
   repeat: 1
   m_timeOffset: 4
@@ -6866,7 +6866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &874901004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12712,7 +12712,7 @@ RectTransform:
   m_GameObject: {fileID: 1578218529}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1933575582}
   m_Father: {fileID: 587154096}
@@ -12720,7 +12720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 0}
+  m_AnchoredPosition: {x: -600, y: 0}
   m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1578218531
@@ -12761,7 +12761,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: fff05175a83d9c24d8a63894d1df62ec, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -12788,7 +12788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de313e736b05b04482f8bea3ceadc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverScale: {x: 1.2, y: 1.2, z: 1.2}
+  hoverScale: {x: 2, y: 2, z: 2}
   m_timer: 1
 --- !u!114 &1578218535
 MonoBehaviour:
@@ -13319,7 +13319,7 @@ RectTransform:
   m_GameObject: {fileID: 1661222704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 167987870}
   m_Father: {fileID: 587154096}
@@ -13327,7 +13327,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 0}
+  m_AnchoredPosition: {x: 600, y: 0}
   m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1661222706
@@ -13393,7 +13393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de313e736b05b04482f8bea3ceadc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverScale: {x: 1.2, y: 1.2, z: 1.2}
+  hoverScale: {x: 2, y: 2, z: 2}
   m_timer: 1
 --- !u!114 &1661222710
 MonoBehaviour:
@@ -13486,7 +13486,7 @@ PrefabInstance:
     - target: {fileID: 5027418009194788557, guid: ba3ebe500073c704ba5882ec4eb1d85f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5027418009194788557, guid: ba3ebe500073c704ba5882ec4eb1d85f,
         type: 3}
@@ -13506,7 +13506,7 @@ PrefabInstance:
     - target: {fileID: 5027418009194788557, guid: ba3ebe500073c704ba5882ec4eb1d85f,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5027418009194788557, guid: ba3ebe500073c704ba5882ec4eb1d85f,
         type: 3}
@@ -13516,7 +13516,7 @@ PrefabInstance:
     - target: {fileID: 5027418009194788557, guid: ba3ebe500073c704ba5882ec4eb1d85f,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5027418009194788557, guid: ba3ebe500073c704ba5882ec4eb1d85f,
         type: 3}
@@ -17045,7 +17045,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: dcd0b3e7cdde5c847afa2856b00ff7fd, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
