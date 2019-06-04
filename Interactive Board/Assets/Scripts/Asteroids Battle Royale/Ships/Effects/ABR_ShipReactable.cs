@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A script that allows ships to have parts that react to changes.
+/// </summary>
 [RequireComponent(typeof(ABR_Ship))]
 public class ABR_ShipReactable : Reactable
 {
@@ -16,7 +19,7 @@ public class ABR_ShipReactable : Reactable
 
     public override Vector3 LocalAcceleration => transform.InverseTransformDirection(m_target.m_acceleration);
 
-    public override Vector3 ReactionVecter => Vector3.zero;
+    public override Vector3 ReactionVector => Vector3.zero;
 
     public override float AngularVelocity => m_target.m_RigidBody.angularVelocity;
 

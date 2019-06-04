@@ -69,7 +69,7 @@ public class ReactivePart : MonoBehaviour
                     t = reaction.GetT(m_reactable.LocalAcceleration);
                     break;
                 case EReactionType.REACTION_VECTOR:
-                    t = reaction.GetT(m_reactable.ReactionVecter);
+                    t = reaction.GetT(m_reactable.ReactionVector);
                     break;
                 case EReactionType.REACTION_VALUE:
                     t = reaction.GetT(m_reactable.ReactionValue);
