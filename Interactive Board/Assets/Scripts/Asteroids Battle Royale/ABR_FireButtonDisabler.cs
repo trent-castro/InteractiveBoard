@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/// <summary>
+/// Disables the fire button while firing.
+/// </summary>
 public class ABR_FireButtonDisabler : MonoBehaviour
 {
     [Header("External References")]

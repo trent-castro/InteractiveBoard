@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ABR_Turret : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class ABR_Turret : MonoBehaviour
     private AudioSource m_audioSource = null;
     private ABR_Weapon m_weapon = null;
     private Rigidbody2D m_rigidbody = null;
+
+    private bool m_continuousFire = false;
 
     public bool IsOkayToFire { get; private set; } = true;
 
@@ -50,6 +53,13 @@ public class ABR_Turret : MonoBehaviour
                 Reload();
             }
         }
+        else
+        {
+            if (m_continuousFire)
+            {
+                FireBullet();
+            }
+        }
     }
 
     /// <summary>
@@ -59,6 +69,10 @@ public class ABR_Turret : MonoBehaviour
     {
         IsOkayToFire = true;
         m_fireTimeElapsed = 0.0f;
+    }
+    public void ToggleContinuousFire(bool on)
+    {
+        m_continuousFire = on;
     }
 
     /// <summary>
@@ -112,10 +126,10 @@ public class ABR_Turret : MonoBehaviour
 
     }
 
-	public string GetWeaponType()
-	{
-		return m_weapon.GetBulletType().ToString();
-	}
+    public string GetWeaponType()
+    {
+        return m_weapon.GetBulletType().ToString();
+    }
 
     public void SwitchWeapons(eBulletType bulletType)
     {

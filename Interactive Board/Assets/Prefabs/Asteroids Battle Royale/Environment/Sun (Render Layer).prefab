@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8357879703031316808}
   - component: {fileID: 1275398972872008743}
   m_Layer: 15
-  m_Name: Particle System (2)
+  m_Name: Scroll Left Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5462,7 +5462,7 @@ GameObject:
   - component: {fileID: 5578112343028517521}
   - component: {fileID: 5399051254794986115}
   m_Layer: 15
-  m_Name: Particle System (1)
+  m_Name: Scroll Right Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

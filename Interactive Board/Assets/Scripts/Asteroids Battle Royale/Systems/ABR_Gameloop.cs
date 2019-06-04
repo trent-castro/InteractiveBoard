@@ -51,8 +51,6 @@ public class ABR_Gameloop : MonoBehaviour
 			if (playerIsAlive[i]) m_winingShipImage.sprite = m_playerSprites[i];
 		}
 		m_endGameUI.SetActive(true);
-		// send back to screen
-		Debug.Log("HEY BY THE WAY THE GAME SHOULD HAVE ENDED");
     }
 
 	public void ReturnToArcade()

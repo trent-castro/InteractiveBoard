@@ -26,9 +26,6 @@ public class AH_CountDownTextAnimation : MonoBehaviour
         {
             yield return new WaitForSeconds(0.01f);
             gameObject.transform.localScale *= 0.99f;
-            Color newColor = panel.color;
-            newColor.a *= 0.995f;
-            m_countDownPanel.GetComponent<Image>().color = newColor;
         }
     }
 
