@@ -10,6 +10,9 @@ public struct ParallaxLayer
     public float ratio;
 }
 
+/// <summary>
+/// A parallax scrolling camera for star scrolling.
+/// </summary>
 [RequireComponent(typeof(Camera))]
 public class ABR_ParallaxCamera : MonoBehaviour
 {
