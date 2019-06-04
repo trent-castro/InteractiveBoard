@@ -18599,7 +18599,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6235399404513428739}
   - component: {fileID: 8677014253631028881}
-  m_Layer: 0
+  - component: {fileID: 9005449642260338588}
+  m_Layer: 15
   m_Name: Invincibility Bubble Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18668,6 +18669,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9005449642260338588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8969431762440879655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4a56f787d32864db3fa83ca99ff0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_colorToRecieve: Secondary
 --- !u!1 &8978311520730835754
 GameObject:
   m_ObjectHideFlags: 0

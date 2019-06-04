@@ -6,13 +6,13 @@ public abstract class ABR_Health : MonoBehaviour
 {
     [Header("Configration")]
     [Tooltip("The current health of the object.")]
-	[SerializeField]
+    [SerializeField]
     protected float m_health = 100;
     [Tooltip("The maximum health of the object.")]
-	[SerializeField]
+    [SerializeField]
     protected float m_maxHealth = 100;
     [Tooltip("A bool that marks whether or not the object is currently considered dead in the game.")]
-	[SerializeField]
+    [SerializeField]
     public bool m_isAlive = false;
     [Tooltip("The duration of invincibility.")]
     [SerializeField]
@@ -55,45 +55,46 @@ public abstract class ABR_Health : MonoBehaviour
     /// </summary>
     /// <returns>A float that describes the current health of an object.</returns>
     public float GetHealth()
-	{
-		return m_health;
-	}
+    {
+        return m_health;
+    }
 
     /// <summary>
     /// Public method to access information about the maximum health of an object.
     /// </summary>
     /// <returns>A float that describes the maximum amount of health for an object.</returns>
 	public float GetMaxHealth()
-	{
-		return m_maxHealth;
-	}
+    {
+        return m_maxHealth;
+    }
+
+    private void Start()
+    {
+        InitializeHealth();
+    }
 
     /// <summary>
     /// Initializes the health of the object.
     /// </summary>
     /// <param name="health">The desired starting off current health.</param>
     /// <param name="maxHealth">The desired starting off maximum health.</param>
-	public void InitializeHealth(float health, float maxHealth)
-	{
-		m_health = health;
-		m_maxHealth = maxHealth;
-		m_isAlive = true;
-
-        if(m_invincibilitySprite)
+	public void InitializeHealth()
+    {
+        if (m_invincibilitySprite)
         {
             invincibiliySpriteNormalScale = m_invincibilitySprite.transform.localScale;
         }
-	}
+    }
 
     /// <summary>
     /// Resets the internal values for the object's health.
     /// </summary>
 	public virtual void Respawn()
-	{
-		m_isAlive = true;
-		m_health = m_maxHealth;
-	}
-    
+    {
+        m_isAlive = true;
+        m_health = m_maxHealth;
+    }
+
     /// <summary>
     /// Causes the object to trigger an on death method as well as stops the object from becoming invincible.
     /// </summary>
@@ -109,7 +110,7 @@ public abstract class ABR_Health : MonoBehaviour
     /// </summary>
     /// <param name="damage">The amount of current health the object will be losing.</param>
 	public virtual void TakeDamage(float damage)
-	{
+    {
         if (!isInvincible)
         {
             m_health -= damage;
@@ -122,7 +123,7 @@ public abstract class ABR_Health : MonoBehaviour
                 StartCoroutine(Invincibility());
             }
         }
-	}
+    }
 
     /// <summary>
     /// Begins the invincibility coroutine.
@@ -133,22 +134,20 @@ public abstract class ABR_Health : MonoBehaviour
         if (!invincibilityCoroutineHasStarted)
         {
             invincibilityCoroutineHasStarted = true;
-            // start invincible sprite here if the animation works
-            yield return new WaitForSeconds(m_invincibilityDurationDelay);
-            isInvincible = true;
             if (m_invincibilitySprite)
             {
                 m_invincibilitySprite.SetActive(true);
-                //StartCoroutine(ProjectForceField());
+                yield return ProjectForceField();
             }
+            isInvincible = true;
             yield return new WaitForSeconds(m_invincibilityDuration);
-            isInvincible = false;
-            invincibilityCoroutineHasStarted = false;
             if (m_invincibilitySprite)
             {
+                yield return RetractForceField();
                 m_invincibilitySprite.SetActive(false);
-                //StartCoroutine(RetractForceField());
             }
+            isInvincible = false;
+            invincibilityCoroutineHasStarted = false;
         }
     }
 
@@ -158,12 +157,13 @@ public abstract class ABR_Health : MonoBehaviour
     protected IEnumerator ProjectForceField()
     {
         float timer = 0;
-        while(timer <= m_invincibilityDurationDelay)
+        while (timer <= m_invincibilityDurationDelay)
         {
             timer += Time.deltaTime;
             float t = timer / m_invincibilityDurationDelay;
-            t = Interpolation.Linear(t);
+            t = Interpolation.BackOut(t);
             m_invincibilitySprite.transform.localScale = Vector3.LerpUnclamped(Vector3.zero, invincibiliySpriteNormalScale, t);
+            Debug.Log(Vector3.LerpUnclamped(Vector3.zero, invincibiliySpriteNormalScale, t));
             yield return null;
         }
     }
@@ -179,7 +179,7 @@ public abstract class ABR_Health : MonoBehaviour
         {
             timer += Time.deltaTime;
             float t = timer / 0.5f;
-            t = Interpolation.Linear(t); 
+            t = Interpolation.QuadraticIn(t);
             m_invincibilitySprite.transform.localScale = Vector3.LerpUnclamped(invincibiliySpriteNormalScale, Vector3.zero, t);
             yield return null;
         }
