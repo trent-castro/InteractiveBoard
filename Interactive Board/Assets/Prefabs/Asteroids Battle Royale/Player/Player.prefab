@@ -11238,7 +11238,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2702195542215697972}
-        m_MethodName: ToggleContinuousFire
+        m_MethodName: set_ContinuousFire
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11254,7 +11254,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2702195542215697972}
-        m_MethodName: ToggleContinuousFire
+        m_MethodName: set_ContinuousFire
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

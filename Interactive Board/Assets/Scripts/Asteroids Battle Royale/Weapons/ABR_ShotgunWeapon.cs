@@ -15,12 +15,11 @@ public class ABR_ShotgunWeapon : ABR_Weapon
         m_bulletTye = eBulletType.SHOTGUN;
         m_fireDelay = 1.0f;
     }
-
     /// <summary>
     /// Method extending from Weapon; Used to spawn the type of bullets this weapon uses
     /// </summary>
     /// <param name="shipVelocity">The position in which the bullet will spawn</param>
-    /// <param name="fireDirection">The direction in which the bullet will travel</param>
+    /// <returns>true if it was able to fire, false if not</returns>
     public override bool Fire(Vector3 shipVelocity)
     {
         //set base vector
