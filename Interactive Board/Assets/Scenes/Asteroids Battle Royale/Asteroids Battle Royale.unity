@@ -4685,10 +4685,55 @@ PrefabInstance:
       propertyPath: m_timeBetweenPlays
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4917779690924183771, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Left Sun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941023032959569884, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Right Sun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767876445829936747, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Outer Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747412950268493542, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Scroll Left Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102916869351984302, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Scroll Right Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 165723594557039073, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Scroll Left Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622577357384617165, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133380456090012963, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Inner Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114898948067972009, guid: 855f64fb5c3948e429e12964f4adf823,
+        type: 3}
+      propertyPath: m_Name
+      value: Scroll Right Particle System
+      objectReference: {fileID: 0}
     - target: {fileID: 3778895261389836049, guid: 855f64fb5c3948e429e12964f4adf823,
         type: 3}
       propertyPath: OrbitSpeed
-      value: 0.3
+      value: 0.025
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 855f64fb5c3948e429e12964f4adf823, type: 3}
