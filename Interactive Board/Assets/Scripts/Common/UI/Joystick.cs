@@ -51,14 +51,27 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         m_StartPos = transform.position;
         if (m_dynamicArea != null)
         {
-            m_dynamicArea.AddPointerDragListener(AppearOnPointerDrag);
-            m_dynamicArea.AddPointerUpListener(AppearOnPointerUp);
-            m_dynamicArea.AddPointerDownListener(AppearOnPointerDown);
+            m_dynamicArea.AddPointerDragListener(DynamicOnPointerDrag);
+            m_dynamicArea.AddPointerUpListener(DynamicOnPointerUp);
+            m_dynamicArea.AddPointerDownListener(DynamicOnPointerDown);
         }
         gameObject.SetActive(false);
     }
 
-    private void AppearOnPointerDrag(PointerEventData data)
+    public void KillInput()
+    {
+        if (m_isDynamic)
+        {
+
+            DynamicOnPointerUp(null);
+        }
+        else
+        {
+            OnPointerUp(null);
+        }
+    }
+
+    private void DynamicOnPointerDrag(PointerEventData data)
     {
         if (m_isDynamic)
         {
@@ -66,7 +79,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         }
     }
 
-    private void AppearOnPointerUp(PointerEventData data)
+    private void DynamicOnPointerUp(PointerEventData data)
     {
         if (m_isDynamic)
         {
@@ -76,7 +89,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         }
     }
 
-    private void AppearOnPointerDown(PointerEventData data)
+    private void DynamicOnPointerDown(PointerEventData data)
     {
         if (m_isDynamic)
         {

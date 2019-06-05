@@ -12407,6 +12407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117527311473403280}
   - component: {fileID: 2618396005075605163}
+  - component: {fileID: 2452959167006991328}
   m_Layer: 5
   m_Name: Lost Control State
   m_TagString: Untagged
@@ -12443,6 +12444,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2315660115881658309}
   m_CullTransparentMesh: 0
+--- !u!114 &2452959167006991328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315660115881658309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200fe6535723d4544bbf8da14181e210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 453268597808768703}
+  panel: {fileID: 1324731078723107393}
+  joystick: {fileID: 4709388310860980296}
 --- !u!1 &2341466034254286811
 GameObject:
   m_ObjectHideFlags: 0
@@ -16168,8 +16184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_touchArea: {fileID: 1324731078723107393}
   m_viewport: {fileID: 5903469428777604343}
-  m_tolerance: 5
   m_touchVisual: {fileID: 3678472812992875489}
+  m_tolerance: 5
 --- !u!114 &4878984274069560354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16184,9 +16200,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_touchArea: {fileID: 1324731078723107393}
   m_viewport: {fileID: 5903469428777604343}
+  m_touchVisual: {fileID: 3678472812992875489}
   m_thrustRadius: 5
   m_turnOnlyRadius: 2.5
-  m_touchVisual: {fileID: 3678472812992875489}
 --- !u!114 &5532871926124633641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16214,9 +16230,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_input: {fileID: 4709388310860980296}
+  m_touchVisual: {fileID: 3678472812992875489}
   m_thrustRadius: 40
   m_turnOnlyRadius: 20
-  m_touchVisual: {fileID: 3678472812992875489}
 --- !u!114 &1836870079973461667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19110,12 +19126,6 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 0db4dbea7c38c1841bcedcd9c3d2a4c1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a25d8ccd8429b9c469c80074e5a98c10, type: 3}
---- !u!4 &2702195541591775537 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7235185102702586911, guid: a25d8ccd8429b9c469c80074e5a98c10,
-    type: 3}
-  m_PrefabInstance: {fileID: 4749232738281846062}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2702195542215697972 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7235185101172691738, guid: a25d8ccd8429b9c469c80074e5a98c10,
@@ -19131,6 +19141,12 @@ MonoBehaviour:
 --- !u!4 &2702195542215697973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7235185101172691739, guid: a25d8ccd8429b9c469c80074e5a98c10,
+    type: 3}
+  m_PrefabInstance: {fileID: 4749232738281846062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2702195541591775537 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7235185102702586911, guid: a25d8ccd8429b9c469c80074e5a98c10,
     type: 3}
   m_PrefabInstance: {fileID: 4749232738281846062}
   m_PrefabAsset: {fileID: 0}
