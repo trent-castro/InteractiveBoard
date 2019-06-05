@@ -2,12 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A script that allows for a different control scheme for ship maneuvering.
+/// </summary>
 [RequireComponent(typeof(ABR_Ship))]
 public class ABR_ShipKeyController : MonoBehaviour
 {
+    // Private internal data members
+    /// <summary>
+    /// The ship that the controls are affecting.
+    /// </summary>
     private ABR_Ship m_ship = null;
 
+    /// <summary>
+    /// Whether or not the ship is attempting to move horizontally.
+    /// </summary>
     private bool horizontal = false;
+    /// <summary>
+    /// Whether or not the ship is attempting to move vertically.
+    /// </summary>
     private bool vertical = false;
 
     private void Awake()

@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A script that handles logic for a specific weapon.
+/// </summary>
 public class ABR_PierceWeapon : ABR_Weapon
 {
     //constructor
     public ABR_PierceWeapon()
     {
-        m_bulletTye = eBulletType.PIERCE;
+        m_bulletType = eBulletType.PIERCE;
         m_fireDelay = 1.0f;
     }
 
@@ -19,7 +22,7 @@ public class ABR_PierceWeapon : ABR_Weapon
     public override bool Fire(Vector3 shipVelocity)
     {
         //Grabs the next pooled object in the desired bullet pool
-        ABR_PierceBullet bullet = ABR_GlobalInfo.BulletManager.GetObjectFromTaggedPool(m_bulletTye.ToString()).GetComponent<ABR_PierceBullet>();
+        ABR_PierceBullet bullet = ABR_GlobalInfo.BulletManager.GetObjectFromTaggedPool(m_bulletType.ToString()).GetComponent<ABR_PierceBullet>();
         //sets up the bullet
         bullet.gameObject.SetActive(true);
         bullet.gameObject.transform.position = m_bulletSpawnLocation.position;

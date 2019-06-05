@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A script that handles logic for a specific weapon.
+/// </summary>
 public class ABR_ShotgunWeapon : ABR_Weapon
 {
     private uint m_numOfBullets = 7;
@@ -12,7 +15,7 @@ public class ABR_ShotgunWeapon : ABR_Weapon
     /// </summary>
     public ABR_ShotgunWeapon()
     {
-        m_bulletTye = eBulletType.SHOTGUN;
+        m_bulletType = eBulletType.SHOTGUN;
         m_fireDelay = 1.0f;
     }
     /// <summary>
@@ -28,7 +31,7 @@ public class ABR_ShotgunWeapon : ABR_Weapon
         for (int i = 0; i < m_numOfBullets; i++)
         {
             //Find Bullet from the Global BullePoolManager
-            ABR_Bullet bullet = ABR_GlobalInfo.BulletManager.GetObjectFromTaggedPool(m_bulletTye.ToString()).GetComponent<ABR_Bullet>();
+            ABR_Bullet bullet = ABR_GlobalInfo.BulletManager.GetObjectFromTaggedPool(m_bulletType.ToString()).GetComponent<ABR_Bullet>();
             //Set Bullet Traits
             bullet.gameObject.SetActive(true);
             bullet.gameObject.transform.position = m_bulletSpawnLocation.position;

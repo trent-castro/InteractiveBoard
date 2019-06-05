@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// A script that holds the weapon for use.
+/// </summary>
 public class ABR_Turret : MonoBehaviour
 {
     [Header("Configuration")]
@@ -34,7 +37,6 @@ public class ABR_Turret : MonoBehaviour
     {
         return m_fireTimeElapsed / m_fireTimer;
     }
-
 
     private void Awake()
     {

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 /// <summary>
 /// Child object of an explosion bullet has a particle system to play
 /// </summary>
