@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// A script that has the properties of a player.
 /// Component that gives an object the properties of a ship
 /// - can fly
 /// - can fight
-/// - can crow
+/// - can crow*
+/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class ABR_Ship : MonoBehaviour
 {
@@ -44,11 +44,6 @@ public class ABR_Ship : MonoBehaviour
     private bool m_forceThrust = false;
     private float m_turn = 0;
     private bool m_doTurnTo = false;
-    /// <summary>
-    /// Forces the player to turn if they exit the play area.
-    /// </summary>
-    private bool m_forceThrust = false;
-    private float m_turn = 0;
     private bool m_forceTurnTo = false;
     private float m_goalTurn = 0;
     private ABR_Turret m_turret = null;
