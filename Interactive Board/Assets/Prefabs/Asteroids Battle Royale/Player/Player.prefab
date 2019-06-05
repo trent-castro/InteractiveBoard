@@ -10694,6 +10694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5587232433452397813}
   - component: {fileID: 1787644223459235393}
+  - component: {fileID: 3114867756327281484}
   m_Layer: 15
   m_Name: GameObject
   m_TagString: Untagged
@@ -10763,6 +10764,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3114867756327281484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891288518429617527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4a56f787d32864db3fa83ca99ff0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_colorToRecieve: Secondary
 --- !u!1 &984658744731504265
 GameObject:
   m_ObjectHideFlags: 0
@@ -10901,6 +10915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7978634913022109281}
   - component: {fileID: 6523862790963457039}
+  - component: {fileID: 8859526798430493376}
   m_Layer: 15
   m_Name: GameObject
   m_TagString: Untagged
@@ -10970,6 +10985,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8859526798430493376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223689488056214735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4a56f787d32864db3fa83ca99ff0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_colorToRecieve: Secondary
 --- !u!1 &1400872345279993177
 GameObject:
   m_ObjectHideFlags: 0
@@ -11210,7 +11238,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2702195542215697972}
-        m_MethodName: ToggleContinuousFire
+        m_MethodName: set_ContinuousFire
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11226,7 +11254,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2702195542215697972}
-        m_MethodName: ToggleContinuousFire
+        m_MethodName: set_ContinuousFire
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11703,7 +11731,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Colors:
   - name: Primary
-    color: {r: 1, g: 0, b: 0, a: 0}
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - name: Secondary
+    color: {r: 0.45490196, g: 0.9490196, b: 0.8039216, a: 1}
 --- !u!1 &1769909641471703011
 GameObject:
   m_ObjectHideFlags: 0
@@ -12810,6 +12840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7198156229714184822}
   - component: {fileID: 4562282735775833933}
+  - component: {fileID: 8839604474271855314}
   m_Layer: 15
   m_Name: GameObject
   m_TagString: Untagged
@@ -12879,6 +12910,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8839604474271855314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2686801817291982774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4a56f787d32864db3fa83ca99ff0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_colorToRecieve: Secondary
 --- !u!1 &2726902254988081377
 GameObject:
   m_ObjectHideFlags: 0
@@ -13199,7 +13243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.25882354, g: 0.25490198, b: 0.2627451, a: 1}
+  m_Color: {r: 0.25609022, g: 0.25218046, b: 0.26, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -16043,10 +16087,10 @@ MonoBehaviour:
   m_invincibilityDuration: 0.75
   m_invincibilityDurationDelay: 0.5
   m_invincibilitySprite: {fileID: 3309364706239459532}
-  m_healthBar: {fileID: 0}
-  ShipId: 0
   DeathUI: {fileID: 7835811060718004755}
   m_root: {fileID: 1067965893246982681}
+  ShipId: 0
+  m_healthBar: {fileID: 0}
 --- !u!114 &272786523607989012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17363,7 +17407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.25882354, g: 0.25490198, b: 0.2627451, a: 1}
+  m_Color: {r: 0.5122388, g: 0.5044776, b: 0.52, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -17391,7 +17435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c8dab119994564692eb7758b149ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_colorToRecieve: Primary
+  m_colorToRecieve: Secondary
 --- !u!1 &7247584121650844399
 GameObject:
   m_ObjectHideFlags: 0
@@ -17612,7 +17656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.25882354, g: 0.25490198, b: 0.2627451, a: 1}
+  m_Color: {r: 0.5121212, g: 0.5042424, b: 0.52, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -17640,7 +17684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c8dab119994564692eb7758b149ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_colorToRecieve: Primary
+  m_colorToRecieve: Secondary
 --- !u!1 &7457366098810318767
 GameObject:
   m_ObjectHideFlags: 0
@@ -18353,6 +18397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4814853353408219915}
   - component: {fileID: 8677108874915502649}
+  - component: {fileID: 7531774174456097457}
   m_Layer: 15
   m_Name: GameObject
   m_TagString: Untagged
@@ -18422,6 +18467,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7531774174456097457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8882947425075365111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4a56f787d32864db3fa83ca99ff0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_colorToRecieve: Secondary
 --- !u!1 &8928060566942146525
 GameObject:
   m_ObjectHideFlags: 0
@@ -18541,7 +18599,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6235399404513428739}
   - component: {fileID: 8677014253631028881}
-  m_Layer: 0
+  - component: {fileID: 9005449642260338588}
+  m_Layer: 15
   m_Name: Invincibility Bubble Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18610,6 +18669,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9005449642260338588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8969431762440879655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4a56f787d32864db3fa83ca99ff0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_colorToRecieve: Secondary
 --- !u!1 &8978311520730835754
 GameObject:
   m_ObjectHideFlags: 0
@@ -18669,7 +18741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.25882354, g: 0.25490198, b: 0.2627451, a: 1}
+  m_Color: {r: 0.5121212, g: 0.5042424, b: 0.52, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -18697,7 +18769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c8dab119994564692eb7758b149ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_colorToRecieve: Primary
+  m_colorToRecieve: Secondary
 --- !u!1 &9019727811872977616
 GameObject:
   m_ObjectHideFlags: 0
@@ -19038,12 +19110,6 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 0db4dbea7c38c1841bcedcd9c3d2a4c1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a25d8ccd8429b9c469c80074e5a98c10, type: 3}
---- !u!4 &2702195542215697973 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7235185101172691739, guid: a25d8ccd8429b9c469c80074e5a98c10,
-    type: 3}
-  m_PrefabInstance: {fileID: 4749232738281846062}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2702195541591775537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7235185102702586911, guid: a25d8ccd8429b9c469c80074e5a98c10,
@@ -19062,3 +19128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346cfa043f9e1614f8de49e4ea9708b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2702195542215697973 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7235185101172691739, guid: a25d8ccd8429b9c469c80074e5a98c10,
+    type: 3}
+  m_PrefabInstance: {fileID: 4749232738281846062}
+  m_PrefabAsset: {fileID: 0}

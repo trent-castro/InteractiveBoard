@@ -40,13 +40,16 @@ public abstract class ABR_Bullet : MonoBehaviour
 
     private void Update()
     {
+        //increase elapsed lifetime by delta time
         m_elapsedLifeTime += Time.deltaTime;
+        //if elapsed time is greater than the lifetime disalbe this object
         if (m_elapsedLifeTime >= m_lifeTime)
             gameObject.SetActive(false);
 
     }
     private void OnDisable()
     {
+        //sets the elapsed lifetime backt to 0;
         m_elapsedLifeTime = 0.0f;
     }
 
@@ -55,18 +58,17 @@ public abstract class ABR_Bullet : MonoBehaviour
 		if (!collision.gameObject.CompareTag(ABR_Tags.BulletTag) && !collision.gameObject.CompareTag(ABR_Tags.ShipCollisionTag)
             && !collision.CompareTag(ABR_Tags.WallTag) && !collision.CompareTag(ABR_Tags.GravityTag) && !collision.CompareTag(ABR_Tags.WeaponTag))
 		{
+            //Disable this gameObject 
 			gameObject.SetActive(false);
+            //get the health component in the collision
 			ABR_Health health = collision.GetComponent<ABR_Health>();
+            //if the health component exists continue
 			if (health)
 			{
+                //Deal the damage variable to the health component
 				health.TakeDamage(m_damage);
 			}
 		}
-    }
-
-	public void DealDamage(ref ABR_Health damageableObject)
-    {
-        damageableObject.TakeDamage(m_damage);
     }
 
     /// <summary>
