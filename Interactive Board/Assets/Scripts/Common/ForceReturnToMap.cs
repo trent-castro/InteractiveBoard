@@ -21,11 +21,12 @@ public class ForceReturnToMap : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.anyKeyDown)
+		m_time += Time.unscaledDeltaTime;
+		if (Input.anyKeyDown || Input.anyKey || Input.touches.Length > 0)
 		{
 			m_time = 0;
+			m_timeWarning.SetActive(false);
 		}
-		m_time += Time.unscaledDeltaTime;
 		if (m_time >= (m_timer - 10))
 		{
 			TurnOnWarning();
