@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ABR_TempSpawner : MonoBehaviour
+/// <summary>
+/// A script used for spawning asteroids for players to destroy.
+/// </summary>
+public class ABR_AsteroidSpawner : MonoBehaviour
 {
     [Header("Debug Mode")]
     [SerializeField]

@@ -4,18 +4,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// A script that handles the logic for winning the game.
+/// </summary>
 public class ABR_Gameloop : MonoBehaviour
 {
+    // Singleton paradigm
     public static ABR_Gameloop instance;
 
     [Header("External References")]
     [Tooltip("A reference to the leave manager.")]
     [SerializeField]
     private ABR_LeaveManager m_leaveManager = null;
+    [Tooltip("A reference to the end game UI.")]
 	[SerializeField]
 	private GameObject m_endGameUI = null;
+    [Tooltip("A reference to the winning ship image used in the end game UI.")]
 	[SerializeField] 
 	private Image m_winingShipImage = null;
+    [Tooltip("A reference to all the ship images for use in the end game UI.")]
 	[SerializeField]
 	private Sprite[] m_playerSprites = null;
 

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// A struct describing a set comprising of a ship and it's camera.
+/// </summary>
 public struct Player
 {
     public ABR_Ship ship;
@@ -16,17 +19,26 @@ public struct Player
     }
 }
 
+/// <summary>
+/// A script that uses the active players designated in the menu screen to set up the game.
+/// </summary>
 public class ABR_PlayerSpawner : MonoBehaviour
 {
+    [Header("External References")]
+    [Tooltip("The possible spawnpoints of ships as they join the game.")]
     [SerializeField]
     private Transform[] m_spawnPoints = null;
-
+    [Tooltip("The references to the players.")]
     [SerializeField]
     private GameObject[] m_playerObjects = null;
-
+    [Tooltip("The radius around a spawnpoint that a player cannot spawn from if there is another player active inside.")]
     [SerializeField]
     private float m_PuppyGuardRadius = 25.0f;
 
+    // Private internal data members
+    /// <summary>
+    /// A reference to all the players.
+    /// </summary>
     private Player[] m_players = null;
 
 
@@ -64,7 +76,6 @@ public class ABR_PlayerSpawner : MonoBehaviour
     public Transform GetBestSpawnPoint(int playerToSpawnIndex)
     {
         List<Transform> validSpawns = new List<Transform>();
-        //m_spawnPoints.TakeWhile(sp => m_players.All(p => Vector3.Distance(p.ship.transform.position, sp.position) > m_PuppyGaurdRadius || !p.ship.isActiveAndEnabled)).ToArray();
 
         foreach (Transform sp in m_spawnPoints)
         {

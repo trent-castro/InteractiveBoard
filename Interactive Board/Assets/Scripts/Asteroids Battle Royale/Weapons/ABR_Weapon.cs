@@ -23,7 +23,7 @@ public abstract class ABR_Weapon : MonoBehaviour
     //protected member variables
     public Transform m_bulletSpawnLocation;
     protected float m_fireDelay;
-    protected eBulletType m_bulletTye;
+    protected eBulletType m_bulletType;
 
     /// <summary>
     /// Get the fireDelay of the weapon
@@ -40,7 +40,7 @@ public abstract class ABR_Weapon : MonoBehaviour
     /// <returns>this objects current bullet type as an eBulletType</returns>
     public eBulletType GetBulletType()
     {
-        return m_bulletTye;
+        return m_bulletType;
     }
 
     abstract public bool Fire(Vector3 shipVelocity);

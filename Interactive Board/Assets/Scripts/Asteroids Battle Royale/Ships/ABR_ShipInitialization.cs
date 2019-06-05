@@ -2,12 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A script used to activate the UI of active players upon entering the game.
+/// </summary>
 public class ABR_ShipInitialization : MonoBehaviour
 {
-	int m_playerCount = 1;
-	[SerializeField] ABR_PlayerSpawner spawner = null;
-	[SerializeField] GameObject[] m_players = null;
-	[SerializeField] GameObject[] m_UI = null;
+    [Header("External References")]
+    [Tooltip("A reference to the player spawner script.")]
+	[SerializeField]
+    private ABR_PlayerSpawner spawner = null;
+    [Tooltip("A reference to each of the player UI once active.")]
+	[SerializeField]
+    private GameObject[] m_players = null;
+    [Tooltip("A reference to the join UI of a player's individual screen.")]
+	[SerializeField]
+    private GameObject[] m_UI = null;
+
+    // Private internal data members
+	private int m_playerCount = 1;
+
     // Start is called before the first frame update
     void Start()
     {
