@@ -2,23 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A MonoBehaviour that adds a shadow to a sprite
+/// </summary>
 [RequireComponent(typeof(SpriteRenderer))]
 public class Shadow2D : MonoBehaviour
 {
+	[Tooltip ("Determines if the shadow is already existing or not")]
     public bool m_ownedByParent = true;
-    public bool m_copyFromParent = true;
+	[Tooltip("Determines if the shadow needs to be created as a copy of the parent sprite or not")]
+	public bool m_copyFromParent = true;
 
-    public GameObject m_owner = null;
-    public SpriteRenderer m_toCopy = null;
+	[Tooltip("The owner of the shadow")]
+	public GameObject m_owner = null;
 
-    private SpriteRenderer m_spriteRenderer = null;
+	[Tooltip("The sprite renderer of the parent")]
+	public SpriteRenderer m_toCopy = null;
 
-    private Vector2 m_ownerBaseScale;
+	[Tooltip("The sprite renderer of the copied shadow")]
+	private SpriteRenderer m_spriteRenderer = null;
+
+	[Tooltip("The base scale of the parent object")]
+	private Vector2 m_ownerBaseScale;
+	[Tooltip("The base scale of the shadow")]
     private Vector2 m_baseScale;
-    public Vector2 m_scaleMultiplier = Vector3.one;
+	[Tooltip("The multiplier of the shadow")]
+	public Vector2 m_scaleMultiplier = Vector3.one;
 
-    public Vector2 m_baseOffset;
-    public Vector2 m_offsetMultiplier = Vector3.one;
+	[Tooltip("The base offset of the shadow")]
+	public Vector2 m_baseOffset;
+	[Tooltip("The multiplier of the shadow")]
+	public Vector2 m_offsetMultiplier = Vector3.one;
 
     void Start()
     {
