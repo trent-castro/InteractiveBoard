@@ -3,22 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// A script that allows for a different control scheme for ship maneuvering.
+/// </summary>
 [RequireComponent(typeof(ABR_Ship))]
 public class ABR_ShipJoystickThrustController : MonoBehaviour
 {
+    [Header("External References")]
+    [Tooltip("A reference to the joystick in the UI.")]
     [SerializeField]
-    Joystick m_input = null;
-
-    [SerializeField]
-    private float m_thrustRadius = 40f;
-    [SerializeField]
-    private float m_turnOnlyRadius = 20f;
-
+    private Joystick m_input = null;
+    [Tooltip("")]
     [SerializeField]
     private GameObject m_touchVisual = null;
 
-    private ABR_Ship m_ship = null;
+    [Header("Configuration")]
+    [Tooltip("The extent from which thrust will increase, clamped from zero to one. Anything more is maximum thrust.")]
+    [SerializeField]
+    private float m_thrustRadius = 40.0f;
+    [Tooltip("The extent from which the ship will not thrust, only turn.")]
+    [SerializeField]
+    private float m_turnOnlyRadius = 20.0f;
 
+    // Private internal data members
+    /// <summary>
+    /// A reference to the affected ship.
+    /// </summary>
+    private ABR_Ship m_ship = null;
+    /// <summary>
+    /// Whether or not the ship is receiving input.
+    /// </summary>
     private bool started = false;
 
     private void OnEnable()

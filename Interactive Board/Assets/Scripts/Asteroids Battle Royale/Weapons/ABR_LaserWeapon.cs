@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A script that handles logic for a specific weapon.
+/// </summary>
 public class ABR_LaserWeapon : ABR_Weapon
 {
     //constructor
     public ABR_LaserWeapon()
     {
-        m_bulletTye = eBulletType.LASER;
+        m_bulletType = eBulletType.LASER;
         m_fireDelay = 1.0f;
     }
 
@@ -19,7 +22,7 @@ public class ABR_LaserWeapon : ABR_Weapon
     public override bool Fire(Vector3 shipVelocity)
     {
         //grabs a bullet from the global bullet pool
-        GameObject go = ABR_GlobalInfo.BulletManager.GetObjectFromTaggedPool(m_bulletTye.ToString());
+        GameObject go = ABR_GlobalInfo.BulletManager.GetObjectFromTaggedPool(m_bulletType.ToString());
         ABR_LaserBullet bullet = go.GetComponentInChildren<ABR_LaserBullet>();
         //sets the bullet to active
         go.gameObject.SetActive(true);

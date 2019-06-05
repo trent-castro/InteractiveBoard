@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A script that allows for a different control scheme for ship maneuvering.
+/// </summary>
 [RequireComponent(typeof(ABR_Ship))]
 public class ABR_ShipJoystickDirectionController : MonoBehaviour
 {
+    [Header("External References")]
+    [Tooltip("A reference to the joystick in the UI.")]
     [SerializeField]
-    Joystick m_input = null;
+    private Joystick m_input = null;
 
+    [Header("Configuration")]
+    [Tooltip("The amount of change from the current direction of the ship to the desired direction before it will start turning.")]
     [SerializeField]
-    private float m_tolerance = 5f;
+    private float m_tolerance = 5.0f;
     
     private ABR_Ship m_ship = null;
 

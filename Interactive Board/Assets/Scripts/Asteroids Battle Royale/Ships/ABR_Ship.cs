@@ -3,15 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A script that has the properties of a player.
+/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class ABR_Ship : MonoBehaviour
 {
     public Rigidbody2D m_RigidBody { get; private set; } = null;
+
     public float m_ThrustMult { get; private set; } = 1;
+    public float TurnGoal { get; private set; } = 0;
 
-    private bool m_forceThrust = false;
-    private float m_turn = 0;
-
+    [Header("Configuration")]
     [SerializeField]
     private float m_verticalThrustCapMult = 10.0f;
     [SerializeField]
@@ -31,8 +34,12 @@ public class ABR_Ship : MonoBehaviour
     [SerializeField]
     private float m_turnPowerWhenThrusting = 120.0f;
 
-    public float TurnGoal { get; private set; } = 0;
     private bool m_doTurnTo = false;
+    /// <summary>
+    /// Forces the player to turn if they exit the play area.
+    /// </summary>
+    private bool m_forceThrust = false;
+    private float m_turn = 0;
     private bool m_forceTurnTo = false;
     private float m_goalTurn = 0;
     private ABR_Turret m_turret = null;
