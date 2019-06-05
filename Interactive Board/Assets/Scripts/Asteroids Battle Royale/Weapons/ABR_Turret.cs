@@ -32,7 +32,7 @@ public class ABR_Turret : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    /// <returns>What percent of the relode has occured</returns>
+    /// <returns>What percent of the reload has occured</returns>
     public float getReloadPercent()
     {
         return m_fireTimeElapsed / m_fireTimer;
@@ -76,8 +76,10 @@ public class ABR_Turret : MonoBehaviour
         }
         else
         {
+            //checks if the button is being held
             if (ContinuousFire)
             {
+                //fires a bullet
                 FireBullet();
             }
         }
