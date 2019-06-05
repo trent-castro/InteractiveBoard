@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 /// <summary>
-/// 
+/// Bullet that goes through multiple game objects.
 /// </summary>
 public class ABR_PierceBullet : ABR_Bullet
 {

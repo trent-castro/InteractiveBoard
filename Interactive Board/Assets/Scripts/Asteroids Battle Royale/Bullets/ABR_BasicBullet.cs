@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 /// <summary>
-/// Bullet fired by the basic weapon, 
+/// Bullet fired by the basic weapon.
 /// </summary>
 public class ABR_BasicBullet : ABR_Bullet
 {

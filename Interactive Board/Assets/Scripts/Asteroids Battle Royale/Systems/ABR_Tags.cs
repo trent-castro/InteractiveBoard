@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
+/// <summary>
+/// A static class used to update tags so that all tags can be changed via a single change.
+/// </summary>
 public static class ABR_Tags
 {
 	public static string AsteroidTag		= "Asteroid";

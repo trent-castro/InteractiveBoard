@@ -3,18 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// A script that allows for a different control scheme for ship maneuvering.
+/// </summary>
 [RequireComponent(typeof(ABR_Ship))]
 public class ABR_ShipSliderThrustController : MonoBehaviour
 {
-
+    [Header("External References")]
+    [Tooltip("A reference to the slider affecting thrust.")]
     [SerializeField]
     private Slider m_thrustInput = null;
-
+    [Tooltip("A reference to the leading object that displays the forward of the ship.")]
     [SerializeField]
     private GameObject m_touchVisual = null;
 
+    // Private internal data members
+    /// <summary>
+    /// A reference to the ship that is being affected.
+    /// </summary>
     private ABR_Ship m_ship = null;
-
+    /// <summary>
+    /// Whether or not the controls dictated movement.
+    /// </summary>
     private bool started = false;
 
     private void Awake()

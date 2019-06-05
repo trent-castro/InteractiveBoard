@@ -2,23 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A script that allows for a different control scheme for ship maneuvering.
+/// </summary>
 [RequireComponent(typeof(ABR_Ship))]
 public class ABR_ShipTouchDirectionController : MonoBehaviour
 {
+    [Header("External References")]
+    [Tooltip("A reference to the touch area that a player can use to fly the ship.")]
     [SerializeField]
     private DragPanel m_touchArea = null;
-
+    [Tooltip("A reference to the view port of the player UI.")]
     [SerializeField]
     private Camera m_viewport = null;
-
-    [SerializeField]
-    private float m_tolerance = 5f;
-
+    [Tooltip("A reference to the object that displays the ship forward.")]
     [SerializeField]
     private GameObject m_touchVisual = null;
 
-    private ABR_Ship m_ship = null;
+    [Header("Configuration")]
+    [Tooltip("A float describing the amount of delta needed in position for the ship to change direction.")]
+    [SerializeField]
+    private float m_tolerance = 5.0f;
 
+    // Private internal data members
+    /// <summary>
+    /// A reference to the ship that is being affected.
+    /// </summary>
+    private ABR_Ship m_ship = null;
+    /// <summary>
+    /// Whether or not the ship has received a command to move or not.
+    /// </summary>
     private bool started = false;
 
 

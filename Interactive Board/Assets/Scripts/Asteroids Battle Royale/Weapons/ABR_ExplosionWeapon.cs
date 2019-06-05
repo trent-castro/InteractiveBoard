@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// A script that handles logic for a specific weapon.
+/// </summary>
 public class ABR_ExplosionWeapon : ABR_Weapon
 {
     public ABR_ExplosionWeapon()
     {
-        m_bulletTye = eBulletType.EXPLOSION;
+        m_bulletType = eBulletType.EXPLOSION;
         m_fireDelay = 2.5f;
     }
     /// <summary>
@@ -18,7 +20,7 @@ public class ABR_ExplosionWeapon : ABR_Weapon
     public override bool Fire(Vector3 shipVelocity)
     {
         //grabs next object from desired bullet pool
-        ABR_ExplosionBullet bullet = ABR_GlobalInfo.BulletManager.GetObjectFromTaggedPool(m_bulletTye.ToString()).GetComponent<ABR_ExplosionBullet>();
+        ABR_ExplosionBullet bullet = ABR_GlobalInfo.BulletManager.GetObjectFromTaggedPool(m_bulletType.ToString()).GetComponent<ABR_ExplosionBullet>();
         //sets up the bullet
         bullet.gameObject.SetActive(true);
         bullet.gameObject.transform.position = m_bulletSpawnLocation.position;
