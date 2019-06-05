@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Methods that make LERPs nice
+/// </summary>
 static public class Interpolation
 {
 

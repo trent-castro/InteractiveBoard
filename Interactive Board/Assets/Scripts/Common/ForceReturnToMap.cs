@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A MonoBehaviour that ensures the screen is never stuck on a game scen if someone walks away from the screen. 
+/// </summary>
 public class ForceReturnToMap : MonoBehaviour
 {
 	[Tooltip("The gameobject used as a warning that the person will be forced back to the map.")]
@@ -9,6 +12,10 @@ public class ForceReturnToMap : MonoBehaviour
 	[Tooltip ("The time before a person is forced back to the map screen.")]
 	[SerializeField] float m_timer = 30;
 	float m_time = 0;
+
+	/// <summary>
+	/// A boolean for preventing this script from opening more than a single tab.
+	/// </summary>
 	bool HasOpenedTab = false;
 
 	// Update is called once per frame
