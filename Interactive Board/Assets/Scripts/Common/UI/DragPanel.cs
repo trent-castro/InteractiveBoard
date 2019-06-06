@@ -11,6 +11,8 @@ public class DragPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
     public Vector2 TouchPosition { get; private set; } = Vector2.zero;
     public bool PointerDown { get; private set; }
 
+    private int pointerId = 0;
+
     public event PointerEventDelegate onPointerDrag;
     public event PointerEventDelegate onPointerUp;
     public event PointerEventDelegate onPointerDown;
@@ -32,7 +34,7 @@ public class DragPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
 
     public void OnDrag(PointerEventData data)
     {
-        if (PointerDown)
+        if (PointerDown && pointerId == data.pointerId)
         {
             Vector3 newPos = data.position;
             TouchPosition = newPos;
@@ -43,7 +45,7 @@ public class DragPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
 
     public void OnPointerUp(PointerEventData data)
     {
-        if (PointerDown)
+        if (PointerDown && pointerId == data.pointerId)
         {
             TouchPosition = Vector2.zero;
             PointerDown = false;
@@ -55,9 +57,9 @@ public class DragPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
 
     public void OnPointerDown(PointerEventData data)
     {
-        Debug.Log(PointerDown);
         if (!PointerDown)
         {
+            pointerId = data.pointerId;
             PointerDown = true;
             OnDrag(data);
 
