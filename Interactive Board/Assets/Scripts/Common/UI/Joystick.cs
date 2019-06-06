@@ -23,6 +23,9 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public Vector2 Axes { get; private set; } = Vector2.zero;
     public float X { get { return Axes.x; } }
     public float Y { get { return Axes.y; } }
+
+    private int pointerId;
+
     public bool PointerDown { get; private set; }
 
     public bool InUse { get; set; } = false;
@@ -116,39 +119,49 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnDrag(PointerEventData data)
     {
-        Vector3 newPos = Vector3.zero;
-
-        if (m_UseX)
+        if (PointerDown && pointerId == data.pointerId)
         {
-            newPos.x = data.position.x - transform.position.x;
+            Vector3 newPos = Vector3.zero;
+
+            if (m_UseX)
+            {
+                newPos.x = data.position.x - transform.position.x;
+            }
+
+            if (m_UseY)
+            {
+                newPos.y = data.position.y - transform.position.y;
+            }
+
+            float magnitude = newPos.magnitude;
+            magnitude = Mathf.Clamp(magnitude, 0, MovementRange);
+            newPos = newPos.normalized * magnitude;
+
+            m_Indicator.transform.position = transform.position + newPos;
+
+            Axes = newPos;
         }
-
-        if (m_UseY)
-        {
-            newPos.y = data.position.y - transform.position.y;
-        }
-
-        float magnitude = newPos.magnitude;
-        magnitude = Mathf.Clamp(magnitude, 0, MovementRange);
-        newPos = newPos.normalized * magnitude;
-
-        m_Indicator.transform.position = transform.position + newPos;
-
-        Axes = newPos;
     }
 
     public void OnPointerUp(PointerEventData data)
     {
-        m_Indicator.transform.localPosition = Vector2.zero;
+        if (PointerDown && pointerId == data.pointerId)
+        {
+            m_Indicator.transform.localPosition = Vector2.zero;
 
-        Axes = Vector2.zero;
-        PointerDown = false;
+            Axes = Vector2.zero;
+            PointerDown = false;
+        }
     }
 
 
     public void OnPointerDown(PointerEventData data)
     {
-        PointerDown = true;
-        OnDrag(data);
+        if (!PointerDown)
+        {
+            pointerId = data.pointerId;
+            PointerDown = true;
+            OnDrag(data);
+        }
     }
 }
