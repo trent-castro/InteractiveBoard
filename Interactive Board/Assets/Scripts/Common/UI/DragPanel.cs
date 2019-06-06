@@ -54,4 +54,12 @@ public class DragPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
 
         onPointerDown?.Invoke(data);
     }
+
+    public void KillInput()
+    {
+        TouchPosition = Vector2.zero;
+        PointerDown = false;
+
+        onPointerUp?.Invoke(null);
+    }
 }

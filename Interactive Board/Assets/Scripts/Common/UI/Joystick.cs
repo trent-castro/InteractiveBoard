@@ -12,6 +12,8 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         OnlyVertical // Only vertical
     }
 
+    public RectTransform m_transform;
+
     public int MovementRange = 50;
     public AxisOption axesToUse = AxisOption.Both; // The options for the axes that the still will use
 
@@ -23,6 +25,8 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public float Y { get { return Axes.y; } }
     public bool PointerDown { get; private set; }
 
+    public bool InUse { get; set; } = false;
+
     Vector3 m_StartPos;
     bool m_UseX; // Toggle for using the x axis
     bool m_UseY; // Toggle for using the Y axis
@@ -30,15 +34,17 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     [SerializeField]
     GameObject m_Indicator = null;
 
+
     public void Toggle(bool on)
     {
+        InUse = on;
         gameObject.SetActive(!m_isDynamic ? on : false);
     }
 
     public void ToggleDynamic(bool on)
     {
         m_isDynamic = on;
-        Toggle(true);
+        gameObject.SetActive(!m_isDynamic ? (!on && InUse) : false);
     }
 
     void OnEnable()
@@ -48,37 +54,52 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     void Awake()
     {
-        m_StartPos = transform.position;
+        m_transform = GetComponent<RectTransform>();
+        m_StartPos = m_transform.anchoredPosition;
+        m_transform.anchoredPosition = m_StartPos;
         if (m_dynamicArea != null)
         {
-            m_dynamicArea.AddPointerDragListener(AppearOnPointerDrag);
-            m_dynamicArea.AddPointerUpListener(AppearOnPointerUp);
-            m_dynamicArea.AddPointerDownListener(AppearOnPointerDown);
+            m_dynamicArea.AddPointerDragListener(DynamicOnPointerDrag);
+            m_dynamicArea.AddPointerUpListener(DynamicOnPointerUp);
+            m_dynamicArea.AddPointerDownListener(DynamicOnPointerDown);
         }
         gameObject.SetActive(false);
     }
 
-    private void AppearOnPointerDrag(PointerEventData data)
+    public void KillInput()
     {
         if (m_isDynamic)
+        {
+
+            DynamicOnPointerUp(null);
+        }
+        else
+        {
+            OnPointerUp(null);
+        }
+    }
+
+    private void DynamicOnPointerDrag(PointerEventData data)
+    {
+        if (m_isDynamic && InUse)
         {
             OnDrag(data);
         }
     }
 
-    private void AppearOnPointerUp(PointerEventData data)
+    private void DynamicOnPointerUp(PointerEventData data)
     {
-        if (m_isDynamic)
+        if (m_isDynamic && InUse)
         {
             OnPointerUp(data);
-            transform.position = m_StartPos;
+            m_transform.anchoredPosition = m_StartPos;
             gameObject.SetActive(false);
         }
     }
 
-    private void AppearOnPointerDown(PointerEventData data)
+    private void DynamicOnPointerDown(PointerEventData data)
     {
-        if (m_isDynamic)
+        if (m_isDynamic && InUse)
         {
             gameObject.SetActive(true);
             transform.position = data.position;
@@ -110,7 +131,6 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         float magnitude = newPos.magnitude;
         magnitude = Mathf.Clamp(magnitude, 0, MovementRange);
         newPos = newPos.normalized * magnitude;
-
 
         m_Indicator.transform.position = transform.position + newPos;
 
