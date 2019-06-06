@@ -32,27 +32,37 @@ public class DragPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
 
     public void OnDrag(PointerEventData data)
     {
-        Vector3 newPos = data.position;
-        TouchPosition = newPos;
+        if (PointerDown)
+        {
+            Vector3 newPos = data.position;
+            TouchPosition = newPos;
 
-        onPointerDrag?.Invoke(data);
+            onPointerDrag?.Invoke(data);
+        }
     }
 
     public void OnPointerUp(PointerEventData data)
     {
-        TouchPosition = Vector2.zero;
-        PointerDown = false;
+        if (PointerDown)
+        {
+            TouchPosition = Vector2.zero;
+            PointerDown = false;
 
-        onPointerUp?.Invoke(data);
+            onPointerUp?.Invoke(data);
+        }
     }
 
 
     public void OnPointerDown(PointerEventData data)
     {
-        PointerDown = true;
-        OnDrag(data);
+        Debug.Log(PointerDown);
+        if (!PointerDown)
+        {
+            PointerDown = true;
+            OnDrag(data);
 
-        onPointerDown?.Invoke(data);
+            onPointerDown?.Invoke(data);
+        }
     }
 
     public void KillInput()

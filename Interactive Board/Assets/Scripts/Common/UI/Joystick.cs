@@ -89,7 +89,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     private void DynamicOnPointerUp(PointerEventData data)
     {
-        if (m_isDynamic && InUse)
+        if (m_isDynamic)
         {
             OnPointerUp(data);
             m_transform.anchoredPosition = m_StartPos;
