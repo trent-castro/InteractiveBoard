@@ -27,4 +27,9 @@ public class HoldButton : Button, IPointerDownHandler, IPointerUpHandler
 
         base.OnPointerUp(eventData);
     }
+
+    public void KillInput()
+    {
+        onUp?.Invoke();
+    }
 }
